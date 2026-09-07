@@ -104,13 +104,13 @@ N_OX78    "o.debug"
 N_OX81    "eo.gp.s.opened[1]"
 N_OX82    "eo.gp.c.opened[1]"
 N_OX83    "eo.gp.c.closed[1]"
-N_OX84    "eo.grip.error[1]"
-N_OX85    "eo.grip.sensor[1]"
+N_OX84    "eo.gp.error[1]"
+N_OX85    "eo.gp.sensor[1]"
 N_OX89    "eo.gp.s.opened[2]"
 N_OX90    "eo.gp.c.opened[2]"
 N_OX91    "eo.gp.c.closed[2]"
-N_OX92    "eo.grip.error[2]"
-N_OX93    "eo.grip.sensor[2]"
+N_OX92    "eo.gp.error[2]"
+N_OX93    "eo.gp.sensor[2]"
 N_OX97    "eo.cnc.ch.open[1]"
 N_OX98    "eo.cnc.ch.close[1]"
 N_OX99    "eo.cnc.ch.open[2]"
@@ -155,12 +155,12 @@ N_WX68    "di.ext.pgreset"
 N_WX69    "di.ext.hold"
 N_WX70    "di.ext.motor.of"
 N_WX71    "di.ext.slow"
-N_WX81    "ei.grip.open[1]"
-N_WX82    "ei.grip.close[1]"
-N_WX84    "ei.check.grip[1]"
-N_WX89    "ei.grip.open[2]"
-N_WX90    "ei.grip.close[2]"
-N_WX92    "ei.check.grip[2]"
+N_WX81    "ei.gp.open[1]"
+N_WX82    "ei.gp.close[1]"
+N_WX84    "ei.check.gp[1]"
+N_WX89    "ei.gp.open[2]"
+N_WX90    "ei.gp.close[2]"
+N_WX92    "ei.check.gp[2]"
 N_WX97    "ei.cnc.ch.opd[1]"
 N_WX98    "ei.cnc.ch.clsd[1]"
 N_WX99    "ei.cnc.ch.opd[2]"
@@ -746,7 +746,7 @@ N_INT113    "s.pr.tst.plate"
   BREAK
   ; Check if gripper is opened
   CALL gripper.is.open (.tool.no, st6.reverse)
-  IF SIG (eo.grip.error) THEN
+  IF SIG (eo.gp.error[.tool.no]) THEN
     ; Return home if not. Error
     LMOVE #cnc.in
     LMOVE #cnc.out
@@ -1069,8 +1069,8 @@ N_INT113    "s.pr.tst.plate"
 .END
 .PROGRAM gripper.is.open (.tool.no,.reverse)
   ; Check if tool is opened
-  IF NOT SIG(ei.check.grip) THEN
-    SIGNAL -eo.grip.error
+  IF NOT SIG(ei.check.gp) THEN
+    SIGNAL -eo.gp.error[.tool.no]
     RETURN
   END
   TIMER 1 = 0
@@ -1078,7 +1078,7 @@ N_INT113    "s.pr.tst.plate"
     CALL gripper.open(.tool.no, 0.75, .reverse)
     IF TIMER (1) > 3 THEN
       CALL log ("Error opening gripper")
-      SIGNAL eo.grip.error
+      SIGNAL eo.gp.error[.tool.no]
       SIGNAL eo.process.err
       RETURN
     END
@@ -1087,7 +1087,7 @@ N_INT113    "s.pr.tst.plate"
 .END
 .PROGRAM gripper.open (.gripper.no,.time,.reverse)
   ;
-  IF SIG(ei.check.grip) AND SIG(gripper.opened[.gripper.no]) THEN
+  IF SIG(ei.check.gp[.gripper.no]) AND SIG(gripper.opened[.gripper.no]) THEN
     CALL log("Gripper" + $ENCODE(.gripper.no) + "already opened")
     RETURN
   END
@@ -1309,8 +1309,8 @@ N_INT113    "s.pr.tst.plate"
   ;
   SOUT eo.grip.opened[1] = gripper.opened[1]
   SOUT eo.grip.opened[2] = gripper.opened[2]
-  SOUT eo.grip.sensor[1] = gripper.sensor[1]
-  SOUT eo.grip.sensor[2] = gripper.sensor[2]
+  SOUT eo.gp.sensor[1] = gripper.sensor[1]
+  SOUT eo.gp.sensor[2] = gripper.sensor[2]
   ;
   BITS eo.grip.state[1, 0], 16 = gripper.id[1]
   BITS eo.grip.state[2, 0], 16 = gripper.id[2]
@@ -1370,14 +1370,14 @@ N_INT113    "s.pr.tst.plate"
   eo.gp.s.opened[1]    = 81
   eo.gp.c.opened[1]    = 82
   eo.gp.c.closed[1]    = 83
-  eo.grip.error[1]     = 84
-  eo.grip.sensor[1]    = 85
+  eo.gp.error[1]     = 84
+  eo.gp.sensor[1]    = 85
   ;
   eo.gp.s.opened[2]    = 89
   eo.gp.c.opened[2]    = 90
   eo.gp.c.closed[2]    = 91
-  eo.grip.error[2]     = 92
-  eo.grip.sensor[2]    = 93
+  eo.gp.error[2]     = 92
+  eo.gp.sensor[2]    = 93
   ;
   eo.cnc.ch.open[1]    = 97
   eo.cnc.ch.close[1]   = 98
@@ -1430,13 +1430,13 @@ N_INT113    "s.pr.tst.plate"
   di.ext.motor.of      = 1070
   di.ext.slow          = 1071
   ;
-  ei.grip.open[1]      = 1081
-  ei.grip.close[1]     = 1082
-  ei.check.grip[1]     = 1084
+  ei.gp.open[1]      = 1081
+  ei.gp.close[1]     = 1082
+  ei.check.gp[1]     = 1084
   ;
-  ei.grip.open[2]      = 1089
-  ei.grip.close[2]     = 1090
-  ei.check.grip[2]     = 1092
+  ei.gp.open[2]      = 1089
+  ei.gp.close[2]     = 1090
+  ei.check.gp[2]     = 1092
   ;
   ei.cnc.ch.opd[1]     = 1097
   ei.cnc.ch.clsd[1]    = 1098
@@ -2008,7 +2008,7 @@ N_INT113    "s.pr.tst.plate"
   END
   ;
   CALL wp.pick (current.shelf, .tool, current.wp)
-  IF SIG (eo.grip.error) THEN
+  IF SIG (eo.gp.error[.tool]) THEN
     state = 255
   ELSE
     current.wp = current.wp + 1
@@ -2462,7 +2462,7 @@ N_INT113    "s.pr.tst.plate"
   ;
   CALL cnc.pick (.tool, .chuck)
   ;
-  IF SIG (eo.grip.error) THEN
+  IF SIG(eo.gp.error[.tool]) THEN
     state = 255
   ELSE
     state = 100
@@ -2564,7 +2564,8 @@ N_INT113    "s.pr.tst.plate"
     CALL check.reset.pc
     ;
     IF SIG (di.ext.ereset) THEN
-      SIGNAL -eo.grip.error
+      SIGNAL -eo.gp.error[1]
+      SIGNAL -eo.gp.error[2]
       SIGNAL -eo.process.err
     END
     ;
@@ -2630,7 +2631,7 @@ N_INT113    "s.pr.tst.plate"
   BREAK
   ; Check if gripper is opened
   CALL gripper.is.open (.tool.no, st3.reverse)
-  IF SIG (eo.grip.error) THEN
+  IF SIG (eo.gp.error[.tool.no]) THEN
     ; Return home if not. Error
     JMOVE #wp.safe[.tool.no]
     JMOVE #homyak
@@ -2780,9 +2781,9 @@ N_INT113    "s.pr.tst.plate"
 	; st5.chuck
 	; st6.chuck
 	; @@@ CONNECTION @@@
-	; KROSET R01
-	; 127.0.0.1
-	; 9105
+	; LoadwizardDefault
+	; 192.168.1.102
+	; 23
 	; @@@ PROGRAM @@@
 	;   Group:Air:1
 	;     1:air.blow:F
@@ -3243,7 +3244,7 @@ N_INT113    "s.pr.tst.plate"
 	; d.cnc.first Task data: If CNC first close chuck
 	; d.chg.pg.no[] Changer station program number
 	; ei.shelf.ready[] 
-	; ei.grip.close[] 
+	; ei.gp.close[] 
 	; ei.t.cnc.open[] 
 	; ei.t.grip.cl[] 
 	; d.cnc.run.pg CNC run PG request
@@ -3273,8 +3274,8 @@ N_INT113    "s.pr.tst.plate"
 	; ei.robot.speed[] 
 	; ei.overshoot[] 
 	; ei.i.changer Internal change station exists
-	; ei.grip.open[] 
-	; ei.check.grip[] 
+	; ei.gp.open[] 
+	; ei.check.gp[] 
 	; ei.blow.spd[] 
 	; ei.cnc.ch.clsd[] 
 	; d.gp.reverse[] 
@@ -3332,8 +3333,8 @@ N_INT113    "s.pr.tst.plate"
 	; eo.process.err Error during process
 	; eo.next.wp[] To PLC: Next wp number
 	; eo.grip.state[] 
-	; eo.grip.sensor[] 
-	; eo.grip.error[] 
+	; eo.gp.sensor[] 
+	; eo.gp.error[] 
 	; eo.gp.s.opened[] 
 	; eo.gp.c.opened[] 
 	; eo.gp.c.closed[] 
@@ -3464,7 +3465,7 @@ do.error = 66
 d.cnc.first = 1568
 d.chg.pg.no[0] = 1521
 ei.shelf.ready[4] = 1132
-ei.grip.close[1] = 1082
+ei.gp.close[1] = 1082
 ei.t.cnc.open[1,0] = 1225
 ei.t.cnc.open[2,0] = 1241
 ei.t.grip.cl[2,0] = 1217
@@ -3498,11 +3499,11 @@ do.home2 = 72
 ei.robot.speed[0] = 1145
 ei.overshoot[0] = 1177
 ei.i.changer = 1120
-ei.grip.open[2] = 1089
-ei.check.grip[1] = 1084
+ei.gp.open[2] = 1089
+ei.check.gp[1] = 1084
 ei.blow.spd[0] = 1169
 ei.cnc.ch.clsd[1] = 1098
-ei.check.grip[2] = 1092
+ei.check.gp[2] = 1092
 d.gp.reverse[2] = 1562
 d.gp.chg.e[1,1] = 1579
 d.gp.chg.e[1,2] = 1580
@@ -3647,10 +3648,10 @@ eo.process.err = 115
 eo.next.wp[0] = 201
 eo.grip.state[2,0] = 169
 eo.grip.state[1,0] = 161
-eo.grip.sensor[2] = 93
-eo.grip.sensor[1] = 85
-eo.grip.error[2] = 92
-eo.grip.error[1] = 84
+eo.gp.sensor[2] = 93
+eo.gp.sensor[1] = 85
+eo.gp.error[2] = 92
+eo.gp.error[1] = 84
 eo.gp.s.opened[2] = 89
 eo.gp.s.opened[1] = 81
 eo.gp.c.opened[2] = 90
@@ -3707,8 +3708,8 @@ s.pr.tst.cncpi = 2111
 s.pr.tst.cncpu = 2112
 ei.shelf.ready[1] = 1129
 ei.shelf.failed = 1137
-ei.grip.open[1] = 1081
-ei.grip.close[2] = 1090
+ei.gp.open[1] = 1081
+ei.gp.close[2] = 1090
 ei.cnc.ch.opd[1] = 1097
 ei.cnc.ch.clsd[2] = 1100
 do.safety.fence = 76
