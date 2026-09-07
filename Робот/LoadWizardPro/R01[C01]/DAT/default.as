@@ -16,11 +16,11 @@
 .NETCONF     192.168.0.2,"",255.255.255.0,0.0.0.0,0.0.0.0,0.0.0.0,""
 .NETCONF2     192.168.1.101,255.255.255.0,0.0.0.0
 .ROBOTDATA1
-ZROBOT.TYPE    30  14   6   1        -766   RS013N-A001 ( 2026-09-07 02:30 )
+ZROBOT.TYPE    30  14   6   1        -766   RS013N-A001 ( 2026-09-08 06:37 )
 ZSYSTEM         1   5         -91
 ZLINEAR         0   0   0   0   0   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1         179
 CONT_CODE     701      -10516
-ZZERO         268532021 268499503 268598740 268380402 268188956 268396003 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456   537127576
+ZZERO         268991414 268734226 268468126 268406329 267840566 268976727 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456   524801131
 ENDLESS_POS   0 100 1       -1516
 LANGUAGE      2
 ZSIGSPEC       64  64 960      -16321
@@ -56,7 +56,7 @@ ZSETKVFF_SVSPEC5    1.000   1.000   1.000   1.000   1.000   1.000  -1.000  -1.00
 ZSETKVFFACC_SVSPEC5    0.000   0.000   0.000   0.000   0.000   0.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -1832648705
 ZSETKVFFJRK_SVSPEC5    0.000   0.000   0.000   0.000   0.000   0.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -1832648705
 ZSETKAFF2_SVSPEC5    1.000   1.000   1.000   1.000   1.000   1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000 -1262485505
-ZSAVEMR                 0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0          -1
+ZSAVEMR                 0           0           0       65535       65535           0           0           0           0           0           0           0           0           0           0           0           0           0    -1966051
 ZRADIUS        1663.943  1663.943   963.943   203.943   203.943    78.440     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000  -331702932
 ZJTSPEED        265.000   250.000   265.000   475.000   475.000   730.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000  -217235457
 ZACCTIME          0.282     0.352     0.238     0.208     0.222     0.262     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384   879587508
@@ -1335,38 +1335,38 @@ ZSWITCH ZFIX_CALL_1STEPPG ON   -523
 .END
 .OPE_INFO1
 OPEINFO  30 14 6 1  1787210490  ;(26/8/20 16:21:30) RS013N-A001 
-CONT_TIM  25.1 
-SERV_TIM  2.1 
-MTON_CNT  23 
+CONT_TIM  27.7 
+SERV_TIM  2.3 
+MTON_CNT  67 
 ESTP_CNT  0 
-BRKE_CNT  36 
-CON_PWR  0.094 
-SUP_PWR  0.094 
+BRKE_CNT  83 
+CON_PWR  0.104 
+SUP_PWR  0.104 
 REG_PWR  0.000 
-MOVE_TJT  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
-DIST_DJT  0.947 0.994 1.163 0.656 1.640 1.285 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
-DIST_DJT_PLUS  0.484 0.593 0.715 0.406 0.782 0.706 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
-OPEINFO TP_BKLIGHT  0 3.8 50000 
+MOVE_TJT  0.1 0.1 0.1 0.1 0.1 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+DIST_DJT  2.747 3.146 3.675 3.384 4.976 6.381 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
+DIST_DJT_PLUS  1.532 1.721 2.019 1.782 2.686 3.578 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
+OPEINFO TP_BKLIGHT  0 5.2 50000 
 OPEINFO MC  0 0 2000000 
 OPEINFO PARTS1  0 0 0 0 0 0 0 0 0 0 0 
 OPEINFO PARTS2  0 0 0 0 0 0 0 0 0 0 0 
 OPEINFO PARTS3  0 0 0 0 0 0 0 0 0 0 0 
 M_OPEINFO  30 14 6 1  1787210490  ;(26/8/20 16:21:30) RS013N-A001 
-M_CONT_TIM  25.1 
-M_SERV_TIM  2.1 
-M_MTON_CNT  23 
+M_CONT_TIM  27.7 
+M_SERV_TIM  2.3 
+M_MTON_CNT  67 
 M_ESTP_CNT  0 
-M_BRKE_CNT  36 
-M_CON_PWR  0.094 
-M_SUP_PWR  0.094 
+M_BRKE_CNT  83 
+M_CON_PWR  0.104 
+M_SUP_PWR  0.104 
 M_REG_PWR  0.000 
-M_MOVE_TJT  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
-M_DIST_DJT  0.947 0.994 1.163 0.656 1.640 1.285 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
-M_DIST_DJT_PLUS  0.484 0.593 0.715 0.406 0.782 0.706 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
+M_MOVE_TJT  0.1 0.1 0.1 0.1 0.1 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+M_DIST_DJT  2.747 3.146 3.675 3.384 4.976 6.381 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
+M_DIST_DJT_PLUS  1.532 1.721 2.019 1.782 2.686 3.578 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
 M_MOVE_TJT_OVERDRIVE  0.0 0.0 0.0 0.0 0.0 0.0 
 M_DIST_DJT_OVERDRIVE  0.000 0.000 0.000 0.000 0.000 0.000 
 M_WARN_CJT_OVERDRIVE  0 0 0 0 0 0 
-HOUR_MTR  25.1 
+HOUR_MTR  27.7 
 .END
 .SYSDATA
 REG_POINT       4
@@ -1854,9 +1854,9 @@ ARM_WX_NUM           12
 CHECK_SPEED2     10.000    20.000    30.000    40.000    50.000
 FASTCHK_KEYS  ON 
 SYS_BASE          0.000     0.000     0.000    90.000    30.000    90.000
-TOOL              0.000     0.000     0.000     0.000     0.000     0.000
+TOOL              0.000   112.000   104.000    90.000    90.000     0.000
 FTOOL             0.000     0.000     0.000     0.000     0.000     0.000
-DFF              13.000     0.000     0.000     0.000     0.000     0.000     0.000
+DFF              13.000     0.000     0.000   100.000     0.000     0.000     0.000
 SPDUPGEAR         0.000     0.000     0.000     0.000
 JT6GEAR_LOOPCNT         20        10
 JT6GEAR_PARA_P     60.000     1.000
@@ -2376,8 +2376,8 @@ SWITCH CP              ON
 SWITCH CYCLE.STOP      OFF
 SWITCH OX.PREOUT       ON 
 SWITCH PREFETCH.SIGINS OFF
-SWITCH QTOOL           ON 
-SWITCH REP_ONCE        OFF
+SWITCH QTOOL           OFF
+SWITCH REP_ONCE        ON 
 SWITCH REP_ONCE.RPS_LAST OFF
 SWITCH RPS             OFF
 SWITCH STP_ONCE        OFF
@@ -2393,11 +2393,11 @@ SWITCH AUTOSTART5.PC   OFF
 SWITCH ERRSTART.PC     OFF
 SWITCH AUTOSTART.LSQ   OFF
 SWITCH DISPIO_01       OFF
-SWITCH HOLD.STEP       OFF
+SWITCH HOLD.STEP       ON 
 SWITCH WS_COMPOFF      OFF
 SWITCH WS.ZERO         OFF
 SWITCH SLOW_START      OFF
-SWITCH ABS.SPEED       OFF
+SWITCH ABS.SPEED       ON 
 SWITCH UDP_EMSG        ON 
 SWITCH TOUCH.ENA       ON 
 SWITCH TOUCHST.ENA     ON 
@@ -2413,7 +2413,7 @@ SWITCH SINGULAR        ON
 SWITCH TPSPEED.RESET   OFF
 SWITCH OXZERO          OFF
 SWITCH IFAKEY          OFF
-SWITCH DISP.EXESTEP    OFF
+SWITCH DISP.EXESTEP    ON 
 SWITCH NO_SJISCONV     OFF
 SWITCH NOPENABLE       OFF
 SWITCH SIGRSTCONF      ON 
@@ -2421,7 +2421,7 @@ SWITCH WAITREL_AUTO    OFF
 SWITCH STAT_ON_KYBD    ON 
 SWITCH CONF_VARIABLE   OFF
 SWITCH CVMOVE.NOBREAK  OFF
-SWITCH PROG.DATE       OFF
+SWITCH PROG.DATE       ON 
 SWITCH INSERTSTEP_CURRENT OFF
 SWITCH MODIFYSTEP_CURRENT OFF
 SWITCH INVALID.TPKEY_S OFF
@@ -2458,15 +2458,15 @@ SWITCH SLOW_REP_MM     OFF
 .END
 .CONDITION
 AS_VER       ASF_01000001G
-ELOG_NUM             23
+ELOG_NUM             21
 CHK_ONCE      255
 MAN_SPEED     4
 CHK_SPEED     4
-MON_SPEED        10.000
+MON_SPEED        30.000
 PRG_ACCEL       100.000
-PRG_SPEED       100.000
+PRG_SPEED        60.000
 PRG_DECEL       100.000
-PRM_SPEED       100.000
+PRM_SPEED        60.000
 PRM_ACCEL       100.000
 PRM_DECEL       100.000
 BLK_SPEED       100.000
@@ -2492,19 +2492,21 @@ CINT_PRG_ACCEL    100.000
 CINT_PRM_DECEL    100.000
 CINT_PRG_DECEL    100.000
 PRG_ACCEL_ORG    100.000
-PRG_SPEED_ORG      0.400
+PRG_SPEED_ORG     60.000
 PRG_DECEL_ORG    100.000
 PRG_JT_ACCEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRG_JT_DECEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRM_JT_ACCEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRM_JT_DECEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
-STEP2ENV0_CALL_PRGNAME set.io.pc
-STEP2ENV0_PRG_STEP        231
+STEP1ENV_CALL_PRGNAME shelf.test
+STEP1ENV_PRG_STEP          1
+STEP2ENV0_CALL_PRGNAME autostart.pc
+STEP2ENV0_PRG_STEP          1
 USR_DO1      00000000000000000000000000000000
-USR_DO2      00000000000000000000000000101001
-USR_DO3      00000000000000000010010100001000
+USR_DO2      00000000000000000000000000101010
+USR_DO3      00000000000000000010010100001001
 USR_DO4      00000000000000000000000000000000
-USR_DO5      00000000000000000000000000010001
+USR_DO5      00000000000000000000000000000000
 USR_DO6      00000000000000000000000000000000
 USR_DO7      00000000000000000000000000000000
 USR_DO8      00000000000000000000000000000000
@@ -2534,7 +2536,7 @@ USR_INTERNAL 00000000000000000000000000000000
 USR_INTERNAL1 00000000000000000000000000000000
 USR_INTERNAL2 00000000000000000000000000000000
 USR_INTERNAL3 00000000000000000000000000000000
-USR_INTERNAL4 00000000000000000000000001100000
+USR_INTERNAL4 00000000000000000000000000100000
 USR_INTERNAL5 00000000000000000000000000000000
 USR_INTERNAL6 00000000000000000000000000000000
 USR_INTERNAL7 00000000000000000000000000000000
@@ -2583,28 +2585,28 @@ UCINDENT1          0
 UCLINE1            0
 UCFGCOLOR1        11
 UCBGCOLOR1        10
-UCCHARWINSTR1 02:35:51 Detail found
-02:35:53 Command close gripper 1
-02:36:54 DEBUG mod activated. Get data from Robot TP
-02:36:54 Pick workpiece. Shelf: 1 Tool: 1 ID: 1
+UCCHARWINSTR1 06:39:17 Open shelf 4
+06:39:17 Tool3 set
+06:39:17 Command close gripper 1
+06:39:17 Command close gripper 2
 
 UCINDENT2          0
 UCLINE2            0
 UCFGCOLOR2        11
 UCBGCOLOR2        10
-UCCHARWINSTR2 02:36:55 Tool #1 set
-02:36:56 Command open gripper 1
-02:36:58 ID: 1 --> i: 0 j: 0
-02:53:05 DEBUG mod activated. Get data from Robot TP
+UCCHARWINSTR2 06:39:37 Request unlock shelf 4
+06:39:43 Shelf 4 successfully unlocked
+06:39:46 Closing shelf 4
+06:39:46 Tool3 set
 
 UCINDENT3          0
 UCLINE3            0
 UCFGCOLOR3        11
 UCBGCOLOR3        10
-UCCHARWINSTR3 02:53:06 Pick workpiece. Shelf: 1 Tool: 1 ID: 1
-02:53:08 Tool #1 set
-02:53:10 Command open gripper 1
-02:53:12 ID: 1 --> i: 0 j: 0
+UCCHARWINSTR3 06:39:46 Command close gripper 1
+06:39:46 Command close gripper 2
+06:39:49 Request unlock shelf 4
+06:39:52 Shelf 4 successfully unlocked
 
 UCINDENT4          0
 UCLINE4            0
@@ -2624,8 +2626,13 @@ UCFGCOLOR7         0
 UCBGCOLOR7         0
 UCINDENT8          0
 UCLINE8            0
-UCFGCOLOR8         0
-UCBGCOLOR8         0
+UCFGCOLOR8        11
+UCBGCOLOR8         6
+UCCHARWINSTR8 Robot: RS013N-A001  S/N: C1
+Controller: F60 S/N: C0
+ 
+Powered by Robowizard Co.Ltd.
+
 SEQEXECUTE            0
 TPHOLDSTAT    ON 
 .END
@@ -3045,6 +3052,92 @@ ROB_EXTERNAL_RESTART          0
 ROB_OP_AFTER_ERROR          0
 MOVING_AREA       0.000     0.000     0.000     0.000     0.000     0.000
 ENC_ALARM              0          0          0          0          0          0
+N_OX33   "grip.open[1]|Open grippe"
+N_OX34   "grip.close[1]|Close grip"
+N_OX35   "grip.close[2]|Close grip"
+N_OX37   "air.blow.on|Air blow on"
+N_OX38   "air.blow.off|Air blow of"
+N_OX78   "o.debug|Robot is in DEBU"
+N_OX84   "eo.grip.error[1]|Gripper"
+N_OX85   "eo.grip.error[2]|Gripper"
+N_OX115   "eo.process.err|Error in "
+N_OX129   "eo.shelf.opened[1]|Shelf"
+N_OX130   "eo.shelf.opened[2]|Shelf"
+N_OX131   "eo.shelf.opened[3]|Shelf"
+N_OX132   "eo.shelf.opened[4]|Shelf"
+N_OX133   "eo.shelf.unlock[1]|Reque"
+N_OX134   "eo.shelf.unlock[2]|Reque"
+N_OX135   "eo.shelf.unlock[3]|Reque"
+N_OX136   "eo.shelf.unlock[4]|Reque"
+N_WX33   "grip.opened[1]|Gripper o"
+N_WX34   "grip.opened[2]|Gripper o"
+N_WX35   "grip.sensor[1]|Gripper f"
+N_WX36   "grip.sensor[2]|Gripper f"
+N_WX84   "ei.check.grip[1]|Check g"
+N_WX85   "ei.check.grip[2]|Check g"
+N_WX92   "ei.check.grip[2]|Check g"
+N_WX133   "ei.shelf.state[1]|Shelf "
+N_WX134   "ei.shelf.state[2]|Shelf "
+N_WX135   "ei.shelf.state[3]|Shelf "
+N_WX136   "ei.shelf.state[4]|Shelf "
+N_WX137   "ei.shelf.failed|Fail to "
+N_WX145   "ei.robot.speed[0]|Robot "
+N_WX146   "ei.robot.speed[1]|Robot "
+N_WX147   "ei.robot.speed[2]|Robot "
+N_WX148   "ei.robot.speed[3]|Robot "
+N_WX149   "ei.robot.speed[4]|Robot "
+N_WX150   "ei.robot.speed[5]|Robot "
+N_WX151   "ei.robot.speed[6]|Robot "
+N_WX152   "ei.robot.speed[7]|Robot "
+N_WX321   "d.wp.l[0,0]|Workpiece le"
+N_WX322   "d.wp.l[0,1]|Workpiece le"
+N_WX323   "d.wp.l[0,2]|Workpiece le"
+N_WX324   "d.wp.l[0,3]|Workpiece le"
+N_WX325   "d.wp.l[0,4]|Workpiece le"
+N_WX326   "d.wp.l[0,5]|Workpiece le"
+N_WX327   "d.wp.l[0,6]|Workpiece le"
+N_WX328   "d.wp.l[0,7]|Workpiece le"
+N_WX329   "d.wp.l[1,0]|Workpiece le"
+N_WX330   "d.wp.l[1,1]|Workpiece le"
+N_WX331   "d.wp.l[1,2]|Workpiece le"
+N_WX332   "d.wp.l[1,3]|Workpiece le"
+N_WX333   "d.wp.l[1,4]|Workpiece le"
+N_WX334   "d.wp.l[1,5]|Workpiece le"
+N_WX335   "d.wp.l[1,6]|Workpiece le"
+N_WX336   "d.wp.l[1,7]|Workpiece le"
+N_WX337   "d.wp.l[2,0]|Workpiece le"
+N_WX338   "d.wp.l[2,1]|Workpiece le"
+N_WX339   "d.wp.l[2,2]|Workpiece le"
+N_WX340   "d.wp.l[2,3]|Workpiece le"
+N_WX341   "d.wp.l[2,4]|Workpiece le"
+N_WX342   "d.wp.l[2,5]|Workpiece le"
+N_WX343   "d.wp.l[2,6]|Workpiece le"
+N_WX344   "d.wp.l[2,7]|Workpiece le"
+N_WX345   "d.grip.jaw.full[1,0]|Gri"
+N_WX353   "d.grip.jaw.body[1,0]|Gri"
+N_WX361   "d.grip.jaw.full[2,0]|"
+N_WX369   "d.grip.jaw.body[2,0]|Gri"
+N_WX377   "d.cnc.jaws.full[1,0]|CNC"
+N_WX385   "d.cnc.jaws.body[1,0]|CNC"
+N_WX393   "d.cnc.jaws.full[2,0]|CNC"
+N_WX401   "d.cnc.jaws.body[2,0]|CNC"
+N_WX409   "d.plt.rows[0]|Number of "
+N_WX413   "d.plt.cell.odd[0]|Number"
+N_WX417   "d.plt.cell.even[0]|Numbe"
+N_WX433   "d.plt.dx[0]|Distance bet"
+N_WX449   "d.plt.dy[0]|Distance bet"
+N_WX465   "d.plt.even.dy[0]|Extrs s"
+N_WX481   "d.plt.ox[0]|Distance bet"
+N_WX497   "d.plt.oy[0]|Distance bet"
+N_INT10   "s.shelf.failed|Internal "
+N_INT102   "s.hmi.tool[1]|Selected t"
+N_INT103   "s.hmi.tool[2]|Selected t"
+N_INT104   "s.cnc.chuck[1]|Selected "
+N_INT105   "s.cnc.chuck[2]|Selected "
+N_INT106   "s.pr.tch.plate|Prime tea"
+N_INT107   "s.pr.tst.plate|Prime tes"
+N_INT108   "s.pr.tch.shelf|Prime tea"
+N_INT109   "s.pr.tst.shelf|Prime tes"
 SENSING_SPEED     10.000     0.000 255
 SENS_STROKE       0.000
 PAL_TYPE_01     0
@@ -3334,553 +3427,825 @@ EESTOP_DELAY_TIME      3.000
 TP_RECINHI      0   0   0
 .END
 .INTER_PANEL_D
-0,9,1,6,9
-6,10,"","PCEXECUTE ","AUTOSTART","",10,4,6,1,"PCEXECUTE autostart.pc",0
-7,9,2,6,9
-13,2,"","   IO","","",10,4,11,2002,0
-14,9,3,6,9
-20,2,"","  DEBUG","","",10,4,11,2008,0
-21,9,8,6,9
-27,2,"","  TEACH","","",10,4,11,2003,0
-28,1,"  CHUCK 1","","","  OPENED",10,15,4,10,1097,0
-29,1,"  CHUCK 1","","","  CLOSED",10,15,4,10,1098,0
-30,1,"  CHUCK 2","","","  OPENED",10,15,4,10,1099,0
-31,1,"  CHUCK 2","","","  CLOSED",10,15,4,10,1100,0
-33,1," GRIPPER 1","","","  SEARCH",10,15,4,10,1035,0
-34,1," GRIPPER 2","","","  SEARCH",10,15,4,10,1036,0
-35,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
-36,2,"","  CHUCK 1","   CLOSE","",10,4,15,98,0
-37,2,"","  CHUCK 2","   OPEN","",10,4,15,99,0
-38,2,"","  CHUCK 2","   CLOSE","",10,4,15,100,0
-40,1," GRIPPER 1","","","  OPENED",10,15,4,10,1033,0
-41,1," GRIPPER 2","","","  OPENED",10,15,4,10,1034,0
-42,1,"   CNC","","","  WAITING",10,15,4,10,1101,0
-43,2,""," MCODE FIN","","",10,4,15,101,0
-47,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
-48,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
-49,2,"","   MAIN","<---------","",10,4,11,2001,0
-50,2,"","  TEACH","--------->","",10,4,11,2004,0
-51,4,2,"SHELF 1","","UNLOCK","",10,4,4,0,133,0
-52,4,2,"SHELF 2","","UNLOCK","",10,4,4,0,134,0
-53,4,2,"SHELF 3","","UNLOCK","",10,4,4,0,135,0
-54,4,2,"SHELF 4","","UNLOCK","",10,4,4,0,136,0
-55,4,2,"AIR BLOW","OFF","ON","",10,4,4,38,37,0
-56,2,"  PRIME","  TEACH","  PLATE","",10,4,3,2104,0
-57,8,"hmi.shelf.no"," Shelf No","",10,6,2,1,0
-58,8,"hmi.wp.id"," WORKPIECE","    ID",10,8,3,1,0
-60,4,2,"TEACH TOOL","TOOL 1","TOOL 2","",10,4,4,2102,0,0
-61,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
-62,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
-70,2,"  PRIME","  TEST","  PICK","",10,4,3,2105,0
-71,2,"  PRIME","  TEST","  PUT","",10,4,3,2107,0
-76,2,""," PLC DATA","","",10,4,11,2006,0
-77,2,"","   MAIN","<---------","",10,4,11,2001,0
-78,4,2,"DEBUG","DISABLED","ENABLED","",10,4,4,0,78,0
-79,2,"","   TEACH","    CNC","",10,4,3,2004,0
-80,2,"","   TEACH","   SHELF","",10,4,3,2005,0
-82,2,"","  PRIME","   HOME","",10,4,8,2106,0
-83,2,"","   TEACH","   DATA","",10,4,3,2007,0
-84,2,"  PRIME","  TEACH","  CNC","",10,4,3,2109,0
-86,2,"  PRIME","  CNC","  TEST","  PICK",10,4,3,2111,0
-88,4,2,"TEACH TOOL","TOOL 1","TOOL 2","",10,4,4,2102,0,0
-89,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
-90,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
-91,2,"  PRIME","  TEACH","  CNC","  APPROACH",10,4,3,2108,0
-93,2,"  PRIME","  CNC","  TEST","  PUT",10,4,3,2112,0
-95,4,2,"TEACH CNC","CHUCK 1","CHUCK 2","",10,4,4,2103,0,0
-96,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
-97,2,"","  CHUCK 2","   OPEN","",10,4,15,99,0
-98,2,"  PRIME","  TEACH","  CNC","  AIR BLOW",10,4,3,2110,0
-102,4,2,"AIR BLOW","OFF","ON","",10,4,4,38,37,0
-103,2,"","  CHUCK 1","   CLOSE","",10,4,15,98,0
-104,2,"","  CHUCK 2","   CLOSE","",10,4,15,100,0
-105,2,"","   MAIN","<---------","",10,4,11,2001,0
-106,4,2,"DEBUG","DISABLED","ENABLED","",10,4,4,0,78,0
-107,2,"","   TEACH","   PLATE","",10,4,3,2003,0
-108,2,"","   TEACH","   SHELF","",10,4,3,2005,0
-109,2,""," PLC DATA","","",10,4,11,2006,0
-110,2,"","  PRIME","   HOME","",10,4,8,2106,0
-111,2,"","   TEACH","   DATA","",10,4,3,2007,0
-112,2,"  PRIME","  TEACH","  SHELF","",10,4,3,2100,0
-113,8,"hmi.shelf.no"," Shelf No","",10,6,2,1,0
-115,4,2,"SHELF 1","","UNLOCK","",10,4,4,0,133,0
-116,4,2,"SHELF 2","","UNLOCK","",10,4,4,0,134,0
-117,4,2,"SHELF 3","","UNLOCK","",10,4,4,0,135,0
-118,4,2,"SHELF 4","","UNLOCK","",10,4,4,0,136,0
-126,2,"  PRIME","  TEST","  SHELF","",10,4,3,2101,0
-132,2,""," PLC DATA","","",10,4,11,2006,0
-133,2,"","   MAIN","<---------","",10,4,11,2001,0
-134,4,2,"DEBUG","DISABLED","ENABLED","",10,4,4,0,78,0
-135,2,"","   TEACH","   PLATE","",10,4,3,2003,0
-136,2,"","   TEACH","    CNC","",10,4,3,2004,0
-138,2,"","  PRIME","   HOME","",10,4,8,2106,0
-139,2,"","   TEACH","   DATA","",10,4,3,2007,0
-140,7,"Workpiece","length",10,15,4,1,0,1945,16,1
-141,7,"Gripper 1","jaws full ",10,15,4,1,0,1897,16,1
-142,7,"Gripper 2","jaws full ",10,15,4,1,0,1865,16,1
-143,7,"CNC Chuck1","jaws full ",10,15,4,1,0,1833,16,1
-144,7,"CNC Chuck2","jaws full ",10,15,4,1,0,1801,16,1
-145,7,"Plate ID","",10,15,2,1,0,1777,8,1
-146,7,"Plate rows","",10,15,2,1,0,1769,8,1
-147,7,"Detail","length",10,15,4,1,0,1929,16,1
-148,7,"Gripper 1","jaws body",10,15,4,1,0,1881,16,1
-149,7,"Gripper 2","jaws body",10,15,4,1,0,1849,16,1
-150,7,"CNC Chuck1","jaws body",10,15,4,1,0,1817,16,1
-151,7,"CNC Chuck2","jaws body",10,15,4,1,0,1785,16,1
-152,7,"Plate col","odd",10,15,2,1,0,1761,8,1
-153,7,"Plate col","even",10,15,2,1,0,1753,8,1
-154,1,"  Single","","","  gripper",10,15,4,10,1659,0
-155,1,"Subspindel","","","",10,15,4,10,1657,0
-156,1,"CNC close","","","  first",10,15,4,10,1654,0
-157,1,"Air before","","","   put",10,15,4,10,1653,0
-158,1,"Air after","","","   pick",10,15,4,10,1652,0
-159,7,"Plate DX","",10,15,4,1,0,1737,16,1
-160,7,"Plate DY","",10,15,4,1,0,1721,16,1
-161,2,"","   MAIN","<---------","",10,4,11,2001,0
-162,2,"","  DEBUG","","",10,4,11,2008,0
-163,2,"","   TEACH","   PLATE","",10,4,3,2003,0
-164,2,"","   TEACH","    CNC","",10,4,3,2004,0
-165,2,"","   TEACH","   SHELF","",10,4,3,2005,0
-166,7,"Workpiece","count",10,15,2,1,0,1665,8,1
-167,7,"Plate","even shift",10,15,4,1,0,1705,16,1
-168,8,"hmi.gc1.full","ROB GRIP 1","JAW FULL",10,6,5,2,0
-169,8,"hmi.gc2.full","ROB GRIP 2","JAW FULL",10,6,5,2,0
-170,8,"hmi.cnc1c.full","CNC CHUCK1","JAW FULL",10,6,5,2,0
-171,8,"hmi.cnc2c.full","CNC CHUCK2","JAW FULL",10,6,5,2,0
-172,8,"hmi.plate.rows","PLATE ROWS","  COUNT",10,8,2,1,0
-173,8,"hmi.plate.col.o","PLATE ODD","CELL COUNT",10,8,2,1,0
-174,8,"hmi.plate.col.e","PLATE EVEN","CELL COUNT",10,8,2,1,0
-175,8,"hmi.gc1.body","ROB GRIP 1","JAW BODY",10,6,5,2,0
-176,8,"hmi.gc2.body","ROB GRIP 2","JAW BODY",10,6,5,2,0
-177,8,"hmi.cnc1c.body","CNC CHUCK1","JAW BODY",10,6,5,2,0
-178,8,"hmi.cnc2c.body","CNC CHUCK2","JAW BODY",10,6,5,2,0
-179,8,"hmi.plate.dx","PLATE ROW","  SHIFT",10,8,5,2,0
-180,8,"hmi.plate.dy","PLATE CELL","  SHIFT",10,8,5,2,0
-181,8,"hmi.plate.e.dy","PLATE EVEN","  SHIFT",10,8,5,2,0
-182,8,"hmi.st3.tool","  STATE 3 ","  TOOL",10,6,5,2,0
-183,8,"hmi.st5.chuck","  STATE 5 ","  CHUCK",10,6,5,2,0
-184,8,"hmi.st6.tool","  STATE 6 ","  TOOL",10,6,5,2,0
-185,8,"hmi.st6.chuck","  STATE 6","  CHUCK",10,6,5,2,0
-186,8,"hmi.wp.length"," TEACH WP","  LENGTH",10,4,5,2,0
-187,8,"hmi.plate.ox","PLATE OX","  SHIFT",10,5,5,2,0
-188,8,"hmi.plate.oy","PLATE OY","  SHIFT",10,5,5,2,0
-189,2,"","   MAIN","<---------","",10,4,11,2001,0
-190,2,"","   TEACH","   PLATE","",10,4,3,2003,0
-191,2,"","   TEACH","    CNC","",10,4,3,2004,0
-192,2,"","   TEACH","   SHELF","",10,4,3,2005,0
-194,8,"hmi.ab.bf.put","AIR BLOW","BEFORE PUT",10,13,4,2,0
-195,8,"hmi.ab.af.pick","AIR BLOW","AFTER PICK",10,13,4,2,0
-196,1," SHELF 1","","","  OPENED",10,15,4,10,129,0
-197,1," SHELF 2","","","  OPENED",10,15,4,10,130,0
-198,1," SHELF 3","","","  OPENED",10,15,4,10,131,0
-199,1," SHELF 4","","","  OPENED",10,15,4,10,132,0
-200,8,"current.wp"," Next"," workpiece",10,15,4,2,0
-201,8,"gripper.id[1]","Gripper 1","   ID",10,15,4,2,0
-202,8,"gripper.id[2]","Gripper 2","   ID",10,15,4,2,0
-203,1," SHELF 1","",""," ENABLED",10,15,4,10,1129,0
-204,1," SHELF 2","",""," ENABLED",10,15,4,10,1130,0
-205,1," SHELF 3","",""," ENABLED",10,15,4,10,1131,0
-206,1," SHELF 4","",""," ENABLED",10,15,4,10,1132,0
-207,8,"state"," State","  ",10,15,4,2,0
-208,8,"cnc.id[1]","Chuck 1","   ID",10,15,4,2,0
-209,8,"cnc.id[2]","Chuck 2","   ID",10,15,4,2,0
-210,8,"hmi.wp.id"," WORKPIECE","    ID",10,8,3,1,0
-214,1,"INSIDE CNC","","","",10,15,4,10,2012,0
-215,8,"processed.wp"," Processed"," Workpiece",10,15,4,1,0
-216,14,"safe.flag","Safe flag","",10,15,0
-217,2,"","   MAIN","<---------","",10,4,11,2001,0
-218,4,2,"DEBUG","DISABLED","ENABLED","",10,4,4,0,78,0
-223,2,""," PLC DATA","","",10,4,11,2006,0
+0,9,1,6,15
+7,9,2,6,15
+14,9,3,6,15
+21,9,8,6,15
+28,4,2,"TEACH TOOL","TOOL 1","TOOL 2","",10,4,4,2102,2103,0
+29,8,"hmi.shelf.no"," Shelf No","",10,6,2,1,0
+30,10,"","PCEXECUTE ","AUTOSTART","",10,4,6,1,"PCEXECUTE autostart.pc",0
+35,2,"  PRIME","  TEACH","  PLATE","",10,4,3,2106,0
+36,2,"  PRIME","  TEST","  PLATE","",10,4,3,2107,0
+42,2,"  PRIME","  TEACH","  SHELF","",10,4,3,2108,0
+43,2,"  PRIME","  TEST","  SHELF","",10,4,3,2109,0
 .END
 .INTER_PANEL_TITLE
-"MAIN",1
-"IO",1
-"TEACH PLATE",1
-"TEACH CNC",1
-"TEACH SHELF",1
-"PLC DATA",1
-"TEACH DATA",1
-"DEBUG",1
+"",0
+"",0
+"",0
+"",0
+"",0
+"",0
+"",0
+"",0
 .END
 .INTER_PANEL_COLOR_D
 182,3,224,244,28,159,252,255,251,255,0,31,2,241,52,255,
 .END
 .SIG_COMMENT
 .END
-.PROGRAM set.io.pc() #1
+.PROGRAM a.home()@26/09/08 06:32 #0
 ;
-; For KROSET!
-  k.shelf.pick = 1
+; Set small speed
+  SPEED 100 MM/S ALWAYS
+  ACCURACY 0.01 ALWAYS
+; Move to home and home standby pos
+  HOME
+  HOME 2
+;
+.END
+.PROGRAM a.main()@26/09/08 06:32 #0
+;
+  CALL log("Main program executed")
+;CALL safe.home
+;
+  WHILE TRUE DO
+    .$pg.string = "state"+$ENCODE(/L,state)
+    IF EXISTPGM(.$pg.string) THEN
+      SCALL .$pg.string
+    ELSE
+      CALL log("Error! Program is in wrong state. Reset state to 0")
+      RETURN
+    END
+  END
+;
+.END
+.PROGRAM autostart.pc()@26/09/08 05:29 #0
+;
+  CALL initialize.pc
+;
+  WHILE TRUE DO
+    CALL check.speed.pc
+    CALL check.teach.pc
+    CALL check.limits.pc
+  END
+;
+.END
+.PROGRAM check.limits.pc()@26/09/08 05:25 #7392868
+;
+  hmi.shelf.no = MINVAL(hmi.shelf.no,4)
+  hmi.shelf.no = MAXVAL(hmi.shelf.no,1)
+;
+.END
+.PROGRAM check.speed.pc()@26/09/08 05:26 #7846848
+;
+  IF SIG(o.debug) THEN
+    RETURN
+  END
+; Set speed from HMI at any time
+  .speed = BITS(ei.robot.speed[0],16)
+  .speed = MAXVAL(.speed,1)
+  .speed = MINVAL(.speed,100)
+  IF .speed<>MSPEED THEN
+    MON_SPEED .speed
+    CALL log.pc1("Speed"+$ENCODE(.speed)+" was applied")
+  END
+;
+.END
+.PROGRAM check.teach.pc()@26/09/08 06:13 #2987105
+;
+  IF NOT SWITCH(REPEAT ) THEN
+    IF SIG(s.pr.tch.plate) THEN
+      MC PRIME plate.teach
+    END
+;
+    IF SIG(s.pr.tst.plate) THEN
+      MC PRIME plate.test
+    END
+;
+    IF SIG(s.pr.tch.shelf) THEN
+      MC PRIME shelf.teach
+    END
+;
+    IF SIG(s.pr.tst.shelf) THEN
+      MC PRIME shelf.test
+    END
+  END
+;
+.END
+.PROGRAM comment___()@26/09/08 06:39 #0; Comments for IDE. Do not use.
+; @@@ PROJECT @@@
+; @@@ PROJECTNAME @@@
+; LoadWizardPro_
+; @@@ HISTORY @@@
+; @@@ INSPECTION @@@
+; hmi.shelf.no
+; @@@ CONNECTION @@@
+; KROSET R01
+; 127.0.0.1
+; 9105
+; @@@ PROGRAM @@@
+;   Group:Grippers:1
+;     1:grip.open:F
+;       .grip.no 
+;       .time 
+;       .reverse 
+;     1:grip.close:F
+;       .grip.no 
+;       .time 
+;       .reverse 
+;   Group:Plates:2
+;     2:plate.teach:F
+;       .tool.no 
+;       .po 
+;       .px 
+;       .py 
+;       .f 
+;     2:plate.test:F
+;       .tool.no 
+;   Group:Shelves:3
+;     3:shelf.teach:F
+;     3:shelf.test:F
+;     3:shelf.open:F
+;       .shelf.no 
+;     3:shelf.close:F
+;       .shelf.no 
+;   Group:Auxilary:4
+;     4:set.tool:F
+;       .tool.no 
+;     4:a.home:F
+;   Group:Log:5
+;     5:log:F
+;       .$msg 
+;       .i 
+;       .$tmp 
+;     5:log.init:F
+;       .$tmp1 
+;       .$tmp2 
+;       .i 
+;     5:log.pc1:F
+;       .$msg 
+;       .i 
+;       .$tmp 
+;     5:log.clear:F
+;       .i 
+;   0:a.main:F
+;     .$pg.string 
+;   0:pg0:F
+;   Group:Background:6
+;     6:check.speed.pc:B
+;       .speed 
+;     6:check.teach.pc:B
+;     6:check.limits.pc:B
+;   Group:Initialization:7
+;     7:set.switches.pc:B
+;     7:disp.info.pc:B
+;       .$robot.name 
+;       .robot.sn 
+;       .cont.sn 
+;       .$robot.str 
+;       .$cont.str 
+;     7:set.vars.pc:B
+;     7:initialize.pc:B
+;     7:set.io.pc:B
+;   0:autostart.pc:B
+; @@@ TRANS @@@
+; shelf.close[] Shelf close points
+; shelf.open[] Shelf open points
+; @@@ JOINTS @@@
+; #wp.safe[] Safe point for workpiece pick/put
+; #plate.pt.o[] Plate teach points O
+; #plate.pt.x[] Plate teach points X
+; #plate.pt.y[] Plate teach points Y
+; #shelf.safe Safe point above shelves
+; @@@ REALS @@@
+; log.max.count Max log entry count
+; current.tool Current tool number
+; state Robot state
+; hmi.shelf.no Shelf number set on HMI
+; @@@ STRINGS @@@
+; $safe.flag Flag for safety home
+; @@@ INTEGER @@@
+; @@@ SIGNALS @@@
+; ei.robot.speed[] Robot speed from PLC
+; o.debug Robot is in DEBUG mode
+; s.hmi.tool[] Selected tool on HMI
+; s.cnc.chuck[] Selected CNC chuck on HMI
+; s.pr.tch.plate Prime teach plate
+; s.pr.tst.plate Prime test plate
+; s.pr.tch.shelf Prime teach shelf
+; s.pr.tst.shelf Prime test shelf
+; grip.open[] Open gripper
+; grip.close[] Close gripper
+; air.blow.on Air blow on
+; air.blow.off Air blow off
+; grip.opened[] Gripper opened
+; grip.sensor[] Gripper force applied
+; ei.check.grip[] Check gripper sensor
+; eo.process.err Error in process
+; eo.grip.error[] Gripper open error
+; eo.shelf.unlock[] Request shelf unlock
+; ei.shelf.state[] Shelf state is unlocked
+; ei.shelf.failed Fail to unlock shelf
+; eo.shelf.opened[] Shelf is opened
+; s.shelf.failed Internal signal for shelf fail error
+; @@@ TOOLS @@@
+; tool.calib[] 
+; tool.gripper[] 
+; tool.pin 
+; @@@ BASE @@@
+; @@@ FRAME @@@
+; shelf.frame[] 
+; @@@ BOOL @@@
+; @@@ DEFAULTS @@@
+; BASE: NULL
+; TOOL: NULL
+; @@@ WCD @@@
+; SIGNAME: sig1 sig2 sig3 sig4
+; SIGDIM: % % % %
+.END
+.PROGRAM disp.info.pc()@26/09/08 05:25 #6
+;
+  .$robot.name = $SYSDATA(ZROB.NAME)
+  .robot.sn = SYSDATA(ZROB.MGFNO)
+  .cont.sn = SYSDATA(CONT.NO)
+  .$robot.str = "Robot: "+.$robot.name+" S/N: C"+$ENCODE(/L,.robot.sn)
+  .$cont.str = "Controller: F60 S/N: C"+$ENCODE(/L,.cont.sn)
+  IFPWPRINT 8,1,1,5,10=.$robot.str,.$cont.str," ","Powered by Robowizard Co.Ltd."
+;
+.END
+.PROGRAM grip.close(.grip.no,.time,.reverse)@26/09/08 06:32 #8
+;
+  IF NOT .reverse THEN
+    SIGNAL grip.close[.grip.no],-grip.open[.grip.no]
+  ELSE
+    SIGNAL grip.open[.grip.no],-grip.close[.grip.no]
+  END
+  TWAIT .time
+;
+  CALL log("Command close gripper"+$ENCODE(.grip.no))
+;
+.END
+.PROGRAM grip.open(.grip.no,.time,.reverse)@26/09/08 06:32 #0
+;
+  IF SIG(ei.check.grip[.grip.no]) AND SIG(grip.opened[.grip.no]) THEN
+    CALL log("Gripper"+$ENCODE(.grip.no)+"already opened")
+    RETURN
+  END
+  IF NOT .reverse THEN
+    SIGNAL grip.open[.grip.no],-grip.close[.grip.no]
+  ELSE
+    SIGNAL grip.close[.grip.no],-grip.open[.grip.no]
+  END
+  TWAIT .time
+;
+  CALL log("Command open gripper"+$ENCODE(.grip.no))
+;
+.END
+.PROGRAM initialize.pc()@26/09/08 05:25 #5
+;
+  CALL set.switches.pc
+  CALL log.init
+  CALL set.io.pc
+  CALL set.vars.pc
+  CALL disp.info.pc
+;
+  MC PRIME a.main
+  TWAIT 0.5
+;
+  CALL log.pc1("Robot boot initialize completed")
+;
+.END
+.PROGRAM log(.$msg)@26/09/08 06:32 #24
+;
+  IF LEN(.$msg)>55 THEN
+    .$msg = $LEFT(.$msg,55)
+  END
+;
+  FOR .i = 1 TO log.max.count-1
+    $log.entry[.i] = $log.entry[.i+1]
+  END
+  $log.entry[log.max.count] = $TIME+" "+.$msg
+;
+  FOR .i = 0 TO 11
+    .$tmp[.i] = $log.entry[log.max.count-(11-.i)]
+  END
+;
+  IFPWPRINT 1,1,1,9,10=.$tmp[0],.$tmp[1],.$tmp[2],.$tmp[3]
+  IFPWPRINT 2,1,1,9,10=.$tmp[4],.$tmp[5],.$tmp[6],.$tmp[7]
+  IFPWPRINT 3,1,1,9,10=.$tmp[8],.$tmp[9],.$tmp[10],.$tmp[11]
+;
+.END
+.PROGRAM log.clear()@26/09/08 06:32 #0
+;
+  FOR .i = 1 TO log.max.count
+    $log.entry[.i] = ""
+  END
+;
+.END
+.PROGRAM log.init()@26/09/08 06:32 #1
+;
+; Change this number if needed
+  log.max.count = 256
+;
+  .$tmp1 = $ENCODE(/L,log.max.count)
+  .$tmp2 = "$log.entry["+.$tmp1+"]"
+  IF NOT EXISTCHAR(.$tmp2) THEN
+    FOR .i = 1 TO log.max.count
+      $log.entry[.i] = ""
+    END
+  END
+;
+.END
+.PROGRAM log.pc1(.$msg)@26/09/08 06:32 #1
+;
+  IF LEN(.$msg)>55 THEN
+    .$msg = $LEFT(.$msg,55)
+  END
+;
+  FOR .i = 1 TO log.max.count-1
+    $log.entry[.i] = $log.entry[.i+1]
+  END
+  $log.entry[log.max.count] = $TIME+" "+.$msg
+;
+  FOR .i = 0 TO 11
+    .$tmp[.i] = $log.entry[log.max.count-(11-.i)]
+  END
+;
+  IFPWPRINT 1,1,1,9,10=.$tmp[0],.$tmp[1],.$tmp[2],.$tmp[3]
+  IFPWPRINT 2,1,1,9,10=.$tmp[4],.$tmp[5],.$tmp[6],.$tmp[7]
+  IFPWPRINT 3,1,1,9,10=.$tmp[8],.$tmp[9],.$tmp[10],.$tmp[11]
+;
+.END
+.PROGRAM pg0()@26/09/08 06:32 #0
+;
+  state = 0
+  CALL a.main
+;
+.END
+.PROGRAM plate.teach()@26/09/08 06:32 #0
+;
+; Preparations for teaching
+; Set tool
+  IF SIG(s.hmi.tool[1]) THEN
+    .tool.no = 1
+  ELSE
+    .tool.no = 2
+  END
+  TOOL tool.calib[.tool.no]
+;
+  JMOVE #wp.safe[.tool.no]
+;
+  LAPPRO #plate.pt.o[hmi.shelf.no,.tool.no],20
+  BREAK
+; Teach this point for origin
+  LMOVE #plate.pt.o[hmi.shelf.no,.tool.no]; **== TEACH POINT ==**
+  LAPPRO #plate.pt.o[hmi.shelf.no,.tool.no],20
+;
+  LAPPRO #plate.pt.x[hmi.shelf.no,.tool.no],20
+  BREAK
+; Teach this point for x direction
+  LMOVE #plate.pt.x[hmi.shelf.no,.tool.no]; **== TEACH POINT ==**
+  LAPPRO #plate.pt.x[hmi.shelf.no,.tool.no],20
+;
+  BREAK
+; Teach this point for y direction
+  LAPPRO #plate.pt.y[hmi.shelf.no,.tool.no],20
+  LMOVE #plate.pt.y[hmi.shelf.no,.tool.no]; **== TEACH POINT ==**
+  LAPPRO #plate.pt.y[hmi.shelf.no,.tool.no],20
+;
+; Calculation
+  POINT .po = #plate.pt.o[hmi.shelf.no,.tool.no]
+  POINT .px = #plate.pt.x[hmi.shelf.no,.tool.no]
+  POINT .py = #plate.pt.y[hmi.shelf.no,.tool.no]
+  POINT .f = FRAME(.po,.px,.py,.py)
+  POINT .f = .f+TRANS(-80,0,0)
+  POINT shelf.frame[hmi.shelf.no,.tool.no] = .f
+;
+  JMOVE #wp.safe[.tool.no]
+;
+.END
+.PROGRAM plate.test()@26/09/08 06:32 #0
+;
+; Preparations for testing
+; Set tool
+  IF SIG(s.hmi.tool[1]) THEN
+    .tool.no = 1
+  ELSE
+    .tool.no = 2
+  END
+  TOOL tool.calib[.tool.no]
+;
+  JMOVE #wp.safe[.tool.no]
+;
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(80,0,0),20
+  LMOVE shelf.frame[hmi.shelf.no,.tool.no]+TRANS(80,0,0)
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(80,0,0),20
+;
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(390+80,0,0),20
+  LMOVE shelf.frame[hmi.shelf.no,.tool.no]+TRANS(390+80,0,0)
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(390+80,0,0),20
+;
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(80,-630,0),20
+  LMOVE shelf.frame[hmi.shelf.no,.tool.no]+TRANS(80,-630,0)
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(80,-630,0),20
+;
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(390+80,-630,0),20
+  LMOVE shelf.frame[hmi.shelf.no,.tool.no]+TRANS(390+80,-630,0)
+  LAPPRO shelf.frame[hmi.shelf.no,.tool.no]+TRANS(390+80,-630,0),20
+;
+  JMOVE #wp.safe[.tool.no]
+;
+.END
+.PROGRAM set.io.pc()@26/09/08 06:12 #1
 ;
 ; Gripper IO
 ;
 ; Gripper
-  gripper.open[1] = 33
-  gripper.close[1] = 34
-  gripper.open[2] = 35
-  gripper.close[2] = 36
+  grip.open[1] = 33
+  grip.close[1] = 34
+  grip.open[2] = 35
+  grip.close[2] = 36
   air.blow.on = 37
   air.blow.off = 38
 ; Gripper input
-  gripper.opened[1] = 1033
-  gripper.opened[2] = 1034
-  gripper.sensor[1] = 1035
-  gripper.sensor[2] = 1036
+  grip.opened[1] = 1033
+  grip.opened[2] = 1034
+  grip.sensor[1] = 1035
+  grip.sensor[2] = 1036
 ;
-; Ethernet I/P IO (Start: 65 Count:896)
-;
-; Outputs
-;
-  do.motor.on = 65
-  do.error = 66
-  do.cs = 67
-  do.automatic = 68
-  do.teach = 69
-  do.teach.lock = 70
-  do.home = 71
-  do.home2 = 72
-  do.power.on = 73
-  do.emg = 74
-  do.hold = 75
-  do.safety.fence = 76
-  do.bat.alarm = 77
   o.debug = 78
 ;
-  eo.gp.s.opened[1] = 81
-  eo.gp.c.opened[1] = 82
-  eo.gp.c.closed[1] = 83
-  eo.grip.error[1] = 84
-  eo.grip.sensor[1] = 85
+  ei.robot.speed[0] = 1145 ; 8 bit
 ;
-  eo.gp.s.opened[2] = 89
-  eo.gp.c.opened[2] = 90
-  eo.gp.c.closed[2] = 91
-  eo.grip.error[2] = 92
-  eo.grip.sensor[2] = 93
+  s.hmi.tool[1] = 2102
+  s.hmi.tool[2] = 2103
+  s.cnc.chuck[1] = 2104
+  s.cnc.chuck[2] = 2105
 ;
-  eo.cnc.ch.open[1] = 97
-  eo.cnc.ch.close[1] = 98
-  eo.cnc.ch.open[2] = 99
-  eo.cnc.ch.close[2] = 100
-  eo.cnc.mfinish = 101
-  eo.air.enabled = 105
+  s.pr.tch.plate = 2106
+  s.pr.tst.plate = 2107
+  s.pr.tch.shelf = 2108
+  s.pr.tst.shelf = 2109
 ;
-  eo.robot.ready = 113
-  eo.task.exec = 114
-  eo.process.err = 115
+.END
+.PROGRAM set.switches.pc()@26/09/08 05:25 #6
 ;
-  eo.data.request[1] = 116
-  eo.data.request[2] = 117
-  eo.data.request[3] = 118
-  eo.data.request[4] = 119
-  eo.data.read = 120
+; System switches
+  CP ON
+  PREFETCH.SIGINS OFF
+  QTOOL OFF
+  REP_ONCE ON
+  HOLD.STEP ON
+  DISP.EXESTEP ON
+  PROG.DATE ON
+  ABS.SPEED ON
+  ERRSTART.PC ON  ;
 ;
-  eo.shelf.opened[1] = 129
-  eo.shelf.opened[2] = 130
-  eo.shelf.opened[3] = 131
-  eo.shelf.opened[4] = 132
+.END
+.PROGRAM set.tool(.tool.no)@26/09/08 06:32 #4
 ;
-  eo.shelf.unlock[1] = 133
-  eo.shelf.unlock[2] = 134
-  eo.shelf.unlock[3] = 135
-  eo.shelf.unlock[4] = 136
+  IF .tool.no<>3 THEN
+    TOOL tool.gripper[.tool.no]
+  ELSE
+    TOOL tool.pin
+  END
 ;
-  eo.shelf.cmplt[1] = 138
-  eo.shelf.cmplt[2] = 139
-  eo.shelf.cmplt[3] = 140
-  eo.shelf.cmplt[4] = 141
+  WEIGHT 20,0,0,100,0.1,0.1,0.1
+  current.tool = .tool.no
 ;
-; Task state
-  eo.error.code[0] = 145
-  eo.grip.state[1,0] = 161
-  eo.grip.state[2,0] = 169
-  eo.cnc.state[1,0] = 177
-  eo.cnc.state[2,0] = 185
-  eo.wp.processed[0] = 193
-  eo.next.wp[0] = 201
+  CALL log("Tool"+$ENCODE(/L,.tool.no)+" set")
 ;
-; Inputs
+.END
+.PROGRAM set.vars.pc()@26/09/08 05:25 #6
 ;
-  di.ext.motor.on = 1065
-  di.ext.ereset = 1066
-  di.ext.cs = 1067
-  di.ext.pgreset = 1068
-  di.ext.hold = 1069
-  di.ext.motor.of = 1070
-  di.ext.slow = 1071
+  POINT tool.gripper[1] = TRANS(-103.3,0,104,-180,90,180)
+  POINT tool.gripper[2] = TRANS(103.3,0,104,0,90,180)
+  POINT tool.calib[1] = TRANS(-202.8,0,104,-180,90,180)
+  POINT tool.calib[2] = TRANS(202.8,0,104,0,90,180)
+  POINT tool.pin = TRANS(0,112,104,90,90,0)
 ;
-  ei.grip.open[1] = 1081
-  ei.grip.close[1] = 1082
-  ei.check.grip[1] = 1084
+.END
+.PROGRAM shelf.close(.shelf.no)@26/09/08 06:32 #2
 ;
-  ei.grip.open[2] = 1089
-  ei.grip.close[2] = 1090
-  ei.check.grip[2] = 1092
+  CALL log("Closing shelf"+$ENCODE(.shelf.no))
 ;
-  ei.cnc.ch.opd[1] = 1097
-  ei.cnc.ch.clsd[1] = 1098
-  ei.cnc.ch.opd[2] = 1099
-  ei.cnc.ch.clsd[2] = 1100
-  ei.cnc.ready = 1101
+  SPEED 60 ALWAYS
+  ACCURACY 5 ALWAYS
+  CALL set.tool(3)
+; gripper.no, time, reverse
+  CALL grip.close(1,0,FALSE)
+  CALL grip.close(2,0,FALSE)
 ;
-  ei.task.start = 1113
-  ei.data.ready = 1114
+  POINT .start = shelf.close[.shelf.no,1]
+  POINT .end = shelf.close[.shelf.no,2]
 ;
-  ei.subspindel = 1119
-  ei.i.changer = 1120
-  ei.e.changer = 1121
+  JMOVE #shelf.safe
+  BREAK
+  $safe.flag = "shelf.safe"
 ;
-  ei.shelf.ready[1] = 1129
-  ei.shelf.ready[2] = 1130
-  ei.shelf.ready[3] = 1131
-  ei.shelf.ready[4] = 1132
+  LMOVE .start+TRANS(150,0,-50)
+  LMOVE .start+TRANS(-50,0,-50)
+  $safe.flag = "shelf.work"
+  LMOVE .start+TRANS(-50,0,0)
+  SPEED 50 MM/S
+  ACCURACY 0.1
+  LMOVE .start
+  BREAK
+; Open shelf
+  CALL log("Request unlock shelf"+$ENCODE(.shelf.no))
+  SIGNAL eo.shelf.unlock[.shelf.no]
+  WAIT BITS(ei.shelf.state[1],5)<>0
 ;
-  ei.shelf.state[1] = 1133
-  ei.shelf.state[2] = 1134
-  ei.shelf.state[3] = 1135
-  ei.shelf.state[4] = 1136
-  ei.shelf.failed = 1137
+  IF NOT SIG(ei.shelf.failed) THEN
 ;
-  ei.robot.speed[0] = 1145
-  ei.xmove.spd[0] = 1161
-  ei.blow.spd[0] = 1169
-  ei.overshoot[0] = 1177
+    CALL log("Shelf"+$ENCODE(.shelf.no)+" successfully unlocked")
 ;
-  ei.t.grip.op[1,0] = 1193
-  ei.t.grip.op[2,0] = 1201
-  ei.t.grip.cl[1,0] = 1209
-  ei.t.grip.cl[2,0] = 1217
+;IF kroset THEN
+;  SIGNAL k.shelf.pick
+;END
 ;
-  ei.t.cnc.open[1,0] = 1225; 8 bit
-  ei.t.cnc.close[1,0] = 1233; 8 bit
-  ei.t.cnc.open[2,0] = 1241; 8 bit
-  ei.t.cnc.close[2,0] = 1249; 8 bit
+    SPEED 200 MM/S
+    ACCURACY 0.1
+    LMOVE .end
+    BREAK
+;IF kroset THEN
+;  SIGNAL -k.shelf.pick
+;END
 ;
+    SPEED 50 MM/S
+    ACCURACY 0.1
+    LMOVE .end+TRANS(-50,0,0)
+    BREAK
 ;
-; Task data
-  d.wp.length[0] = 1321
-  d.semiwp.length[0] = 1329
-  d.detail.length[0] = 1337
-  d.g1.jaws.full[0] = 1345
-  d.g1.jaws.body[0] = 1353
-  d.g2.jaws.full[0] = 1361
-  d.g2.jaws.body[0] = 1369
-  d.cnc1.jaws.ful[0] = 1377
-  d.cnc1.jaws.bod[0] = 1385
-  d.cnc2.jaws.ful[0] = 1393
-  d.cnc2.jaws.bod[0] = 1401
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    SIGNAL -eo.shelf.opened[.shelf.no]
 ;
-  d.plt.rows[0] = 1409; 4
-  d.plt.cell.odd[0] = 1413; 4
-  d.plt.cell.even[0] = 1417; 4
-  d.plt.dx[0] = 1433
-  d.plt.dy[0] = 1449
-  d.plt.even.dy[0] = 1465
-  d.plt.o.dx[0] = 1481
-  d.plt.o.dy[0] = 1497
+    ACCURACY 0.1
+    LMOVE .end+TRANS(-50,0,-150)
 ;
-  d.cnc.pg.no[0] = 1513
-  d.chg.pg.no[0] = 1521
-  d.air.pg.no[0] = 1529
-  d.wp.count[0] = 1545; 8
+    LMOVE #shelf.safe
+    BREAK
 ;
-  d.gp.reverse[1] = 1561
-  d.gp.reverse[2] = 1562
-  d.cnc.run.pg = 1563
-  d.air.blow[1] = 1564
-  d.air.blow[2] = 1565
-  d.rdy.pick[1] = 1566
-  d.rdy.pick[2] = 1567
-  d.cnc.first = 1568
-  d.gp.first = 1569
+    RETURN
+  ELSE
+    CALL log("Failed to unlock shelf"+$ENCODE(.shelf.no)+". Task will be stopped")
+    SIGNAL s.shelf.failed
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    ACCURACY 0.1
+    LMOVE .start+TRANS(-50,0,0)
+    ACCURACY 0.1
+    LMOVE .start+TRANS(-50,0,-50)
+    LMOVE .start+TRANS(150,0,-50)
+    JMOVE #shelf.safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    HOME
+    HOME 2
+  END
 ;
-  d.i.change = 1570
-  d.e.change = 1571
+.END
+.PROGRAM shelf.open(.shelf.no)@26/09/08 06:32 #2
 ;
-  d.gp.chg.i[1] = 1577
-  d.gp.chg.i[2] = 1578
+  CALL log("Open shelf"+$ENCODE(.shelf.no))
 ;
-  d.gp.chg.e[1,1] = 1579
-  d.gp.chg.e[1,2] = 1580
-  d.gp.chg.e[2,1] = 1581
-  d.gp.chg.e[2,2] = 1582
+  SPEED 60 ALWAYS
+  ACCURACY 5 ALWAYS
+  CALL set.tool(3)
+; gripper.no, time, reverse
+  CALL grip.close(1,0,FALSE)
+  CALL grip.close(2,0,FALSE)
 ;
-; Internal signals
-; IFP page change 2001-2008
-  di.ifp.page[1] = 2001
-  di.ifp.page[2] = 2002
-  di.ifp.page[3] = 2003
-  di.ifp.page[4] = 2004
-  di.ifp.page[5] = 2005
-  di.ifp.page[6] = 2006
-  di.ifp.page[7] = 2007
-  di.ifp.page[8] = 2008
+  POINT .start = shelf.open[.shelf.no,1]
+  POINT .end = shelf.open[.shelf.no,2]
 ;
-  s.shelf.failed = 2010
-  s.search.fail = 2011
-  s.inside.cnc = 2012
-  s.mcode.req = 2013
-  s.st5.air.req = 2014
-  s.st6.air.req = 2015
+  JMOVE #shelf.safe
+  BREAK
+  $safe.flag = "shelf.safe"
 ;
-;s.debug        = 2050
+  LMOVE .start+TRANS(-50,0,-150)
+  LMOVE .start+TRANS(-50,0,0)
+  $safe.flag = "shelf.work"
+  SPEED 50 MM/S
+  ACCURACY 0.1
+  LMOVE .start
+  BREAK
+; Unlock shelf
+  CALL log("Request unlock shelf"+$ENCODE(.shelf.no))
+  SIGNAL eo.shelf.unlock[.shelf.no]
+  WAIT BITS(ei.shelf.state[1],5)<>0
 ;
-  s.pr.tch.shelf = 2100
-  s.pr.tst.shelf = 2101
-  s.hmi.tool.1 = 2102
-  s.hmi.chuck.1 = 2103
-  s.pr.tch.wp = 2104
-  s.pr.tst.pick = 2105
-  s.pr.home = 2106
-  s.pr.tst.put = 2107
-  s.pr.cnc.appr = 2108
-  s.pr.cnc.tch = 2109
-  s.pr.tch.air = 2110
-  s.pr.tst.cncpi = 2111
-  s.pr.tst.cncpu = 2112
+  IF NOT SIG(ei.shelf.failed) THEN
 ;
+    CALL log("Shelf"+$ENCODE(.shelf.no)+" successfully unlocked")
+;
+;IF kroset THEN
+;  SIGNAL k.shelf.pick
+;END
+;
+    SPEED 200 MM/S
+    ACCURACY 0.1
+    LMOVE .end
+    BREAK
+;IF kroset THEN
+;  SIGNAL -k.shelf.pick
+;END
+;
+    SPEED 50 MM/S
+    ACCURACY 0.1
+    LMOVE .end+TRANS(-50,0,0)
+    BREAK
+;
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    SIGNAL eo.shelf.opened[.shelf.no]
+;
+    ACCURACY 0.1
+    LMOVE .end+TRANS(-50,0,-50)
+    LMOVE .end+TRANS(150,0,-50)
+;
+    LMOVE #shelf.safe
+    $safe.flag = "shelf.safe"
+    BREAK
+;
+    RETURN
+  ELSE
+    CALL log("Failed to unlock shelf"+$ENCODE(.shelf.no)+". Task will be stopped")
+    SIGNAL s.shelf.failed
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    ACCURACY 0.1
+    LMOVE .start+TRANS(-50,0,0)
+    ACCURACY 0.1
+    LMOVE .start+TRANS(-50,0,-150)
+    JMOVE #shelf.safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    HOME
+    HOME 2
+  END
+.END
+.PROGRAM shelf.teach()@26/09/08 06:34 #0
+;
+; Preaprations for teaching
+  TOOL tool.pin
+  SIGNAL grip.close[1],-grip.open[1]
+  SIGNAL grip.close[2],-grip.open[2]
+  JMOVE #shelf.safe
+;
+; Teach points for open shelf
+  LMOVE shelf.open[hmi.shelf.no,1]+TRANS(-50,0,-150)
+  LMOVE shelf.open[hmi.shelf.no,1]+TRANS(-50,0,0)
+  BREAK
+; Teach this point for shelf open
+  LMOVE shelf.open[hmi.shelf.no,1]; **== TEACH POINT ==**
+; Teach this point for shelf close
+  LMOVE shelf.close[hmi.shelf.no,2]; **== TEACH POINT ==**
+;
+  LMOVE shelf.open[hmi.shelf.no,1]+TRANS(-50,0,0)
+  LMOVE shelf.open[hmi.shelf.no,1]+TRANS(-50,0,-150)
+  JMOVE #shelf.safe
+;
+; Teach points for close shelf
+  LMOVE shelf.close[hmi.shelf.no,1]+TRANS(150,0,-150)
+  LMOVE shelf.close[hmi.shelf.no,1]+TRANS(-50,0,-150)
+  LMOVE shelf.close[hmi.shelf.no,1]+TRANS(-50,0,0)
+  BREAK
+; Teach this point for shelf close
+  LMOVE shelf.close[hmi.shelf.no,1]; **== TEACH POINT ==**
+; Teach this point for shelf open
+  LMOVE shelf.open[hmi.shelf.no,2]; **== TEACH POINT ==**
+;
+  LMOVE shelf.close[hmi.shelf.no,1]+TRANS(-50,0,0)
+  LMOVE shelf.close[hmi.shelf.no,1]+TRANS(-50,0,-150)
+  LMOVE shelf.close[hmi.shelf.no,1]+TRANS(150,0,-150)
+  JMOVE #shelf.safe
+;
+.END
+.PROGRAM shelf.test()@26/09/08 06:32 #2
+;
+  CALL shelf.open(hmi.shelf.no)
+  CALL shelf.close(hmi.shelf.no)
+;
+.END
+.TRANS
+shelf.close[1,1] 751.995422 712.505249 -3.845108 -89.999977 90.000122 179.999832
+shelf.close[1,2] 752.002197 92.508301 -3.839294 -89.999756 90.000275 -179.999237
+shelf.close[2,1] 751.995422 712.505249 -183.845108 -89.999977 90.000122 179.999832
+shelf.close[2,2] 752.002197 92.508301 -183.839294 -89.999756 90.000275 -179.999237
+shelf.close[3,1] 751.995422 712.505249 -363.845093 -89.999977 90.000122 179.999832
+shelf.close[3,2] 752.002197 92.508301 -363.839294 -89.999756 90.000275 -179.999237
+shelf.close[4,1] 751.995422 712.505249 -543.845093 -89.999977 90.000122 179.999832
+shelf.close[4,2] 752.002197 92.508301 -543.839294 -89.999756 90.000275 -179.999237
+shelf.frame[1,1] 436.998779 637.500610 13.652647 -60.142857 179.999435 -150.142899
+shelf.frame[1,2] 436.998840 637.500610 13.652647 -60.142841 179.999435 -150.142899
+shelf.open[1,1] 752.002197 92.508301 -3.839294 -89.999756 90.000275 -179.999237
+shelf.open[1,2] 751.995422 712.505249 -3.845108 -89.999977 90.000122 179.999832
+shelf.open[2,1] 752.002197 92.508301 -183.839294 -89.999756 90.000275 -179.999237
+shelf.open[2,2] 751.995422 712.505249 -183.845108 -89.999977 90.000122 179.999832
+shelf.open[3,1] 752.002197 92.508301 -363.839294 -89.999756 90.000275 -179.999237
+shelf.open[3,2] 751.995422 712.505249 -363.845093 -89.999977 90.000122 179.999832
+shelf.open[4,1] 752.002197 92.508301 -543.839294 -89.999756 90.000275 -179.999237
+shelf.open[4,2] 751.995422 712.505249 -543.845093 -89.999977 90.000122 179.999832
+tool.calib[1] -202.800003 0.000000 104.000000 180.000000 90.000008 -180.000000
+tool.calib[2] 202.800003 0.000000 104.000000 0.000000 90.000008 -180.000000
+tool.gripper[1] -103.300003 0.000000 104.000000 180.000000 90.000008 -180.000000
+tool.gripper[2] 103.300003 0.000000 104.000000 0.000000 90.000008 -180.000000
+tool.pin 0.000000 112.000000 104.000000 90.000008 90.000008 0.000000
+.END
+.JOINTS
+#homyak 0.000000 30.000002 90.000000 0.000000 -70.000000 0.000000
+#plate.pt.o[1,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 13.540280
+#plate.pt.o[1,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
+#plate.pt.o[2,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
+#plate.pt.o[2,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 -166.458618
+#plate.pt.o[3,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
+#plate.pt.o[3,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 -166.458618
+#plate.pt.o[4,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
+#plate.pt.o[4,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 -166.458618
+#plate.pt.x[1,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 20.787384
+#plate.pt.x[1,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
+#plate.pt.x[2,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
+#plate.pt.x[2,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 -159.211517
+#plate.pt.x[3,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
+#plate.pt.x[3,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 -159.211517
+#plate.pt.x[4,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
+#plate.pt.x[4,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 -159.211517
+#plate.pt.y[1,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 40.871090
+#plate.pt.y[1,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
+#plate.pt.y[2,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
+#plate.pt.y[2,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 -139.127808
+#plate.pt.y[3,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
+#plate.pt.y[3,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 -139.127808
+#plate.pt.y[4,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
+#plate.pt.y[4,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 -139.127808
+#shelf.pt.o[1,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 -166.458618
+#shelf.pt.x[1,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 -159.211517
+#shelf.pt.y[1,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 -139.127808
+#shelf.safe 77.267387 4.813991 100.780472 34.271633 76.990814 99.275299
+#wp.safe[1] 69.568573 8.663290 97.904053 114.625549 -68.547127 10.075710
+#wp.safe[2] 69.568573 8.663650 97.904053 114.625549 -68.547127 190.077927
 .END
 .REALS
 air.blow.off = 38
 air.blow.on = 37
-d.air.blow[1] = 1564
-d.air.blow[2] = 1565
-d.air.pg.no[0] = 1529
-d.chg.pg.no[0] = 1521
-d.cnc.first = 1568
-d.cnc.pg.no[0] = 1513
-d.cnc.run.pg = 1563
-d.cnc1.jaws.bod[0] = 1385
-d.cnc1.jaws.ful[0] = 1377
-d.cnc2.jaws.bod[0] = 1401
-d.cnc2.jaws.ful[0] = 1393
-d.detail.length[0] = 1337
-d.e.change = 1571
-d.g1.jaws.body[0] = 1353
-d.g1.jaws.full[0] = 1345
-d.g2.jaws.body[0] = 1369
-d.g2.jaws.full[0] = 1361
-d.gp.chg.e[1,1] = 1579
-d.gp.chg.e[1,2] = 1580
-d.gp.chg.e[2,1] = 1581
-d.gp.chg.e[2,2] = 1582
-d.gp.chg.i[1] = 1577
-d.gp.chg.i[2] = 1578
-d.gp.first = 1569
-d.gp.reverse[1] = 1561
-d.gp.reverse[2] = 1562
-d.i.change = 1570
+current.tool = 3
+d.cnc.jaws.body[1,0] = 1385
+d.cnc.jaws.body[2,0] = 1401
+d.cnc.jaws.full[1,0] = 1377
+d.cnc.jaws.full[2,0] = 1393
+d.grip.jaw.body[1,0] = 1353
+d.grip.jaw.body[2,0] = 1369
+d.grip.jaw.full[1,0] = 1345
+d.grip.jaw.full[2,0] = 1361
 d.plt.cell.even[0] = 1417
 d.plt.cell.odd[0] = 1413
 d.plt.dx[0] = 1433
 d.plt.dy[0] = 1449
 d.plt.even.dy[0] = 1465
-d.plt.o.dx[0] = 1481
-d.plt.o.dy[0] = 1497
+d.plt.ox[0] = 1481
+d.plt.oy[0] = 1497
 d.plt.rows[0] = 1409
-d.rdy.pick[1] = 1566
-d.rdy.pick[2] = 1567
-d.semiwp.length[0] = 1329
-d.wp.count[0] = 1545
-d.wp.length[0] = 1321
-di.ext.cs = 1067
-di.ext.ereset = 1066
-di.ext.hold = 1069
-di.ext.motor.of = 1070
-di.ext.motor.on = 1065
-di.ext.pgreset = 1068
-di.ext.slow = 1071
-di.ifp.page[1] = 2001
-di.ifp.page[2] = 2002
-di.ifp.page[3] = 2003
-di.ifp.page[4] = 2004
-di.ifp.page[5] = 2005
-di.ifp.page[6] = 2006
-di.ifp.page[7] = 2007
-di.ifp.page[8] = 2008
-do.automatic = 68
-do.bat.alarm = 77
-do.cs = 67
-do.emg = 74
-do.error = 66
-do.hold = 75
-do.home = 71
-do.home2 = 72
-do.motor.on = 65
-do.power.on = 73
-do.safety.fence = 76
-do.teach = 69
-do.teach.lock = 70
-ei.blow.spd[0] = 1169
+d.wp.l[0,0] = 1321
+d.wp.l[0,1] = 1322
+d.wp.l[0,2] = 1323
+d.wp.l[0,3] = 1324
+d.wp.l[0,4] = 1325
+d.wp.l[0,5] = 1326
+d.wp.l[0,6] = 1327
+d.wp.l[0,7] = 1328
+d.wp.l[1,0] = 1329
+d.wp.l[1,1] = 1330
+d.wp.l[1,2] = 1331
+d.wp.l[1,3] = 1332
+d.wp.l[1,4] = 1333
+d.wp.l[1,5] = 1334
+d.wp.l[1,6] = 1335
+d.wp.l[1,7] = 1336
+d.wp.l[2,0] = 1337
+d.wp.l[2,1] = 1338
+d.wp.l[2,2] = 1339
+d.wp.l[2,3] = 1340
+d.wp.l[2,4] = 1341
+d.wp.l[2,5] = 1342
+d.wp.l[2,6] = 1343
+d.wp.l[2,7] = 1344
 ei.check.grip[1] = 1084
 ei.check.grip[2] = 1092
-ei.cnc.ch.clsd[1] = 1098
-ei.cnc.ch.clsd[2] = 1100
-ei.cnc.ch.opd[1] = 1097
-ei.cnc.ch.opd[2] = 1099
-ei.cnc.ready = 1101
-ei.data.ready = 1114
-ei.e.changer = 1121
-ei.grip.close[1] = 1082
-ei.grip.close[2] = 1090
-ei.grip.open[1] = 1081
-ei.grip.open[2] = 1089
-ei.i.changer = 1120
-ei.overshoot[0] = 1177
 ei.robot.speed[0] = 1145
+ei.robot.speed[1] = 1146
+ei.robot.speed[2] = 1147
+ei.robot.speed[3] = 1148
+ei.robot.speed[4] = 1149
+ei.robot.speed[5] = 1150
+ei.robot.speed[6] = 1151
+ei.robot.speed[7] = 1152
 ei.shelf.failed = 1137
-ei.shelf.ready[1] = 1129
-ei.shelf.ready[2] = 1130
-ei.shelf.ready[3] = 1131
-ei.shelf.ready[4] = 1132
 ei.shelf.state[1] = 1133
 ei.shelf.state[2] = 1134
 ei.shelf.state[3] = 1135
 ei.shelf.state[4] = 1136
-ei.subspindel = 1119
-ei.t.cnc.close[1,0] = 1233
-ei.t.cnc.close[2,0] = 1249
-ei.t.cnc.open[1,0] = 1225
-ei.t.cnc.open[2,0] = 1241
-ei.t.grip.cl[1,0] = 1209
-ei.t.grip.cl[2,0] = 1217
-ei.t.grip.op[1,0] = 1193
-ei.t.grip.op[2,0] = 1201
-ei.task.start = 1113
-ei.xmove.spd[0] = 1161
-eo.air.enabled = 105
-eo.cnc.ch.close[1] = 98
-eo.cnc.ch.close[2] = 100
-eo.cnc.ch.open[1] = 97
-eo.cnc.ch.open[2] = 99
-eo.cnc.mfinish = 101
-eo.cnc.state[1,0] = 177
-eo.cnc.state[2,0] = 185
-eo.data.read = 120
-eo.data.request[1] = 116
-eo.data.request[2] = 117
-eo.data.request[3] = 118
-eo.data.request[4] = 119
-eo.error.code[0] = 145
-eo.gp.c.closed[1] = 83
-eo.gp.c.closed[2] = 91
-eo.gp.c.opened[1] = 82
-eo.gp.c.opened[2] = 90
-eo.gp.s.opened[1] = 81
-eo.gp.s.opened[2] = 89
 eo.grip.error[1] = 84
-eo.grip.error[2] = 92
-eo.grip.sensor[1] = 85
-eo.grip.sensor[2] = 93
-eo.grip.state[1,0] = 161
-eo.grip.state[2,0] = 169
-eo.next.wp[0] = 201
+eo.grip.error[2] = 85
 eo.process.err = 115
-eo.robot.ready = 113
-eo.shelf.cmplt[1] = 138
-eo.shelf.cmplt[2] = 139
-eo.shelf.cmplt[3] = 140
-eo.shelf.cmplt[4] = 141
 eo.shelf.opened[1] = 129
 eo.shelf.opened[2] = 130
 eo.shelf.opened[3] = 131
@@ -3889,35 +4254,287 @@ eo.shelf.unlock[1] = 133
 eo.shelf.unlock[2] = 134
 eo.shelf.unlock[3] = 135
 eo.shelf.unlock[4] = 136
-eo.task.exec = 114
-eo.wp.processed[0] = 193
-gripper.close[1] = 34
-gripper.close[2] = 36
-gripper.open[1] = 33
-gripper.open[2] = 35
-gripper.opened[1] = 1033
-gripper.opened[2] = 1034
-gripper.sensor[1] = 1035
-gripper.sensor[2] = 1036
-k.shelf.pick = 1
+grip.close[1] = 34
+grip.close[2] = 36
+grip.open[1] = 33
+grip.open[2] = 35
+grip.opened[1] = 1033
+grip.opened[2] = 1034
+grip.sensor[1] = 1035
+grip.sensor[2] = 1036
+hmi.shelf.no = 4
+hmi.wp.id = 0
+log.max.count = 256
 o.debug = 78
-s.hmi.chuck.1 = 2103
-s.hmi.tool.1 = 2102
-s.inside.cnc = 2012
-s.mcode.req = 2013
-s.pr.cnc.appr = 2108
-s.pr.cnc.tch = 2109
-s.pr.home = 2106
-s.pr.tch.air = 2110
-s.pr.tch.shelf = 2100
-s.pr.tch.wp = 2104
-s.pr.tst.cncpi = 2111
-s.pr.tst.cncpu = 2112
-s.pr.tst.pick = 2105
-s.pr.tst.put = 2107
-s.pr.tst.shelf = 2101
-s.search.fail = 2011
+s.cnc.chuck[1] = 2104
+s.cnc.chuck[2] = 2105
+s.hmi.tool[1] = 2102
+s.hmi.tool[2] = 2103
+s.pr.tch.plate = 2106
+s.pr.tch.shelf = 2108
+s.pr.tst.plate = 2107
+s.pr.tst.shelf = 2109
+s.pr.tst.wp.pic = 2108
+s.pr.tst.wp.put = 2109
 s.shelf.failed = 2010
-s.st5.air.req = 2014
-s.st6.air.req = 2015
+state = 0
+.END
+.STRINGS
+$log.entry[1] = ""
+$log.entry[2] = ""
+$log.entry[3] = ""
+$log.entry[4] = ""
+$log.entry[5] = ""
+$log.entry[6] = ""
+$log.entry[7] = ""
+$log.entry[8] = ""
+$log.entry[9] = ""
+$log.entry[10] = ""
+$log.entry[11] = ""
+$log.entry[12] = ""
+$log.entry[13] = ""
+$log.entry[14] = ""
+$log.entry[15] = ""
+$log.entry[16] = ""
+$log.entry[17] = ""
+$log.entry[18] = ""
+$log.entry[19] = ""
+$log.entry[20] = ""
+$log.entry[21] = ""
+$log.entry[22] = ""
+$log.entry[23] = ""
+$log.entry[24] = ""
+$log.entry[25] = ""
+$log.entry[26] = ""
+$log.entry[27] = ""
+$log.entry[28] = ""
+$log.entry[29] = ""
+$log.entry[30] = ""
+$log.entry[31] = ""
+$log.entry[32] = ""
+$log.entry[33] = ""
+$log.entry[34] = ""
+$log.entry[35] = ""
+$log.entry[36] = ""
+$log.entry[37] = ""
+$log.entry[38] = ""
+$log.entry[39] = ""
+$log.entry[40] = ""
+$log.entry[41] = ""
+$log.entry[42] = ""
+$log.entry[43] = ""
+$log.entry[44] = ""
+$log.entry[45] = ""
+$log.entry[46] = ""
+$log.entry[47] = ""
+$log.entry[48] = ""
+$log.entry[49] = ""
+$log.entry[50] = ""
+$log.entry[51] = ""
+$log.entry[52] = ""
+$log.entry[53] = ""
+$log.entry[54] = ""
+$log.entry[55] = ""
+$log.entry[56] = ""
+$log.entry[57] = ""
+$log.entry[58] = ""
+$log.entry[59] = ""
+$log.entry[60] = ""
+$log.entry[61] = ""
+$log.entry[62] = ""
+$log.entry[63] = ""
+$log.entry[64] = ""
+$log.entry[65] = ""
+$log.entry[66] = ""
+$log.entry[67] = ""
+$log.entry[68] = ""
+$log.entry[69] = ""
+$log.entry[70] = ""
+$log.entry[71] = ""
+$log.entry[72] = ""
+$log.entry[73] = ""
+$log.entry[74] = ""
+$log.entry[75] = ""
+$log.entry[76] = ""
+$log.entry[77] = ""
+$log.entry[78] = ""
+$log.entry[79] = ""
+$log.entry[80] = ""
+$log.entry[81] = ""
+$log.entry[82] = ""
+$log.entry[83] = ""
+$log.entry[84] = ""
+$log.entry[85] = ""
+$log.entry[86] = ""
+$log.entry[87] = ""
+$log.entry[88] = ""
+$log.entry[89] = ""
+$log.entry[90] = ""
+$log.entry[91] = ""
+$log.entry[92] = ""
+$log.entry[93] = ""
+$log.entry[94] = ""
+$log.entry[95] = ""
+$log.entry[96] = ""
+$log.entry[97] = ""
+$log.entry[98] = ""
+$log.entry[99] = ""
+$log.entry[100] = ""
+$log.entry[101] = ""
+$log.entry[102] = ""
+$log.entry[103] = ""
+$log.entry[104] = ""
+$log.entry[105] = ""
+$log.entry[106] = ""
+$log.entry[107] = ""
+$log.entry[108] = ""
+$log.entry[109] = ""
+$log.entry[110] = ""
+$log.entry[111] = ""
+$log.entry[112] = ""
+$log.entry[113] = ""
+$log.entry[114] = ""
+$log.entry[115] = ""
+$log.entry[116] = ""
+$log.entry[117] = ""
+$log.entry[118] = ""
+$log.entry[119] = ""
+$log.entry[120] = ""
+$log.entry[121] = ""
+$log.entry[122] = ""
+$log.entry[123] = ""
+$log.entry[124] = ""
+$log.entry[125] = ""
+$log.entry[126] = ""
+$log.entry[127] = ""
+$log.entry[128] = ""
+$log.entry[129] = ""
+$log.entry[130] = ""
+$log.entry[131] = ""
+$log.entry[132] = ""
+$log.entry[133] = ""
+$log.entry[134] = ""
+$log.entry[135] = ""
+$log.entry[136] = ""
+$log.entry[137] = ""
+$log.entry[138] = ""
+$log.entry[139] = ""
+$log.entry[140] = ""
+$log.entry[141] = ""
+$log.entry[142] = ""
+$log.entry[143] = ""
+$log.entry[144] = ""
+$log.entry[145] = ""
+$log.entry[146] = ""
+$log.entry[147] = ""
+$log.entry[148] = ""
+$log.entry[149] = ""
+$log.entry[150] = ""
+$log.entry[151] = ""
+$log.entry[152] = ""
+$log.entry[153] = ""
+$log.entry[154] = ""
+$log.entry[155] = ""
+$log.entry[156] = ""
+$log.entry[157] = ""
+$log.entry[158] = ""
+$log.entry[159] = ""
+$log.entry[160] = ""
+$log.entry[161] = ""
+$log.entry[162] = ""
+$log.entry[163] = ""
+$log.entry[164] = ""
+$log.entry[165] = ""
+$log.entry[166] = ""
+$log.entry[167] = ""
+$log.entry[168] = ""
+$log.entry[169] = ""
+$log.entry[170] = ""
+$log.entry[171] = ""
+$log.entry[172] = ""
+$log.entry[173] = ""
+$log.entry[174] = ""
+$log.entry[175] = ""
+$log.entry[176] = ""
+$log.entry[177] = ""
+$log.entry[178] = ""
+$log.entry[179] = ""
+$log.entry[180] = ""
+$log.entry[181] = ""
+$log.entry[182] = ""
+$log.entry[183] = ""
+$log.entry[184] = ""
+$log.entry[185] = ""
+$log.entry[186] = ""
+$log.entry[187] = ""
+$log.entry[188] = ""
+$log.entry[189] = ""
+$log.entry[190] = ""
+$log.entry[191] = ""
+$log.entry[192] = ""
+$log.entry[193] = ""
+$log.entry[194] = ""
+$log.entry[195] = ""
+$log.entry[196] = ""
+$log.entry[197] = ""
+$log.entry[198] = ""
+$log.entry[199] = ""
+$log.entry[200] = ""
+$log.entry[201] = ""
+$log.entry[202] = ""
+$log.entry[203] = ""
+$log.entry[204] = ""
+$log.entry[205] = ""
+$log.entry[206] = ""
+$log.entry[207] = "05:26:08 Robot boot initialize completed"
+$log.entry[208] = "05:26:29 Robot boot initialize completed"
+$log.entry[209] = "05:26:59 Robot boot initialize completed"
+$log.entry[210] = "05:27:07 Speed 1 was applied"
+$log.entry[211] = "05:27:08 Speed 1 was applied"
+$log.entry[212] = "05:27:08 Speed 1 was applied"
+$log.entry[213] = "05:27:08 Speed 1 was applied"
+$log.entry[214] = "05:27:09 Speed 1 was applied"
+$log.entry[215] = "05:27:09 Speed 1 was applied"
+$log.entry[216] = "05:27:09 Speed 1 was applied"
+$log.entry[217] = "05:27:10 Speed 1 was applied"
+$log.entry[218] = "05:27:10 Speed 1 was applied"
+$log.entry[219] = "05:28:43 Speed 1 was applied"
+$log.entry[220] = "05:28:44 Speed 1 was applied"
+$log.entry[221] = "05:28:44 Speed 1 was applied"
+$log.entry[222] = "05:28:44 Speed 1 was applied"
+$log.entry[223] = "05:28:44 Speed 1 was applied"
+$log.entry[224] = "05:28:45 Speed 1 was applied"
+$log.entry[225] = "05:28:45 Speed 1 was applied"
+$log.entry[226] = "05:28:46 Speed 1 was applied"
+$log.entry[227] = "05:30:00 Robot boot initialize completed"
+$log.entry[228] = "05:38:53 Speed 1 was applied"
+$log.entry[229] = "05:38:53 Speed 1 was applied"
+$log.entry[230] = "05:38:53 Speed 1 was applied"
+$log.entry[231] = "05:41:02 Robot boot initialize completed"
+$log.entry[232] = "06:32:51 Robot boot initialize completed"
+$log.entry[233] = "06:35:07 Open shelf 1"
+$log.entry[234] = "06:35:07 Tool3 set"
+$log.entry[235] = "06:35:07 Command close gripper 1"
+$log.entry[236] = "06:35:07 Command close gripper 2"
+$log.entry[237] = "06:35:12 Request unlock shelf 1"
+$log.entry[238] = "06:35:22 Shelf 1 successfully unlocked"
+$log.entry[239] = "06:35:25 Closing shelf 1"
+$log.entry[240] = "06:35:25 Tool3 set"
+$log.entry[241] = "06:35:25 Command close gripper 1"
+$log.entry[242] = "06:35:26 Command close gripper 2"
+$log.entry[243] = "06:35:27 Request unlock shelf 1"
+$log.entry[244] = "06:35:31 Shelf 1 successfully unlocked"
+$log.entry[245] = "06:39:17 Open shelf 4"
+$log.entry[246] = "06:39:17 Tool3 set"
+$log.entry[247] = "06:39:17 Command close gripper 1"
+$log.entry[248] = "06:39:17 Command close gripper 2"
+$log.entry[249] = "06:39:37 Request unlock shelf 4"
+$log.entry[250] = "06:39:43 Shelf 4 successfully unlocked"
+$log.entry[251] = "06:39:46 Closing shelf 4"
+$log.entry[252] = "06:39:46 Tool3 set"
+$log.entry[253] = "06:39:46 Command close gripper 1"
+$log.entry[254] = "06:39:46 Command close gripper 2"
+$log.entry[255] = "06:39:49 Request unlock shelf 4"
+$log.entry[256] = "06:39:52 Shelf 4 successfully unlocked"
+$safe.flag = "shelf.work"
 .END
