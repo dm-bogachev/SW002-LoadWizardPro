@@ -24,14 +24,14 @@ DEFSIG_I EXT_CYC_START   ON   1067
 DEFSIG_I EXT_PROGRM_RST  ON   1068
 DEFSIG_I EXT_IT          ON   1069
 DEFSIG_I EXT_SLOW_REP.   ON   1071
-DEFSIG_I I/F_PAGE1       OFF  2001
-DEFSIG_I I/F_PAGE2       OFF  2002
-DEFSIG_I I/F_PAGE3       OFF  2003
-DEFSIG_I I/F_PAGE4       OFF  2004
-DEFSIG_I I/F_PAGE5       OFF  2005
-DEFSIG_I I/F_PAGE6       OFF  2006
-DEFSIG_I I/F_PAGE7       OFF  2007
-DEFSIG_I I/F_PAGE8       OFF  2008
+DEFSIG_I I/F_PAGE1       ON  2001
+DEFSIG_I I/F_PAGE2       ON  2002
+DEFSIG_I I/F_PAGE3       ON  2003
+DEFSIG_I I/F_PAGE4       ON  2004
+DEFSIG_I I/F_PAGE5       ON  2005
+DEFSIG_I I/F_PAGE6       ON  2006
+DEFSIG_I I/F_PAGE7       ON  2007
+DEFSIG_I I/F_PAGE8       ON  2008
 DEFSIG_I EXT_MTROFF      ON   1070
 DEFSIG_O MOTOR_ON        ON     65
 DEFSIG_O ERROR           ON     66
@@ -1069,7 +1069,7 @@ N_INT113    "s.pr.tst.plate"
 .END
 .PROGRAM gripper.is.open (.tool.no,.reverse)
   ; Check if tool is opened
-  IF NOT SIG(ei.check.gp) THEN
+  IF NOT SIG(ei.check.gp[.tool.no]) THEN
     SIGNAL -eo.gp.error[.tool.no]
     RETURN
   END
@@ -3081,19 +3081,6 @@ N_INT113    "s.pr.tst.plate"
 	;     8:set.tool:F
 	;       .tool.no 
 	;     8:get.task.data:F
-	;       .full 
-	;       .body 
-	;       .tool 
-	;       .chuck 
-	;       .reverse 
-	;       .air.blow 
-	;       .jaws.full 
-	;       .jaws.body 
-	;       .jaws.ful 
-	;       .jaws.bod 
-	;       .g.no 
-	;       .c.no 
-	;       .g.reverse 
 	;     8:a.home:F
 	;     8:get.from.plc:F
 	;     8:get.from.hmi:F

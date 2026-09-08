@@ -3081,19 +3081,6 @@ N_INT113    "s.pr.tst.plate"
 	;     8:set.tool:F
 	;       .tool.no 
 	;     8:get.task.data:F
-	;       .full 
-	;       .body 
-	;       .tool 
-	;       .chuck 
-	;       .reverse 
-	;       .air.blow 
-	;       .jaws.full 
-	;       .jaws.body 
-	;       .jaws.ful 
-	;       .jaws.bod 
-	;       .g.no 
-	;       .c.no 
-	;       .g.reverse 
 	;     8:a.home:F
 	;     8:get.from.plc:F
 	;     8:get.from.hmi:F
