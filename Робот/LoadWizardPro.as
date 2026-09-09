@@ -1004,45 +1004,45 @@ N_INT113    "s.pr.tst.plate"
   air.pg.no[2] = BITS(d.air.pg.no[2, 0], 8)
   chg.pg.no = BITS(d.chg.pg.no[0], 8)
   ;
-  ;st3.tool = 1;BITS (d.st3.g.no[0], 2)
-  ;st5.chuck = 1;BITS (d.st5.c.no[0], 2)
-  ;;
-  ;IF SIG (d.st6.g.no[0]) THEN
-  ;  st6.tool = 1
-  ;ELSE
-  ;  st6.tool = 2
-  ;END
-  ;IF SIG (d.st6.c.no[0]) THEN
-  ;  st6.chuck = 2
-  ;ELSE
-  ;  st6.chuck = 1
-  ;END
-  ;;
-  ;st3.reverse = FALSE;SIG (d.st3.g.reverse)
-  ;st6.reverse = FALSE;SIG (d.st5.g.reverse)
-  ;cnc.first = SIG (d.cnc.first)
-  ;;
-  ;st5.air.blow = SIG (d.air.st5)
-  ;st6.air.blow = SIG (d.air.st6)
-  ;;
-  ;grip.op.tmr[1] = BITS (ei.t.grip.op[1, 0], 8) / 10
-  ;grip.op.tmr[2] = BITS (ei.t.grip.op[2, 0], 8) / 10
-  ;grip.cl.tmr[1] = BITS (ei.t.grip.cl[1, 0], 8) / 10
-  ;grip.cl.tmr[2] = BITS (ei.t.grip.cl[2, 0], 8) / 10
-  ;;
-  ;cnc.op.tmr[1] = BITS (ei.t.cnc.open[1, 0], 8) / 10
-  ;cnc.op.tmr[2] = BITS (ei.t.cnc.open[2, 0], 8) / 10
-  ;cnc.cl.tmr[1] = BITS (ei.t.cnc.close[1, 0], 8) / 10
-  ;cnc.cl.tmr[2] = BITS (ei.t.cnc.close[2, 0], 8) / 10
-  ;;
-  ;cnc.pick.ovlp = BITS (ei.pr.pick.cnc[0], 8)
-  ;cnc.put.ovlp = BITS (ei.pr.put.cnc[0], 8)
-  ;shelf.pick.ovl = BITS (ei.pr.pick.shlf[0], 8)
-  ;shelf.put.ovlp = BITS (ei.pr.put.shlf[0], 8)
-  ;;
-  ;pick.speed = BITS (ei.xmove.spd[0], 8)
-  ;put.speed = pick.speed
-  ;air.blow.speed = BITS (ei.blow.spd[0], 8)
+  st3.tool = 1;BITS (d.st3.g.no[0], 2)
+  st5.chuck = 1;BITS (d.st5.c.no[0], 2)
+  ;
+  IF SIG (d.st6.g.no[0]) THEN
+    st6.tool = 1
+  ELSE
+    st6.tool = 2
+  END
+  IF SIG (d.st6.c.no[0]) THEN
+    st6.chuck = 2
+  ELSE
+    st6.chuck = 1
+  END
+  ;
+  st3.reverse = FALSE;SIG (d.st3.g.reverse)
+  st6.reverse = FALSE;SIG (d.st5.g.reverse)
+  cnc.first = SIG (d.cnc.first)
+  ;
+  st5.air.blow = SIG (d.air.st5)
+  st6.air.blow = SIG (d.air.st6)
+  ;
+  grip.op.tmr[1] = BITS (ei.t.grip.op[1, 0], 8) / 10
+  grip.op.tmr[2] = BITS (ei.t.grip.op[2, 0], 8) / 10
+  grip.cl.tmr[1] = BITS (ei.t.grip.cl[1, 0], 8) / 10
+  grip.cl.tmr[2] = BITS (ei.t.grip.cl[2, 0], 8) / 10
+  ;
+  cnc.op.tmr[1] = BITS (ei.t.cnc.open[1, 0], 8) / 10
+  cnc.op.tmr[2] = BITS (ei.t.cnc.open[2, 0], 8) / 10
+  cnc.cl.tmr[1] = BITS (ei.t.cnc.close[1, 0], 8) / 10
+  cnc.cl.tmr[2] = BITS (ei.t.cnc.close[2, 0], 8) / 10
+  ;
+  cnc.pick.ovlp = BITS (ei.pr.pick.cnc[0], 8)
+  cnc.put.ovlp = BITS (ei.pr.put.cnc[0], 8)
+  shelf.pick.ovl = BITS (ei.pr.pick.shlf[0], 8)
+  shelf.put.ovlp = BITS (ei.pr.put.shlf[0], 8)
+  ;
+  pick.speed = BITS (ei.xmove.spd[0], 8)
+  put.speed = pick.speed
+  air.blow.speed = BITS (ei.blow.spd[0], 8)
 .END
 .PROGRAM get.task.data ()
   ;
@@ -1995,20 +1995,20 @@ N_INT113    "s.pr.tst.plate"
   ;
   CALL log ("State 3: Pick workpiece from shelf")
   ;
-  .tool = st3.tool ; Later get from task
+  .grip.no = 1 ; Later get from task
   ;
   ; If continue
   ;
   IF SIG (do.home2) THEN
-    JMOVE #homyak
+    HOME
   END
   ;
   IF SIG (do.home) THEN
-    JMOVE #wp.safe[.tool]
+    JMOVE #wp.safe[.grip.no]
   END
   ;
-  CALL wp.pick (current.shelf, .tool, current.wp)
-  IF SIG (eo.gp.error[.tool]) THEN
+  CALL wp.pick (current.shelf, .grip.no, current.wp)
+  IF SIG (eo.grip.error[.grip.no]) THEN
     state = 255
   ELSE
     current.wp = current.wp + 1
@@ -2179,7 +2179,7 @@ N_INT113    "s.pr.tst.plate"
   ;
   .st5.air = SIG (s.st5.air.req)
   .st6.air = SIG (s.st6.air.req)
-  ;
+  
   .grip.st3.eq0 = gripper.id[st3.tool] == 0
   .grip.st3.ne0 = gripper.id[st3.tool] <> 0
   ;
@@ -2190,7 +2190,7 @@ N_INT113    "s.pr.tst.plate"
   .chuck.ne0 = cnc.id[st5.chuck] <> 0
   .chuck.lt0 = cnc.id[st5.chuck] < 0
   ;
-  .mfinish = SIG (s.mfinish.req)
+  .mfinish = SIG (s.mcode.req)
   .not.max.pick = current.wp <= wp.count
   .max.pick = NOT .not.max.pick
   ;
