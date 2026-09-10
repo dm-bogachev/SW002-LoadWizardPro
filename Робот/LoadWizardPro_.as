@@ -86,9 +86,10 @@ N_WX100    "ei.cnc.ch.clsd[2]"
 N_WX101    "ei.cnc.ready"
 N_WX113    "ei.task.start"
 N_WX114    "ei.data.ready"
-N_WX119    "ei.subspindel"
-N_WX120    "ei.i.changer"
-N_WX121    "ei.e.changer"
+N_WX117    "ei.subspindel"
+N_WX118    "ei.i.changer"
+N_WX119    "ei.e.changer"
+N_WX120    "ei.skp.emp.cell"
 N_WX129    "ei.shelf.ready[1]"
 N_WX130    "ei.shelf.ready[2]"
 N_WX131    "ei.shelf.ready[3]"
@@ -165,6 +166,8 @@ N_INT13    "s.mcode.req"
 N_INT14    "s.p.put.air.req"
 N_INT15    "s.a.pic.air.req"
 N_INT16    "s.change.req"
+N_INT17    "s.ext.chg.req"
+N_INT20    "s.reset.perf"
 N_INT102    "s.hmi.grip[1]"
 N_INT103    "s.hmi.grip[2]"
 N_INT104    "s.cnc.chuck[1]"
@@ -238,7 +241,7 @@ N_INT130    "s.pr.a.home"
 89,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
 90,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
 91,2,"  PRIME","  TEACH","  CNC","  AIR BLOW",10,4,3,2110,0
-92,8,"hmi.air.pg","AIR BLOW ","PROGRAM",10,4,3,1,0
+92,8,"hmi.air.pg.1","AIR BLOW ","PROGRAM",10,4,3,1,0
 95,4,2,"TEACH CNC","CHUCK 1","CHUCK 2","",10,4,4,2104,2105,0
 96,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
 97,2,"","  CHUCK 2","   OPEN","",10,4,15,99,0
@@ -367,9 +370,33 @@ N_INT130    "s.pr.a.home"
   END
   ;
 .END
-.PROGRAM air.blow.pg.1 ()
+.PROGRAM air.blow (.air)
   ;
-  JMOVE #air.safe[1]
+  BREAK
+  HERE #state.bf.air
+  ;
+  .air.pg = air.pg.no[.air]
+  .$pg.string = "air.pg." + $ENCODE (/L, .air.pg)
+  IF EXISTPGM (.$pg.string) THEN
+    CALL log ("Use air blow program " +.$pg.string)
+    SIGNAL air.blow.on, -air.blow.off, eo.air.enabled
+    SCALL .$pg.string
+  ELSE
+    CALL log ("No air blow program found, skip")
+  END
+  ;
+  JMOVE #state.bf.air
+  SIGNAL -air.blow.on, air.blow.off, -eo.air.enabled
+  ;
+.END
+.PROGRAM air.pg.1 ()
+  ;
+  TWAIT 5
+  ;
+.END
+.PROGRAM air.pg.3 ()
+  ;
+  TWAIT 5
   ;
 .END
 .PROGRAM autostart.pc ()
@@ -381,6 +408,7 @@ N_INT130    "s.pr.a.home"
     CALL check.teach.pc
     CALL check.limits.pc
     CALL check.reset.pc
+    CALL send.plc.pc
   END
   ;
 .END
@@ -432,30 +460,38 @@ N_INT130    "s.pr.a.home"
   hmi.chg.pg = MINVAL(hmi.chg.pg, 255)
   ;
 .END
-.PROGRAM check.reset.pc ()
+.PROGRAM check.reset.pc()@26/09/10 14:47 #0
   ;
+  IF NOT SIG (di.ext.pgreset) THEN
+    SIGNAL -s.reset.perf
+  END
   IF SIG (di.ext.pgreset) THEN
-    CALL log.pc1("Reset command executed")
-    ; Resetting signals
-    SIGNAL -s.shelf.failed
-    BITS eo.shelf.opened[1], 4 = 0
-    ;
-    SIGNAL eo.task.exec
-    SIGNAL -eo.robot.ready
-    ;SIGNAL -s.st5.air.reqW
-    ;SIGNAL -s.st6.air.req
-    ;SIGNAL -s.mfinish.req
-    current.shelf = 1
-    ;
-    state = 0
-    ;
-    gripper.id[1] = 0
-    gripper.id[2] = 0
-    cnc.id[1]     = 0
-    cnc.id[2]     = 0
-    current.wp    = 1
-    processed.wp  = 0
-    ;
+    IF NOT SIG (s.reset.perf) THEN
+      CALL log.pc1 ("Reset command executed")
+      ; Resetting signals
+      SIGNAL -s.shelf.failed
+      BITS eo.shelf.opened[1], 4 = 0
+      ;
+      SIGNAL eo.task.exec
+      SIGNAL -eo.robot.ready
+      SIGNAL -s.p.put.air.req
+      SIGNAL -s.a.pic.air.req
+      SIGNAL -s.mcode.req
+      SIGNAL -s.change.req
+      SIGNAL -s.ext.chg.req
+      current.shelf = 1
+      ;
+      state = 0
+      ;
+      gripper.id[1] = 0
+      gripper.id[2] = 0
+      cnc.id[1] = 0
+      cnc.id[2] = 0
+      current.wp = 1
+      processed.wp = 0
+      ;
+    END
+    SIGNAL s.reset.perf
   END
   ;
 .END
@@ -530,6 +566,18 @@ N_INT130    "s.pr.a.home"
     ;
     END
   END
+  ;
+.END
+.PROGRAM chg.pg.1 ()
+  ;
+  FOR .i = 1 TO 5
+    DRIVE 6, 90
+    DRIVE 6, -90
+  END
+  ;
+.END
+.PROGRAM chg.pg.2 ()
+  ;
   ;
 .END
 .PROGRAM chuck.close (.chuck.no,.time)
@@ -617,6 +665,7 @@ N_INT130    "s.pr.a.home"
   ;
   .$temp = "Pick workpiece from CNC. Tool:" + $ENCODE (.grip.no)
   .$temp = .$temp + " Chuck:" + $ENCODE (.chuck.no)
+  .$temp = .$temp + "L:" + $ENCODE(wp.length[.wp.state])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -674,6 +723,7 @@ N_INT130    "s.pr.a.home"
   ;
   .$temp = "Put workpiece in CNC. Tool:" + $ENCODE (.grip.no)
   .$temp = .$temp + " Chuck:" + $ENCODE (.chuck.no)
+  .$temp = .$temp + "L:" + $ENCODE(wp.length[.wp.state])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -809,18 +859,37 @@ N_INT130    "s.pr.a.home"
   IFPWPRINT 8, 1, 1, 5, 10 = .$robot.str, .$cont.str, " ", "Powered by Robowizard Co.Ltd."
   ;
 .END
-.PROGRAM ext.chg.pg.1 ()
-	; *******************************************************************
-	;
-	; Program:      ext.chg.pg.1
-	; Comment:      
-	; Author:       User
-	;
-	; Date:         9/8/2026
-	;
-	; *******************************************************************
-	;
-	
+.PROGRAM ext.change ()
+  ;
+  BREAK
+  HERE #state.bf.chg
+  ;
+  .chg.pg = chg.pg.no
+  .$pg.string = "chg.pg." + $ENCODE (/L, .chg.pg)
+  IF EXISTPGM (.$pg.string) THEN
+    CALL log ("Use changer program " +.$pg.string)
+    SCALL .$pg.string
+  ELSE
+    CALL log ("No changer program found!!!")
+    HALT
+  END
+  ;
+  IF grip.chg.ext[1, 1] THEN
+    .grip.before.chg = 1
+  ELSE
+    .grip.before.chg = 2
+  END
+  ;
+  IF grip.chg.ext[2, 1] THEN
+    .grip.after.chg = 1
+  ELSE
+    .grip.after.chg = 2
+  END
+  ;
+  gripper.id[] = gripper.id[.grip.before.chg]
+  ;
+  JMOVE #state.bf.chg
+  ;
 .END
 .PROGRAM get.from.hmi ()
   ;
@@ -1181,7 +1250,7 @@ N_INT130    "s.pr.a.home"
     SVALUE "wp.safe":
       CALL log ("Safe move from shelf")
       TDRAW 0, 0, -10
-      JMOVE #wp.safe[current.tool]
+      JMOVE #wp.safe[1]
     SVALUE "cnc.out":
       CALL log ("Safe move from CNC")
       LMOVE #cnc.out
@@ -1213,9 +1282,7 @@ N_INT130    "s.pr.a.home"
     BITS eo.next.wp[0], 8 = current.wp
   END
   ;
-  IF SIG(do.error) THEN
-    BITS eo.error.code[0], 16 = -ERROR
-  END
+  BITS eo.error.code[0], 16 = -ERROR
   ;
 .END
 .PROGRAM set.io.pc() #0
@@ -1335,9 +1402,10 @@ N_INT130    "s.pr.a.home"
   ei.task.start = 1113
   ei.data.ready = 1114
   ;
-  ei.subspindel = 1119
-  ei.i.changer = 1120
-  ei.e.changer = 1121
+  ei.subspindel = 1117
+  ei.i.changer = 1118
+  ei.e.changer = 1119
+  ei.skp.emp.cell = 1120
   ;
   ei.shelf.ready[1] = 1129
   ei.shelf.ready[2] = 1130
@@ -1390,8 +1458,8 @@ N_INT130    "s.pr.a.home"
   ;
   d.cnc.pg.no[0] = 1513 ; 8 bit
   d.chg.pg.no[0] = 1521 ; 8 bit
-  d.air.pg.no[1, 0] = 1529 ; 8 bit
-  d.air.pg.no[2, 0] = 1537 ; 8 bit
+  d.air.pg.1.no[1, 0] = 1529 ; 8 bit
+  d.air.pg.1.no[2, 0] = 1537 ; 8 bit
   d.wp.count[0] = 1545 ; 8 bit
   ;
   d.grip.inverse[1] = 1561
@@ -1433,6 +1501,9 @@ N_INT130    "s.pr.a.home"
   s.p.put.air.req = 2014
   s.a.pic.air.req = 2015
   s.change.req = 2016
+  s.ext.chg.req = 2017
+  ;
+  s.reset.perf = 2020 
   ;
   s.hmi.grip[1] = 2102
   s.hmi.grip[2] = 2103
@@ -1467,6 +1538,7 @@ N_INT130    "s.pr.a.home"
   PROG.DATE ON
   ABS.SPEED ON
   ERRSTART.PC ON  ;
+  AUTOSTART.PC ON
   ;
 .END
 .PROGRAM set.tool (.grip.no)
@@ -1726,7 +1798,8 @@ N_INT130    "s.pr.a.home"
   SIGNAL -s.p.put.air.req
   SIGNAL -s.a.pic.air.req
   SIGNAL -s.mcode.req
-  SIGNAL -s.inside.cnc
+  SIGNAL -s.change.req
+  SIGNAL -s.ext.chg.req
   current.shelf = 0
   ;
   state = 1
@@ -1784,15 +1857,26 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 10: Pick wp[1] from CNC")
   ;
-  IF grip.chg.int[1] THEN
-    .gp.chg = 1
-  ELSE
-    .gp.chg = 2
+  IF int.change THEN
+    .chuck = 2
+    IF grip.chg.int[1] THEN
+      .gp.chg = 1
+    ELSE
+      .gp.chg = 2
+    END
+  END
+  IF ext.change THEN
+    .chuck = 1
+    IF grip.chg.ext[1, 1] THEN
+      .gp.chg = 1
+    ELSE
+      .gp.chg = 2
+    END
   END
   ;
   .wp.state = 1
   .grip.no = .gp.chg
-  .chuck.no = 2
+  .chuck.no = .chuck
   ;
   CALL cnc.pick (.grip.no, .chuck.no, .wp.state)
   ;
@@ -1803,6 +1887,7 @@ N_INT130    "s.pr.a.home"
   END
   ;
   SIGNAL s.change.req
+  SIGNAL s.ext.chg.req
   ;
 .END
 .PROGRAM state100 () ; Select decision making module state
@@ -1814,13 +1899,13 @@ N_INT130    "s.pr.a.home"
     VALUE 0:
       decision.state = 101
     VALUE 1:
-      IF SIG (int.change) THEN
+      IF int.change THEN
         IF wp2.pick[1] THEN
           decision.state = 103
         ELSE
-          decision.state = 104
+          CALL log ("Impossible configuration!")
+          HALT
         END
-        ; Есть внутренний перехват + можно выбрать из какого патрона забираем
       ELSE
         IF wp2.pick[1] THEN
           decision.state = 101
@@ -1829,8 +1914,8 @@ N_INT130    "s.pr.a.home"
         END
       END
     VALUE 2:
-      IF SIG (int.change) THEN
-        ; Есть внутренний перехват + забираем из 1 патрона
+      IF int.change THEN
+        decision.state = 103
       ELSE
         decision.state = 101
       END
@@ -1838,17 +1923,27 @@ N_INT130    "s.pr.a.home"
       CALL log ("Impossible configuration!")
       HALT
     VALUE 4:
-      IF SIG (ext.change) THEN
-        ; Есть внешний перехват, забираем из 1 патрона
+      IF ext.change THEN
+        decision.state = 105
       ELSE
         decision.state = 101
       END
     VALUE 5:
-      IF SIG (ext.change) THEN
-        ; Есть внешний перехват, можно выбрать из какого патрона забираем
+      IF ext.change THEN
+        IF wp2.pick[1] THEN
+          decision.state = 105
+        ELSE
+          CALL log ("Impossible configuration!")
+          HALT
+        END
       ELSE
-        IF SIG (int.change) THEN
-          ; Есть внут перехват, можно выбрать из какого патрона забираем
+        IF int.change THEN
+          IF wp2.pick[1] THEN
+            decision.state = 103
+          ELSE
+            CALL log ("Impossible configuration!")
+            HALT
+          END
         ELSE
           IF wp2.pick[1] THEN
             decision.state = 101
@@ -1858,11 +1953,11 @@ N_INT130    "s.pr.a.home"
         END
       END
     VALUE 6:
-      IF SIG (ext.change) THEN
-        ; Есть внешний перехват, забираем из 1 патрона
+      IF ext.change THEN
+        decision.state = 105
       ELSE
-        IF SIG (int.change) THEN
-          ; Есть внут перехват,  забираем из 1 патрона
+        IF int.change THEN
+          decision.state = 103
         ELSE
           decision.state = 101
         END
@@ -1926,6 +2021,12 @@ N_INT130    "s.pr.a.home"
       RETURN
     END
     ;
+    ; Air blow after pick workpiece
+    IF .rin AND .gp.full[2] AND .cnc.empty[1] AND .air.ap THEN
+      state = 17
+      RETURN
+    END
+    ;
     ; Air blow before put workpiece
     IF .rin AND .gp.full[1] AND .cnc.empty[1] AND .air.bp THEN
       state = 16
@@ -1943,11 +2044,7 @@ N_INT130    "s.pr.a.home"
       state = 12
       RETURN
     END
-    ; Air blow after pick workpiece
-    IF .rin AND .gp.full[2] AND .cnc.empty[1] AND .air.ap THEN
-      state = 17
-      RETURN
-    END
+    ;;;
     ;
     ; Move outside cnc.in
     IF .rin AND (.gp.empty[1] AND .cnc.full[1] OR .gp.full[2] AND .cnc.empty[1]) THEN
@@ -1973,7 +2070,7 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM state102 () ; Decision making module 2
   ;
-  CALL log ("State 102: Decision making module 1")
+  CALL log ("State 102: Decision making module 2")
   ;
   .shelf.opened = SIG (eo.shelf.opened[current.shelf])
   .shelf.closed = NOT .shelf.opened
@@ -1988,6 +2085,9 @@ N_INT130    "s.pr.a.home"
   .cnc.empty[1] = cnc.id[1] == 0
   .cnc.full[1] = NOT .cnc.empty[1]
   .cnc.ready[1] = cnc.id[1] < 0
+  .cnc.empty[2] = cnc.id[2] == 0
+  .cnc.full[2] = NOT .cnc.empty[2]
+  .cnc.ready[2] = cnc.id[2] < 0
   ;
   .air.bp = SIG (s.p.put.air.req)
   .air.ap = SIG (s.a.pic.air.req)
@@ -2007,7 +2107,7 @@ N_INT130    "s.pr.a.home"
     END
     ;
     ; Send MFINISH
-    IF .rout AND .cnc.empty[1] AND .mfinish THEN
+    IF .rout AND .cnc.full[1] AND .mfinish THEN
       state = 18
       RETURN
     END
@@ -2087,6 +2187,9 @@ N_INT130    "s.pr.a.home"
   .cnc.empty[1] = cnc.id[1] == 0
   .cnc.full[1] = NOT .cnc.empty[1]
   .cnc.ready[1] = cnc.id[1] < 0
+  .cnc.empty[2] = cnc.id[2] == 0
+  .cnc.full[2] = NOT .cnc.empty[2]
+  .cnc.ready[2] = cnc.id[2] < 0
   ;
   .air.bp = SIG (s.p.put.air.req)
   .air.ap = SIG (s.a.pic.air.req)
@@ -2112,7 +2215,7 @@ N_INT130    "s.pr.a.home"
     END
     ;
     ; Send MFINISH
-    IF .rout AND .cnc.empty[1] AND .mfinish THEN
+    IF .rout AND .cnc.full[1] AND .mfinish THEN
       state = 18
       RETURN
     END
@@ -2124,7 +2227,7 @@ N_INT130    "s.pr.a.home"
     END
     ;
     ; Move inside CNC
-    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[.gp.chg] AND .cnc.full[2]) THEN
+    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[.gp.chg] AND .cnc.full[2]OR .gp.empty[.gp.chg] AND .cnc.ready[1]) THEN
       state = 7
       RETURN
     END
@@ -2153,7 +2256,136 @@ N_INT130    "s.pr.a.home"
       RETURN
     END
     ; Pick detail from CNC
-    IF .rin AND .gp.empty[2] AND .cnc.ready[1] THEN
+    IF .rin AND .gp.empty[2] AND .cnc.ready[1] AND NOT SIG(s.change.req) THEN
+      state = 12
+      RETURN
+    END
+    ; Air blow after pick workpiece
+    IF .rin AND .gp.full[2] AND .cnc.empty[1] AND .air.ap THEN
+      state = 17
+      RETURN
+    END
+    ;  ;
+    ;  ; Move outside cnc.in
+    IF .rin AND (.gp.empty[1] AND .cnc.full[1] OR .gp.full[2] AND .cnc.empty[1]) THEN
+      state = 8
+      RETURN
+    END
+    ;  ;
+    ; Put detail to stocker
+    IF .rout AND .gp.full[2] AND .gp.empty[1] THEN
+      state = 5
+      RETURN
+    END
+    ;
+    ; Close shelf
+    .ge = .gp.empty[1] AND .gp.empty[2]
+    .ce = .cnc.empty[1]
+    IF .rout AND .ge AND .ce AND .max.pick
+      state = 3
+      RETURN
+    END
+  END
+  ;
+.END
+.PROGRAM state105 () ; Decision making module 5
+  ;
+  CALL log ("State 105: Decision making module 5")
+  ;
+  .shelf.opened = SIG (eo.shelf.opened[current.shelf])
+  .shelf.closed = NOT .shelf.opened
+  .inside.cnc = SIG (s.inside.cnc)
+  .outside.cnc = NOT .inside.cnc
+  ;
+  .gp.empty[1] = gripper.id[1] == 0
+  .gp.full[1] = NOT .gp.empty[1]
+  .gp.empty[2] = gripper.id[2] == 0
+  .gp.full[2] = NOT .gp.empty[2]
+  ;
+  .cnc.empty[1] = cnc.id[1] == 0
+  .cnc.full[1] = NOT .cnc.empty[1]
+  .cnc.ready[1] = cnc.id[1] < 0
+  .cnc.empty[2] = cnc.id[2] == 0
+  .cnc.full[2] = NOT .cnc.empty[2]
+  .cnc.ready[2] = cnc.id[2] < 0
+  ;
+  .air.bp = SIG (s.p.put.air.req)
+  .air.ap = SIG (s.a.pic.air.req)
+  ;
+  .rout = .shelf.opened AND .outside.cnc
+  .rin = .shelf.opened AND .inside.cnc
+  ;
+  .mfinish = SIG (s.mcode.req)
+  .not.max.pick = current.wp <= wp.count
+  .max.pick = NOT .not.max.pick
+  ;
+  IF grip.chg.ext[1,1] THEN
+    .gp.chg.1 = 1
+  ELSE
+    .gp.chg.1 = 2
+  END
+  IF grip.chg.ext[2,1] THEN
+    .gp.chg.2 = 1
+  ELSE
+    .gp.chg.2 = 2
+  END
+  ;
+  WHILE TRUE DO
+    ; Open shelf in not opened
+    IF .shelf.closed THEN
+      state = 2
+      RETURN
+    END
+    ;
+    ; Send MFINISH
+    IF .rout AND .cnc.full[1] AND .mfinish THEN
+      state = 18
+      RETURN
+    END
+    ;
+    ; Pick workpiece from shelf
+    IF .rout AND .gp.empty[1] AND .gp.empty[2] AND .not.max.pick AND .cnc.empty[1] AND .cnc.empty[2] THEN
+      state = 4
+      RETURN
+    END
+    ;
+    ; Move inside CNC
+    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[2] AND .cnc.ready[1]) THEN
+      state = 7
+      RETURN
+    END
+    ;
+    ; Air blow before put workpiece
+    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND .air.bp AND NOT SIG (s.change.req) THEN
+      state = 16
+      RETURN
+    END
+    ;
+    ; Put workpiece to CNC
+    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND NOT SIG (s.change.req) THEN
+      state = 9
+      RETURN
+    END
+    ;
+    ; Pick for change
+    IF .rin AND .gp.empty[.gp.chg.1] AND .cnc.ready[1] THEN
+      state = 10
+      RETURN
+    END
+    ;
+    ; Perform change
+    IF .rin AND .gp.full[.gp.chg.1] AND .cnc.empty[1] AND SIG (s.change.req) THEN
+      state = 15 
+      RETURN
+    END
+    ;
+    ; Put after change
+    IF .rin AND .gp.full[.gp.chg.2] AND .cnc.empty[1] AND SIG (s.change.req) THEN
+      state = 11
+      RETURN
+    END
+    ; Pick detail from CNC
+    IF .rin AND .gp.empty[2] AND .cnc.ready[1] AND NOT SIG (s.change.req) AND  NOT SIG (s.ext.chg.req) THEN
       state = 12
       RETURN
     END
@@ -2227,23 +2459,21 @@ N_INT130    "s.pr.a.home"
   ;
 .END
 .PROGRAM state15 () ; Perform external change
-	; *******************************************************************
-	;
-	; Program:      state15
-	; Comment:      Perform external change
-	; Author:       User
-	;
-	; Date:         9/9/2026
-	;
-	; *******************************************************************
-	;
-	
+  ; 
+    ;
+  CALL log ("State 15: Perform external change")
+  CALL ext.change
+  SIGNAL -s.ext.chg.req
+  ;
+  state = decision.state
+  ;
 .END
 .PROGRAM state16 () ; Air blow before put WP[0]
   ;
   CALL log ("State 16: CNC chuck air blow before put wp[0]")
   ;CALL air.blow(st5.chuck)
   SIGNAL -s.p.put.air.req
+  CALL air.blow(1)
   ;
   state = decision.state
   ;
@@ -2253,6 +2483,7 @@ N_INT130    "s.pr.a.home"
   CALL log ("State 17: CNC chuck air blow after pick wp[2]")
   ;CALL air.blow(st6.chuck)
   SIGNAL -s.a.pic.air.req
+  CALL air.blow(2)
   ;
   state = decision.state
   ;
@@ -2269,15 +2500,20 @@ N_INT130    "s.pr.a.home"
   ELSE
     .current.chuck = 2
   END
-  IF wp2.pick[1] THEN     
+  IF wp2.pick[1] THEN
     .new.chuck = 1
   ELSE
     .new.chuck = 2
   END
+  IF int.change THEN
+    .new.chuck = 2
+  END
   ;
-  cnc.id[.current.chuck] = -cnc.id[.new.chuck]
-  IF .current.chuck <> .new.chuck THEN
-    cnc.id[.current.chuck] = 0
+  IF cnc.id[.current.chuck] > 0 THEN
+    cnc.id[.new.chuck] = -cnc.id[.current.chuck]
+    IF .current.chuck <> .new.chuck THEN
+      cnc.id[.current.chuck] = 0
+    END
   END
   SIGNAL -s.mcode.req
   ;
@@ -2299,17 +2535,14 @@ N_INT130    "s.pr.a.home"
   ;
 .END
 .PROGRAM state255 () ; Task finished
-	; *******************************************************************
-	;
-	; Program:      state255
-	; Comment:      Task finished
-	; Author:       User
-	;
-	; Date:         9/9/2026
-	;
-	; *******************************************************************
-	;
-	
+  ;
+  CALL log("State 255: Task complete")
+  ;
+  SIGNAL -eo.task.exec
+  ;
+  state = 0 
+  RETURN
+  ;
 .END
 .PROGRAM state3 () ; Close shelf
   ;
@@ -2317,7 +2550,7 @@ N_INT130    "s.pr.a.home"
   CALL shelf.close(current.shelf)
   ;
   IF NOT SIG(s.shelf.failed) THEN
-    state = 18
+    state = 6
     RETURN
   ELSE
     state = 255
@@ -2376,7 +2609,7 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM state6 () ; Finish shelf
   ;
-  CALL log("State 4: Finish shelf")
+  CALL log("State 6: Finish shelf")
   PULSE eo.shelf.cmplt[current.shelf], 1
   ;
   ;
@@ -2390,7 +2623,7 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 7: Move inside CNC")
   ;
-    IF grip.chg.int[1] THEN
+  IF grip.chg.int[1] THEN
     .gp.chg = 1
   ELSE
     .gp.chg = 2
@@ -2421,6 +2654,15 @@ N_INT130    "s.pr.a.home"
       IF gripper.id[.gp.chg] == 0 AND cnc.id[2] <> 0 THEN
         .grip.no = .gp.chg
         .chuck.no = 2
+      END
+    VALUE 105:
+      IF gripper.id[1] <> 0 AND cnc.id[1] == 0 THEN
+        .grip.no = 1
+        .chuck.no = 1
+      END
+      IF gripper.id[2] == 0 AND cnc.id[1] < 0 THEN
+        .grip.no = 2
+        .chuck.no = 1
       END
   END
   ;
@@ -2464,8 +2706,21 @@ N_INT130    "s.pr.a.home"
         .grip.no = 1
         .chuck.no = 1
       END
-      IF gripper.id[.gp.chg] == 0 AND cnc.id[1] <> 0 THEN
+      IF gripper.id[.gp.chg] == 0 AND cnc.id[1] < 0 THEN
         .grip.no = .gp.chg
+        .chuck.no = 1
+      END
+      IF gripper.id[2] <> 0 AND cnc.id[1] == 0 THEN
+        .grip.no = 2
+        .chuck.no = 1
+      END
+    VALUE 105:
+      IF gripper.id[1] == 0 AND cnc.id[1] == 0 THEN
+        .grip.no = 1
+        .chuck.no = 1
+      END
+      IF gripper.id[1] == 0 AND cnc.id[1] <> 0 THEN
+        .grip.no = 1
         .chuck.no = 1
       END
       IF gripper.id[2] <> 0 AND cnc.id[1] == 0 THEN
@@ -2486,6 +2741,7 @@ N_INT130    "s.pr.a.home"
   IF air.blow[2] THEN
     SIGNAL s.a.pic.air.req
   END
+  SIGNAL -s.change.req
   ;
   state = decision.state
   ;
@@ -2508,6 +2764,7 @@ N_INT130    "s.pr.a.home"
   .$temp = "Pick workpiece. Shelf:" + $ENCODE (.shelf.no)
   .$temp = .$temp + " Tool:" + $ENCODE (.grip.no)
   .$temp = .$temp + " ID:" + $ENCODE (.wp.id)
+  .$temp = .$temp + "L:" + $ENCODE (wp.length[0])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -2519,7 +2776,11 @@ N_INT130    "s.pr.a.home"
   CALL id.to.ij (.wp.id, .i, .j)
   SIGNAL -s.search.fail
   ;
-  .epsilon = pick.epsilon
+  IF SIG (ei.skp.emp.cell) THEN
+    .epsilon = 0.1
+  ELSE
+    .epsilon = -1
+  END
   ;
   ; Calculate shifts
   .dx = plt.dx * .i + plt.ox
@@ -2602,6 +2863,7 @@ N_INT130    "s.pr.a.home"
   .$temp = "Put workpiece. Shelf:" + $ENCODE (.shelf.no)
   .$temp = .$temp + " Tool:" + $ENCODE (.grip.no)
   .$temp = .$temp + " ID:" + $ENCODE (.wp.id)
+  .$temp = .$temp + "L:" + $ENCODE(wp.length[2])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -2703,6 +2965,19 @@ N_INT130    "s.pr.a.home"
 	; cnc.id[1]
 	; gripper.id[2]
 	; wp2.pick[1]
+	; plt.ox
+	; plt.dy
+	; wp2.pick[2]
+	; ei.subspindel
+	; ei.i.changer
+	; ei.e.changer
+	; grip.chg.int[1]
+	; int.change
+	; s.a.pic.air.req
+	; air.blow.on
+	; s.reset.perf
+	; grip.chg.ext[1,1]
+	; grip.chg.ext[2,1]
 	; @@@ CONNECTION @@@
 	; LoadwizardDefault
 	; 192.168.1.102
@@ -2714,20 +2989,64 @@ N_INT130    "s.pr.a.home"
 	;     1:state2:F
 	;     1:state3:F
 	;     1:state4:F
+	;       .grip.no 
 	;     1:state5:F
+	;       .grip.no 
+	;       .wp.id 
 	;     1:state6:F
 	;     1:state7:F
+	;       .gp.chg 
+	;       .grip.no 
+	;       .chuck.no 
 	;     1:state8:F
+	;       .gp.chg 
+	;       .grip.no 
+	;       .chuck.no 
 	;     1:state9:F
+	;       .wp.state 
+	;       .grip.no 
+	;       .chuck.no 
 	;     1:state10:F
+	;       .gp.chg 
+	;       .wp.state 
+	;       .grip.no 
+	;       .chuck.no 
 	;     1:state11:F
+	;       .gp.chg 
+	;       .wp.state 
+	;       .grip.no 
+	;       .chuck.no 
 	;     1:state12:F
+	;       .wp.state 
+	;       .grip.no 
+	;       .chuck.no 
 	;     1:state15:F
 	;     1:state16:F
 	;     1:state17:F
 	;     1:state18:F
+	;       .current.chuck 
+	;       .new.chuck 
 	;     1:state100:F
+	;       .config 
 	;     1:state101:F
+	;       .shelf.opened 
+	;       .shelf.closed 
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;       .gp.empty 
+	;       .gp.full 
+	;       .cnc.empty 
+	;       .cnc.full 
+	;       .cnc.ready 
+	;       .air.bp 
+	;       .air.ap 
+	;       .rout 
+	;       .rin 
+	;       .mfinish 
+	;       .not.max.pick 
+	;       .max.pick 
+	;       .ge 
+	;       .ce 
 	;       .gp.empty[1] 
 	;       .gp.full[1] 
 	;       .gp.empty[2] 
@@ -2735,6 +3054,24 @@ N_INT130    "s.pr.a.home"
 	;       .cnc.empty[1] 
 	;       .cnc.full[1] 
 	;     1:state102:F
+	;       .shelf.opened 
+	;       .shelf.closed 
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;       .gp.empty 
+	;       .gp.full 
+	;       .cnc.empty 
+	;       .cnc.full 
+	;       .cnc.ready 
+	;       .air.bp 
+	;       .air.ap 
+	;       .rout 
+	;       .rin 
+	;       .mfinish 
+	;       .not.max.pick 
+	;       .max.pick 
+	;       .ge 
+	;       .ce 
 	;       .gp.empty[1] 
 	;       .gp.full[1] 
 	;       .gp.empty[2] 
@@ -2742,12 +3079,32 @@ N_INT130    "s.pr.a.home"
 	;       .cnc.empty[1] 
 	;       .cnc.full[1] 
 	;     1:state103:F
+	;       .shelf.opened 
+	;       .shelf.closed 
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;       .gp.empty 
+	;       .gp.full 
+	;       .cnc.empty 
+	;       .cnc.full 
+	;       .cnc.ready 
+	;       .air.bp 
+	;       .air.ap 
+	;       .rout 
+	;       .rin 
+	;       .mfinish 
+	;       .not.max.pick 
+	;       .max.pick 
+	;       .gp.chg 
+	;       .ge 
+	;       .ce 
 	;       .gp.empty[1] 
 	;       .gp.full[1] 
 	;       .gp.empty[2] 
 	;       .gp.full[2] 
 	;       .cnc.empty[1] 
 	;       .cnc.full[1] 
+	;     1:state105:F
 	;     1:state255:F
 	;   Group:CNC:2
 	;     2:cnc.put:F
@@ -2773,8 +3130,20 @@ N_INT130    "s.pr.a.home"
 	;       .temp 
 	;       .x.pick 
 	;     2:cnc.test.pick:F
+	;       .grip.no 
+	;       .chuck.no 
 	;     2:cnc.test.put:F
+	;       .grip.no 
+	;       .chuck.no 
 	;     2:cnc.teach:F
+	;       .grip.no 
+	;       .chuck.no 
+	;       .gc.full 
+	;       .gc.body 
+	;       .cncc.full 
+	;       .cncc.body 
+	;       .temp 
+	;       .zshift 
 	;   Group:CNC.Approach:3
 	;     3:calc.rotation:F
 	;       .grip.no 
@@ -2800,9 +3169,14 @@ N_INT130    "s.pr.a.home"
 	;   Group:Safety:5
 	;     5:safe.home:F
 	;   Group:Ext. changer:6
-	;     6:ext.chg.pg.1:F
+	;     6:chg.pg.1:F
+	;     6:ext.change:F
+	;     6:chg.pg.2:F
 	;   Group:Air:7
-	;     7:air.blow.pg.1:F
+	;     7:air.pg.1:F
+	;     7:air.blow:F
+	;       .air 
+	;     7:air.pg.3:F
 	;   Group:Workpiece:8
 	;     8:wp.pick:F
 	;       .shelf.no 
@@ -2831,8 +3205,6 @@ N_INT130    "s.pr.a.home"
 	;       .grip.no 
 	;       .wp.id 
 	;       .$temp 
-	;       .tool.no 
-	;       .wp.no 
 	;       .i 
 	;       .j 
 	;       .dx 
@@ -2866,10 +3238,8 @@ N_INT130    "s.pr.a.home"
 	;       .px 
 	;       .py 
 	;       .f 
-	;       .tool.no 
 	;     10:plate.test:F
 	;       .grip.no 
-	;       .tool.no 
 	;   Group:Shelves:11
 	;     11:shelf.teach:F
 	;     11:shelf.test:F
@@ -3019,6 +3389,7 @@ N_INT130    "s.pr.a.home"
 	; $log.entry[] 
 	; @@@ INTEGER @@@
 	; @@@ SIGNALS @@@
+	; s.reset.perf 
 	; ei.robot.speed[] Robot speed from PLC
 	; o.debug Robot is in DEBUG mode
 	; s.hmi.grip[] Selected tool on HMI
@@ -3138,6 +3509,8 @@ N_INT130    "s.pr.a.home"
 	; s.pr.tch.cnc 
 	; s.pr.tst.cnc.pi 
 	; s.change.req 
+	; ei.skp.emp.cell 
+	; s.ext.chg.req 
 	; @@@ TOOLS @@@
 	; tool.calib[] 
 	; tool.gripper[] 
@@ -3218,6 +3591,7 @@ cnc.point[2,2] -1000.531860 677.902039 245.002518 89.331146 89.763901 89.989349
 #air.safe[2] -84.161491 -4.293500 91.774529 -41.510479 -8.320084 -259.742584
 .END
 .REALS
+s.reset.perf = 2020
 log.max.count = 256
 current.tool = 0
 ei.robot.speed[0] = 1145
@@ -3456,18 +3830,18 @@ do.safety.fence = 76
 do.teach = 69
 do.teach.lock = 70
 ei.data.ready = 1114
-ei.e.changer = 1121
+ei.e.changer = 1119
 eo.shelf.cmplt[2] = 139
 eo.shelf.cmplt[3] = 140
 hmi.air.pg = 0
 eo.shelf.cmplt[4] = 141
-ei.i.changer = 1120
+ei.i.changer = 1118
 eo.grip.c.opend[2] = 90
 eo.grip.sensor[2] = 93
 eo.grip.sensor[1] = 85
 eo.grip.s.opend[2] = 89
 eo.grip.s.opend[1] = 81
-ei.subspindel = 1119
+ei.subspindel = 1117
 ei.task.start = 1113
 ei.grip.close[1] = 1082
 s.pr.tst.cnc.pu = 2115
@@ -3491,6 +3865,8 @@ ei.grip.open[2] = 1089
 hmi.chg.pg = 0
 decision.state = 0
 s.change.req = 2016
+ei.skp.emp.cell = 1120
+s.ext.chg.req = 2017
 .END
 .STRINGS
 $safe.flag = "cnc.in"
