@@ -167,6 +167,7 @@ N_INT14    "s.p.put.air.req"
 N_INT15    "s.a.pic.air.req"
 N_INT16    "s.change.req"
 N_INT17    "s.ext.chg.req"
+N_INT18    "s.chg.ok"
 N_INT20    "s.reset.perf"
 N_INT102    "s.hmi.grip[1]"
 N_INT103    "s.hmi.grip[2]"
@@ -478,6 +479,7 @@ N_INT130    "s.pr.a.home"
       SIGNAL -s.a.pic.air.req
       SIGNAL -s.mcode.req
       SIGNAL -s.change.req
+      SIGNAL -s.chg.ok
       SIGNAL -s.ext.chg.req
       current.shelf = 1
       ;
@@ -485,8 +487,12 @@ N_INT130    "s.pr.a.home"
       ;
       gripper.id[1] = 0
       gripper.id[2] = 0
+      ;gripper.state[1] = -1
+      ;gripper.state[2] = -1
       cnc.id[1] = 0
       cnc.id[2] = 0
+      ;cnc.state[1] = -1
+      ;cnc.state[2] = -1
       current.wp = 1
       processed.wp = 0
       ;
@@ -710,7 +716,9 @@ N_INT130    "s.pr.a.home"
   CALL chuck.open (.chuck.no, tmr.cnc.op[.chuck.no])
   ;
   gripper.id[.grip.no] = cnc.id[.chuck.no]
+  gripper.state[.grip.no] = .wp.state
   cnc.id[.chuck.no] = 0
+  ;cnc.state[.chuck.no] = -1
   ;
   SPEED 20
   ACCURACY 0.1
@@ -765,7 +773,9 @@ N_INT130    "s.pr.a.home"
   ;
   SIGNAL s.mcode.req
   cnc.id[.chuck.no] = gripper.id[.grip.no]
+  ;cnc.state[.chuck.no] = .wp.state
   gripper.id[.grip.no] = 0
+  ;gripper.state[.grip.no] = -1
   ;
   SPEED 20
   ACCURACY 0.1
@@ -886,7 +896,7 @@ N_INT130    "s.pr.a.home"
     .grip.after.chg = 2
   END
   ;
-  gripper.id[] = gripper.id[.grip.before.chg]
+  gripper.id[.grip.after.chg] = gripper.id[.grip.before.chg]
   ;
   JMOVE #state.bf.chg
   ;
@@ -987,15 +997,15 @@ N_INT130    "s.pr.a.home"
     air.blow.speed = 10
   END
   ;
-  tmr.grip.op[1]       = BITS (ei.t.grip.op[1, 0], 8)
-  tmr.grip.cl[1]       = BITS (ei.t.grip.cl[1, 0], 8)
-  tmr.grip.op[2]       = BITS (ei.t.grip.op[2, 0], 8)
-  tmr.grip.cl[2]       = BITS (ei.t.grip.cl[2, 0], 8)
+  tmr.grip.op[1]       = BITS (ei.t.grip.op[1, 0], 8)/10
+  tmr.grip.cl[1]       = BITS (ei.t.grip.cl[1, 0], 8)/10
+  tmr.grip.op[2]       = BITS (ei.t.grip.op[2, 0], 8)/10
+  tmr.grip.cl[2]       = BITS (ei.t.grip.cl[2, 0], 8)/10
   ;
-  tmr.cnc.op[1]        = BITS (ei.t.cnc.open[1, 0], 8)
-  tmr.cnc.cl[1]        = BITS (ei.t.cnc.close[1, 0], 8)
-  tmr.cnc.op[2]        = BITS (ei.t.cnc.open[2, 0], 8)
-  tmr.cnc.cl[2]        = BITS (ei.t.cnc.close[2, 0], 8)
+  tmr.cnc.op[1]        = BITS (ei.t.cnc.open[1, 0], 8)/10
+  tmr.cnc.cl[1]        = BITS (ei.t.cnc.close[1, 0], 8)/10
+  tmr.cnc.op[2]        = BITS (ei.t.cnc.open[2, 0], 8)/10
+  tmr.cnc.cl[2]        = BITS (ei.t.cnc.close[2, 0], 8)/10
   ;
 .END
 .PROGRAM get.task.data ()
@@ -1173,7 +1183,7 @@ N_INT130    "s.pr.a.home"
   POINT .po = #plate.pt.o[hmi.shelf.no, .grip.no]
   POINT .px = #plate.pt.x[hmi.shelf.no, .grip.no]
   POINT .py = #plate.pt.y[hmi.shelf.no, .grip.no]
-  POINT .f = FRAME (.po, .px, .py, .py)
+  POINT .f = FRAME (.po, .px, .py, .po)
   POINT .f = .f + TRANS (-80, 0, 0)
   POINT shelf.frame[hmi.shelf.no, .grip.no] = .f
   ;
@@ -1502,6 +1512,7 @@ N_INT130    "s.pr.a.home"
   s.a.pic.air.req = 2015
   s.change.req = 2016
   s.ext.chg.req = 2017
+  s.chg.ok = 2018
   ;
   s.reset.perf = 2020 
   ;
@@ -1538,7 +1549,7 @@ N_INT130    "s.pr.a.home"
   PROG.DATE ON
   ABS.SPEED ON
   ERRSTART.PC ON  ;
-  AUTOSTART.PC ON
+  autostart.pc ON
   ;
 .END
 .PROGRAM set.tool (.grip.no)
@@ -1799,6 +1810,7 @@ N_INT130    "s.pr.a.home"
   SIGNAL -s.a.pic.air.req
   SIGNAL -s.mcode.req
   SIGNAL -s.change.req
+  SIGNAL -s.chg.ok
   SIGNAL -s.ext.chg.req
   current.shelf = 0
   ;
@@ -1829,8 +1841,12 @@ N_INT130    "s.pr.a.home"
       ;
       gripper.id[1] = 0
       gripper.id[2] = 0
+      gripper.state[1] = -1
+      gripper.state[2] = -1
       cnc.id[1]     = 0
       cnc.id[2]     = 0
+      ;cnc.state[1] = -1
+      ;cnc.state[2] = -1
       current.wp    = 1
       processed.wp  = 0
       ;
@@ -2368,13 +2384,13 @@ N_INT130    "s.pr.a.home"
     END
     ;
     ; Pick for change
-    IF .rin AND .gp.empty[.gp.chg.1] AND .cnc.ready[1] THEN
+    IF .rin AND .gp.empty[.gp.chg.1] AND .cnc.ready[1] AND NOT SIG (s.chg.ok) AND NOT SIG (s.change.req) THEN
       state = 10
       RETURN
     END
     ;
     ; Perform change
-    IF .rin AND .gp.full[.gp.chg.1] AND .cnc.empty[1] AND SIG (s.change.req) THEN
+    IF .rin AND .gp.full[.gp.chg.1] AND .cnc.empty[1] AND SIG (s.change.req) AND SIG (s.ext.chg.req) THEN
       state = 15 
       RETURN
     END
@@ -2385,7 +2401,7 @@ N_INT130    "s.pr.a.home"
       RETURN
     END
     ; Pick detail from CNC
-    IF .rin AND .gp.empty[2] AND .cnc.ready[1] AND NOT SIG (s.change.req) AND  NOT SIG (s.ext.chg.req) THEN
+    IF .rin AND .gp.empty[2] AND .cnc.ready[1] AND SIG (s.chg.ok) AND  NOT SIG (s.ext.chg.req) THEN
       state = 12
       RETURN
     END
@@ -2435,6 +2451,7 @@ N_INT130    "s.pr.a.home"
   ;
   state = decision.state
   ;
+  SIGNAL s.chg.ok
   
 .END
 .PROGRAM state12 () ; Pick WP[2] from CNC
@@ -2604,6 +2621,8 @@ N_INT130    "s.pr.a.home"
   .wp.id = ABS (gripper.id[.grip.no])
   CALL wp.put (current.shelf, .grip.no, .wp.id)
   ;
+  SIGNAL -s.chg.ok
+  ;
   state = decision.state
   ;
 .END
@@ -2623,10 +2642,20 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 7: Move inside CNC")
   ;
-  IF grip.chg.int[1] THEN
-    .gp.chg = 1
-  ELSE
-    .gp.chg = 2
+  IF int.change THEN
+    IF grip.chg.int[1] THEN
+      .gp.chg = 1
+    ELSE
+      .gp.chg = 2
+    END
+  END
+  ;
+  IF ext.change THEN
+    IF grip.chg.ext[1, 1] THEN
+      .gp.chg = 1
+    ELSE
+      .gp.chg = 2
+    END
   END
   ;
   CASE decision.state OF
@@ -2662,6 +2691,11 @@ N_INT130    "s.pr.a.home"
       END
       IF gripper.id[2] == 0 AND cnc.id[1] < 0 THEN
         .grip.no = 2
+        .chuck.no = 1
+      END
+      ;SIG (s.ext.chg.req)
+      IF gripper.id[.gp.chg] == 0 AND cnc.id[1] < 0 AND SIG(s.ext.chg.req) THEN
+        .grip.no = .gp.chg
         .chuck.no = 1
       END
   END
@@ -2840,6 +2874,7 @@ N_INT130    "s.pr.a.home"
     CALL log ("Detail found")
     CALL grip.close (.grip.no, tmr.grip.cl[.grip.no], grip.inverse[.grip.no])
     gripper.id[.grip.no] = .wp.id
+    gripper.state[.grip.no] = 0
   END
   ;
   SPEED 20
@@ -2913,6 +2948,7 @@ N_INT130    "s.pr.a.home"
   CALL grip.open (.grip.no, tmr.grip.op[.grip.no], grip.inverse[.grip.no])
   ;
   gripper.id[.grip.no] = 0
+  gripper.state[.grip.no] = -1
   processed.wp = processed.wp + 1
   ;
   SPEED 20
@@ -2978,6 +3014,9 @@ N_INT130    "s.pr.a.home"
 	; s.reset.perf
 	; grip.chg.ext[1,1]
 	; grip.chg.ext[2,1]
+	; s.ext.chg.req
+	; tmr.grip.op[1]
+	; tmr.grip.op[2]
 	; @@@ CONNECTION @@@
 	; LoadwizardDefault
 	; 192.168.1.102
@@ -3007,6 +3046,7 @@ N_INT130    "s.pr.a.home"
 	;       .grip.no 
 	;       .chuck.no 
 	;     1:state10:F
+	;       .chuck 
 	;       .gp.chg 
 	;       .wp.state 
 	;       .grip.no 
@@ -3105,6 +3145,26 @@ N_INT130    "s.pr.a.home"
 	;       .cnc.empty[1] 
 	;       .cnc.full[1] 
 	;     1:state105:F
+	;       .shelf.opened 
+	;       .shelf.closed 
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;       .gp.empty 
+	;       .gp.full 
+	;       .cnc.empty 
+	;       .cnc.full 
+	;       .cnc.ready 
+	;       .air.bp 
+	;       .air.ap 
+	;       .rout 
+	;       .rin 
+	;       .mfinish 
+	;       .not.max.pick 
+	;       .max.pick 
+	;       .gp.chg.1 
+	;       .gp.chg.2 
+	;       .ge 
+	;       .ce 
 	;     1:state255:F
 	;   Group:CNC:2
 	;     2:cnc.put:F
@@ -3170,12 +3230,19 @@ N_INT130    "s.pr.a.home"
 	;     5:safe.home:F
 	;   Group:Ext. changer:6
 	;     6:chg.pg.1:F
+	;       .i 
 	;     6:ext.change:F
+	;       .chg.pg 
+	;       .$pg.string 
+	;       .grip.before.chg 
+	;       .grip.after.chg 
 	;     6:chg.pg.2:F
 	;   Group:Air:7
 	;     7:air.pg.1:F
 	;     7:air.blow:F
 	;       .air 
+	;       .air.pg 
+	;       .$pg.string 
 	;     7:air.pg.3:F
 	;   Group:Workpiece:8
 	;     8:wp.pick:F
@@ -3511,6 +3578,7 @@ N_INT130    "s.pr.a.home"
 	; s.change.req 
 	; ei.skp.emp.cell 
 	; s.ext.chg.req 
+	; s.chg.ok 
 	; @@@ TOOLS @@@
 	; tool.calib[] 
 	; tool.gripper[] 
@@ -3554,6 +3622,7 @@ cnc.point[2,1] -1002.876343 77.479698 242.755905 -90.045998 89.946999 -90.001434
 cnc.point[1,2] -899.975464 1000.389648 211.689133 89.997078 89.996483 120.955223
 cnc.point[1,1] -1003.931335 76.937141 241.550674 -90.469170 91.337952 -89.994102
 cnc.point[2,2] -1000.531860 677.902039 245.002518 89.331146 89.763901 89.989349
+shelf.frame[2,1] 1056.517822 663.051331 41.468060 -10.040622 179.120285 -100.170883
 .END
 .JOINTS
 #wp.safe[1] 69.568573 8.663290 97.904053 114.625549 -68.547127 10.075710
@@ -3867,263 +3936,264 @@ decision.state = 0
 s.change.req = 2016
 ei.skp.emp.cell = 1120
 s.ext.chg.req = 2017
+s.chg.ok = 2018
 .END
 .STRINGS
 $safe.flag = "cnc.in"
-$log.entry[1] = ""
-$log.entry[2] = ""
-$log.entry[3] = ""
-$log.entry[4] = ""
-$log.entry[5] = ""
-$log.entry[6] = ""
-$log.entry[7] = ""
-$log.entry[8] = ""
-$log.entry[9] = ""
-$log.entry[10] = ""
-$log.entry[11] = ""
-$log.entry[12] = ""
-$log.entry[13] = ""
-$log.entry[14] = ""
-$log.entry[15] = ""
-$log.entry[16] = ""
-$log.entry[17] = ""
-$log.entry[18] = ""
-$log.entry[19] = ""
-$log.entry[20] = ""
-$log.entry[21] = ""
-$log.entry[22] = ""
-$log.entry[23] = ""
-$log.entry[24] = ""
-$log.entry[25] = ""
-$log.entry[26] = ""
-$log.entry[27] = ""
-$log.entry[28] = ""
-$log.entry[29] = ""
-$log.entry[30] = ""
-$log.entry[31] = ""
-$log.entry[32] = ""
-$log.entry[33] = ""
-$log.entry[34] = ""
-$log.entry[35] = ""
-$log.entry[36] = ""
-$log.entry[37] = ""
-$log.entry[38] = ""
-$log.entry[39] = ""
-$log.entry[40] = ""
-$log.entry[41] = ""
-$log.entry[42] = ""
-$log.entry[43] = ""
-$log.entry[44] = ""
-$log.entry[45] = ""
-$log.entry[46] = ""
-$log.entry[47] = ""
-$log.entry[48] = ""
-$log.entry[49] = ""
-$log.entry[50] = ""
-$log.entry[51] = ""
-$log.entry[52] = ""
-$log.entry[53] = ""
-$log.entry[54] = ""
-$log.entry[55] = ""
-$log.entry[56] = ""
-$log.entry[57] = ""
-$log.entry[58] = ""
-$log.entry[59] = ""
-$log.entry[60] = ""
-$log.entry[61] = ""
-$log.entry[62] = ""
-$log.entry[63] = ""
-$log.entry[64] = ""
-$log.entry[65] = ""
-$log.entry[66] = ""
-$log.entry[67] = ""
-$log.entry[68] = ""
-$log.entry[69] = ""
-$log.entry[70] = ""
-$log.entry[71] = ""
-$log.entry[72] = ""
-$log.entry[73] = ""
-$log.entry[74] = ""
-$log.entry[75] = ""
-$log.entry[76] = ""
-$log.entry[77] = ""
-$log.entry[78] = ""
-$log.entry[79] = ""
-$log.entry[80] = ""
-$log.entry[81] = ""
-$log.entry[82] = ""
-$log.entry[83] = ""
-$log.entry[84] = ""
-$log.entry[85] = ""
-$log.entry[86] = ""
-$log.entry[87] = ""
-$log.entry[88] = ""
-$log.entry[89] = ""
-$log.entry[90] = ""
-$log.entry[91] = ""
-$log.entry[92] = ""
-$log.entry[93] = ""
-$log.entry[94] = ""
-$log.entry[95] = ""
-$log.entry[96] = ""
-$log.entry[97] = ""
-$log.entry[98] = ""
-$log.entry[99] = ""
-$log.entry[100] = ""
-$log.entry[101] = ""
-$log.entry[102] = ""
-$log.entry[103] = ""
-$log.entry[104] = ""
-$log.entry[105] = ""
-$log.entry[106] = ""
-$log.entry[107] = ""
-$log.entry[108] = ""
-$log.entry[109] = ""
-$log.entry[110] = "17:10:28 Robot boot initialize completed"
-$log.entry[111] = "17:12:43 Main program executed"
-$log.entry[112] = "17:12:43 Command close gripper 1"
-$log.entry[113] = "17:12:43 Command close gripper 2"
-$log.entry[114] = "17:12:43 Performing safe movement to home position"
-$log.entry[115] = "17:13:05 Speed 50 was applied"
-$log.entry[116] = "17:13:26 Robot in home position"
-$log.entry[117] = "17:13:35 State 0: Initialization"
-$log.entry[118] = "17:13:35 Waiting for task start"
-$log.entry[119] = "17:13:35 State 1: Check ready shelves"
-$log.entry[120] = "17:13:35 Shelf 1 is ready. Request data!"
-$log.entry[121] = "17:13:36 Get task data from PLC"
-$log.entry[122] = "17:13:36 State 100: Select decision making module state"
-$log.entry[123] = "17:13:36 State 101: Decision making module 1"
-$log.entry[124] = "17:13:36 State 2: Open shelf"
-$log.entry[125] = "17:13:36 Open shelf 1"
-$log.entry[126] = "17:13:36 Tool3 set"
-$log.entry[127] = "17:13:36 Command close gripper 1"
-$log.entry[128] = "17:13:37 Command close gripper 2"
-$log.entry[129] = "17:13:39 Request unlock shelf 1"
-$log.entry[130] = "17:13:39 Shelf 1 successfully unlocked"
-$log.entry[131] = "17:13:45 State 101: Decision making module 1"
-$log.entry[132] = "17:13:45 State 4: Pick workpiece from shelf"
-$log.entry[133] = "17:13:45 Pick workpiece. Shelf: 1 Tool: 1 ID: 1"
-$log.entry[134] = "17:13:45 Tool1 set"
-$log.entry[135] = "17:13:45 Command open gripper 1"
-$log.entry[136] = "17:13:47 Speed 20 was applied"
-$log.entry[137] = "17:22:34 Reset command executed"
-$log.entry[138] = "17:22:34 Reset command executed"
-$log.entry[139] = "17:22:34 Reset command executed"
-$log.entry[140] = "17:22:34 Reset command executed"
-$log.entry[141] = "17:22:34 Reset command executed"
-$log.entry[142] = "17:22:34 Reset command executed"
-$log.entry[143] = "17:22:34 Reset command executed"
-$log.entry[144] = "17:22:43 Main program executed"
-$log.entry[145] = "17:22:43 Command close gripper 1"
-$log.entry[146] = "17:22:43 Command close gripper 2"
-$log.entry[147] = "17:22:43 Performing safe movement to home position"
-$log.entry[148] = "17:22:43 Safe move from shelf"
-$log.entry[149] = "17:22:43 Tool3 set"
-$log.entry[150] = "17:22:59 Robot in home position"
-$log.entry[151] = "17:23:08 State 0: Initialization"
-$log.entry[152] = "17:23:08 Waiting for task start"
-$log.entry[153] = "17:23:09 State 1: Check ready shelves"
-$log.entry[154] = "17:23:09 Shelf 1 is ready. Request data!"
-$log.entry[155] = "17:23:09 Get task data from PLC"
-$log.entry[156] = "17:23:09 State 100: Select decision making module state"
-$log.entry[157] = "17:23:09 State 101: Decision making module 1"
-$log.entry[158] = "17:23:09 State 2: Open shelf"
-$log.entry[159] = "17:23:09 Open shelf 1"
-$log.entry[160] = "17:23:10 Tool3 set"
-$log.entry[161] = "17:23:10 Command close gripper 1"
-$log.entry[162] = "17:23:10 Command close gripper 2"
-$log.entry[163] = "17:23:14 Request unlock shelf 1"
-$log.entry[164] = "17:23:14 Shelf 1 successfully unlocked"
-$log.entry[165] = "17:23:19 State 101: Decision making module 1"
-$log.entry[166] = "17:23:20 State 4: Pick workpiece from shelf"
-$log.entry[167] = "17:23:20 Pick workpiece. Shelf: 1 Tool: 1 ID: 1"
-$log.entry[168] = "17:23:20 Tool1 set"
-$log.entry[169] = "17:23:20 Command open gripper 1"
-$log.entry[170] = "17:23:20 ID: 1 --> i: 0 j: 0"
-$log.entry[171] = "17:23:24 Distance: 0.00354"
-$log.entry[172] = "17:23:24 Detail search failed, move to the next pick"
-$log.entry[173] = "17:23:25 State 4: Pick workpiece from shelf"
-$log.entry[174] = "17:23:25 Pick workpiece. Shelf: 1 Tool: 1 ID: 2"
-$log.entry[175] = "17:23:25 Tool1 set"
-$log.entry[176] = "17:23:26 Command open gripper 1"
-$log.entry[177] = "17:23:26 ID: 2 --> i: 0 j: 1"
-$log.entry[178] = "17:23:28 Distance: 0.00388"
-$log.entry[179] = "17:23:28 Detail search failed, move to the next pick"
-$log.entry[180] = "17:23:29 State 4: Pick workpiece from shelf"
-$log.entry[181] = "17:23:29 Pick workpiece. Shelf: 1 Tool: 1 ID: 3"
-$log.entry[182] = "17:23:29 Tool1 set"
-$log.entry[183] = "17:23:30 Command open gripper 1"
-$log.entry[184] = "17:23:30 ID: 3 --> i: 0 j: 2"
-$log.entry[185] = "17:23:31 Distance: 22.00186"
-$log.entry[186] = "17:23:31 Detail found"
-$log.entry[187] = "17:23:32 Command close gripper 1"
-$log.entry[188] = "17:23:33 State 101: Decision making module 1"
-$log.entry[189] = "17:23:33 State 7: Move inside CNC"
-$log.entry[190] = "17:24:32 Main program executed"
-$log.entry[191] = "17:24:32 Command close gripper 1"
-$log.entry[192] = "17:24:32 Command close gripper 2"
-$log.entry[193] = "17:24:32 Performing safe movement to home position"
-$log.entry[194] = "17:24:33 Safe move from shelf"
-$log.entry[195] = "17:25:02 State 7: Move inside CNC"
-$log.entry[196] = "17:25:02 Move inisde CNC. Tool: 1 Chuck: 1"
-$log.entry[197] = "17:25:02 Tool1 set"
-$log.entry[198] = "17:25:05 Waiting for CNC ready"
-$log.entry[199] = "17:25:17 CNC ready signal received"
-$log.entry[200] = "17:25:18 Robot inside CNC"
-$log.entry[201] = "17:25:18 State 101: Decision making module 1"
-$log.entry[202] = "17:25:18 State 9: Put wp[0] to CNC"
-$log.entry[203] = "17:25:19 Put workpiece in CNC. Tool: 1 Chuck: 1"
-$log.entry[204] = "17:25:19 Tool1 set"
-$log.entry[205] = "17:25:19 Open CNC chuck 1"
-$log.entry[206] = "17:25:19 CNC chuck 1 already opened"
-$log.entry[207] = "17:26:15 Robot open chuck first"
-$log.entry[208] = "17:27:11 State 9: Put wp[0] to CNC"
-$log.entry[209] = "17:27:11 Put workpiece in CNC. Tool: 1 Chuck: 1"
-$log.entry[210] = "17:27:11 Tool1 set"
-$log.entry[211] = "17:27:11 Open CNC chuck 1"
-$log.entry[212] = "17:27:11 CNC chuck 1 already opened"
-$log.entry[213] = "17:27:14 Robot open chuck first"
-$log.entry[214] = "17:27:15 Command open gripper 1"
-$log.entry[215] = "17:27:15 Close CNC chuck 1"
-$log.entry[216] = "17:27:15 CNC chuck 1 closed"
-$log.entry[217] = "17:27:17 Command close gripper 1"
-$log.entry[218] = "17:27:17 State 101: Decision making module 1"
-$log.entry[219] = "17:27:17 State 8: Move outside CNC"
-$log.entry[220] = "17:29:01 State 8: Move outside CNC"
-$log.entry[221] = "17:29:23 State 8: Move outside CNC"
-$log.entry[222] = "17:30:37 State 8: Move outside CNC"
-$log.entry[223] = "17:30:37 Move outside CNC. Tool: 1 Chuck: 1"
-$log.entry[224] = "17:30:37 Tool1 set"
-$log.entry[225] = "17:30:38 Robot outside CNC"
-$log.entry[226] = "17:30:38 State 101: Decision making module 1"
-$log.entry[227] = "17:30:38 State 4: Pick workpiece from shelf"
-$log.entry[228] = "17:30:38 Pick workpiece. Shelf: 1 Tool: 1 ID: 4"
-$log.entry[229] = "17:30:38 Tool1 set"
-$log.entry[230] = "17:30:39 Command open gripper 1"
-$log.entry[231] = "17:30:39 ID: 4 --> i: 0 j: 3"
-$log.entry[232] = "17:30:44 Distance: 0.00687"
-$log.entry[233] = "17:30:44 Detail search failed, move to the next pick"
-$log.entry[234] = "17:30:44 State 4: Pick workpiece from shelf"
-$log.entry[235] = "17:30:45 Pick workpiece. Shelf: 1 Tool: 1 ID: 5"
-$log.entry[236] = "17:30:45 Tool1 set"
-$log.entry[237] = "17:30:45 Command open gripper 1"
-$log.entry[238] = "17:30:45 ID: 5 --> i: 1 j: 0"
-$log.entry[239] = "17:30:48 Distance: 0.00404"
-$log.entry[240] = "17:30:48 Detail search failed, move to the next pick"
-$log.entry[241] = "17:30:49 State 4: Pick workpiece from shelf"
-$log.entry[242] = "17:30:49 Pick workpiece. Shelf: 1 Tool: 1 ID: 6"
-$log.entry[243] = "17:30:49 Tool1 set"
-$log.entry[244] = "17:30:49 Command open gripper 1"
-$log.entry[245] = "17:30:49 ID: 6 --> i: 1 j: 1"
-$log.entry[246] = "17:30:50 Distance: 19.89766"
-$log.entry[247] = "17:30:51 Detail found"
-$log.entry[248] = "17:30:52 Command close gripper 1"
-$log.entry[249] = "17:30:52 State 101: Decision making module 1"
-$log.entry[250] = "17:30:53 State 7: Move inside CNC"
-$log.entry[251] = "17:30:53 Move inisde CNC. Tool: 2 Chuck: 1"
-$log.entry[252] = "17:30:53 Tool2 set"
-$log.entry[253] = "17:30:55 Waiting for CNC ready"
-$log.entry[254] = "17:30:56 CNC ready signal received"
-$log.entry[255] = "17:30:57 Robot inside CNC"
-$log.entry[256] = "17:30:57 State 101: Decision making module 1"
+$log.entry[1] = "17:47:40 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[2] = "17:47:40 Tool2 set"
+$log.entry[3] = "17:47:41 Waiting for CNC ready"
+$log.entry[4] = "17:47:41 CNC ready signal received"
+$log.entry[5] = "17:47:42 Robot inside CNC"
+$log.entry[6] = "17:47:43 State 105: Decision making module 5"
+$log.entry[7] = "17:47:43 State 12: Pick wp[2] from CNC"
+$log.entry[8] = "17:47:43 Pick workpiece from CNC. Tool: 2 Chuck: 1L: 50"
+$log.entry[9] = "17:47:43 Tool2 set"
+$log.entry[10] = "17:47:43 Command open gripper 2"
+$log.entry[11] = "17:47:49 Command close gripper 2"
+$log.entry[12] = "17:47:49 Open CNC chuck 1"
+$log.entry[13] = "17:47:49 CNC chuck 1 already opened"
+$log.entry[14] = "17:47:49 State 105: Decision making module 5"
+$log.entry[15] = "17:47:49 State 8: Move outside CNC"
+$log.entry[16] = "17:47:50 Move outside CNC. Tool: 2 Chuck: 1"
+$log.entry[17] = "17:47:50 Tool2 set"
+$log.entry[18] = "17:47:51 Robot outside CNC"
+$log.entry[19] = "17:47:51 State 105: Decision making module 5"
+$log.entry[20] = "17:47:51 State 5: Put WP[2] to shelf"
+$log.entry[21] = "17:47:51 Put workpiece. Shelf: 1 Tool: 2 ID: 4L: 50"
+$log.entry[22] = "17:47:51 Tool2 set"
+$log.entry[23] = "17:47:51 ID: 4 --> i: 0 j: 3"
+$log.entry[24] = "17:47:58 Command open gripper 2"
+$log.entry[25] = "17:47:59 Command close gripper 2"
+$log.entry[26] = "17:47:59 State 105: Decision making module 5"
+$log.entry[27] = "17:47:59 State 3: Close shelf"
+$log.entry[28] = "17:47:59 Closing shelf 1"
+$log.entry[29] = "17:47:59 Tool3 set"
+$log.entry[30] = "17:47:59 Command close gripper 1"
+$log.entry[31] = "17:48:00 Command close gripper 2"
+$log.entry[32] = "17:48:02 Request unlock shelf 1"
+$log.entry[33] = "17:48:03 Shelf 1 successfully unlocked"
+$log.entry[34] = "17:48:45 Reset command executed"
+$log.entry[35] = "17:48:59 Main program executed"
+$log.entry[36] = "17:48:59 Command close gripper 1"
+$log.entry[37] = "17:48:59 Command close gripper 2"
+$log.entry[38] = "17:48:59 Performing safe movement to home position"
+$log.entry[39] = "17:48:59 Safe move from shelf"
+$log.entry[40] = "17:48:59 Tool3 set"
+$log.entry[41] = "17:49:24 Robot in home position"
+$log.entry[42] = "17:49:34 State 0: Initialization"
+$log.entry[43] = "17:49:34 Waiting for task start"
+$log.entry[44] = "17:49:34 State 1: Check ready shelves"
+$log.entry[45] = "17:49:34 Shelf 1 is ready. Request data!"
+$log.entry[46] = "17:49:34 Get task data from PLC"
+$log.entry[47] = "17:49:35 State 100: Select decision making module state"
+$log.entry[48] = "17:49:35 State 105: Decision making module 5"
+$log.entry[49] = "17:49:35 State 2: Open shelf"
+$log.entry[50] = "17:49:35 Open shelf 1"
+$log.entry[51] = "17:49:35 Tool3 set"
+$log.entry[52] = "17:49:35 Command close gripper 1"
+$log.entry[53] = "17:49:35 Command close gripper 2"
+$log.entry[54] = "17:49:38 Request unlock shelf 1"
+$log.entry[55] = "17:49:38 Shelf 1 successfully unlocked"
+$log.entry[56] = "17:49:44 State 105: Decision making module 5"
+$log.entry[57] = "17:49:44 State 4: Pick workpiece from shelf"
+$log.entry[58] = "17:49:44 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[59] = "17:49:44 Tool1 set"
+$log.entry[60] = "17:49:44 Command open gripper 1"
+$log.entry[61] = "17:49:44 ID: 1 --> i: 0 j: 0"
+$log.entry[62] = "17:49:49 Distance: 0.00543"
+$log.entry[63] = "17:49:50 Detail found"
+$log.entry[64] = "17:49:51 Command close gripper 1"
+$log.entry[65] = "17:49:51 State 105: Decision making module 5"
+$log.entry[66] = "17:49:52 State 7: Move inside CNC"
+$log.entry[67] = "17:49:52 Move inisde CNC. Tool: 1 Chuck: 1"
+$log.entry[68] = "17:49:52 Tool1 set"
+$log.entry[69] = "17:49:53 Waiting for CNC ready"
+$log.entry[70] = "17:49:53 CNC ready signal received"
+$log.entry[71] = "17:49:55 Robot inside CNC"
+$log.entry[72] = "17:49:55 State 105: Decision making module 5"
+$log.entry[73] = "17:49:55 State 9: Put wp[0] to CNC"
+$log.entry[74] = "17:49:55 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[75] = "17:49:55 Tool1 set"
+$log.entry[76] = "17:49:55 Open CNC chuck 1"
+$log.entry[77] = "17:49:55 CNC chuck 1 already opened"
+$log.entry[78] = "17:50:01 CNC close chuck first"
+$log.entry[79] = "17:50:01 Close CNC chuck 1"
+$log.entry[80] = "17:50:01 CNC chuck 1 closed"
+$log.entry[81] = "17:50:03 Command open gripper 1"
+$log.entry[82] = "17:50:04 Command close gripper 1"
+$log.entry[83] = "17:50:04 State 105: Decision making module 5"
+$log.entry[84] = "17:50:04 State 8: Move outside CNC"
+$log.entry[85] = "17:50:05 Move outside CNC. Tool: 1 Chuck: 1"
+$log.entry[86] = "17:50:05 Tool1 set"
+$log.entry[87] = "17:50:06 Robot outside CNC"
+$log.entry[88] = "17:50:06 State 105: Decision making module 5"
+$log.entry[89] = "17:50:06 State 18: MCODE Execute"
+$log.entry[90] = "17:50:06 State 105: Decision making module 5"
+$log.entry[91] = "17:50:06 State 7: Move inside CNC"
+$log.entry[92] = "17:50:06 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[93] = "17:50:06 Tool2 set"
+$log.entry[94] = "17:50:08 Waiting for CNC ready"
+$log.entry[95] = "17:50:08 CNC ready signal received"
+$log.entry[96] = "17:50:09 Robot inside CNC"
+$log.entry[97] = "17:50:09 State 105: Decision making module 5"
+$log.entry[98] = "17:50:09 State 10: Pick wp[1] from CNC"
+$log.entry[99] = "17:50:09 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[100] = "17:50:10 Tool1 set"
+$log.entry[101] = "17:50:10 Command open gripper 1"
+$log.entry[102] = "17:50:16 Command close gripper 1"
+$log.entry[103] = "17:50:16 Open CNC chuck 1"
+$log.entry[104] = "17:50:16 CNC chuck 1 already opened"
+$log.entry[105] = "17:50:17 State 105: Decision making module 5"
+$log.entry[106] = "17:50:17 State 15: Perform external change"
+$log.entry[107] = "17:50:17 Use changer program chg.pg.1"
+$log.entry[108] = "17:50:20 State 105: Decision making module 5"
+$log.entry[109] = "17:51:33 Reset command executed"
+$log.entry[110] = "17:51:36 Main program executed"
+$log.entry[111] = "17:51:36 Command close gripper 1"
+$log.entry[112] = "17:51:36 Command close gripper 2"
+$log.entry[113] = "17:51:36 Performing safe movement to home position"
+$log.entry[114] = "17:51:36 Safe move from CNC"
+$log.entry[115] = "17:51:54 Robot in home position"
+$log.entry[116] = "17:52:04 State 0: Initialization"
+$log.entry[117] = "17:52:04 Waiting for task start"
+$log.entry[118] = "17:52:04 State 1: Check ready shelves"
+$log.entry[119] = "17:52:04 Shelf 1 is ready. Request data!"
+$log.entry[120] = "17:52:04 Get task data from PLC"
+$log.entry[121] = "17:52:04 State 100: Select decision making module state"
+$log.entry[122] = "17:52:05 State 105: Decision making module 5"
+$log.entry[123] = "17:52:05 State 2: Open shelf"
+$log.entry[124] = "17:52:05 Open shelf 1"
+$log.entry[125] = "17:52:05 Tool3 set"
+$log.entry[126] = "17:52:05 Command close gripper 1"
+$log.entry[127] = "17:52:05 Command close gripper 2"
+$log.entry[128] = "17:52:08 Request unlock shelf 1"
+$log.entry[129] = "17:52:08 Shelf 1 successfully unlocked"
+$log.entry[130] = "17:52:14 State 105: Decision making module 5"
+$log.entry[131] = "17:52:14 State 4: Pick workpiece from shelf"
+$log.entry[132] = "17:52:14 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[133] = "17:52:14 Tool1 set"
+$log.entry[134] = "17:52:14 Command open gripper 1"
+$log.entry[135] = "17:52:14 ID: 1 --> i: 0 j: 0"
+$log.entry[136] = "17:52:19 Distance: 0.00543"
+$log.entry[137] = "17:52:20 Detail found"
+$log.entry[138] = "17:52:21 Command close gripper 1"
+$log.entry[139] = "17:52:21 State 105: Decision making module 5"
+$log.entry[140] = "17:52:22 State 7: Move inside CNC"
+$log.entry[141] = "17:52:22 Move inisde CNC. Tool: 1 Chuck: 1"
+$log.entry[142] = "17:52:22 Tool1 set"
+$log.entry[143] = "17:52:23 Waiting for CNC ready"
+$log.entry[144] = "17:52:23 CNC ready signal received"
+$log.entry[145] = "17:52:25 Robot inside CNC"
+$log.entry[146] = "17:52:25 State 105: Decision making module 5"
+$log.entry[147] = "17:52:25 State 9: Put wp[0] to CNC"
+$log.entry[148] = "17:52:25 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[149] = "17:52:25 Tool1 set"
+$log.entry[150] = "17:52:25 Open CNC chuck 1"
+$log.entry[151] = "17:52:25 CNC chuck 1 already opened"
+$log.entry[152] = "17:52:31 CNC close chuck first"
+$log.entry[153] = "17:52:31 Close CNC chuck 1"
+$log.entry[154] = "17:52:31 CNC chuck 1 closed"
+$log.entry[155] = "18:00:07 Command open gripper 1"
+$log.entry[156] = "18:00:07 Command close gripper 1"
+$log.entry[157] = "18:00:08 State 105: Decision making module 5"
+$log.entry[158] = "18:00:08 State 8: Move outside CNC"
+$log.entry[159] = "18:00:08 Move outside CNC. Tool: 1 Chuck: 1"
+$log.entry[160] = "18:00:08 Tool1 set"
+$log.entry[161] = "18:00:09 Robot outside CNC"
+$log.entry[162] = "18:00:09 State 105: Decision making module 5"
+$log.entry[163] = "18:00:09 State 18: MCODE Execute"
+$log.entry[164] = "18:00:09 State 105: Decision making module 5"
+$log.entry[165] = "18:00:09 State 7: Move inside CNC"
+$log.entry[166] = "18:00:10 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[167] = "18:00:10 Tool2 set"
+$log.entry[168] = "18:00:11 Waiting for CNC ready"
+$log.entry[169] = "18:00:11 CNC ready signal received"
+$log.entry[170] = "18:00:12 Robot inside CNC"
+$log.entry[171] = "18:00:13 State 105: Decision making module 5"
+$log.entry[172] = "18:00:13 State 10: Pick wp[1] from CNC"
+$log.entry[173] = "18:00:13 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[174] = "18:00:13 Tool1 set"
+$log.entry[175] = "18:00:13 Command open gripper 1"
+$log.entry[176] = "18:00:19 Command close gripper 1"
+$log.entry[177] = "18:00:19 Open CNC chuck 1"
+$log.entry[178] = "18:00:19 CNC chuck 1 already opened"
+$log.entry[179] = "18:00:20 State 105: Decision making module 5"
+$log.entry[180] = "18:00:20 State 15: Perform external change"
+$log.entry[181] = "18:00:20 Use changer program chg.pg.1"
+$log.entry[182] = "10:55:16 Robot boot initialize completed"
+$log.entry[183] = "10:57:52 Reset command executed"
+$log.entry[184] = "10:57:55 Main program executed"
+$log.entry[185] = "10:57:56 Command close gripper 1"
+$log.entry[186] = "10:57:56 Command close gripper 2"
+$log.entry[187] = "10:57:56 Performing safe movement to home position"
+$log.entry[188] = "10:57:56 Safe move from CNC"
+$log.entry[189] = "10:58:53 Robot in home position"
+$log.entry[190] = "10:59:09 State 0: Initialization"
+$log.entry[191] = "10:59:09 Waiting for task start"
+$log.entry[192] = "10:59:10 State 1: Check ready shelves"
+$log.entry[193] = "10:59:10 Shelf 1 is ready. Request data!"
+$log.entry[194] = "10:59:10 Get task data from PLC"
+$log.entry[195] = "10:59:10 State 100: Select decision making module state"
+$log.entry[196] = "10:59:10 State 105: Decision making module 5"
+$log.entry[197] = "10:59:10 State 2: Open shelf"
+$log.entry[198] = "10:59:10 Open shelf 1"
+$log.entry[199] = "10:59:11 Tool3 set"
+$log.entry[200] = "10:59:11 Command close gripper 1"
+$log.entry[201] = "10:59:11 Command close gripper 2"
+$log.entry[202] = "10:59:13 Request unlock shelf 1"
+$log.entry[203] = "10:59:14 Shelf 1 successfully unlocked"
+$log.entry[204] = "10:59:19 State 105: Decision making module 5"
+$log.entry[205] = "10:59:19 State 4: Pick workpiece from shelf"
+$log.entry[206] = "10:59:19 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[207] = "10:59:19 Tool1 set"
+$log.entry[208] = "10:59:20 Command open gripper 1"
+$log.entry[209] = "10:59:20 ID: 1 --> i: 0 j: 0"
+$log.entry[210] = "10:59:25 Distance: 0.00543"
+$log.entry[211] = "10:59:25 Detail found"
+$log.entry[212] = "10:59:26 Command close gripper 1"
+$log.entry[213] = "10:59:27 State 105: Decision making module 5"
+$log.entry[214] = "10:59:27 State 7: Move inside CNC"
+$log.entry[215] = "10:59:27 Move inisde CNC. Tool: 1 Chuck: 1"
+$log.entry[216] = "10:59:27 Tool1 set"
+$log.entry[217] = "10:59:29 Waiting for CNC ready"
+$log.entry[218] = "10:59:29 CNC ready signal received"
+$log.entry[219] = "10:59:30 Robot inside CNC"
+$log.entry[220] = "10:59:30 State 105: Decision making module 5"
+$log.entry[221] = "10:59:30 State 9: Put wp[0] to CNC"
+$log.entry[222] = "10:59:31 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[223] = "10:59:31 Tool1 set"
+$log.entry[224] = "10:59:31 Open CNC chuck 1"
+$log.entry[225] = "10:59:31 CNC chuck 1 already opened"
+$log.entry[226] = "10:59:37 CNC close chuck first"
+$log.entry[227] = "10:59:37 Close CNC chuck 1"
+$log.entry[228] = "10:59:37 CNC chuck 1 closed"
+$log.entry[229] = "10:59:39 Command open gripper 1"
+$log.entry[230] = "10:59:40 Command close gripper 1"
+$log.entry[231] = "10:59:40 State 105: Decision making module 5"
+$log.entry[232] = "10:59:40 State 8: Move outside CNC"
+$log.entry[233] = "10:59:40 Move outside CNC. Tool: 1 Chuck: 1"
+$log.entry[234] = "10:59:40 Tool1 set"
+$log.entry[235] = "10:59:41 Robot outside CNC"
+$log.entry[236] = "10:59:41 State 105: Decision making module 5"
+$log.entry[237] = "10:59:41 State 18: MCODE Execute"
+$log.entry[238] = "10:59:42 State 105: Decision making module 5"
+$log.entry[239] = "10:59:42 State 7: Move inside CNC"
+$log.entry[240] = "10:59:42 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[241] = "10:59:42 Tool2 set"
+$log.entry[242] = "10:59:43 Waiting for CNC ready"
+$log.entry[243] = "10:59:43 CNC ready signal received"
+$log.entry[244] = "10:59:45 Robot inside CNC"
+$log.entry[245] = "10:59:45 State 105: Decision making module 5"
+$log.entry[246] = "10:59:45 State 10: Pick wp[1] from CNC"
+$log.entry[247] = "10:59:45 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[248] = "10:59:45 Tool1 set"
+$log.entry[249] = "10:59:45 Command open gripper 1"
+$log.entry[250] = "10:59:51 Command close gripper 1"
+$log.entry[251] = "10:59:51 Open CNC chuck 1"
+$log.entry[252] = "10:59:52 CNC chuck 1 already opened"
+$log.entry[253] = "10:59:52 State 105: Decision making module 5"
+$log.entry[254] = "10:59:52 State 15: Perform external change"
+$log.entry[255] = "10:59:53 Use changer program chg.pg.1"
+$log.entry[256] = "10:59:55 State 105: Decision making module 5"
 .END
