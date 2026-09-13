@@ -1,863 +1,10 @@
-.ROBOTDATA1
-OP_BLTARM     ON  -4279
-ZSWITCH ZCATE1_HOLD     ON   -511
-ZSIGSPEC       64  64 960      -16321
-ZSIGSPEC2     896   0      -13441
-.END
-.SYSDATA
-DEFSIG_I EXT_MTRON       ON   1065
-DEFSIG_I EXT_ERR_RESET   ON   1066
-DEFSIG_I EXT_CYC_START   ON   1067
-DEFSIG_I EXT_PROGRM_RST  ON   1068
-DEFSIG_I EXT_JUMP        OFF
-         JUMP_ON             0
-         JUMP_OFF            0
-         JUMP_ST             0
-DEFSIG_I EXT_RPS         OFF
-         RPS_ON              0
-         RPS_ST              0
-         RPS_CODE            0     0     0
-DEFSIG_I EXT_IT          ON   1069
-DEFSIG_I EXT_SLOW_REP.   ON   1071
-DEFSIG_I GUN_ACCEPT      OFF     0
-DEFSIG_I SENSING         OFF     0
-DEFSIG_I SENS_SPD        OFF     0
-DEFSIG_I SENSWAIT        OFF     0
-DEFSIG_I EXT_HOLD_RESET  OFF     0
-DEFSIG_I EXT_PH_PULSE.   OFF     0
-DEFSIG_I EXT_PH_PULSE_8.  OFF     0
-DEFSIG_I EXT_PH_PULSE_9.  OFF     0
-DEFSIG_I EXT_PH_PULSE_10.  OFF     0
-DEFSIG_I I/F_PAGE1       ON   2001
-DEFSIG_I I/F_PAGE2       ON   2002
-DEFSIG_I I/F_PAGE3       ON   2003
-DEFSIG_I I/F_PAGE4       ON   2004
-DEFSIG_I I/F_PAGE5       ON   2005
-DEFSIG_I I/F_PAGE6       ON   2006
-DEFSIG_I I/F_PAGE7       ON   2007
-DEFSIG_I I/F_PAGE8       ON   2008
-DEFSIG_I OPTIMIZE_MODE   OFF     0
-DEFSIG_I AUTOSAVE_C1     OFF     0
-DEFSIG_I AUTOSAVE_C2     OFF     0
-DEFSIG_I AUTOSAVE_C3     OFF     0
-DEFSIG_I PCEXT_START     OFF     0
-DEFSIG_I PCEXT_START2    OFF     0
-DEFSIG_I PCEXT_START3    OFF     0
-DEFSIG_I PCEXT_START4    OFF     0
-DEFSIG_I PCEXT_START5    OFF     0
-DEFSIG_I PCEXT_ABORT     OFF     0
-DEFSIG_I PCEXT_ABORT2    OFF     0
-DEFSIG_I PCEXT_ABORT3    OFF     0
-DEFSIG_I PCEXT_ABORT4    OFF     0
-DEFSIG_I PCEXT_ABORT5    OFF     0
-DEFSIG_I EXT_AXIS_REGULATION_SIGNAL  OFF
-         JT_7             1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000
-DEFSIG_I GROUP_0         OFF     0
-DEFSIG_I GROUP_-1        OFF     0
-DEFSIG_I SEP_GROUP1_IN   OFF
-         GR1_PN_CMD          0
-         GR1_PN_ON           0
-         GR1_NEXT         1000  1000
-DEFSIG_I SEP_GROUP2_IN   OFF
-         GR2_PN_CMD          0
-         GR2_PN_ON           0
-         GR2_NEXT         1000  1000
-DEFSIG_I SEP_GROUP3_IN   OFF
-         GR3_PN_CMD          0
-         GR3_PN_ON           0
-         GR3_NEXT         1000  1000
-DEFSIG_I SEP_GROUP4_IN   OFF
-         GR4_PN_CMD          0
-         GR4_PN_ON           0
-         GR4_NEXT         1000  1000
-DEFSIG_I SEP_GROUP5_IN   OFF
-         GR5_PN_CMD          0
-         GR5_PN_ON           0
-         GR5_NEXT         1000  1000
-DEFSIG_I SEP_GROUP6_IN   OFF
-         GR6_PN_CMD          0
-         GR6_PN_ON           0
-         GR6_NEXT         1000  1000
-DEFSIG_I SEP_GROUP7_IN   OFF
-         GR7_PN_CMD          0
-         GR7_PN_ON           0
-         GR7_NEXT         1000  1000
-DEFSIG_I SEP_GROUP_JT7_IN  OFF
-         JT7_PN_CMD          0     0
-DEFSIG_I SEP_GROUP_JT8_IN  OFF
-         JT8_PN_CMD          0     0
-DEFSIG_I SEP_GROUP_JT9_IN  OFF
-         JT9_PN_CMD          0     0
-DEFSIG_I SEP_GROUP_JT10_IN  OFF
-         JT10_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT11_IN  OFF
-         JT11_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT12_IN  OFF
-         JT12_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT13_IN  OFF
-         JT13_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT14_IN  OFF
-         JT14_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT15_IN  OFF
-         JT15_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT16_IN  OFF
-         JT16_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT17_IN  OFF
-         JT17_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_JT18_IN  OFF
-         JT18_PN_CMD         0     0
-DEFSIG_I SEP_GROUP_IN_KEY  OFF
-         NO1_PKEY         1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000  1000
-DEFSIG_I SEP_GROUP1_REP_SIG  OFF
-         DRIVE_COM_G1     1000
-         DRIVE_SPD_G1     1000
-         END_LOC_CNT_G1      0  1000
-DEFSIG_I SEP_GROUP2_REP_SIG  OFF
-         DRIVE_COM_G2     1000
-         DRIVE_SPD_G2     1000
-         END_LOC_CNT_G2      0  1000
-DEFSIG_I SEP_GROUP3_REP_SIG  OFF
-         DRIVE_COM_G3     1000
-         DRIVE_SPD_G3     1000
-         END_LOC_CNT_G3      0  1000
-DEFSIG_I SEP_GROUP4_REP_SIG  OFF
-         DRIVE_COM_G4     1000
-         DRIVE_SPD_G4     1000
-         END_LOC_CNT_G4      0  1000
-DEFSIG_I SEP_GROUP5_REP_SIG  OFF
-         DRIVE_COM_G5     1000
-         DRIVE_SPD_G5     1000
-         END_LOC_CNT_G5      0  1000
-DEFSIG_I SEP_GROUP6_REP_SIG  OFF
-         DRIVE_COM_G6     1000
-         DRIVE_SPD_G6     1000
-         END_LOC_CNT_G6      0  1000
-DEFSIG_I SEP_GROUP7_REP_SIG  OFF
-         DRIVE_COM_G7     1000
-         DRIVE_SPD_G7     1000
-         END_LOC_CNT_G7      0  1000
-DEFSIG_I PAL_RESET1      OFF     0
-DEFSIG_I PAL_RESET2      OFF     0
-DEFSIG_I PAL_RESET3      OFF     0
-DEFSIG_I PAL_RESET4      OFF     0
-DEFSIG_I PAL_RESET5      OFF     0
-DEFSIG_I PAL_RESET6      OFF     0
-DEFSIG_I PAL_RESET7      OFF     0
-DEFSIG_I PAL_RESET8      OFF     0
-DEFSIG_I PAL_RESET9      OFF     0
-DEFSIG_I PAL_RESET10     OFF     0
-DEFSIG_I EXT_GUN1_OUT    OFF     0
-DEFSIG_I EXT_GUN2_OUT    OFF     0
-DEFSIG_I EXT_GUN3_OUT    OFF     0
-DEFSIG_I EXT_GUN4_OUT    OFF     0
-DEFSIG_I EXT_KOUSEI      OFF     0
-DEFSIG_I EXT_KEISOKU     OFF     0
-DEFSIG_I EXT_TUSIN       OFF     0
-DEFSIG_I EXT_HO_KIRI     OFF     0
-DEFSIG_I EXT_CAMERA_G    OFF     0
-DEFSIG_I EXT_MTROFF      ON   1070
-DEFSIG_I EXT_CVSET       OFF     0
-DEFSIG_I DELAYCNT_RESET  OFF     0
-DEFSIG_I EXT_CVRESET7    OFF
-         CVRESET_SIG7        0
-         CVWORK_NUM7         0     0     0
-DEFSIG_I EXT_CVRESET8    OFF
-         CVRESET_SIG8        0
-         CVWORK_NUM8         0     0     0
-DEFSIG_I EXT_CVRESET9    OFF
-         CVRESET_SIG9        0
-         CVWORK_NUM9         0     0     0
-DEFSIG_I EXT_CVRESET10   OFF
-         CVRESET_SIG10       0
-         CVWORK_NUM10        0     0     0
-DEFSIG_I EXT_CVRESET11   OFF
-         CVRESET_SIG11       0
-         CVWORK_NUM11        0     0     0
-DEFSIG_I EXT_CVRESET12   OFF
-         CVRESET_SIG12       0
-         CVWORK_NUM12        0     0     0
-DEFSIG_I EXT_CVRESET13   OFF
-         CVRESET_SIG13       0
-         CVWORK_NUM13        0     0     0
-DEFSIG_I EXT_CVRESET14   OFF
-         CVRESET_SIG14       0
-         CVWORK_NUM14        0     0     0
-DEFSIG_I EXT_CVRESET15   OFF
-         CVRESET_SIG15       0
-         CVWORK_NUM15        0     0     0
-DEFSIG_I EXT_CVRESET16   OFF
-         CVRESET_SIG16       0
-         CVWORK_NUM16        0     0     0
-DEFSIG_I EXT_CVRESET17   OFF
-         CVRESET_SIG17       0
-         CVWORK_NUM17        0     0     0
-DEFSIG_I EXT_CVRESET18   OFF
-         CVRESET_SIG18       0
-         CVWORK_NUM18        0     0     0
-DEFSIG_I EXT_BRKCHK      OFF     0
-DEFSIG_I EXT_TOOL_SHOCK  OFF     0
-DEFSIG_I EXT_CUBICS_SS_RST  OFF     0
-DEFSIG_I EXT_AUTO_SRVOFF  OFF     0
-DEFSIG_I EXT_ERR_STOP    OFF
-         EXT_ERR_STOP_SIG      0     0
-DEFSIG_O MOTOR_ON        ON     65
-DEFSIG_O ERROR           ON     66
-DEFSIG_O AUTOMATIC       ON     68
-         CND_RUN         ON 
-         CND_EHOLD       OFF
-         CND_REPEAT      ON 
-         CND_CCONT       OFF
-         CND_SCONT       OFF
-         CND_TLOCK       ON 
-         CND_CYCLE       OFF
-         CND_RGSO        OFF
-         CND_DRYOFF      OFF
-         CND_CYC_EXT     OFF
-         CND_NOERROR     OFF
-         CND_MOTORON     OFF
-DEFSIG_O CYCLE_START     ON     67
-DEFSIG_O TEACH_MODE      ON     69
-DEFSIG_O HOME1           ON     71
-DEFSIG_O HOME2           ON     72
-DEFSIG_O POWER_ON        ON     73
-DEFSIG_O RGSO            OFF     0
-DEFSIG_O RPS             OFF     0
-DEFSIG_O WORK_SPACE_1    OFF     0
-DEFSIG_O WORK_SPACE_2    OFF     0
-DEFSIG_O WORK_SPACE_3    OFF     0
-DEFSIG_O WORK_SPACE_4    OFF     0
-DEFSIG_O WORK_SPACE_5    OFF     0
-DEFSIG_O WORK_SPACE_6    OFF     0
-DEFSIG_O WORK_SPACE_7    OFF     0
-DEFSIG_O WORK_SPACE_8    OFF     0
-DEFSIG_O WORK_SPACE_9    OFF     0
-DEFSIG_O OUT_SPRAY_OK    OFF     0
-DEFSIG_O OUT_RPS_OK      OFF     0
-DEFSIG_O OUT_RPS_PROG    OFF
-         OUT_RPS_CODE        0     0
-DEFSIG_O STEP_CODE       OFF
-         OUT_STEP_CNT        0     0
-DEFSIG_O OUT_DISIG       OFF     4    13  1013
-DEFSIG_O RB2AUTOMATIC    OFF     0
-DEFSIG_O RB2HOME1        OFF     0
-DEFSIG_O RB2HOME2        OFF     0
-DEFSIG_O RB2WORK_SPACE_1  OFF     0
-DEFSIG_O RB2WORK_SPACE_2  OFF     0
-DEFSIG_O RB2WORK_SPACE_3  OFF     0
-DEFSIG_O RB2WORK_SPACE_4  OFF     0
-DEFSIG_O RB2WORK_SPACE_5  OFF     0
-DEFSIG_O RB2WORK_SPACE_6  OFF     0
-DEFSIG_O RB2WORK_SPACE_7  OFF     0
-DEFSIG_O RB2WORK_SPACE_8  OFF     0
-DEFSIG_O RB2WORK_SPACE_9  OFF     0
-DEFSIG_O ERESET_OPE      OFF     0
-DEFSIG_O CVF_LS2         OFF     0
-DEFSIG_O CVF_LS2_8       OFF     0
-DEFSIG_O CVF_LS2_9       OFF     0
-DEFSIG_O CVF_LS2_10      OFF     0
-DEFSIG_O CVF_PH2         OFF     0
-DEFSIG_O CVF_PH2_8       OFF     0
-DEFSIG_O CVF_PH2_9       OFF     0
-DEFSIG_O CVF_PH2_10      OFF     0
-DEFSIG_O ENCBRK_OFF      OFF     0
-DEFSIG_O TEACH_LOCKON    ON     70
-DEFSIG_O IBS_SLA_ERR     OFF     0
-DEFSIG_O MECHA_WARNING   OFF     0
-DEFSIG_O OUT_EBVCMD      OFF     0
-DEFSIG_O OUT_MATCIR1     OFF     0
-DEFSIG_O OUT_MATCIR2     OFF     0
-DEFSIG_O CVSIMU          OFF     0
-DEFSIG_O AUTOSAVE_WA     OFF     0
-DEFSIG_O MTN_CHECK       OFF     0
-DEFSIG_O SENS_ERR1       OFF     0
-DEFSIG_O SENS_ERR2       OFF     0
-DEFSIG_O SENS_ERR3       OFF     0
-DEFSIG_O SENS_ERR4       OFF     0
-DEFSIG_O SENS_ERR5       OFF     0
-DEFSIG_O SERVO_READY     OFF     0
-DEFSIG_O PC_EXE          OFF     0
-DEFSIG_O PC_EXE2         OFF     0
-DEFSIG_O PC_EXE3         OFF     0
-DEFSIG_O PC_EXE4         OFF     0
-DEFSIG_O PC_EXE5         OFF     0
-DEFSIG_O EMERGENCY       ON     74
-DEFSIG_O DRYRUN          OFF     0
-DEFSIG_O OUT_KOUSEI      OFF     0
-DEFSIG_O OUT_KEISOKU     OFF     0
-DEFSIG_O OUT_INCOMMU     OFF     0
-DEFSIG_O OUT_COMMU_ERR   OFF     0
-DEFSIG_O DELAY_QUE_OK    OFF     0
-DEFSIG_O SEP_GROUP1_OUT  OFF
-         GR1_ENABLE          0
-DEFSIG_O SEP_GROUP2_OUT  OFF
-         GR2_ENABLE          0
-DEFSIG_O SEP_GROUP3_OUT  OFF
-         GR3_ENABLE          0
-DEFSIG_O SEP_GROUP4_OUT  OFF
-         GR4_ENABLE          0
-DEFSIG_O SEP_GROUP5_OUT  OFF
-         GR5_ENABLE          0
-DEFSIG_O SEP_GROUP6_OUT  OFF
-         GR6_ENABLE          0
-DEFSIG_O SEP_GROUP7_OUT  OFF
-         GR7_ENABLE          0
-DEFSIG_O SEP_GR1_REP_OSIG  OFF
-         POS_DRIVE_RDY_G1      0
-         POS_DRIVE_G1        0
-         POS_SRVING_G1       0
-         POS_STOP_G1         0
-         POS_COIN_G1         0
-         POS_HOME_CNT_G1      0     0
-DEFSIG_O SEP_GR2_REP_OSIG  OFF
-         POS_DRIVE_RDY_G2      0
-         POS_DRIVE_G2        0
-         POS_SRVING_G2       0
-         POS_STOP_G2         0
-         POS_COIN_G2         0
-         POS_HOME_CNT_G2      0     0
-DEFSIG_O SEP_GR3_REP_OSIG  OFF
-         POS_DRIVE_RDY_G3      0
-         POS_DRIVE_G3        0
-         POS_SRVING_G3       0
-         POS_STOP_G3         0
-         POS_COIN_G3         0
-         POS_HOME_CNT_G3      0     0
-DEFSIG_O SEP_GR4_REP_OSIG  OFF
-         POS_DRIVE_RDY_G4      0
-         POS_DRIVE_G4        0
-         POS_SRVING_G4       0
-         POS_STOP_G4         0
-         POS_COIN_G4         0
-         POS_HOME_CNT_G4      0     0
-DEFSIG_O SEP_GR5_REP_OSIG  OFF
-         POS_DRIVE_RDY_G5      0
-         POS_DRIVE_G5        0
-         POS_SRVING_G5       0
-         POS_STOP_G5         0
-         POS_COIN_G5         0
-         POS_HOME_CNT_G5      0     0
-DEFSIG_O SEP_GR6_REP_OSIG  OFF
-         POS_DRIVE_RDY_G6      0
-         POS_DRIVE_G6        0
-         POS_SRVING_G6       0
-         POS_STOP_G6         0
-         POS_COIN_G6         0
-         POS_HOME_CNT_G6      0     0
-DEFSIG_O SEP_GR7_REP_OSIG  OFF
-         POS_DRIVE_RDY_G7      0
-         POS_DRIVE_G7        0
-         POS_SRVING_G7       0
-         POS_STOP_G7         0
-         POS_COIN_G7         0
-         POS_HOME_CNT_G7      0     0
-DEFSIG_O SEP_GROUP_NO_OSIG  OFF
-         GROUP_NO_CNT        4     0
-DEFSIG_O GROUP_NO_LOST   OFF     0
-DEFSIG_O SEP_GR1_PN_OSIG  OFF
-         SEP_GR1_PN_CMD      0
-         SEP_GR1_PN_ON       0
-DEFSIG_O SEP_GR2_PN_OSIG  OFF
-         SEP_GR2_PN_CMD      0
-         SEP_GR2_PN_ON       0
-DEFSIG_O SEP_GR3_PN_OSIG  OFF
-         SEP_GR3_PN_CMD      0
-         SEP_GR3_PN_ON       0
-DEFSIG_O SEP_GR4_PN_OSIG  OFF
-         SEP_GR4_PN_CMD      0
-         SEP_GR4_PN_ON       0
-DEFSIG_O SEP_GR5_PN_OSIG  OFF
-         SEP_GR5_PN_CMD      0
-         SEP_GR5_PN_ON       0
-DEFSIG_O SEP_GR6_PN_OSIG  OFF
-         SEP_GR6_PN_CMD      0
-         SEP_GR6_PN_ON       0
-DEFSIG_O SEP_GR7_PN_OSIG  OFF
-         SEP_GR7_PN_CMD      0
-         SEP_GR7_PN_ON       0
-DEFSIG_O SEP_JT7_PN_OSIG  OFF
-         SEP_JT7_PN_CMD      0
-         SEP_JT7_PN_ON       0
-DEFSIG_O SEP_JT8_PN_OSIG  OFF
-         SEP_JT8_PN_CMD      0
-         SEP_JT8_PN_ON       0
-DEFSIG_O SEP_JT9_PN_OSIG  OFF
-         SEP_JT9_PN_CMD      0
-         SEP_JT9_PN_ON       0
-DEFSIG_O SEP_JT10_PN_OSIG  OFF
-         SEP_JT10_PN_CMD      0
-         SEP_JT10_PN_ON      0
-DEFSIG_O SEP_JT11_PN_OSIG  OFF
-         SEP_JT11_PN_CMD      0
-         SEP_JT11_PN_ON      0
-DEFSIG_O SEP_JT12_PN_OSIG  OFF
-         SEP_JT12_PN_CMD      0
-         SEP_JT12_PN_ON      0
-DEFSIG_O SEP_JT13_PN_OSIG  OFF
-         SEP_JT13_PN_CMD      0
-         SEP_JT13_PN_ON      0
-DEFSIG_O SEP_JT14_PN_OSIG  OFF
-         SEP_JT14_PN_CMD      0
-         SEP_JT14_PN_ON      0
-DEFSIG_O SEP_JT15_PN_OSIG  OFF
-         SEP_JT15_PN_CMD      0
-         SEP_JT15_PN_ON      0
-DEFSIG_O SEP_JT16_PN_OSIG  OFF
-         SEP_JT16_PN_CMD      0
-         SEP_JT16_PN_ON      0
-DEFSIG_O SEP_JT17_PN_OSIG  OFF
-         SEP_JT17_PN_CMD      0
-         SEP_JT17_PN_ON      0
-DEFSIG_O SEP_JT18_PN_OSIG  OFF
-         SEP_JT18_PN_CMD      0
-         SEP_JT18_PN_ON      0
-DEFSIG_O PAL_ON          OFF     0
-DEFSIG_O PAL_COMP1       OFF     0
-DEFSIG_O PAL_COMP2       OFF     0
-DEFSIG_O PAL_COMP3       OFF     0
-DEFSIG_O PAL_COMP4       OFF     0
-DEFSIG_O PAL_COMP5       OFF     0
-DEFSIG_O PAL_COMP6       OFF     0
-DEFSIG_O PAL_COMP7       OFF     0
-DEFSIG_O PAL_COMP8       OFF     0
-DEFSIG_O PAL_COMP9       OFF     0
-DEFSIG_O PAL_COMP10      OFF     0
-DEFSIG_O OUT_PAL_01      OFF
-         OUT_PALNUM_01       0
-         OUT_PALSIG_01       0
-DEFSIG_O OUT_PAL_02      OFF
-         OUT_PALNUM_02       0
-         OUT_PALSIG_02       0
-DEFSIG_O OUT_PAL_03      OFF
-         OUT_PALNUM_03       0
-         OUT_PALSIG_03       0
-DEFSIG_O OUT_PAL_04      OFF
-         OUT_PALNUM_04       0
-         OUT_PALSIG_04       0
-DEFSIG_O OUT_PAL_05      OFF
-         OUT_PALNUM_05       0
-         OUT_PALSIG_05       0
-DEFSIG_O OUT_PAL_06      OFF
-         OUT_PALNUM_06       0
-         OUT_PALSIG_06       0
-DEFSIG_O OUT_PAL_07      OFF
-         OUT_PALNUM_07       0
-         OUT_PALSIG_07       0
-DEFSIG_O OUT_PAL_08      OFF
-         OUT_PALNUM_08       0
-         OUT_PALSIG_08       0
-DEFSIG_O OUT_PAL_09      OFF
-         OUT_PALNUM_09       0
-         OUT_PALSIG_09       0
-DEFSIG_O OUT_PAL_10      OFF
-         OUT_PALNUM_10       0
-         OUT_PALSIG_10       0
-DEFSIG_O HOLD_MODE       ON     75
-DEFSIG_O SAFETY_F        ON     76
-DEFSIG_O BRKTRQ_ERR      OFF     0
-DEFSIG_O BATT_ALARM      ON     77
-DEFSIG_O OUT_CUBICS_SS   OFF     0
-DEFSIG_O OUTPUT_SHUTDOWN  OFF     0
-DEFSIG_O ENC_TEMP_WARN   OFF     0
-DEFSIG_O ENC_TEMP_ERR    OFF     0
-DEFSIG_O SINGULAR_MOVE   OFF     0
-RMTOUT960     1 17 33 49 16385 16401 16417 16433 16449 16465 16481 16497 16513 16529 16545 16561 16577 16593 16609 16625 16641 16657 16673 16689 16705 16721 16737 16753 16769 16785 16801 16817 16833 16849 16865 16881 16897 16913 16929 16945 16961 16977 16993 17009 17025 17041 17057 17073 17089 17105 17121 17137 17153 17169 17185 17201 17217 17233 17249 17265   -14134501
-RMTIN960      1001 1017 1033 1049 17385 17401 17417 17433 17449 17465 17481 17497 17513 17529 17545 17561 17577 17593 17609 17625 17641 17657 17673 17689 17705 17721 17737 17753 17769 17785 17801 17817 17833 17849 17865 17881 17897 17913 17929 17945 17961 17977 17993 18009 18025 18041 18057 18073 18089 18105 18121 18137 18153 18169 18185 18201 18217 18233 18249 18265   -15034501
-RMTOUT1024    0 0 0 0          -1
-RMTIN1024     0 0 0 0          -1
-RMTOUT1536    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0          -1
-RMTIN1536     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0          -1
-RMTOUT2048    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0          -1
-RMTIN2048     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0          -1
-FB_PORT1       11
-FB_PORT2        0
-FB_SIGNAL_ORDER_FB1  0 0
-FB_DISCON_MASK_ERR[0]          0         0
-FB_DISCON_MASK_ERR[1]          0         0
-KLOGIC_AS_SIGNUM    0
-ARM_OX_TOP           33
-ARM_OX_NUM            8
-ARM_WX_TOP         1033
-ARM_WX_NUM           12
-CHECK_SPEED2     10.000    20.000    30.000    40.000    50.000
-EIP_ID_CONF   1   170, 12, 14, 3, 66, 0x0000, 0x504d4153, 0, 0
-EIP_ID_CONF   2   
-EIP_ID_CONF   3   eng,0xda,4,0
-EIP_ID_CONF   4   eng,0xda,4,0
-EIP_ID_CONF   5   eng,0xda,4,0
-EIP_ASM_CONF  1   0x00000064,0x09,112,0
-EIP_ASM_CONF  2   0x00000064,0x09,112,0
-EIP_ASM_CONF  3   0x00000064,0x09,32,0
-EIP_ASM_CONF  4   0x00000064,0x09,32,0
-EIP_ASM_CONF  5   0x00000064,0x09,32,0
-EIP_ASM_CONF  6   0x00000064,0x09,32,0
-EIP_ASM_CONF  7   0x00000064,0x09,32,0
-EIP_ASM_CONF  8   0x00000064,0x09,32,0
-EIP_ASM_CONF  9   0x00000064,0x09,32,0
-EIP_ASM_CONF  10   0x00000064,0x09,32,0
-EIP_ASM_CONF  11   0x00000064,0x09,32,0
-EIP_ASM_CONF  12   0x00000064,0x09,32,0
-EIP_ASM_CONF  13   0x00000064,0x09,32,0
-EIP_ASM_CONF  14   0x00000064,0x09,32,0
-EIP_ASM_CONF  15   0x00000064,0x09,32,0
-EIP_ASM_CONF  16   0x00000064,0x09,32,0
-EIP_ASM_CONF  17   0x00000064,0x09,32,0
-EIP_ASM_CONF  18   0x00000064,0x09,32,0
-EIP_ASM_CONF  19   0x00000064,0x09,32,0
-EIP_ASM_CONF  20   0x00000064,0x09,32,0
-EIP_ASM_CONF  21   0x00000064,0x09,32,0
-EIP_ASM_CONF  22   0x00000064,0x09,32,0
-EIP_ASM_CONF  23   0x00000064,0x09,32,0
-EIP_ASM_CONF  24   0x00000064,0x09,32,0
-EIP_ASM_CONF  25   0x00000064,0x09,32,0
-EIP_ASM_CONF  26   0x00000064,0x09,32,0
-EIP_ASM_CONF  27   0x00000064,0x09,32,0
-EIP_ASM_CONF  28   0x00000064,0x09,32,0
-EIP_ASM_CONF  29   0x00000064,0x09,32,0
-EIP_ASM_CONF  30   0x00000064,0x09,32,0
-EIP_ASM_CONF  31   0x00000064,0x09,32,0
-EIP_ASM_CONF  32   0x00000064,0x09,32,0
-EIP_ASM_CONF  33   0x00000064,0x09,32,0
-EIP_ASM_CONF  34   0x00000064,0x09,32,0
-EIP_ASM_CONF  35   0x00000064,0x09,32,0
-EIP_ASM_CONF  36   0x00000064,0x09,32,0
-EIP_ASM_CONF  37   0x00000064,0x09,32,0
-EIP_ASM_CONF  38   0x00000064,0x09,32,0
-EIP_ASM_CONF  39   0x00000064,0x09,32,0
-EIP_ASM_CONF  40   0x00000064,0x09,32,0
-EIP_ASM_CONF  41   0x00000064,0x09,32,0
-EIP_ASM_CONF  42   0x00000064,0x09,32,0
-EIP_ASM_CONF  43   0x00000064,0x09,32,0
-EIP_ASM_CONF  44   0x00000064,0x09,32,0
-EIP_ASM_CONF  45   0x00000064,0x09,32,0
-EIP_ASM_CONF  46   0x00000064,0x09,32,0
-EIP_ASM_CONF  47   0x00000064,0x09,32,0
-EIP_ASM_CONF  48   0x00000064,0x09,32,0
-EIP_ASM_CONF  49   0x00000064,0x09,32,0
-EIP_ASM_CONF  50   0x00000064,0x09,32,0
-EIP_ASM_CONF  51   0x00000064,0x09,32,0
-EIP_ASM_CONF  52   0x00000064,0x09,32,0
-EIP_ASM_CONF  53   0x00000064,0x09,32,0
-EIP_ASM_CONF  54   0x00000064,0x09,32,0
-EIP_ASM_CONF  55   0x00000064,0x09,32,0
-EIP_ASM_CONF  56   0x00000064,0x09,32,0
-EIP_ASM_CONF  57   0x00000064,0x09,32,0
-EIP_ASM_CONF  58   0x00000064,0x09,32,0
-EIP_ASM_CONF  59   0x00000064,0x09,32,0
-EIP_ASM_CONF  60   0x00000064,0x09,32,0
-EIP_ASM_CONF  61   0x00000064,0x09,32,0
-EIP_ASM_CONF  62   0x00000064,0x09,32,0
-EIP_ASM_CONF  63   0x00000064,0x09,32,0
-EIP_ASM_CONF  64   0x00000064,0x09,32,0
-EIP_ASM_CONF  65   0x00000064,0x09,32,0
-EIP_ASM_CONF  66   0x00000064,0x09,32,0
-EIP_ASM_CONF  67   0x00000064,0x09,32,0
-EIP_ASM_CONF  68   0x00000064,0x09,32,0
-EIP_ASM_CONF  69   0x00000064,0x09,32,0
-EIP_CM1_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM1_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM1_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM1_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM1_CONF  5   0, 
-EIP_CM1_CONF  6   0, 
-EIP_CM2_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM2_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM2_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM2_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM2_CONF  5   0, 
-EIP_CM2_CONF  6   0, 
-EIP_CM3_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM3_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM3_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM3_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM3_CONF  5   0, 
-EIP_CM3_CONF  6   0, 
-EIP_CM4_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM4_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM4_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM4_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM4_CONF  5   0, 
-EIP_CM4_CONF  6   0, 
-EIP_CM5_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM5_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM5_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM5_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM5_CONF  5   0, 
-EIP_CM5_CONF  6   0, 
-EIP_CM6_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM6_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM6_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM6_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM6_CONF  5   0, 
-EIP_CM6_CONF  6   0, 
-EIP_CM7_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM7_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM7_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM7_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM7_CONF  5   0, 
-EIP_CM7_CONF  6   0, 
-EIP_CM8_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM8_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM8_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM8_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM8_CONF  5   0, 
-EIP_CM8_CONF  6   0, 
-EIP_CM9_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM9_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM9_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM9_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM9_CONF  5   0, 
-EIP_CM9_CONF  6   0, 
-EIP_CM10_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM10_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM10_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM10_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM10_CONF  5   0, 
-EIP_CM10_CONF  6   0, 
-EIP_CM11_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM11_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM11_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM11_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM11_CONF  5   0, 
-EIP_CM11_CONF  6   0, 
-EIP_CM12_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM12_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM12_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM12_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM12_CONF  5   0, 
-EIP_CM12_CONF  6   0, 
-EIP_CM13_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM13_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM13_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM13_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM13_CONF  5   0, 
-EIP_CM13_CONF  6   0, 
-EIP_CM14_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM14_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM14_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM14_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM14_CONF  5   0, 
-EIP_CM14_CONF  6   0, 
-EIP_CM15_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM15_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM15_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM15_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM15_CONF  5   0, 
-EIP_CM15_CONF  6   0, 
-EIP_CM16_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM16_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM16_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM16_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM16_CONF  5   0, 
-EIP_CM16_CONF  6   0, 
-EIP_CM17_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM17_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM17_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM17_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM17_CONF  5   0, 
-EIP_CM17_CONF  6   0, 
-EIP_CM18_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM18_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM18_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM18_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM18_CONF  5   0, 
-EIP_CM18_CONF  6   0, 
-EIP_CM19_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM19_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM19_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM19_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM19_CONF  5   0, 
-EIP_CM19_CONF  6   0, 
-EIP_CM20_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM20_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM20_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM20_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM20_CONF  5   0, 
-EIP_CM20_CONF  6   0, 
-EIP_CM21_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM21_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM21_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM21_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM21_CONF  5   0, 
-EIP_CM21_CONF  6   0, 
-EIP_CM22_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM22_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM22_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM22_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM22_CONF  5   0, 
-EIP_CM22_CONF  6   0, 
-EIP_CM23_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM23_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM23_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM23_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM23_CONF  5   0, 
-EIP_CM23_CONF  6   0, 
-EIP_CM24_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM24_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM24_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM24_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM24_CONF  5   0, 
-EIP_CM24_CONF  6   0, 
-EIP_CM25_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM25_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM25_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM25_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM25_CONF  5   0, 
-EIP_CM25_CONF  6   0, 
-EIP_CM26_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM26_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM26_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM26_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM26_CONF  5   0, 
-EIP_CM26_CONF  6   0, 
-EIP_CM27_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM27_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM27_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM27_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM27_CONF  5   0, 
-EIP_CM27_CONF  6   0, 
-EIP_CM28_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM28_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM28_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM28_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM28_CONF  5   0, 
-EIP_CM28_CONF  6   0, 
-EIP_CM29_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM29_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM29_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM29_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM29_CONF  5   0, 
-EIP_CM29_CONF  6   0, 
-EIP_CM30_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM30_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM30_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM30_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM30_CONF  5   0, 
-EIP_CM30_CONF  6   0, 
-EIP_CM31_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM31_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM31_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM31_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM31_CONF  5   0, 
-EIP_CM31_CONF  6   0, 
-EIP_CM32_CONF  1   0, 102, 101, 100, 200, 100, 0, 0, 1, 2, 3, 2000
-EIP_CM32_CONF  2   0, 8, 0, 8, 0, 0
-EIP_CM32_CONF  3   0x4000, 0x2000, 0x0800, 0x0800, 0x00
-EIP_CM32_CONF  4   192.168.1.115, 255.255.255.255
-EIP_CM32_CONF  5   0, 
-EIP_CM32_CONF  6   0, 
-SWITCH AUTOSTART.PC    ON 
-.END
 .AUXDATA
-TOOL1           -94.000    -1.500   102.000  -179.600    89.900   180.000
-DFF1             13.000     0.000     0.000     0.000
-TOOL2            93.600     0.000   102.000     0.700    90.300  -180.000
-DFF2             13.000     0.000     0.000     0.000
-TOOL3             0.000     0.000     0.000     0.000     0.000     0.000
-DFF3             13.000     0.000     0.000     0.000
-TOOL4             0.000     0.000     0.000     0.000     0.000     0.000
-DFF4             13.000     0.000     0.000     0.000
-TOOL5             0.000     0.000     0.000     0.000     0.000     0.000
-DFF5             13.000     0.000     0.000     0.000
-TOOL6             0.000     0.000     0.000     0.000     0.000     0.000
-DFF6             13.000     0.000     0.000     0.000
-TOOL7             0.000     0.000     0.000     0.000     0.000     0.000
-DFF7             13.000     0.000     0.000     0.000
-TOOL8             0.000     0.000     0.000     0.000     0.000     0.000
-DFF8             13.000     0.000     0.000     0.000
-TOOL9             0.000     0.000     0.000     0.000     0.000     0.000
-DFF9             13.000     0.000     0.000     0.000
-TOOL10            0.000     0.000     0.000     0.000     0.000     0.000
-DFF10            13.000     0.000     0.000     0.000
-TOOL11            0.000     0.000     0.000     0.000     0.000     0.000
-DFF11            13.000     0.000     0.000     0.000
-TOOL12            0.000     0.000     0.000     0.000     0.000     0.000
-DFF12            13.000     0.000     0.000     0.000
-TOOL13            0.000     0.000     0.000     0.000     0.000     0.000
-DFF13            13.000     0.000     0.000     0.000
-TOOL14            0.000     0.000     0.000     0.000     0.000     0.000
-DFF14            13.000     0.000     0.000     0.000
-TOOL15            0.000     0.000     0.000     0.000     0.000     0.000
-DFF15            13.000     0.000     0.000     0.000
-TOOL16            0.000     0.000     0.000     0.000     0.000     0.000
-DFF16            13.000     0.000     0.000     0.000
-TOOL17            0.000     0.000     0.000     0.000     0.000     0.000
-DFF17            13.000     0.000     0.000     0.000
-TOOL18            0.000     0.000     0.000     0.000     0.000     0.000
-DFF18            13.000     0.000     0.000     0.000
-TOOL19            0.000     0.000     0.000     0.000     0.000     0.000
-DFF19            13.000     0.000     0.000     0.000
-TOOL20            0.000     0.000     0.000     0.000     0.000     0.000
-DFF20            13.000     0.000     0.000     0.000
-TOOL21            0.000     0.000     0.000     0.000     0.000     0.000
-DFF21            13.000     0.000     0.000     0.000
-TOOL22            0.000     0.000     0.000     0.000     0.000     0.000
-DFF22            13.000     0.000     0.000     0.000
-TOOL23            0.000     0.000     0.000     0.000     0.000     0.000
-DFF23            13.000     0.000     0.000     0.000
-TOOL24            0.000     0.000     0.000     0.000     0.000     0.000
-DFF24            13.000     0.000     0.000     0.000
-TOOL25            0.000     0.000     0.000     0.000     0.000     0.000
-DFF25            13.000     0.000     0.000     0.000
-TOOL26            0.000     0.000     0.000     0.000     0.000     0.000
-DFF26            13.000     0.000     0.000     0.000
-TOOL27            0.000     0.000     0.000     0.000     0.000     0.000
-DFF27            13.000     0.000     0.000     0.000
-TOOL28            0.000     0.000     0.000     0.000     0.000     0.000
-DFF28            13.000     0.000     0.000     0.000
-TOOL29            0.000     0.000     0.000     0.000     0.000     0.000
-DFF29            13.000     0.000     0.000     0.000
-TOOL30            0.000     0.000     0.000     0.000     0.000     0.000
-DFF30            13.000     0.000     0.000     0.000
-TOOL31            0.000     0.000     0.000     0.000     0.000     0.000
-DFF31            13.000     0.000     0.000     0.000
-TOOL_EUR1         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR2         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR3         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR4         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR5         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR6         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR7         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR8         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR9         0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR10        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR11        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR12        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR13        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR14        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR15        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR16        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR17        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR18        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR19        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR20        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR21        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR22        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR23        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR24        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR25        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR26        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR27        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR28        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR29        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR30        0.000     0.000     0.000     0.000     0.000     0.000
-TOOL_EUR31        0.000     0.000     0.000     0.000     0.000     0.000
-WORK1             0.000     0.000     0.000     0.000     0.000     0.000
-WORK2             0.000     0.000     0.000     0.000     0.000     0.000
-WORK3             0.000     0.000     0.000     0.000     0.000     0.000
-WORK4             0.000     0.000     0.000     0.000     0.000     0.000
-WORK5             0.000     0.000     0.000     0.000     0.000     0.000
-WORK6             0.000     0.000     0.000     0.000     0.000     0.000
-WORK7             0.000     0.000     0.000     0.000     0.000     0.000
-WORK8             0.000     0.000     0.000     0.000     0.000     0.000
-WORK9             0.000     0.000     0.000     0.000     0.000     0.000
-SLOW_REPEAT       5.000
-CHECK_SPEED       1.000    10.000    80.000   150.000   250.000
-TEACH_SPEED       0.100    10.000    80.000   150.000   250.000
-1HOME             0.002    29.999    90.001    -0.001   -69.997     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000    50.000
-2HOME             0.002    29.999    40.002     0.000   -45.001     0.002     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000     0.000    50.000
+N_OX33    "grip.open[1]"
+N_OX34    "grip.close[1]"
+N_OX35    "grip.open[2]"
+N_OX36    "grip.close[2]"
 N_OX37    "air.blow.on"
 N_OX38    "air.blow.off"
-N_OX50    "hmi.wp.length"
 N_OX65    "do.motor.on"
 N_OX66    "do.error"
 N_OX67    "do.cs"
@@ -872,7 +19,6 @@ N_OX75    "do.hold"
 N_OX76    "do.safety.fence"
 N_OX77    "do.bat.alarm"
 N_OX78    "o.debug"
-N_OX80    "hmi.plate.ox"
 N_OX81    "eo.grip.s.opend[1]"
 N_OX82    "eo.grip.c.opend[1]"
 N_OX83    "eo.grip.c.closd[1]"
@@ -910,7 +56,6 @@ N_OX139    "eo.shelf.cmplt[2]"
 N_OX140    "eo.shelf.cmplt[3]"
 N_OX141    "eo.shelf.cmplt[4]"
 N_OX145    "eo.error.code[0]"
-N_OX160    "hmi.plate.dy"
 N_OX161    "eo.grip.id[1,0]"
 N_OX169    "eo.grip.id[2,0]"
 N_OX177    "eo.cnc.id[1,0]"
@@ -933,7 +78,10 @@ N_OX221    "eo.cnc.empty[2]"
 N_OX222    "eo.cnc.wp0[2]"
 N_OX223    "eo.cnc.wp1[2]"
 N_OX224    "eo.cnc.wp2[2]"
-N_OX256    "log.max.count"
+N_WX33    "grip.opened[1]"
+N_WX34    "grip.opened[2]"
+N_WX35    "grip.sensor[1]"
+N_WX36    "grip.sensor[2]"
 N_WX65    "di.ext.motor.on"
 N_WX66    "di.ext.ereset"
 N_WX67    "di.ext.cs"
@@ -971,9 +119,8 @@ N_WX145    "ei.robot.speed[0]"
 N_WX161    "ei.xmove.spd[0]"
 N_WX169    "ei.blow.spd[0]"
 N_WX177    "ei.overshoot[0]"
-N_WX193    "ei.t.grip.op[1,0]"
-N_WX201    "ei.t.grip.cl[1,0]"
-N_WX209    "ei.t.grip.op[2,0]"
+N_WX201    "ei.t.grip.op[2,0]"
+N_WX209    "ei.t.grip.op[1,0]"
 N_WX217    "ei.t.grip.cl[2,0]"
 N_WX225    "ei.t.cnc.open[1,0]"
 N_WX233    "ei.t.cnc.close[1,0]"
@@ -1008,8 +155,8 @@ N_WX562    "d.grip.inverse[2]"
 N_WX563    "d.cnc.run.pg"
 N_WX564    "d.air.blow[1]"
 N_WX565    "d.air.blow[2]"
-N_WX566    "d.wp2.pick[1]"
-N_WX567    "d.wp2.pick[2]"
+N_WX566    "d.wp3.pick[1]"
+N_WX567    "d.wp3.pick[2]"
 N_WX568    "d.cnc.first"
 N_WX569    "d.grip.first"
 N_WX570    "d.int.change"
@@ -1034,8 +181,9 @@ N_INT12    "s.inside.cnc"
 N_INT13    "s.mcode.req"
 N_INT14    "s.p.put.air.req"
 N_INT15    "s.a.pic.air.req"
+N_INT16    "s.change.req"
 N_INT17    "s.ext.chg.req"
-N_INT18    "s.ext.chg.ok"
+N_INT18    "s.chg.ok"
 N_INT20    "s.reset.perf"
 N_INT102    "s.hmi.grip[1]"
 N_INT103    "s.hmi.grip[2]"
@@ -1051,8 +199,6 @@ N_INT112    "s.pr.tch.cnc.ap"
 N_INT113    "s.pr.tch.cnc"
 N_INT114    "s.pr.tst.cnc.pi"
 N_INT115    "s.pr.tst.cnc.pu"
-N_INT116    "s.pr.tch.air"
-N_INT117    "s.pr.tch.chg"
 N_INT130    "s.pr.a.home"
 .END
 .INTER_PANEL_D
@@ -1106,11 +252,11 @@ N_INT130    "s.pr.a.home"
 83,2,"","   TEACH","   DATA","",10,4,3,2007,0
 84,2,"  PRIME","  TEACH","  CNC","  APPROACH",10,4,3,2112,0
 85,2,"  PRIME","  TEACH","  CNC","",10,4,3,2113,0
+86,2,"  PRIME","  CNC","  TEST","  PICK",10,4,0,2114,0
+87,2,"  PRIME","  CNC","  TEST","  PUT",10,4,0,2115,0
 88,4,2,"TEACH TOOL","TOOL 1","TOOL 2","",10,4,4,2102,2103,0
 89,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
 90,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
-91,2,"  PRIME","  CNC","  TEST","  PICK",10,4,0,2114,0
-92,2,"  PRIME","  CNC","  TEST","  PUT",10,4,0,2115,0
 95,4,2,"TEACH CNC","CHUCK 1","CHUCK 2","",10,4,4,2104,2105,0
 96,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
 97,2,"","  CHUCK 2","   OPEN","",10,4,15,99,0
@@ -1191,7 +337,7 @@ N_INT130    "s.pr.a.home"
 223,2,""," PLC DATA","","",10,4,11,2006,0
 .END
 .INTER_PANEL_TITLE
-"MAIN",1
+"Main",1
 "I/O",1
 "TEACH CELL",1
 "TEACH CNC",1
@@ -1414,12 +560,12 @@ N_INT130    "s.pr.a.home"
       ;
       gripper.id[1] = 0
       gripper.id[2] = 0
-      gripper.state[1] = -1
-      gripper.state[2] = -1
+      ;gripper.state[1] = -1
+      ;gripper.state[2] = -1
       cnc.id[1] = 0
       cnc.id[2] = 0
-      cnc.state[1] = -1
-      cnc.state[2] = -1
+      ;cnc.state[1] = -1
+      ;cnc.state[2] = -1
       current.wp = 1
       processed.wp = 0
       ;
@@ -1471,21 +617,29 @@ N_INT130    "s.pr.a.home"
     END
     ;
     IF SIG (s.pr.tch.cnc.ap) THEN
-      MC PRIME cnc.appro.teach
+      MC PRINT cnc.appro.teach
     END
     ;
     IF SIG (s.pr.tch.cnc) THEN
-      MC PRIME cnc.teach
+      MC PRINT cnc.teach
     END
     ;
     IF SIG (s.pr.tst.cnc.pi) THEN
-      MC PRIME cnc.test.pick
+      MC PRINT cnc.test.pick
     END
     ;
     IF SIG (s.pr.tst.cnc.pu) THEN
-      MC PRIME cnc.test.put
+      MC PRINT cnc.test.put
     END
     ;
+    IF SIG (s.pr.tch.air) THEN
+      ;MC PRINT cnc.test.put
+    END
+    ;
+    IF SIG (s.pr.tch.chg) THEN
+      ;MC PRINT cnc.test.put
+    END
+    ; 
     IF SIG(s.pr.a.home) THEN
       MC PRIME a.home
     ;
@@ -1528,14 +682,6 @@ N_INT130    "s.pr.a.home"
   CALL log ("CNC chuck" + $ENCODE (.chuck.no) + " opened")
   TWAIT .time
   SIGNAL -eo.cnc.ch.open[.chuck.no]
-  ;
-.END
-.PROGRAM ciner (.$var.name,.var,.default)
-  ;
-  IF NOT EXISTREAL(.$var.name) THEN
-    CALL log("Variable " + .$var.name + " is not exist. Default:" + $ENCODE(.default))
-    .var = .default
-  END
   ;
 .END
 .PROGRAM cnc.appro.teach ()
@@ -1765,7 +911,7 @@ N_INT130    "s.pr.a.home"
   END
   ;
   CALL get.task.data
-  CALL cnc.pick (.grip.no, .chuck.no, 0)
+  CALL cnc.pick (.grip.no, .chuck.no, hmi.wp.length)
   ;
 .END
 .PROGRAM cnc.test.put ()
@@ -1783,7 +929,7 @@ N_INT130    "s.pr.a.home"
   END
   ;
   CALL get.task.data
-  CALL cnc.put (.grip.no, .chuck.no, 0)
+  CALL cnc.put (.grip.no, .chuck.no, hmi.wp.length)
   ;
 .END
 .PROGRAM disp.info.pc ()
@@ -1880,10 +1026,10 @@ N_INT130    "s.pr.a.home"
   grip.chg.int[1]    = TRUE
   grip.chg.int[2]    = FALSE
   ;
-  grip.chg.ext[1, 1] = TRUE
-  grip.chg.ext[1, 2] = FALSE
-  grip.chg.ext[2, 1] = TRUE
-  grip.chg.ext[2, 2] = FALSE
+  grip.chg.ext[1, 1] = FALSE
+  grip.chg.ext[1, 2] = TRUE
+  grip.chg.ext[2, 1] = FALSE
+  grip.chg.ext[2, 2] = TRUE
   ;
   ;
 .END
@@ -1913,7 +1059,7 @@ N_INT130    "s.pr.a.home"
   cnc.pg.no          = BITS (d.cnc.pg.no[0], 8)
   chg.pg.no          = BITS (d.chg.pg.no[0], 8)
   air.pg.no[1]       = BITS (d.air.pg.no[1, 0], 8)
-  air.pg.no[2]       = BITS (d.air.pg.no[2, 0], 8)
+  air.pg.no[2]       = BITS (d.air.pg.no[1, 0], 8)
   wp.count           = BITS (d.wp.count[0], 8)
   ;
   grip.inverse[1]    = SIG (d.grip.inverse[1])
@@ -2027,8 +1173,8 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM initialize.pc ()
   ;
-  CALL log.init
   CALL set.switches.pc
+  CALL log.init
   CALL set.io.pc
   CALL set.vars.pc
   CALL disp.info.pc
@@ -2118,7 +1264,7 @@ N_INT130    "s.pr.a.home"
   END
   TOOL tool.calib[.grip.no]
   ;
-  JMOVE #wp.safe[.grip.no] ; **== TEACH POINT ==**
+  JMOVE #wp.safe[.grip.no]
   ;
   LAPPRO #plate.pt.o[hmi.shelf.no, .grip.no], 20
   BREAK
@@ -2232,8 +1378,7 @@ N_INT130    "s.pr.a.home"
   ;
   HOME
   HOME2
-  $safe.flag = ""
-  BREAK
+  $safe.flag = " "
   CALL log ("Robot in home position")
   ;
   SIGNAL -s.inside.cnc
@@ -2502,8 +1647,8 @@ N_INT130    "s.pr.a.home"
   ei.overshoot[0] = 1177 ; 4 bit
   ;
   ei.t.grip.op[1, 0] = 1193 ; 8 bit
-  ei.t.grip.cl[1, 0] = 1201 ; 8 bit
-  ei.t.grip.op[2, 0] = 1209 ; 8 bit
+  ei.t.grip.cl[2, 0] = 1201 ; 8 bit
+  ei.t.grip.op[1, 0] = 1209 ; 8 bit
   ei.t.grip.cl[2, 0] = 1217 ; 8 bit
   ;
   ei.t.cnc.open[1, 0] = 1225; 8 bit
@@ -2536,8 +1681,8 @@ N_INT130    "s.pr.a.home"
   ;
   d.cnc.pg.no[0] = 1513 ; 8 bit
   d.chg.pg.no[0] = 1521 ; 8 bit
-  d.air.pg.no[1, 0] = 1529 ; 8 bit
-  d.air.pg.no[2, 0] = 1537 ; 8 bit
+  d.air.pg.1.no[1, 0] = 1529 ; 8 bit
+  d.air.pg.1.no[2, 0] = 1537 ; 8 bit
   d.wp.count[0] = 1545 ; 8 bit
   ;
   d.grip.inverse[1] = 1561
@@ -2616,7 +1761,7 @@ N_INT130    "s.pr.a.home"
   DISP.EXESTEP ON
   PROG.DATE ON
   ABS.SPEED ON
-  ERRSTART.PC ON  
+  ERRSTART.PC ON  ;
   autostart.pc ON
   ;
 .END
@@ -2631,7 +1776,7 @@ N_INT130    "s.pr.a.home"
   WEIGHT 20, 0, 0, 100, 0.1, 0.1, 0.1
   current.grip = .grip.no
   ;
-  CALL log ("Tool " + $ENCODE (/L, .grip.no)+ " set")
+  CALL log ("Tool" + $ENCODE (/L, .grip.no)+ " set")
   ;
 .END
 .PROGRAM set.vars.pc ()
@@ -2642,62 +1787,21 @@ N_INT130    "s.pr.a.home"
   POINT tool.calib[2] = TRANS (202.8, 0, 104, 0, 90, 180)
   POINT tool.pin = TRANS (0, 112, 104, 90, 90, 0)
   ;
-  POINT #shelf.safe = #PPOINT(75, 0, 100, 30, 75, 100)
-  ;#shelf.safe 77.267387 4.813991 100.780472 34.271633 76.990814 99.275299
-  
   hmi.shelf.no = 1
   hmi.wp.id = 1
   ;
   hmi.air.pg = 1
   hmi.chg.pg = 1
   ;
-  CALL ciner ("pick.epsilon", pick.epsilon, 0.2)
+  IF NOT EXISTREAL("pick.epsilon") THEN
+    pick.epsilon = 0.2
+  END 
   ;
-  CALL ciner ("hmi.wp.length", hmi.wp.length, 50)
-  ;
-  CALL ciner ("hmi.grip.j.full[1]", hmi.grip.j.full[1], 40)
-  CALL ciner ("hmi.grip.j.full[2]", hmi.grip.j.full[2], 40)
-  CALL ciner ("hmi.grip.j.body[1]", hmi.grip.j.body[1], 28)
-  CALL ciner ("hmi.grip.j.body[2]", hmi.grip.j.body[2], 28)
-  CALL ciner ("hmi.cnc.j.full[1]", hmi.cnc.j.full[1], 40)
-  CALL ciner ("hmi.cnc.j.full[2]", hmi.cnc.j.full[2], 40)
-  CALL ciner ("hmi.cnc.j.body[1]", hmi.cnc.j.body[1], 28)
-  CALL ciner ("hmi.cnc.j.body[2]", hmi.cnc.j.body[2], 28)
-  ;
-  CALL ciner ("hmi.plate.rows", hmi.plate.rows, 4)
-  CALL ciner ("hmi.plate.col.o", hmi.plate.col.o, 4)
-  CALL ciner ("hmi.plate.col.e", hmi.plate.col.e, 4)
-  CALL ciner ("hmi.plate.dx", hmi.plate.dx, 130)
-  CALL ciner ("hmi.plate.dy", hmi.plate.dy, 160)
-  CALL ciner ("hmi.plate.e.dy", hmi.plate.e.dy, 0)
-  CALL ciner ("hmi.plate.ox", hmi.plate.ox, 80)
-  CALL ciner ("hmi.plate.oy", hmi.plate.oy, 75)
-  ;
-  CALL ciner ("hmi.wp.count", hmi.wp.count, 4)
-  ;
-  CALL ciner ("hmi.air.pg", hmi.air.pg, 1)
-  CALL ciner ("hmi.chg.pg", hmi.chg.pg, 1)
-  ;
-  CALL ciner ("cnc.rotations[1, 1]", cnc.rotations[1, 1], 0)
-  CALL ciner ("cnc.rotations[1, 2]", cnc.rotations[1, 2], 180)
-  CALL ciner ("cnc.rotations[2, 1]", cnc.rotations[2, 1], 180)
-  CALL ciner ("cnc.rotations[2, 2]", cnc.rotations[2, 2], 0)
-  ;
-  CALL ciner ("gripper.id[1]", gripper.id[1], 0)
-  CALL ciner ("gripper.state[1]", gripper.state[1], -1)
-  CALL ciner ("gripper.id[2]", gripper.id[2], 0)
-  CALL ciner ("gripper.state[2]", gripper.state[2], -1)
-  CALL ciner ("cnc.id[1]", cnc.id[1], 0)
-  CALL ciner ("cnc.state[1]", cnc.state[1], -1)
-  CALL ciner ("cnc.id[2]", cnc.id[2], 0)
-  CALL ciner ("cnc.state[2]", cnc.state[2], -1)
-  ;
-  CALL ciner ("processed.wp", processed.wp, 0)
-  CALL ciner ("current.wp", current.wp, 1)
-  CALL ciner ("wp.count", wp.count, 1)
-  ;
-  IF NOT EXISTCHAR ("$safe.slag") THEN
-    $safe.slag = " "
+  IF NOT EXISTREAL("cnc.rotations[1, 1]") THEN
+    cnc.rotations[1,1] = 0
+    cnc.rotations[1,2] = 180
+    cnc.rotations[2,1] = 180
+    cnc.rotations[2,2] = 0
   END
   ;
 .END
@@ -2708,6 +1812,7 @@ N_INT130    "s.pr.a.home"
   SPEED 60 ALWAYS
   ACCURACY 5 ALWAYS
   CALL set.tool (3)
+  ; gripper.no, time, reverse
   CALL grip.close (1, 0, FALSE)
   CALL grip.close (2, 0, FALSE)
   ;
@@ -2735,10 +1840,17 @@ N_INT130    "s.pr.a.home"
     ;
     CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
     ;
+    ;IF kroset THEN
+    ;  SIGNAL k.shelf.pick
+    ;END
+    ;
     SPEED 200 MM/S
     ACCURACY 0.1
     LMOVE .end
     BREAK
+    ;IF kroset THEN
+    ;  SIGNAL -k.shelf.pick
+    ;END
     ;
     SPEED 50 MM/S
     ACCURACY 0.1
@@ -2806,10 +1918,17 @@ N_INT130    "s.pr.a.home"
     ;
     CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
     ;
+    ;IF kroset THEN
+    ;  SIGNAL k.shelf.pick
+    ;END
+    ;
     SPEED 200 MM/S
     ACCURACY 0.1
     LMOVE .end
     BREAK
+    ;IF kroset THEN
+    ;  SIGNAL -k.shelf.pick
+    ;END
     ;
     SPEED 50 MM/S
     ACCURACY 0.1
@@ -2893,7 +2012,6 @@ N_INT130    "s.pr.a.home"
   SIGNAL eo.robot.ready
   CALL log ("Waiting for task start")
   SWAIT ei.task.start
-  CALL log ("Task start command received")
   ;
   ; Resetting signals
   SIGNAL -s.shelf.failed
@@ -2919,7 +2037,6 @@ N_INT130    "s.pr.a.home"
   CALL log ("State 1: Check ready shelves")
   WHILE TRUE DO
     IF NOT SIG (ei.task.start) THEN
-      CALL log ("Task signal was turned off by operator")
       state = 255
       RETURN
     END
@@ -2962,7 +2079,6 @@ N_INT130    "s.pr.a.home"
       state = 100
       RETURN
     END
-    CALL log ("No ready shelves found")
     HOME2
   END
   ;
@@ -3793,10 +2909,10 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM wp.pick (.shelf.no,.grip.no,.wp.id)
   ;
-  .$temp = "Pick workpiece. Shelf: " + $ENCODE (.shelf.no)
-  .$temp = .$temp + " Tool: " + $ENCODE (.grip.no)
-  .$temp = .$temp + " ID: " + $ENCODE (.wp.id)
-  .$temp = .$temp + "L: " + $ENCODE (wp.length[0])
+  .$temp = "Pick workpiece. Shelf:" + $ENCODE (.shelf.no)
+  .$temp = .$temp + " Tool:" + $ENCODE (.grip.no)
+  .$temp = .$temp + " ID:" + $ENCODE (.wp.id)
+  .$temp = .$temp + "L:" + $ENCODE (wp.length[0])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -3809,7 +2925,7 @@ N_INT130    "s.pr.a.home"
   SIGNAL -s.search.fail
   ;
   IF SIG (ei.skp.emp.cell) THEN
-    .epsilon = pick.epsilon
+    .epsilon = 0.1
   ELSE
     .epsilon = -1
   END
@@ -3817,16 +2933,16 @@ N_INT130    "s.pr.a.home"
   ; Calculate shifts
   .dx = plt.dx * .i + plt.ox
   IF .i MOD 2 == 0
-    .dy = plt.dy * (plt.cell.odd -1 - .j) + plt.oy
+    .dy = plt.dy * .j + plt.oy
   ELSE
-    .dy = plt.dy * (plt.cell.even - 1 - .j) + plt.even.dy + plt.oy
+    .dy = plt.dy * .j + plt.even.dy + plt.oy
   END
   .dz = wp.length[0] + grip.jaw.body[.grip.no] - overshoot ;
   .z.appro = grip.jaw.full[.grip.no] - grip.jaw.body[.grip.no] + overshoot + 10
   ;
   ; Calculate points
   POINT .temp = shelf.frame[.shelf.no, .grip.no]
-  POINT .x.pick = .temp + TRANS (.dx, .dy, -.dz)
+  POINT .x.pick = .temp + TRANS (.dx, -.dy, -.dz)
   ; Calculate approach point
   POINT .approach = #wp.safe[.grip.no]
   .x = DX (.x.pick)
@@ -3848,6 +2964,14 @@ N_INT130    "s.pr.a.home"
   ACCURACY 0.1
   LAPPRO .x.pick, .z.appro
   BREAK
+  ; Check if gripper is opened
+  ;CALL gripper.is.open (.grip.no, st3.reverse)
+  ;IF SIG (eo.gp.error[.grip.no]) THEN
+  ;  ; Return home if not. Error
+  ;  JMOVE #wp.safe[.grip.no]
+  ;  JMOVE #homyak
+  ;  RETURN
+  ;END
   ;
   SPEED search.speed MM/S
   XMOVE .x.pick TILL grip.sensor[.grip.no]
@@ -3885,10 +3009,10 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM wp.put (.shelf.no,.grip.no,.wp.id)
   ;
-  .$temp = "Put workpiece. Shelf: " + $ENCODE (.shelf.no)
-  .$temp = .$temp + " Tool: " + $ENCODE (.grip.no)
-  .$temp = .$temp + " ID: " + $ENCODE (.wp.id)
-  .$temp = .$temp + "L: " + $ENCODE(wp.length[2])
+  .$temp = "Put workpiece. Shelf:" + $ENCODE (.shelf.no)
+  .$temp = .$temp + " Tool:" + $ENCODE (.grip.no)
+  .$temp = .$temp + " ID:" + $ENCODE (.wp.id)
+  .$temp = .$temp + "L:" + $ENCODE(wp.length[2])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -3900,16 +3024,16 @@ N_INT130    "s.pr.a.home"
   ; Calculate shifts
   .dx = plt.dx * .i + plt.ox
   IF .i MOD 2 == 0
-    .dy = plt.dy * (plt.cell.odd -1 - .j) + plt.oy
+    .dy = plt.dy * .j + plt.oy
   ELSE
-    .dy = plt.dy * (plt.cell.even - 1 - .j) + plt.even.dy + plt.oy
+    .dy = plt.dy * .j + plt.even.dy + plt.oy
   END
   .dz = wp.length[2] + grip.jaw.body[.grip.no] - overshoot ;
   .z.appro = grip.jaw.full[.grip.no] - grip.jaw.body[.grip.no] + overshoot + 10
   ;
   ; Calculate points
   POINT .temp = shelf.frame[.shelf.no, .grip.no]
-  POINT .x.put = .temp + TRANS (.dx, .dy, -.dz)
+  POINT .x.put = .temp + TRANS (.dx, -.dy, -.dz)
   ; Calculate approach point
   POINT .approach = #wp.safe[.grip.no]
   .x = DX (.x.put)
@@ -3980,13 +3104,17 @@ N_INT130    "s.pr.a.home"
 .PROGRAM Comment___ () ; Comments for IDE. Do not use.
 	; @@@ PROJECT @@@
 	; @@@ PROJECTNAME @@@
-	; LoadWizardPro_clean
+	; LoadWizardPro_
 	; @@@ HISTORY @@@
 	; @@@ INSPECTION @@@
-	; do.hold
-	; plt.rows
-	; plt.cell.odd
-	; plt.cell.even
+	; gripper.id[1]
+	; gripper.id[2]
+	; gripper.state[2]
+	; gripper.state[1]
+	; grip.chg.ext[2,1]
+	; grip.chg.ext[1,1]
+	; gp.wp1[2]
+	; cnc.empty[1]
 	; @@@ CONNECTION @@@
 	; KROSET R01
 	; 127.0.0.1
@@ -4004,6 +3132,7 @@ N_INT130    "s.pr.a.home"
 	;       .wp.id 
 	;     1:state6:F
 	;     1:state7:F
+	;       .gp.chg 
 	;       .grip.no 
 	;       .chuck.no 
 	;     1:state8:F
@@ -4034,25 +3163,40 @@ N_INT130    "s.pr.a.home"
 	;     1:state18:F
 	;       .current.chuck 
 	;       .new.chuck 
-	;       .skip.2 
 	;     1:state100:F
 	;       .config 
 	;     1:state101:F
+	;       .max.pick 
 	;       .ge 
 	;       .ce 
-	;       .max.pick 
 	;     1:state102:F
+	;       .max.pick 
 	;       .ge 
 	;       .ce 
-	;       .max.pick 
 	;     1:state103:F
+	;       .max.pick 
 	;       .ge 
 	;       .ce 
-	;       .max.pick 
 	;     1:state105:F
+	;       .shelf.opened 
+	;       .shelf.closed 
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;       .gp.empty 
+	;       .gp.full 
+	;       .cnc.empty 
+	;       .cnc.full 
+	;       .air.bp 
+	;       .air.ap 
+	;       .rout 
+	;       .rin 
+	;       .mfinish 
+	;       .not.max.pick 
+	;       .max.pick 
+	;       .gp.chg.1 
+	;       .gp.chg.2 
 	;       .ge 
 	;       .ce 
-	;       .max.pick 
 	;     1:state255:F
 	;   Group:CNC:2
 	;     2:cnc.put:F
@@ -4209,6 +3353,7 @@ N_INT130    "s.pr.a.home"
 	;   Group:Auxilary:12
 	;     12:set.tool:F
 	;       .grip.no 
+	;       .tool.no 
 	;     12:a.home:F
 	;     12:get.task.data:F
 	;     12:get.from.hmi:F
@@ -4222,12 +3367,6 @@ N_INT130    "s.pr.a.home"
 	;       .offset 
 	;     12:get.system.data:F
 	;     12:calc.state.flag:F
-	;       .inside.cnc 
-	;       .outside.cnc 
-	;     12:ciner:F
-	;       .$var.name 
-	;       .var 
-	;       .default 
 	;   Group:Log:13
 	;     13:log:F
 	;       .$msg 
@@ -4266,63 +3405,43 @@ N_INT130    "s.pr.a.home"
 	;     15:set.io.pc:B
 	;   0:autostart.pc:B
 	; @@@ TRANS @@@
-	; shelf.close[] 
-	; shelf.open[] 
-	; cnc.point[] 
+	; shelf.close[] Shelf close points
+	; shelf.open[] Shelf open points
+	; cnc.point[] Point for tool and chuck
 	; @@@ JOINTS @@@
-	; #wp.safe[] 
-	; #plate.pt.o[] 
-	; #plate.pt.x[] 
-	; #plate.pt.y[] 
-	; #shelf.safe 
-	; #cnc.out.base Base CNC out point (Tool 1 -> Chuck 1)
+	; #wp.safe[] Safe point for workpiece pick/put
+	; #plate.pt.o[] Plate teach points O
+	; #plate.pt.x[] Plate teach points X
+	; #plate.pt.y[] Plate teach points Y
+	; #shelf.safe Safe point above shelves
 	; #cnc.in.base Base CNC out point (Tool 1 -> Chuck 1)
-	; #cnc.in 
-	; #cnc.out 
-	; #cnc.point[] 
+	; #cnc.out Point outside CNC with correct JT6
+	; #cnc.out.base Base CNC out point (Tool 1 -> Chuck 1)
+	; #cnc.in Point inside CNC with correct JT6
+	; #air.safe[] Safe point for air blow
 	; @@@ REALS @@@
+	; log.max.count Max log entry count
+	; current.tool Current tool number
+	; state Robot state
+	; hmi.shelf.no Shelf number set on HMI
+	; hmi.wp.id Workpiece id on HMI
+	; grip.jaw.body[] 
+	; grip.jaw.full[] 
+	; wp.length[] 
 	; air.blow[] 
 	; air.pg.no[] 
 	; chg.pg.no 
 	; cnc.first 
-	; cnc.id[] 
-	; cnc.jaw.body[] 
-	; cnc.jaw.full[] 
 	; cnc.pg.no 
-	; cnc.rotations[] 
 	; cnc.run.pg 
-	; cnc.state[] 
-	; current.grip 
-	; current.wp 
 	; ext.change 
 	; grip.chg.ext[] 
 	; grip.chg.int[] 
-	; grip.close[] 
+	; cnc.jaw.body[] 
+	; cnc.jaw.full[] 
 	; grip.first 
 	; grip.inverse[] 
-	; grip.jaw.body[] 
-	; grip.jaw.full[] 
-	; grip.open[] 
-	; grip.opened[] 
-	; grip.sensor[] 
-	; gripper.id[] 
-	; gripper.state[] 
-	; hmi.air.pg 
-	; hmi.chg.pg 
-	; hmi.cnc.j.body[] 
-	; hmi.cnc.j.full[] 
-	; hmi.grip.j.body[] 
-	; hmi.grip.j.full[] 
-	; hmi.plate.col.e 
-	; hmi.plate.col.o 
-	; hmi.plate.e.dy 
-	; hmi.plate.oy 
-	; hmi.plate.rows 
-	; hmi.shelf.no 
-	; hmi.wp.count 
-	; hmi.wp.id 
 	; int.change 
-	; pick.epsilon 
 	; plt.cell.even 
 	; plt.cell.odd 
 	; plt.dx 
@@ -4331,54 +3450,162 @@ N_INT130    "s.pr.a.home"
 	; plt.ox 
 	; plt.oy 
 	; plt.rows 
-	; processed.wp 
 	; wp.count 
-	; wp.length[] 
 	; wp2.pick[] 
-	; air.blow.speed 
-	; overshoot 
+	; hmi.wp.length HMI wp length
+	; hmi.grip.j.full[] 
+	; hmi.grip.j.body[] 
+	; hmi.cnc.j.full[] 
+	; hmi.cnc.j.body[] 
+	; hmi.plate.rows 
+	; hmi.plate.col.o 
+	; hmi.plate.col.e 
+	; hmi.plate.dx 
+	; hmi.plate.dy 
+	; hmi.plate.e.dy 
+	; hmi.plate.ox 
+	; hmi.plate.oy 
+	; hmi.wp.count 
+	; current.grip 
+	; pick.epsilon 
 	; search.speed 
+	; air.blow.speed 
 	; tmr.grip.op[] 
+	; tmr.grip.cl[] 
+	; tmr.cnc.op[] 
+	; tmr.cnc.cl[] 
+	; gripper.id[] 
+	; cnc.id[] 
+	; processed.wp 
+	; current.wp 
+	; current.shelf 
+	; cnc.rotations[] Rotation directions for CNC in/out points
+	; overshoot 
+	; hmi.air.pg 
+	; hmi.chg.pg 
+	; decision.state 
+	; gripper.state[] 
+	; cnc.state[] 
+	; air.ap 
+	; air.bp 
+	; cnc.empty[] 
+	; cnc.full[] 
+	; cnc.wp2[] 
+	; d.air.pg.1.no[] 
+	; d.wp2.pick[] 
+	; gp.empty[] 
+	; gp.full[] 
+	; gp.wp2[] 
+	; max.pick 
+	; mfinish 
+	; n.max.pick 
+	; not.max.pick 
+	; rin 
+	; rout 
+	; s.pr.tch.air 
+	; s.pr.tch.chg 
+	; shelf.closed 
+	; shelf.opened 
+	; cnc.ready[] 
+	; cnc.wp0[] 
+	; cnc.wp1[] 
+	; gp.ext.1 
+	; gp.ext.2 
+	; gp.int 
+	; gp.ready[] 
+	; gp.wp0[] 
+	; gp.wp1[] 
 	; @@@ STRINGS @@@
+	; $safe.flag Flag for safety home
+	; $log.entry[] 
 	; @@@ INTEGER @@@
 	; @@@ SIGNALS @@@
-	; air.blow.off 
-	; air.blow.on 
-	; d.air.blow[] 
-	; d.air.pg.no[] 
-	; d.chg.pg.no[] 
-	; d.cnc.first 
-	; d.cnc.jaw.body[] 
-	; d.cnc.jaw.full[] 
-	; d.cnc.pg.no[] 
-	; d.cnc.run.pg 
-	; d.ext.change 
-	; d.grip.chg.ext[] 
-	; d.grip.chg.int[] 
-	; d.grip.first 
-	; d.grip.inverse[] 
-	; d.grip.jaw.body[] 
-	; d.grip.jaw.full[] 
-	; d.int.change 
-	; d.plt.cell.even[] 
-	; d.plt.cell.odd[] 
-	; d.plt.dx[] 
-	; d.plt.dy[] 
-	; d.plt.even.dy[] 
-	; d.plt.ox[] 
-	; d.plt.oy[] 
-	; d.plt.rows[] 
+	; s.reset.perf 
+	; ei.robot.speed[] Robot speed from PLC
+	; o.debug Robot is in DEBUG mode
+	; s.hmi.grip[] Selected tool on HMI
+	; s.cnc.chuck[] Selected CNC chuck on HMI
+	; s.pr.tch.plate Prime teach plate
+	; s.pr.tst.plate Prime test plate
+	; s.pr.tch.shelf Prime teach shelf
+	; s.pr.tst.shelf Prime test shelf
+	; grip.open[] Open gripper
+	; grip.close[] Close gripper
+	; air.blow.on Air blow on
+	; air.blow.off Air blow off
+	; grip.opened[] Gripper opened
+	; grip.sensor[] Gripper force applied
+	; ei.check.grip[] Check gripper sensor
+	; eo.process.err Error in process
+	; eo.grip.error[] Gripper open error
+	; eo.shelf.unlock[] Request shelf unlock
+	; ei.shelf.state[] Shelf state is unlocked
+	; ei.shelf.failed Fail to unlock shelf
+	; eo.shelf.opened[] Shelf is opened
+	; s.shelf.failed Internal signal for shelf fail error
+	; d.wp.length[] Workpiece lengths
+	; d.plt.oy[] Distance between zero point and closest cell by Y
+	; d.plt.ox[] Distance between zero point and closest cell by X
+	; d.plt.even.dy[] Extrs shift on even rows
+	; d.plt.dy[] Distance between cells
+	; d.plt.dx[] Distance between rows
+	; d.plt.cell.even[] Number of cells in even row on plate
+	; d.plt.cell.odd[] Number of cells in odd row on plate
+	; d.plt.rows[] Number of rows on plate
+	; d.grip.jaw.full[] Gripper jaws full length
+	; d.grip.jaw.body[] Gripper jaws body length
+	; d.cnc.jaw.full[] CNC jaws full length
+	; d.cnc.jaw.body[] CNC jaws body length
+	; d.cnc.pg.no[] CNC program number
+	; d.chg.pg.no[] External changer program number
+	; d.air.pg.no[] Air blow before put custom program number
+	; d.grip.inverse[] Inverse gripper 1
+	; d.cnc.run.pg Run program on CNC request
+	; d.air.blow[] Air blow before put (1) and after pick(1)
+	; d.wp3.pick[] Where we get ready detail
+	; d.cnc.first CNC is first close chuck
+	; d.grip.first Gripper is first open chuck
+	; d.int.change Perform intenal change
+	; d.ext.change Perform external change
+	; d.grip.chg.int[] Which gripper will perform internal change
+	; d.grip.chg.ext[] Grippers used for external change station
 	; d.wp.count[] 
-	; d.wp.length[] 
-	; d.wp2.pick[] 
-	; di.ext.cs 
+	; di.ifp.page[] Set interface page X
+	; ei.cnc.ready CNC is ready
+	; ei.cnc.ch.opd[] CNC chuck1 opened
+	; ei.cnc.ch.clsd[] CNC chuck closed
+	; eo.air.enabled Air blow is enabled
+	; eo.cnc.mfinish CNC MCODE Finish
+	; eo.cnc.ch.open[] CNC chuck open
+	; eo.cnc.ch.close[] CNC chuck close
+	; s.search.fail 
+	; ei.xmove.spd[] 
+	; ei.blow.spd[] 
+	; ei.t.grip.op[] 
+	; ei.t.grip.cl[] 
+	; ei.t.cnc.open[] 
+	; ei.t.cnc.close[] 
+	; di.ext.motor.on 
 	; di.ext.ereset 
+	; di.ext.cs 
+	; di.ext.pgreset 
 	; di.ext.hold 
 	; di.ext.motor.of 
-	; di.ext.motor.on 
-	; di.ext.pgreset 
 	; di.ext.slow 
-	; di.ifp.page[] 
+	; eo.error.code[] 
+	; eo.grip.id[] 
+	; eo.cnc.id[] 
+	; eo.wp.processed[] 
+	; eo.next.wp[] 
+	; eo.robot.ready 
+	; eo.task.exec 
+	; eo.data.request[] 
+	; eo.data.read 
+	; s.pr.wp.tst.pic 
+	; s.pr.wp.tst.put 
+	; s.pr.tch.cnc.ap 
+	; s.inside.cnc 
+	; s.pr.a.home 
 	; do.automatic 
 	; do.bat.alarm 
 	; do.cs 
@@ -4392,89 +3619,41 @@ N_INT130    "s.pr.a.home"
 	; do.safety.fence 
 	; do.teach 
 	; do.teach.lock 
-	; ei.blow.spd[] 
-	; ei.check.grip[] 
-	; ei.cnc.ch.clsd[] 
-	; ei.cnc.ch.opd[] 
-	; ei.cnc.ready 
 	; ei.data.ready 
 	; ei.e.changer 
-	; ei.grip.close[] 
-	; ei.grip.open[] 
+	; eo.shelf.cmplt[] 
 	; ei.i.changer 
-	; ei.overshoot[] 
-	; ei.robot.speed[] 
-	; ei.shelf.failed 
-	; ei.shelf.ready[] 
-	; ei.shelf.state[] 
-	; ei.skp.emp.cell 
+	; eo.grip.c.opend[] 
+	; eo.grip.sensor[] 
+	; eo.grip.s.opend[] 
 	; ei.subspindel 
-	; ei.t.cnc.close[] 
-	; ei.t.cnc.open[] 
-	; ei.t.grip.cl[] 
-	; ei.t.grip.op[] 
 	; ei.task.start 
-	; ei.xmove.spd[] 
-	; eo.air.enabled 
-	; eo.cnc.ch.close[] 
-	; eo.cnc.ch.open[] 
+	; ei.grip.close[] 
+	; s.pr.tst.cnc.pu 
+	; ei.grip.open[] 
+	; ei.shelf.ready[] 
+	; ei.overshoot[] 
+	; eo.grip.c.closd[] 
+	; s.a.pic.air.req 
+	; s.mcode.req 
+	; s.p.put.air.req 
+	; s.pr.tch.cnc 
+	; s.pr.tst.cnc.pi 
+	; s.change.req 
+	; ei.skp.emp.cell 
+	; s.ext.chg.req 
+	; s.chg.ok 
 	; eo.cnc.empty[] 
-	; eo.cnc.id[] 
-	; eo.cnc.mfinish 
+	; eo.grip.state[] 
 	; eo.cnc.wp0[] 
 	; eo.cnc.wp1[] 
 	; eo.cnc.wp2[] 
-	; eo.data.read 
-	; eo.data.request[] 
-	; eo.error.code[] 
-	; eo.grip.c.closd[] 
-	; eo.grip.c.opend[] 
 	; eo.grip.empty[] 
-	; eo.grip.error[] 
-	; eo.grip.id[] 
-	; eo.grip.s.opend[] 
-	; eo.grip.sensor[] 
+	; eo.cnc.state[] 
 	; eo.grip.wp0[] 
 	; eo.grip.wp1[] 
 	; eo.grip.wp2[] 
-	; eo.next.wp[] 
-	; eo.process.err 
-	; eo.robot.ready 
-	; eo.shelf.cmplt[] 
-	; eo.shelf.opened[] 
-	; eo.shelf.unlock[] 
-	; eo.task.exec 
-	; eo.wp.processed[] 
-	; hmi.plate.dx 
-	; hmi.plate.dy 
-	; hmi.plate.ox 
-	; hmi.wp.length 
-	; log.max.count 
-	; o.debug 
-	; s.a.pic.air.req 
-	; s.cnc.chuck[] 
 	; s.ext.chg.ok 
-	; s.ext.chg.req 
-	; s.hmi.grip[] 
-	; s.inside.cnc 
-	; s.mcode.req 
-	; s.p.put.air.req 
-	; s.pr.a.home 
-	; s.pr.tch.air 
-	; s.pr.tch.chg 
-	; s.pr.tch.cnc 
-	; s.pr.tch.cnc.ap 
-	; s.pr.tch.plate 
-	; s.pr.tch.shelf 
-	; s.pr.tst.cnc.pi 
-	; s.pr.tst.cnc.pu 
-	; s.pr.tst.plate 
-	; s.pr.tst.shelf 
-	; s.pr.wp.tst.pic 
-	; s.pr.wp.tst.put 
-	; s.reset.perf 
-	; s.search.fail 
-	; s.shelf.failed 
 	; @@@ TOOLS @@@
 	; tool.calib[] 
 	; tool.gripper[] 
@@ -4496,145 +3675,193 @@ tool.calib[2] 202.800003 0.000000 104.000000 0.000000 90.000008 -180.000000
 tool.gripper[1] -103.300003 0.000000 104.000000 180.000000 90.000008 -180.000000
 tool.gripper[2] 103.300003 0.000000 104.000000 0.000000 90.000008 -180.000000
 tool.pin 0.000000 112.000000 104.000000 90.000008 90.000008 0.000000
-shelf.close[1,2] 751.599060 92.626099 -4.641678 -90.000130 89.998672 179.938171
-shelf.close[1,1] 751.632874 712.366943 -5.016479 -89.999550 89.949768 179.934616
-shelf.open[1,1] 751.599060 92.626099 -4.641678 -90.000130 89.998672 179.938171
-shelf.open[1,2] 751.632874 712.366943 -5.016479 -89.999550 89.949768 179.934616
-shelf.close[2,2] 751.599060 92.626099 -184.641678 -90.000130 89.998672 179.938171
-shelf.close[2,1] 751.632874 712.366943 -185.016479 -89.999550 89.949768 179.934616
-shelf.open[2,1] 751.599060 92.626099 -184.641678 -90.000130 89.998672 179.938171
-shelf.open[2,2] 751.632874 712.366943 -185.016479 -89.999550 89.949768 179.934616
-shelf.close[3,2] 751.599060 92.626099 -364.641693 -90.000130 89.998672 179.938171
-shelf.close[3,1] 751.632874 712.366943 -365.016479 -89.999550 89.949768 179.934616
-shelf.open[3,1] 751.599060 92.626099 -364.641693 -90.000130 89.998672 179.938171
-shelf.open[3,2] 751.632874 712.366943 -365.016479 -89.999550 89.949768 179.934616
-shelf.close[4,2] 751.599060 92.626099 -484.641693 -90.000130 89.998672 179.938171
-shelf.close[4,1] 751.632874 712.366943 -485.016479 -89.999550 89.949768 179.934616
-shelf.open[4,1] 751.599060 92.626099 -484.641693 -90.000130 89.998672 179.938171
-shelf.open[4,2] 751.632874 712.366943 -485.016479 -89.999550 89.949768 179.934616
-shelf.frame[1,1] 1066.703735 637.771362 12.052389 -163.597656 179.931793 106.403526
-shelf.frame[1,2] 1066.703735 637.771362 12.052386 -163.595856 179.931793 106.405334
-shelf.frame[2,1] 1066.538208 637.718018 -167.938965 -162.616318 179.929138 107.382050
-shelf.frame[2,2] 1066.538208 637.718018 -167.938965 -162.616333 179.929138 107.382050
-shelf.frame[3,1] 1066.388428 637.672607 -347.937500 -161.177673 179.926987 108.817757
-shelf.frame[3,2] 1066.388550 637.672607 -347.937500 -161.173645 179.927002 108.821800
-shelf.frame[4,1] 1066.259888 637.616638 -527.931274 -159.795624 179.926529 110.198326
-shelf.frame[4,2] 1066.260132 637.616638 -527.931335 -159.789062 179.926529 110.204895
-cnc.point[1,1] -988.810364 118.068756 245.591888 -90.309250 92.062843 -94.804398
-cnc.point[1,2] -1004.094360 799.983398 211.695633 89.609001 87.600105 89.827400
-cnc.point[2,1] -1029.776733 126.145874 211.209824 -89.995255 89.980347 -102.549820
-cnc.point[2,2] -974.147766 800.100342 241.686554 89.601372 87.617241 89.829033
+shelf.frame[1,1] 436.998779 637.500610 13.652647 -60.142857 179.999435 -150.142899
+shelf.frame[1,2] 436.998840 637.500610 13.652647 -60.142841 179.999435 -150.142899
+shelf.close[1,1] 751.995422 712.505249 -3.845108 -89.999977 90.000114 179.999832
+shelf.close[1,2] 752.002197 92.508301 -3.839294 -89.999763 90.000267 -179.999237
+shelf.open[1,1] 752.002197 92.508301 -3.839294 -89.999763 90.000267 -179.999237
+shelf.open[1,2] 751.995422 712.505249 -3.845108 -89.999977 90.000114 179.999832
+shelf.close[2,1] 751.995422 712.505249 -183.845108 -89.999977 90.000114 179.999832
+shelf.close[2,2] 752.002197 92.508301 -183.839294 -89.999763 90.000267 -179.999237
+shelf.open[2,1] 752.002197 92.508301 -183.839294 -89.999763 90.000267 -179.999237
+shelf.open[2,2] 751.995422 712.505249 -183.845108 -89.999977 90.000114 179.999832
+shelf.close[3,1] 751.995422 712.505249 -363.845108 -89.999977 90.000114 179.999832
+shelf.close[3,2] 752.002197 92.508301 -363.839294 -89.999763 90.000267 -179.999237
+shelf.open[3,1] 752.002197 92.508301 -363.839294 -89.999763 90.000267 -179.999237
+shelf.open[3,2] 751.995422 712.505249 -363.845108 -89.999977 90.000114 179.999832
+shelf.close[4,1] 751.995422 712.505249 -543.845108 -89.999977 90.000114 179.999832
+shelf.close[4,2] 752.002197 92.508301 -543.839294 -89.999763 90.000267 -179.999237
+shelf.open[4,1] 752.002197 92.508301 -543.839294 -89.999763 90.000267 -179.999237
+shelf.open[4,2] 751.995422 712.505249 -543.845108 -89.999977 90.000114 179.999832
+cnc.point[2,1] -1002.876343 77.479698 242.755905 -90.045998 89.946999 -90.001434
+cnc.point[1,2] -899.975464 1000.389648 211.689133 89.997078 89.996483 120.955223
+cnc.point[1,1] -1003.931335 76.937141 241.550674 -90.469170 91.337952 -89.994102
+cnc.point[2,2] -1000.531860 677.902039 245.002518 89.331146 89.763901 89.989349
+shelf.frame[2,1] 1056.517822 663.051331 41.468060 -10.040622 179.120285 -100.170883
 .END
 .JOINTS
 #wp.safe[1] 69.568573 8.663290 97.904053 114.625549 -68.547127 10.075710
 #wp.safe[2] 69.568573 8.663650 97.904053 114.625549 -68.547127 190.077927
 #plate.pt.o[1,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 13.540280
-#plate.pt.x[1,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 20.787384
-#plate.pt.y[1,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 40.871090
-#shelf.safe 75.000000 0.000000 100.000000 30.000002 75.000000 100.000000
 #plate.pt.o[1,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
-#plate.pt.o[2,1] 59.752312 -43.579597 54.419567 126.611549 -111.248932 23.385252
-#plate.pt.o[2,2] 59.752312 -43.579597 54.419567 126.611549 -111.248932 203.385269
-#plate.pt.o[3,1] 56.277660 -51.424919 53.133049 130.018097 -109.856422 31.137590
-#plate.pt.o[3,2] 56.277660 -51.424919 53.133049 130.018097 -109.856422 211.137604
-#plate.pt.o[4,1] 53.063168 -61.514263 47.236183 132.789108 -109.394302 36.638897
-#plate.pt.o[4,2] 53.063168 -61.514263 47.236183 132.789108 -109.394302 216.638901
+#plate.pt.o[2,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
+#plate.pt.o[2,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
+#plate.pt.o[3,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
+#plate.pt.o[3,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
+#plate.pt.o[4,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
+#plate.pt.o[4,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
+#plate.pt.x[1,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 20.787384
 #plate.pt.x[1,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
-#plate.pt.x[2,1] 75.072891 -37.722801 79.474075 123.156387 -88.273773 30.703522
-#plate.pt.x[2,2] 75.072891 -37.722801 79.474075 123.156387 -88.273773 210.703522
-#plate.pt.x[3,1] 70.662048 -46.317467 78.416313 125.098686 -87.178574 39.068443
-#plate.pt.x[3,2] 70.662048 -46.317467 78.416313 125.098686 -87.178574 219.068451
-#plate.pt.x[4,1] 66.477211 -56.536022 73.750893 127.299370 -86.579819 45.518406
-#plate.pt.x[4,2] 66.477211 -56.536022 73.750893 127.299370 -86.579819 225.518417
+#plate.pt.x[2,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
+#plate.pt.x[2,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
+#plate.pt.x[3,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
+#plate.pt.x[3,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
+#plate.pt.x[4,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
+#plate.pt.x[4,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
+#plate.pt.y[1,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 40.871090
 #plate.pt.y[1,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
-#plate.pt.y[2,1] 35.082180 -4.947217 107.979820 145.950821 -117.252968 53.455601
-#plate.pt.y[2,2] 35.082180 -4.947217 107.979820 145.950821 -117.252968 233.455627
-#plate.pt.y[3,1] 31.532852 -17.011942 106.892090 151.283676 -109.495239 62.582195
-#plate.pt.y[3,2] 31.532852 -17.011942 106.892090 151.283676 -109.495239 242.582199
-#plate.pt.y[4,1] 28.579319 -30.377895 102.213303 154.859421 -102.797020 68.828949
-#plate.pt.y[4,2] 28.579319 -30.377895 102.213303 154.859421 -102.797020 248.828964
-#cnc.out.base -43.126957 51.450104 133.077347 -97.612473 -47.087402 -111.061012
+#plate.pt.y[2,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
+#plate.pt.y[2,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
+#plate.pt.y[3,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
+#plate.pt.y[3,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
+#plate.pt.y[4,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
+#plate.pt.y[4,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
+#shelf.safe 77.267387 4.813991 100.780472 34.271633 76.990814 99.275299
 #cnc.in.base -84.195648 -4.285471 91.769966 -41.476643 -8.286439 -171.234955
-#cnc.in -84.195648 -4.285471 91.769966 -41.476643 -8.286439 -171.234955
-#cnc.out -43.126957 51.450104 133.077347 -97.612473 -47.087402 -111.061012
-#cnc.point[1,1] -77.957314 -10.838689 103.392288 -28.042997 -31.861727 -186.726959
-#cnc.point[1,2] -64.106758 -15.316515 90.602715 -59.875843 -29.922640 23.845030
-#cnc.point[2,1] -75.978096 -16.845503 100.385201 -30.169865 -43.067783 -3.547513
-#cnc.point[2,2] -64.130585 -12.111811 92.496971 -61.855663 -29.260025 -153.851074
+#cnc.out -43.126957 51.450104 133.077347 -97.612473 -47.087402 68.938988
+#cnc.out.base -43.126957 51.450104 133.077347 -97.612473 -47.087402 -111.061012
+#cnc.in -84.195648 -4.285471 91.769966 -41.476643 -8.286439 8.765045
+#air.safe[1] -83.724182 -4.380736 91.813301 -41.950989 -8.770523 -78.255249
+#air.safe[2] -84.161491 -4.293500 91.774529 -41.510479 -8.320084 -259.742584
 .END
 .REALS
-air.blow[1] = 0
-air.blow[2] = 0
-air.blow.off = 38
+s.reset.perf = 2020
+log.max.count = 256
+current.tool = 0
+ei.robot.speed[0] = 1145
+o.debug = 78
+state = 103
+s.hmi.grip[1] = 2102
+s.hmi.grip[2] = 2103
+s.cnc.chuck[1] = 2104
+s.cnc.chuck[2] = 2105
+s.pr.tch.plate = 2106
+s.pr.tst.plate = 2107
+s.pr.tch.shelf = 2108
+s.pr.tst.shelf = 2109
+hmi.shelf.no = 1
+grip.open[1] = 33
+grip.open[2] = 35
+grip.close[1] = 34
+grip.close[2] = 36
 air.blow.on = 37
-air.pg.no[1] = 0
-air.pg.no[2] = 0
-chg.pg.no = 0
-cnc.first = 0
-cnc.id[1] = 0
-cnc.id[2] = 0
-cnc.jaw.body[1] = 0
-cnc.jaw.body[2] = 0
-cnc.jaw.full[1] = 0
-cnc.jaw.full[2] = 0
-cnc.pg.no = 0
-cnc.rotations[1,1] = 0
-cnc.rotations[1,2] = 180
-cnc.rotations[2,1] = 180
-cnc.rotations[2,2] = 0
-cnc.run.pg = 0
-cnc.state[1] = -1
-cnc.state[2] = -1
-current.grip = 3
-current.wp = 1
-d.air.blow[1] = 1564
-d.air.blow[2] = 1565
-d.air.pg.no[1,0] = 1529
-d.air.pg.no[2,0] = 1537
-d.chg.pg.no[0] = 1521
-d.cnc.first = 1568
-d.cnc.jaw.body[1,0] = 1385
-d.cnc.jaw.body[2,0] = 1401
+air.blow.off = 38
+grip.opened[1] = 1033
+grip.opened[2] = 1034
+grip.sensor[1] = 1035
+grip.sensor[2] = 1036
+ei.check.grip[1] = 1084
+ei.check.grip[2] = 1092
+eo.process.err = 115
+eo.grip.error[1] = 84
+eo.grip.error[2] = 92
+eo.shelf.unlock[1] = 133
+eo.shelf.unlock[2] = 134
+eo.shelf.unlock[3] = 135
+eo.shelf.unlock[4] = 136
+ei.shelf.state[1] = 1133
+ei.shelf.state[2] = 1134
+ei.shelf.state[3] = 1135
+ei.shelf.state[4] = 1136
+ei.shelf.failed = 1137
+eo.shelf.opened[1] = 129
+eo.shelf.opened[2] = 130
+eo.shelf.opened[3] = 131
+eo.shelf.opened[4] = 132
+s.shelf.failed = 2010
+hmi.wp.id = 1
+d.wp.length[0,0] = 1321
+d.wp.length[1,0] = 1329
+d.plt.oy[0] = 1497
+d.wp.length[2,0] = 1337
+d.plt.ox[0] = 1481
+d.plt.even.dy[0] = 1465
+d.plt.dy[0] = 1449
+d.plt.dx[0] = 1433
+d.plt.cell.even[0] = 1417
+d.plt.cell.odd[0] = 1413
+d.plt.rows[0] = 1409
+d.grip.jaw.full[1,0] = 1345
+d.grip.jaw.full[2,0] = 1361
+d.grip.jaw.body[1,0] = 1353
+d.grip.jaw.body[2,0] = 1369
 d.cnc.jaw.full[1,0] = 1377
 d.cnc.jaw.full[2,0] = 1393
+d.cnc.jaw.body[1,0] = 1385
+d.cnc.jaw.body[2,0] = 1401
 d.cnc.pg.no[0] = 1513
+d.chg.pg.no[0] = 1521
+d.air.pg.no[1,0] = 1529
+d.air.pg.no[2,0] = 1537
+d.grip.inverse[1] = 1561
+d.grip.inverse[2] = 1562
 d.cnc.run.pg = 1563
+d.air.blow[1] = 1564
+d.air.blow[2] = 1565
+d.wp3.pick[1] = 1566
+d.wp3.pick[2] = 1567
+d.cnc.first = 1568
+d.grip.first = 1569
+d.int.change = 1570
 d.ext.change = 1571
+d.grip.chg.int[1] = 1577
+d.grip.chg.int[2] = 1578
 d.grip.chg.ext[1,1] = 1579
 d.grip.chg.ext[1,2] = 1580
 d.grip.chg.ext[2,1] = 1581
 d.grip.chg.ext[2,2] = 1582
-d.grip.chg.int[1] = 1577
-d.grip.chg.int[2] = 1578
-d.grip.first = 1569
-d.grip.inverse[1] = 1561
-d.grip.inverse[2] = 1562
-d.grip.jaw.body[1,0] = 1353
-d.grip.jaw.body[2,0] = 1369
-d.grip.jaw.full[1,0] = 1345
-d.grip.jaw.full[2,0] = 1361
-d.int.change = 1570
-d.plt.cell.even[0] = 1417
-d.plt.cell.odd[0] = 1413
-d.plt.dx[0] = 1433
-d.plt.dy[0] = 1449
-d.plt.even.dy[0] = 1465
-d.plt.ox[0] = 1481
-d.plt.oy[0] = 1497
-d.plt.rows[0] = 1409
 d.wp.count[0] = 1545
-d.wp.length[0,0] = 1321
-d.wp.length[1,0] = 1329
-d.wp.length[2,0] = 1337
-d.wp2.pick[1] = 1566
-d.wp2.pick[2] = 1567
-di.ext.cs = 1067
-di.ext.ereset = 1066
-di.ext.hold = 1069
-di.ext.motor.of = 1070
-di.ext.motor.on = 1065
-di.ext.pgreset = 1068
-di.ext.slow = 1071
+grip.jaw.body[1] = 28
+grip.jaw.body[2] = 28
+grip.jaw.full[1] = 40
+grip.jaw.full[2] = 40
+wp.length[0] = 50
+wp.length[1] = 50
+wp.length[2] = 50
+air.blow[1] = 0
+air.blow[2] = 0
+air.pg.no[1] = 1
+air.pg.no[2] = 1
+chg.pg.no = 1
+cnc.first = -1
+cnc.pg.no = 0
+cnc.run.pg = 0
+ext.change = 0
+grip.chg.ext[1,1] = 1
+grip.chg.ext[1,2] = 1
+grip.chg.ext[2,1] = 1
+grip.chg.ext[2,2] = 1
+grip.chg.int[1] = 1
+grip.chg.int[2] = 1
+cnc.jaw.body[1] = 28
+cnc.jaw.body[2] = 29
+cnc.jaw.full[1] = 40
+cnc.jaw.full[2] = 41
+grip.first = 0
+grip.inverse[1] = 0
+grip.inverse[2] = 0
+int.change = -1
+plt.cell.even = 4
+plt.cell.odd = 4
+plt.dx = 100
+plt.dy = 100
+plt.even.dy = 0
+plt.ox = 100
+plt.oy = 100
+plt.rows = 4
+wp.count = 4
+wp2.pick[1] = -1
+wp2.pick[2] = 0
 di.ifp.page[1] = 2001
 di.ifp.page[2] = 2002
 di.ifp.page[3] = 2003
@@ -4643,6 +3870,96 @@ di.ifp.page[5] = 2005
 di.ifp.page[6] = 2006
 di.ifp.page[7] = 2007
 di.ifp.page[8] = 2008
+ei.cnc.ready = 1101
+ei.cnc.ch.opd[1] = 1097
+ei.cnc.ch.opd[2] = 1099
+ei.cnc.ch.clsd[1] = 1098
+ei.cnc.ch.clsd[2] = 1100
+eo.air.enabled = 105
+eo.cnc.mfinish = 101
+eo.cnc.ch.open[1] = 97
+eo.cnc.ch.open[2] = 99
+eo.cnc.ch.close[1] = 98
+eo.cnc.ch.close[2] = 100
+hmi.wp.length = 50
+hmi.grip.j.full[1] = 40
+hmi.grip.j.full[2] = 40
+hmi.grip.j.body[1] = 28
+hmi.grip.j.body[2] = 28
+hmi.cnc.j.full[1] = 40
+hmi.cnc.j.full[2] = 41
+hmi.cnc.j.body[1] = 28
+hmi.cnc.j.body[2] = 29
+hmi.plate.rows = 4
+hmi.plate.col.o = 4
+hmi.plate.col.e = 4
+hmi.plate.dx = 100
+hmi.plate.dy = 100
+hmi.plate.e.dy = 0
+hmi.plate.ox = 100
+hmi.plate.oy = 100
+hmi.wp.count = 4
+current.grip = 1
+s.search.fail = 2011
+pick.epsilon = 0.2
+ei.xmove.spd[0] = 1161
+ei.blow.spd[0] = 1169
+search.speed = 10
+air.blow.speed = 10
+ei.t.grip.op[1,0] = 1209
+ei.t.grip.op[2,0] = 1201
+ei.t.grip.cl[1,0] = 1209
+ei.t.grip.cl[2,0] = 1217
+ei.t.cnc.open[1,0] = 1225
+ei.t.cnc.open[2,0] = 1241
+ei.t.cnc.close[1,0] = 1233
+ei.t.cnc.close[2,0] = 1249
+tmr.grip.op[1] = 0
+tmr.grip.op[2] = 0
+tmr.grip.cl[1] = 0
+tmr.grip.cl[2] = 0
+tmr.cnc.op[1] = 0
+tmr.cnc.op[2] = 0
+tmr.cnc.cl[1] = 0
+tmr.cnc.cl[2] = 0
+di.ext.motor.on = 1065
+di.ext.ereset = 1066
+di.ext.cs = 1067
+di.ext.pgreset = 1068
+di.ext.hold = 1069
+di.ext.motor.of = 1070
+di.ext.slow = 1071
+eo.error.code[0] = 145
+eo.grip.id[1,0] = 161
+eo.grip.id[2,0] = 169
+eo.cnc.id[1,0] = 177
+eo.cnc.id[2,0] = 185
+eo.wp.processed[0] = 193
+eo.next.wp[0] = 201
+gripper.id[1] = 0
+gripper.id[2] = 0
+cnc.id[1] = 1
+cnc.id[2] = 0
+processed.wp = 0
+current.wp = 2
+current.shelf = 1
+eo.robot.ready = 113
+eo.task.exec = 114
+eo.data.request[1] = 116
+eo.data.request[2] = 117
+eo.data.request[3] = 118
+eo.data.request[4] = 119
+eo.data.read = 120
+s.pr.wp.tst.pic = 2110
+s.pr.wp.tst.put = 2111
+cnc.rotations[2,2] = 0
+cnc.rotations[2,1] = 180
+cnc.rotations[1,2] = 180
+cnc.rotations[1,1] = 0
+s.pr.tch.cnc.ap = 2112
+s.inside.cnc = 2012
+s.pr.a.home = 2130
+overshoot = 5
 do.automatic = 68
 do.bat.alarm = 77
 do.cs = 67
@@ -4656,198 +3973,368 @@ do.power.on = 73
 do.safety.fence = 76
 do.teach = 69
 do.teach.lock = 70
-ei.blow.spd[0] = 1169
-ei.check.grip[1] = 1084
-ei.check.grip[2] = 1092
-ei.cnc.ch.clsd[1] = 1098
-ei.cnc.ch.clsd[2] = 1100
-ei.cnc.ch.opd[1] = 1097
-ei.cnc.ch.opd[2] = 1099
-ei.cnc.ready = 1101
 ei.data.ready = 1114
 ei.e.changer = 1119
-ei.grip.close[1] = 1082
-ei.grip.close[2] = 1090
-ei.grip.open[1] = 1081
-ei.grip.open[2] = 1089
-ei.i.changer = 1118
-ei.overshoot[0] = 1177
-ei.robot.speed[0] = 1145
-ei.shelf.failed = 1137
-ei.shelf.ready[1] = 1129
-ei.shelf.ready[2] = 1130
-ei.shelf.ready[3] = 1131
-ei.shelf.ready[4] = 1132
-ei.shelf.state[1] = 1133
-ei.shelf.state[2] = 1134
-ei.shelf.state[3] = 1135
-ei.shelf.state[4] = 1136
-ei.skp.emp.cell = 1120
-ei.subspindel = 1117
-ei.t.cnc.close[1,0] = 1233
-ei.t.cnc.close[2,0] = 1249
-ei.t.cnc.open[1,0] = 1225
-ei.t.cnc.open[2,0] = 1241
-ei.t.grip.cl[2,0] = 1217
-ei.t.grip.op[1,0] = 1193
-ei.task.start = 1113
-ei.xmove.spd[0] = 1161
-eo.air.enabled = 105
-eo.cnc.ch.close[1] = 98
-eo.cnc.ch.close[2] = 100
-eo.cnc.ch.open[1] = 97
-eo.cnc.ch.open[2] = 99
-eo.cnc.empty[1] = 217
-eo.cnc.empty[2] = 221
-eo.cnc.id[1,0] = 177
-eo.cnc.id[2,0] = 185
-eo.cnc.mfinish = 101
-eo.cnc.wp0[1] = 218
-eo.cnc.wp0[2] = 222
-eo.cnc.wp1[1] = 219
-eo.cnc.wp1[2] = 223
-eo.cnc.wp2[1] = 220
-eo.cnc.wp2[2] = 224
-eo.data.read = 120
-eo.data.request[1] = 116
-eo.data.request[2] = 117
-eo.data.request[3] = 118
-eo.data.request[4] = 119
-eo.error.code[0] = 145
-eo.grip.c.closd[1] = 83
-eo.grip.c.closd[2] = 91
-eo.grip.c.opend[1] = 82
-eo.grip.c.opend[2] = 90
-eo.grip.empty[1] = 209
-eo.grip.empty[2] = 213
-eo.grip.error[1] = 84
-eo.grip.error[2] = 92
-eo.grip.id[1,0] = 161
-eo.grip.id[2,0] = 169
-eo.grip.s.opend[1] = 81
-eo.grip.s.opend[2] = 89
-eo.grip.sensor[1] = 85
-eo.grip.sensor[2] = 93
-eo.grip.wp0[1] = 210
-eo.grip.wp0[2] = 214
-eo.grip.wp1[1] = 211
-eo.grip.wp1[2] = 215
-eo.grip.wp2[1] = 212
-eo.grip.wp2[2] = 216
-eo.next.wp[0] = 201
-eo.process.err = 115
-eo.robot.ready = 113
-eo.shelf.cmplt[1] = 138
 eo.shelf.cmplt[2] = 139
 eo.shelf.cmplt[3] = 140
-eo.shelf.cmplt[4] = 141
-eo.shelf.opened[1] = 129
-eo.shelf.opened[2] = 130
-eo.shelf.opened[3] = 131
-eo.shelf.opened[4] = 132
-eo.shelf.unlock[1] = 133
-eo.shelf.unlock[2] = 134
-eo.shelf.unlock[3] = 135
-eo.shelf.unlock[4] = 136
-eo.task.exec = 114
-eo.wp.processed[0] = 193
-ext.change = 0
-grip.chg.ext[1,1] = 0
-grip.chg.ext[1,2] = 0
-grip.chg.ext[2,1] = 0
-grip.chg.ext[2,2] = 0
-grip.chg.int[1] = 0
-grip.chg.int[2] = 0
-grip.close[1] = 34
-grip.close[2] = 36
-grip.first = 0
-grip.inverse[1] = 0
-grip.inverse[2] = 0
-grip.jaw.body[1] = 0
-grip.jaw.body[2] = 0
-grip.jaw.full[1] = 0
-grip.jaw.full[2] = 0
-grip.open[1] = 33
-grip.open[2] = 35
-grip.opened[1] = 1033
-grip.opened[2] = 1034
-grip.sensor[1] = 1035
-grip.sensor[2] = 1036
-gripper.id[1] = 0
-gripper.id[2] = 0
-gripper.state[1] = -1
-gripper.state[2] = -1
 hmi.air.pg = 1
-hmi.chg.pg = 1
-hmi.cnc.j.body[1] = 28
-hmi.cnc.j.body[2] = 28
-hmi.cnc.j.full[1] = 40
-hmi.cnc.j.full[2] = 40
-hmi.grip.j.body[1] = 28
-hmi.grip.j.body[2] = 28
-hmi.grip.j.full[1] = 40
-hmi.grip.j.full[2] = 40
-hmi.plate.col.e = 4
-hmi.plate.col.o = 4
-hmi.plate.dx = 130
-hmi.plate.dy = 160
-hmi.plate.e.dy = 0
-hmi.plate.ox = 80
-hmi.plate.oy = 75
-hmi.plate.rows = 4
-hmi.shelf.no = 1
-hmi.wp.count = 4
-hmi.wp.id = 1
-hmi.wp.length = 50
-int.change = 0
-log.max.count = 256
-o.debug = 78
-pick.epsilon = 0.2
-plt.cell.even = 0
-plt.cell.odd = 0
-plt.dx = 0
-plt.dy = 0
-plt.even.dy = 0
-plt.ox = 0
-plt.oy = 0
-plt.rows = 0
-processed.wp = 0
+eo.shelf.cmplt[4] = 141
+ei.i.changer = 1118
+eo.grip.c.opend[2] = 90
+eo.grip.sensor[2] = 93
+eo.grip.sensor[1] = 85
+eo.grip.s.opend[2] = 89
+eo.grip.s.opend[1] = 81
+ei.subspindel = 1117
+ei.task.start = 1113
+ei.grip.close[1] = 1082
+s.pr.tst.cnc.pu = 2115
+ei.grip.open[1] = 1081
+ei.shelf.ready[1] = 1129
+ei.overshoot[0] = 1177
+ei.shelf.ready[3] = 1131
+ei.shelf.ready[2] = 1130
+eo.grip.c.opend[1] = 82
+eo.grip.c.closd[2] = 91
+eo.grip.c.closd[1] = 83
+ei.shelf.ready[4] = 1132
 s.a.pic.air.req = 2015
-s.cnc.chuck[1] = 2104
-s.cnc.chuck[2] = 2105
-s.ext.chg.ok = 2018
-s.ext.chg.req = 2017
-s.hmi.grip[1] = 2102
-s.hmi.grip[2] = 2103
-s.inside.cnc = 2012
+eo.shelf.cmplt[1] = 138
 s.mcode.req = 2013
 s.p.put.air.req = 2014
-s.pr.a.home = 2130
+s.pr.tch.cnc = 2113
+s.pr.tst.cnc.pi = 2114
+ei.grip.close[2] = 1090
+ei.grip.open[2] = 1089
+hmi.chg.pg = 1
+decision.state = 103
+s.change.req = 2016
+ei.skp.emp.cell = 1120
+s.ext.chg.req = 2017
+s.chg.ok = 2018
+gripper.state[1] = -1
+gripper.state[2] = -1
+cnc.state[1] = 0
+cnc.state[2] = -1
+air.ap = 0
+air.bp = 0
+cnc.empty[1] = 0
+cnc.empty[2] = -1
+cnc.full[1] = -1
+cnc.full[2] = 0
+cnc.wp2[1] = 0
+cnc.wp2[2] = 0
+d.air.pg.1.no[1,0] = 1529
+d.air.pg.1.no[2,0] = 1537
+d.wp2.pick[1] = 1566
+d.wp2.pick[2] = 1567
+gp.empty[1] = -1
+gp.empty[2] = -1
+gp.full[1] = 0
+gp.full[2] = 0
+gp.wp2[1] = 0
+gp.wp2[2] = 0
+max.pick = 0
+mfinish = -1
+n.max.pick = -1
+not.max.pick = -1
+rin = -1
+rout = 0
 s.pr.tch.air = 2116
 s.pr.tch.chg = 2117
-s.pr.tch.cnc = 2113
-s.pr.tch.cnc.ap = 2112
-s.pr.tch.plate = 2106
-s.pr.tch.shelf = 2108
-s.pr.tst.cnc.pi = 2114
-s.pr.tst.cnc.pu = 2115
-s.pr.tst.plate = 2107
-s.pr.tst.shelf = 2109
-s.pr.wp.tst.pic = 2110
-s.pr.wp.tst.put = 2111
-s.reset.perf = 2020
-s.search.fail = 2011
-s.shelf.failed = 2010
-wp.count = 0
-wp.length[0] = 0
-wp.length[1] = 0
-wp.length[2] = 0
-wp2.pick[1] = 0
-wp2.pick[2] = 0
-air.blow.speed = 10
-overshoot = 5
-search.speed = 10
-tmr.grip.op[1] = 0
-ei.t.grip.op[2,0] = 1209
-ei.t.grip.cl[1,0] = 1201
+shelf.closed = 0
+shelf.opened = -1
+eo.cnc.empty[1] = 217
+eo.grip.state[1,0] = 161
+eo.cnc.wp0[1] = 218
+eo.cnc.wp1[1] = 219
+eo.cnc.wp2[1] = 220
+eo.grip.empty[1] = 209
+eo.cnc.state[1,0] = 177
+eo.grip.wp0[1] = 210
+eo.grip.wp1[1] = 211
+eo.grip.wp2[1] = 212
+eo.cnc.empty[2] = 221
+cnc.ready[1] = 0
+eo.cnc.wp0[2] = 222
+eo.cnc.wp1[2] = 223
+eo.cnc.wp2[2] = 224
+eo.grip.empty[2] = 213
+cnc.wp0[1] = -1
+eo.grip.wp0[2] = 214
+eo.grip.wp1[2] = 215
+eo.grip.wp2[2] = 216
+cnc.wp0[2] = 0
+cnc.wp1[1] = 0
+cnc.wp1[2] = 0
+cnc.wp2[2] = 0
+gp.ext.1 = 1
+gp.ext.2 = 1
+gp.int = 1
+gp.ready[1] = 0
+gp.wp0[1] = 0
+gp.wp0[2] = 0
+gp.wp1[1] = 0
+gp.wp1[2] = 0
+gp.wp2[2] = 0
+s.ext.chg.ok = 2018
+.END
+.STRINGS
+$safe.flag = "cnc.in"
+$log.entry[1] = "17:47:40 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[2] = "17:47:40 Tool2 set"
+$log.entry[3] = "17:47:41 Waiting for CNC ready"
+$log.entry[4] = "17:47:41 CNC ready signal received"
+$log.entry[5] = "17:47:42 Robot inside CNC"
+$log.entry[6] = "17:47:43 State 105: Decision making module 5"
+$log.entry[7] = "17:47:43 State 12: Pick wp[2] from CNC"
+$log.entry[8] = "17:47:43 Pick workpiece from CNC. Tool: 2 Chuck: 1L: 50"
+$log.entry[9] = "17:47:43 Tool2 set"
+$log.entry[10] = "17:47:43 Command open gripper 2"
+$log.entry[11] = "17:47:49 Command close gripper 2"
+$log.entry[12] = "17:47:49 Open CNC chuck 1"
+$log.entry[13] = "17:47:49 CNC chuck 1 already opened"
+$log.entry[14] = "17:47:49 State 105: Decision making module 5"
+$log.entry[15] = "17:47:49 State 8: Move outside CNC"
+$log.entry[16] = "17:47:50 Move outside CNC. Tool: 2 Chuck: 1"
+$log.entry[17] = "17:47:50 Tool2 set"
+$log.entry[18] = "17:47:51 Robot outside CNC"
+$log.entry[19] = "17:47:51 State 105: Decision making module 5"
+$log.entry[20] = "17:47:51 State 5: Put WP[2] to shelf"
+$log.entry[21] = "17:47:51 Put workpiece. Shelf: 1 Tool: 2 ID: 4L: 50"
+$log.entry[22] = "17:47:51 Tool2 set"
+$log.entry[23] = "17:47:51 ID: 4 --> i: 0 j: 3"
+$log.entry[24] = "17:47:58 Command open gripper 2"
+$log.entry[25] = "17:47:59 Command close gripper 2"
+$log.entry[26] = "17:47:59 State 105: Decision making module 5"
+$log.entry[27] = "17:47:59 State 3: Close shelf"
+$log.entry[28] = "17:47:59 Closing shelf 1"
+$log.entry[29] = "17:47:59 Tool3 set"
+$log.entry[30] = "17:47:59 Command close gripper 1"
+$log.entry[31] = "17:48:00 Command close gripper 2"
+$log.entry[32] = "17:48:02 Request unlock shelf 1"
+$log.entry[33] = "17:48:03 Shelf 1 successfully unlocked"
+$log.entry[34] = "17:48:45 Reset command executed"
+$log.entry[35] = "17:48:59 Main program executed"
+$log.entry[36] = "17:48:59 Command close gripper 1"
+$log.entry[37] = "17:48:59 Command close gripper 2"
+$log.entry[38] = "17:48:59 Performing safe movement to home position"
+$log.entry[39] = "17:48:59 Safe move from shelf"
+$log.entry[40] = "17:48:59 Tool3 set"
+$log.entry[41] = "17:49:24 Robot in home position"
+$log.entry[42] = "17:49:34 State 0: Initialization"
+$log.entry[43] = "17:49:34 Waiting for task start"
+$log.entry[44] = "17:49:34 State 1: Check ready shelves"
+$log.entry[45] = "17:49:34 Shelf 1 is ready. Request data!"
+$log.entry[46] = "17:49:34 Get task data from PLC"
+$log.entry[47] = "17:49:35 State 100: Select decision making module state"
+$log.entry[48] = "17:49:35 State 105: Decision making module 5"
+$log.entry[49] = "17:49:35 State 2: Open shelf"
+$log.entry[50] = "17:49:35 Open shelf 1"
+$log.entry[51] = "17:49:35 Tool3 set"
+$log.entry[52] = "17:49:35 Command close gripper 1"
+$log.entry[53] = "17:49:35 Command close gripper 2"
+$log.entry[54] = "17:49:38 Request unlock shelf 1"
+$log.entry[55] = "17:49:38 Shelf 1 successfully unlocked"
+$log.entry[56] = "17:49:44 State 105: Decision making module 5"
+$log.entry[57] = "17:49:44 State 4: Pick workpiece from shelf"
+$log.entry[58] = "17:49:44 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[59] = "17:49:44 Tool1 set"
+$log.entry[60] = "17:49:44 Command open gripper 1"
+$log.entry[61] = "17:49:44 ID: 1 --> i: 0 j: 0"
+$log.entry[62] = "17:49:49 Distance: 0.00543"
+$log.entry[63] = "17:49:50 Detail found"
+$log.entry[64] = "17:49:51 Command close gripper 1"
+$log.entry[65] = "17:49:51 State 105: Decision making module 5"
+$log.entry[66] = "17:49:52 State 7: Move inside CNC"
+$log.entry[67] = "17:49:52 Move inisde CNC. Tool: 1 Chuck: 1"
+$log.entry[68] = "17:49:52 Tool1 set"
+$log.entry[69] = "17:49:53 Waiting for CNC ready"
+$log.entry[70] = "17:49:53 CNC ready signal received"
+$log.entry[71] = "17:49:55 Robot inside CNC"
+$log.entry[72] = "17:49:55 State 105: Decision making module 5"
+$log.entry[73] = "17:49:55 State 9: Put wp[0] to CNC"
+$log.entry[74] = "17:49:55 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[75] = "17:49:55 Tool1 set"
+$log.entry[76] = "17:49:55 Open CNC chuck 1"
+$log.entry[77] = "17:49:55 CNC chuck 1 already opened"
+$log.entry[78] = "17:50:01 CNC close chuck first"
+$log.entry[79] = "17:50:01 Close CNC chuck 1"
+$log.entry[80] = "17:50:01 CNC chuck 1 closed"
+$log.entry[81] = "17:50:03 Command open gripper 1"
+$log.entry[82] = "17:50:04 Command close gripper 1"
+$log.entry[83] = "17:50:04 State 105: Decision making module 5"
+$log.entry[84] = "17:50:04 State 8: Move outside CNC"
+$log.entry[85] = "17:50:05 Move outside CNC. Tool: 1 Chuck: 1"
+$log.entry[86] = "17:50:05 Tool1 set"
+$log.entry[87] = "17:50:06 Robot outside CNC"
+$log.entry[88] = "17:50:06 State 105: Decision making module 5"
+$log.entry[89] = "17:50:06 State 18: MCODE Execute"
+$log.entry[90] = "17:50:06 State 105: Decision making module 5"
+$log.entry[91] = "17:50:06 State 7: Move inside CNC"
+$log.entry[92] = "17:50:06 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[93] = "17:50:06 Tool2 set"
+$log.entry[94] = "17:50:08 Waiting for CNC ready"
+$log.entry[95] = "17:50:08 CNC ready signal received"
+$log.entry[96] = "17:50:09 Robot inside CNC"
+$log.entry[97] = "17:50:09 State 105: Decision making module 5"
+$log.entry[98] = "17:50:09 State 10: Pick wp[1] from CNC"
+$log.entry[99] = "17:50:09 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[100] = "17:50:10 Tool1 set"
+$log.entry[101] = "17:50:10 Command open gripper 1"
+$log.entry[102] = "17:50:16 Command close gripper 1"
+$log.entry[103] = "17:50:16 Open CNC chuck 1"
+$log.entry[104] = "17:50:16 CNC chuck 1 already opened"
+$log.entry[105] = "17:50:17 State 105: Decision making module 5"
+$log.entry[106] = "17:50:17 State 15: Perform external change"
+$log.entry[107] = "17:50:17 Use changer program chg.pg.1"
+$log.entry[108] = "17:50:20 State 105: Decision making module 5"
+$log.entry[109] = "17:51:33 Reset command executed"
+$log.entry[110] = "17:51:36 Main program executed"
+$log.entry[111] = "17:51:36 Command close gripper 1"
+$log.entry[112] = "17:51:36 Command close gripper 2"
+$log.entry[113] = "17:51:36 Performing safe movement to home position"
+$log.entry[114] = "17:51:36 Safe move from CNC"
+$log.entry[115] = "17:51:54 Robot in home position"
+$log.entry[116] = "17:52:04 State 0: Initialization"
+$log.entry[117] = "17:52:04 Waiting for task start"
+$log.entry[118] = "17:52:04 State 1: Check ready shelves"
+$log.entry[119] = "17:52:04 Shelf 1 is ready. Request data!"
+$log.entry[120] = "17:52:04 Get task data from PLC"
+$log.entry[121] = "17:52:04 State 100: Select decision making module state"
+$log.entry[122] = "17:52:05 State 105: Decision making module 5"
+$log.entry[123] = "17:52:05 State 2: Open shelf"
+$log.entry[124] = "17:52:05 Open shelf 1"
+$log.entry[125] = "17:52:05 Tool3 set"
+$log.entry[126] = "17:52:05 Command close gripper 1"
+$log.entry[127] = "17:52:05 Command close gripper 2"
+$log.entry[128] = "17:52:08 Request unlock shelf 1"
+$log.entry[129] = "17:52:08 Shelf 1 successfully unlocked"
+$log.entry[130] = "17:52:14 State 105: Decision making module 5"
+$log.entry[131] = "17:52:14 State 4: Pick workpiece from shelf"
+$log.entry[132] = "17:52:14 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[133] = "17:52:14 Tool1 set"
+$log.entry[134] = "17:52:14 Command open gripper 1"
+$log.entry[135] = "17:52:14 ID: 1 --> i: 0 j: 0"
+$log.entry[136] = "17:52:19 Distance: 0.00543"
+$log.entry[137] = "17:52:20 Detail found"
+$log.entry[138] = "17:52:21 Command close gripper 1"
+$log.entry[139] = "17:52:21 State 105: Decision making module 5"
+$log.entry[140] = "17:52:22 State 7: Move inside CNC"
+$log.entry[141] = "17:52:22 Move inisde CNC. Tool: 1 Chuck: 1"
+$log.entry[142] = "17:52:22 Tool1 set"
+$log.entry[143] = "17:52:23 Waiting for CNC ready"
+$log.entry[144] = "17:52:23 CNC ready signal received"
+$log.entry[145] = "17:52:25 Robot inside CNC"
+$log.entry[146] = "17:52:25 State 105: Decision making module 5"
+$log.entry[147] = "17:52:25 State 9: Put wp[0] to CNC"
+$log.entry[148] = "17:52:25 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[149] = "17:52:25 Tool1 set"
+$log.entry[150] = "17:52:25 Open CNC chuck 1"
+$log.entry[151] = "17:52:25 CNC chuck 1 already opened"
+$log.entry[152] = "17:52:31 CNC close chuck first"
+$log.entry[153] = "17:52:31 Close CNC chuck 1"
+$log.entry[154] = "17:52:31 CNC chuck 1 closed"
+$log.entry[155] = "18:00:07 Command open gripper 1"
+$log.entry[156] = "18:00:07 Command close gripper 1"
+$log.entry[157] = "18:00:08 State 105: Decision making module 5"
+$log.entry[158] = "18:00:08 State 8: Move outside CNC"
+$log.entry[159] = "18:00:08 Move outside CNC. Tool: 1 Chuck: 1"
+$log.entry[160] = "18:00:08 Tool1 set"
+$log.entry[161] = "18:00:09 Robot outside CNC"
+$log.entry[162] = "18:00:09 State 105: Decision making module 5"
+$log.entry[163] = "18:00:09 State 18: MCODE Execute"
+$log.entry[164] = "18:00:09 State 105: Decision making module 5"
+$log.entry[165] = "18:00:09 State 7: Move inside CNC"
+$log.entry[166] = "18:00:10 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[167] = "18:00:10 Tool2 set"
+$log.entry[168] = "18:00:11 Waiting for CNC ready"
+$log.entry[169] = "18:00:11 CNC ready signal received"
+$log.entry[170] = "18:00:12 Robot inside CNC"
+$log.entry[171] = "18:00:13 State 105: Decision making module 5"
+$log.entry[172] = "18:00:13 State 10: Pick wp[1] from CNC"
+$log.entry[173] = "18:00:13 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[174] = "18:00:13 Tool1 set"
+$log.entry[175] = "18:00:13 Command open gripper 1"
+$log.entry[176] = "18:00:19 Command close gripper 1"
+$log.entry[177] = "18:00:19 Open CNC chuck 1"
+$log.entry[178] = "18:00:19 CNC chuck 1 already opened"
+$log.entry[179] = "18:00:20 State 105: Decision making module 5"
+$log.entry[180] = "18:00:20 State 15: Perform external change"
+$log.entry[181] = "18:00:20 Use changer program chg.pg.1"
+$log.entry[182] = "10:55:16 Robot boot initialize completed"
+$log.entry[183] = "10:57:52 Reset command executed"
+$log.entry[184] = "10:57:55 Main program executed"
+$log.entry[185] = "10:57:56 Command close gripper 1"
+$log.entry[186] = "10:57:56 Command close gripper 2"
+$log.entry[187] = "10:57:56 Performing safe movement to home position"
+$log.entry[188] = "10:57:56 Safe move from CNC"
+$log.entry[189] = "10:58:53 Robot in home position"
+$log.entry[190] = "10:59:09 State 0: Initialization"
+$log.entry[191] = "10:59:09 Waiting for task start"
+$log.entry[192] = "10:59:10 State 1: Check ready shelves"
+$log.entry[193] = "10:59:10 Shelf 1 is ready. Request data!"
+$log.entry[194] = "10:59:10 Get task data from PLC"
+$log.entry[195] = "10:59:10 State 100: Select decision making module state"
+$log.entry[196] = "10:59:10 State 105: Decision making module 5"
+$log.entry[197] = "10:59:10 State 2: Open shelf"
+$log.entry[198] = "10:59:10 Open shelf 1"
+$log.entry[199] = "10:59:11 Tool3 set"
+$log.entry[200] = "10:59:11 Command close gripper 1"
+$log.entry[201] = "10:59:11 Command close gripper 2"
+$log.entry[202] = "10:59:13 Request unlock shelf 1"
+$log.entry[203] = "10:59:14 Shelf 1 successfully unlocked"
+$log.entry[204] = "10:59:19 State 105: Decision making module 5"
+$log.entry[205] = "10:59:19 State 4: Pick workpiece from shelf"
+$log.entry[206] = "10:59:19 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[207] = "10:59:19 Tool1 set"
+$log.entry[208] = "10:59:20 Command open gripper 1"
+$log.entry[209] = "10:59:20 ID: 1 --> i: 0 j: 0"
+$log.entry[210] = "10:59:25 Distance: 0.00543"
+$log.entry[211] = "10:59:25 Detail found"
+$log.entry[212] = "10:59:26 Command close gripper 1"
+$log.entry[213] = "10:59:27 State 105: Decision making module 5"
+$log.entry[214] = "10:59:27 State 7: Move inside CNC"
+$log.entry[215] = "10:59:27 Move inisde CNC. Tool: 1 Chuck: 1"
+$log.entry[216] = "10:59:27 Tool1 set"
+$log.entry[217] = "10:59:29 Waiting for CNC ready"
+$log.entry[218] = "10:59:29 CNC ready signal received"
+$log.entry[219] = "10:59:30 Robot inside CNC"
+$log.entry[220] = "10:59:30 State 105: Decision making module 5"
+$log.entry[221] = "10:59:30 State 9: Put wp[0] to CNC"
+$log.entry[222] = "10:59:31 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[223] = "10:59:31 Tool1 set"
+$log.entry[224] = "10:59:31 Open CNC chuck 1"
+$log.entry[225] = "10:59:31 CNC chuck 1 already opened"
+$log.entry[226] = "10:59:37 CNC close chuck first"
+$log.entry[227] = "10:59:37 Close CNC chuck 1"
+$log.entry[228] = "10:59:37 CNC chuck 1 closed"
+$log.entry[229] = "10:59:39 Command open gripper 1"
+$log.entry[230] = "10:59:40 Command close gripper 1"
+$log.entry[231] = "10:59:40 State 105: Decision making module 5"
+$log.entry[232] = "10:59:40 State 8: Move outside CNC"
+$log.entry[233] = "10:59:40 Move outside CNC. Tool: 1 Chuck: 1"
+$log.entry[234] = "10:59:40 Tool1 set"
+$log.entry[235] = "10:59:41 Robot outside CNC"
+$log.entry[236] = "10:59:41 State 105: Decision making module 5"
+$log.entry[237] = "10:59:41 State 18: MCODE Execute"
+$log.entry[238] = "10:59:42 State 105: Decision making module 5"
+$log.entry[239] = "10:59:42 State 7: Move inside CNC"
+$log.entry[240] = "10:59:42 Move inisde CNC. Tool: 2 Chuck: 1"
+$log.entry[241] = "10:59:42 Tool2 set"
+$log.entry[242] = "10:59:43 Waiting for CNC ready"
+$log.entry[243] = "10:59:43 CNC ready signal received"
+$log.entry[244] = "10:59:45 Robot inside CNC"
+$log.entry[245] = "10:59:45 State 105: Decision making module 5"
+$log.entry[246] = "10:59:45 State 10: Pick wp[1] from CNC"
+$log.entry[247] = "10:59:45 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
+$log.entry[248] = "10:59:45 Tool1 set"
+$log.entry[249] = "10:59:45 Command open gripper 1"
+$log.entry[250] = "10:59:51 Command close gripper 1"
+$log.entry[251] = "10:59:51 Open CNC chuck 1"
+$log.entry[252] = "10:59:52 CNC chuck 1 already opened"
+$log.entry[253] = "10:59:52 State 105: Decision making module 5"
+$log.entry[254] = "10:59:52 State 15: Perform external change"
+$log.entry[255] = "10:59:53 Use changer program chg.pg.1"
+$log.entry[256] = "10:59:55 State 105: Decision making module 5"
 .END

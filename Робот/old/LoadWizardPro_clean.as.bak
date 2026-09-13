@@ -1,10 +1,7 @@
 .AUXDATA
-N_OX33    "grip.open[1]"
-N_OX34    "grip.close[1]"
-N_OX35    "grip.open[2]"
-N_OX36    "grip.close[2]"
 N_OX37    "air.blow.on"
 N_OX38    "air.blow.off"
+N_OX50    "hmi.wp.length"
 N_OX65    "do.motor.on"
 N_OX66    "do.error"
 N_OX67    "do.cs"
@@ -19,6 +16,7 @@ N_OX75    "do.hold"
 N_OX76    "do.safety.fence"
 N_OX77    "do.bat.alarm"
 N_OX78    "o.debug"
+N_OX80    "hmi.plate.ox"
 N_OX81    "eo.grip.s.opend[1]"
 N_OX82    "eo.grip.c.opend[1]"
 N_OX83    "eo.grip.c.closd[1]"
@@ -56,16 +54,30 @@ N_OX139    "eo.shelf.cmplt[2]"
 N_OX140    "eo.shelf.cmplt[3]"
 N_OX141    "eo.shelf.cmplt[4]"
 N_OX145    "eo.error.code[0]"
-N_OX161    "eo.grip.state[1,0]"
-N_OX169    "eo.grip.state[2,0]"
-N_OX177    "eo.cnc.state[1,0]"
-N_OX185    "eo.cnc.state[2,0]"
+N_OX160    "hmi.plate.dy"
+N_OX161    "eo.grip.id[1,0]"
+N_OX169    "eo.grip.id[2,0]"
+N_OX177    "eo.cnc.id[1,0]"
+N_OX185    "eo.cnc.id[2,0]"
 N_OX193    "eo.wp.processed[0]"
 N_OX201    "eo.next.wp[0]"
-N_WX33    "grip.opened[1]"
-N_WX34    "grip.opened[2]"
-N_WX35    "grip.sensor[1]"
-N_WX36    "grip.sensor[2]"
+N_OX209    "eo.grip.empty[1]"
+N_OX210    "eo.grip.wp0[1]"
+N_OX211    "eo.grip.wp1[1]"
+N_OX212    "eo.grip.wp2[1]"
+N_OX213    "eo.grip.empty[2]"
+N_OX214    "eo.grip.wp0[2]"
+N_OX215    "eo.grip.wp1[2]"
+N_OX216    "eo.grip.wp2[2]"
+N_OX217    "eo.cnc.empty[1]"
+N_OX218    "eo.cnc.wp0[1]"
+N_OX219    "eo.cnc.wp1[1]"
+N_OX220    "eo.cnc.wp2[1]"
+N_OX221    "eo.cnc.empty[2]"
+N_OX222    "eo.cnc.wp0[2]"
+N_OX223    "eo.cnc.wp1[2]"
+N_OX224    "eo.cnc.wp2[2]"
+N_OX256    "log.max.count"
 N_WX65    "di.ext.motor.on"
 N_WX66    "di.ext.ereset"
 N_WX67    "di.ext.cs"
@@ -103,8 +115,9 @@ N_WX145    "ei.robot.speed[0]"
 N_WX161    "ei.xmove.spd[0]"
 N_WX169    "ei.blow.spd[0]"
 N_WX177    "ei.overshoot[0]"
-N_WX201    "ei.t.grip.op[2,0]"
-N_WX209    "ei.t.grip.op[1,0]"
+N_WX193    "ei.t.grip.op[1,0]"
+N_WX201    "ei.t.grip.cl[1,0]"
+N_WX209    "ei.t.grip.op[2,0]"
 N_WX217    "ei.t.grip.cl[2,0]"
 N_WX225    "ei.t.cnc.open[1,0]"
 N_WX233    "ei.t.cnc.close[1,0]"
@@ -139,8 +152,8 @@ N_WX562    "d.grip.inverse[2]"
 N_WX563    "d.cnc.run.pg"
 N_WX564    "d.air.blow[1]"
 N_WX565    "d.air.blow[2]"
-N_WX566    "d.wp3.pick[1]"
-N_WX567    "d.wp3.pick[2]"
+N_WX566    "d.wp2.pick[1]"
+N_WX567    "d.wp2.pick[2]"
 N_WX568    "d.cnc.first"
 N_WX569    "d.grip.first"
 N_WX570    "d.int.change"
@@ -165,9 +178,8 @@ N_INT12    "s.inside.cnc"
 N_INT13    "s.mcode.req"
 N_INT14    "s.p.put.air.req"
 N_INT15    "s.a.pic.air.req"
-N_INT16    "s.change.req"
 N_INT17    "s.ext.chg.req"
-N_INT18    "s.chg.ok"
+N_INT18    "s.ext.chg.ok"
 N_INT20    "s.reset.perf"
 N_INT102    "s.hmi.grip[1]"
 N_INT103    "s.hmi.grip[2]"
@@ -183,6 +195,8 @@ N_INT112    "s.pr.tch.cnc.ap"
 N_INT113    "s.pr.tch.cnc"
 N_INT114    "s.pr.tst.cnc.pi"
 N_INT115    "s.pr.tst.cnc.pu"
+N_INT116    "s.pr.tch.air"
+N_INT117    "s.pr.tch.chg"
 N_INT130    "s.pr.a.home"
 .END
 .INTER_PANEL_D
@@ -211,7 +225,7 @@ N_INT130    "s.pr.a.home"
 47,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
 48,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
 49,2,"","   MAIN","<---------","",10,4,11,2001,0
-50,2,"","  TEACH","--------->","",10,4,11,2004,0
+50,2,"","  TEACH","--------->","",10,4,11,2003,0
 51,4,2,"SHELF 1","","UNLOCK","",10,4,4,0,133,0
 52,4,2,"SHELF 2","","UNLOCK","",10,4,4,0,134,0
 53,4,2,"SHELF 3","","UNLOCK","",10,4,4,0,135,0
@@ -236,18 +250,14 @@ N_INT130    "s.pr.a.home"
 83,2,"","   TEACH","   DATA","",10,4,3,2007,0
 84,2,"  PRIME","  TEACH","  CNC","  APPROACH",10,4,3,2112,0
 85,2,"  PRIME","  TEACH","  CNC","",10,4,3,2113,0
-86,2,"  PRIME","  CNC","  TEST","  PICK",10,4,0,2114,0
-87,2,"  PRIME","  CNC","  TEST","  PUT",10,4,0,2115,0
 88,4,2,"TEACH TOOL","TOOL 1","TOOL 2","",10,4,4,2102,2103,0
 89,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
 90,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
-91,2,"  PRIME","  TEACH","  CNC","  AIR BLOW",10,4,3,2110,0
-92,8,"hmi.air.pg.1","AIR BLOW ","PROGRAM",10,4,3,1,0
+91,2,"  PRIME","  CNC","  TEST","  PICK",10,4,0,2114,0
+92,2,"  PRIME","  CNC","  TEST","  PUT",10,4,0,2115,0
 95,4,2,"TEACH CNC","CHUCK 1","CHUCK 2","",10,4,4,2104,2105,0
 96,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
 97,2,"","  CHUCK 2","   OPEN","",10,4,15,99,0
-98,2,"  PRIME","  TEACH","  CHANGER","",10,4,3,2110,0
-99,8,"hmi.chg.pg","CHANGER","PROGRAM",10,4,3,1,0
 102,4,2,"AIR BLOW","OFF","ON","",10,4,4,38,37,0
 103,2,"","  CHUCK 1","   CLOSE","",10,4,15,98,0
 104,2,"","  CHUCK 2","   CLOSE","",10,4,15,100,0
@@ -325,7 +335,7 @@ N_INT130    "s.pr.a.home"
 223,2,""," PLC DATA","","",10,4,11,2006,0
 .END
 .INTER_PANEL_TITLE
-"Main",1
+"MAIN",1
 "I/O",1
 "TEACH CELL",1
 "TEACH CNC",1
@@ -423,6 +433,65 @@ N_INT130    "s.pr.a.home"
   ;
   ;
 .END
+.PROGRAM calc.state.flag ()
+  ;
+  shelf.opened = SIG (eo.shelf.opened[current.shelf])
+  shelf.closed = NOT shelf.opened
+  ;
+  gp.empty[1] = gripper.state[1] == -1
+  gp.full[1] = NOT gp.empty[1]
+  gp.wp2[1] = gripper.state[1] == 2
+  gp.wp1[1] = gripper.state[1] == 1
+  gp.wp0[1] = gripper.state[1] == 0
+  ;
+  gp.empty[2] = gripper.id[2] == 0
+  gp.full[2] = NOT gp.empty[2]
+  gp.wp2[2] = gripper.state[2] == 2
+  gp.wp1[2] = gripper.state[2] == 1
+  gp.wp0[2] = gripper.state[2] == 0
+  ;
+  cnc.empty[1] = cnc.state[1] == -1
+  cnc.full[1] = NOT cnc.empty[1]
+  cnc.wp2[1] = cnc.state[1] == 2
+  cnc.wp1[1] = cnc.state[1] == 1
+  cnc.wp0[1] = cnc.state[1] == 0
+  ;
+  cnc.empty[2] = cnc.state[2] == -1
+  cnc.full[2] = NOT cnc.empty[2]
+  cnc.wp2[2] = cnc.state[2] == 2
+  cnc.wp1[2] = cnc.state[2] == 1
+  cnc.wp0[2] = cnc.state[2] == 0
+  ;
+  air.bp = SIG (s.p.put.air.req)
+  air.ap = SIG (s.a.pic.air.req)
+  ;
+  .inside.cnc = SIG (s.inside.cnc)
+  .outside.cnc = NOT .inside.cnc
+  rout = shelf.opened AND .outside.cnc
+  rin = shelf.opened AND .inside.cnc
+  ;
+  mfinish = SIG (s.mcode.req)
+  n.max.pick = current.wp <= wp.count
+  max.pick = NOT n.max.pick
+  ;
+  IF grip.chg.int[1] THEN
+    gp.int = 1
+  ELSE
+    gp.int = 2
+  END
+  ;
+  IF grip.chg.ext[1, 1] THEN
+    gp.ext.1 = 1
+  ELSE
+    gp.ext.1 = 2
+  END
+  IF grip.chg.ext[2, 1] THEN
+    gp.ext.2 = 1
+  ELSE
+    gp.ext.2 = 2
+  END
+  ;
+.END
 .PROGRAM check.limits.pc ()
   ;
   hmi.shelf.no = MINVAL(hmi.shelf.no, 4)
@@ -433,16 +502,17 @@ N_INT130    "s.pr.a.home"
   hmi.grip.j.full[1] = MAXVAL(hmi.grip.j.full[1], 1)
   hmi.grip.j.full[2] = MAXVAL(hmi.grip.j.full[2], 1)
   hmi.cnc.j.full[1] = MAXVAL(hmi.cnc.j.full[1], 1)
-  hmi.cnc.j.full[1] = MAXVAL(hmi.cnc.j.full[2], 1)
+  hmi.cnc.j.full[2] = MAXVAL(hmi.cnc.j.full[2], 1)
   ;
   hmi.grip.j.body[1] = MAXVAL(hmi.grip.j.body[1], 1)
   hmi.grip.j.body[2] = MAXVAL(hmi.grip.j.body[2], 1)
   hmi.cnc.j.body[1] = MAXVAL(hmi.cnc.j.body[1], 0)
-  hmi.cnc.j.body[1] = MAXVAL(hmi.cnc.j.body[2], 0)
+  hmi.cnc.j.body[2] = MAXVAL(hmi.cnc.j.body[2], 0)
+  ;
   hmi.grip.j.body[1] = MINVAL(hmi.grip.j.body[1], hmi.grip.j.full[1])
   hmi.grip.j.body[2] = MINVAL(hmi.grip.j.body[2], hmi.grip.j.full[2])
   hmi.cnc.j.body[1] = MINVAL(hmi.cnc.j.body[1], hmi.cnc.j.full[1])
-  hmi.cnc.j.body[1] = MINVAL(hmi.cnc.j.body[2], hmi.cnc.j.full[2])
+  hmi.cnc.j.body[2] = MINVAL(hmi.cnc.j.body[2], hmi.cnc.j.full[2])
   ;
   hmi.plate.rows = MAXVAL(hmi.plate.rows, 1)
   hmi.plate.col.o = MAXVAL(hmi.plate.col.o, 1)
@@ -478,8 +548,9 @@ N_INT130    "s.pr.a.home"
       SIGNAL -s.p.put.air.req
       SIGNAL -s.a.pic.air.req
       SIGNAL -s.mcode.req
-      SIGNAL -s.change.req
-      SIGNAL -s.chg.ok
+      ;SIGNAL -s.change.req
+      ;SIGNAL -s.chg.ok
+      SIGNAL -s.ext.chg.ok
       SIGNAL -s.ext.chg.req
       current.shelf = 1
       ;
@@ -487,12 +558,12 @@ N_INT130    "s.pr.a.home"
       ;
       gripper.id[1] = 0
       gripper.id[2] = 0
-      ;gripper.state[1] = -1
-      ;gripper.state[2] = -1
+      gripper.state[1] = -1
+      gripper.state[2] = -1
       cnc.id[1] = 0
       cnc.id[2] = 0
-      ;cnc.state[1] = -1
-      ;cnc.state[2] = -1
+      cnc.state[1] = -1
+      cnc.state[2] = -1
       current.wp = 1
       processed.wp = 0
       ;
@@ -544,29 +615,21 @@ N_INT130    "s.pr.a.home"
     END
     ;
     IF SIG (s.pr.tch.cnc.ap) THEN
-      MC PRINT cnc.appro.teach
+      MC PRIME cnc.appro.teach
     END
     ;
     IF SIG (s.pr.tch.cnc) THEN
-      MC PRINT cnc.teach
+      MC PRIME cnc.teach
     END
     ;
     IF SIG (s.pr.tst.cnc.pi) THEN
-      MC PRINT cnc.test.pick
+      MC PRIME cnc.test.pick
     END
     ;
     IF SIG (s.pr.tst.cnc.pu) THEN
-      MC PRINT cnc.test.put
+      MC PRIME cnc.test.put
     END
     ;
-    IF SIG (s.pr.tch.air) THEN
-      ;MC PRINT cnc.test.put
-    END
-    ;
-    IF SIG (s.pr.tch.chg) THEN
-      ;MC PRINT cnc.test.put
-    END
-    ; 
     IF SIG(s.pr.a.home) THEN
       MC PRIME a.home
     ;
@@ -609,6 +672,14 @@ N_INT130    "s.pr.a.home"
   CALL log ("CNC chuck" + $ENCODE (.chuck.no) + " opened")
   TWAIT .time
   SIGNAL -eo.cnc.ch.open[.chuck.no]
+  ;
+.END
+.PROGRAM ciner (.$var.name,.var,.default)
+  ;
+  IF NOT EXISTREAL(.$var.name) THEN
+    CALL log("Variable " + .$var.name + " is not exist. Default:" + $ENCODE(.default))
+    .var = .default
+  END
   ;
 .END
 .PROGRAM cnc.appro.teach ()
@@ -716,9 +787,9 @@ N_INT130    "s.pr.a.home"
   CALL chuck.open (.chuck.no, tmr.cnc.op[.chuck.no])
   ;
   gripper.id[.grip.no] = cnc.id[.chuck.no]
-  gripper.state[.grip.no] = .wp.state
+  gripper.state[.grip.no] = cnc.state[.chuck.no]
   cnc.id[.chuck.no] = 0
-  ;cnc.state[.chuck.no] = -1
+  cnc.state[.chuck.no] = -1
   ;
   SPEED 20
   ACCURACY 0.1
@@ -773,9 +844,9 @@ N_INT130    "s.pr.a.home"
   ;
   SIGNAL s.mcode.req
   cnc.id[.chuck.no] = gripper.id[.grip.no]
-  ;cnc.state[.chuck.no] = .wp.state
+  cnc.state[.chuck.no] = gripper.state[.grip.no]
   gripper.id[.grip.no] = 0
-  ;gripper.state[.grip.no] = -1
+  gripper.state[.grip.no] = -1
   ;
   SPEED 20
   ACCURACY 0.1
@@ -838,7 +909,7 @@ N_INT130    "s.pr.a.home"
   END
   ;
   CALL get.task.data
-  CALL cnc.pick (.grip.no, .chuck.no, hmi.wp.length)
+  CALL cnc.pick (.grip.no, .chuck.no, 0)
   ;
 .END
 .PROGRAM cnc.test.put ()
@@ -856,7 +927,7 @@ N_INT130    "s.pr.a.home"
   END
   ;
   CALL get.task.data
-  CALL cnc.put (.grip.no, .chuck.no, hmi.wp.length)
+  CALL cnc.put (.grip.no, .chuck.no, 0)
   ;
 .END
 .PROGRAM disp.info.pc ()
@@ -897,6 +968,14 @@ N_INT130    "s.pr.a.home"
   END
   ;
   gripper.id[.grip.after.chg] = gripper.id[.grip.before.chg]
+  IF .grip.after.chg <> .grip.before.chg THEN
+    gripper.id[.grip.before.chg] = 0
+  END
+  ;
+  gripper.state[.grip.after.chg] = gripper.state[.grip.before.chg] 
+  IF .grip.after.chg <> .grip.before.chg THEN
+    gripper.state[.grip.before.chg] = -1
+  END
   ;
   JMOVE #state.bf.chg
   ;
@@ -926,6 +1005,30 @@ N_INT130    "s.pr.a.home"
   ;
   wp.count           = hmi.wp.count
   ;
+  chg.pg.no          = 1
+  air.pg.no[1]       = 1
+  air.pg.no[2]       = 1
+  ;
+  grip.inverse[1]    = FALSE
+  grip.inverse[2]    = FALSE
+  air.blow[1]        = FALSE
+  air.blow[2]        = FALSE
+  wp2.pick[1]        = TRUE
+  wp2.pick[2]        = FALSE
+  cnc.first          = TRUE
+  grip.first         = FALSE
+  ;
+  int.change         = FALSE
+  ext.change         = TRUE
+  ;
+  grip.chg.int[1]    = TRUE
+  grip.chg.int[2]    = FALSE
+  ;
+  grip.chg.ext[1, 1] = TRUE
+  grip.chg.ext[1, 2] = FALSE
+  grip.chg.ext[2, 1] = TRUE
+  grip.chg.ext[2, 2] = FALSE
+  ;
   ;
 .END
 .PROGRAM get.from.plc ()
@@ -954,7 +1057,7 @@ N_INT130    "s.pr.a.home"
   cnc.pg.no          = BITS (d.cnc.pg.no[0], 8)
   chg.pg.no          = BITS (d.chg.pg.no[0], 8)
   air.pg.no[1]       = BITS (d.air.pg.no[1, 0], 8)
-  air.pg.no[2]       = BITS (d.air.pg.no[1, 0], 8)
+  air.pg.no[2]       = BITS (d.air.pg.no[2, 0], 8)
   wp.count           = BITS (d.wp.count[0], 8)
   ;
   grip.inverse[1]    = SIG (d.grip.inverse[1])
@@ -1068,8 +1171,8 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM initialize.pc ()
   ;
-  CALL set.switches.pc
   CALL log.init
+  CALL set.switches.pc
   CALL set.io.pc
   CALL set.vars.pc
   CALL disp.info.pc
@@ -1159,7 +1262,7 @@ N_INT130    "s.pr.a.home"
   END
   TOOL tool.calib[.grip.no]
   ;
-  JMOVE #wp.safe[.grip.no]
+  JMOVE #wp.safe[.grip.no] ; **== TEACH POINT ==**
   ;
   LAPPRO #plate.pt.o[hmi.shelf.no, .grip.no], 20
   BREAK
@@ -1273,7 +1376,8 @@ N_INT130    "s.pr.a.home"
   ;
   HOME
   HOME2
-  $safe.flag = " "
+  $safe.flag = ""
+  BREAK
   CALL log ("Robot in home position")
   ;
   SIGNAL -s.inside.cnc
@@ -1281,18 +1385,110 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM send.plc.pc ()
   ;
-  BITS eo.grip.state[1, 0], 8 = gripper.id[1]
-  BITS eo.grip.state[2, 0], 8 = gripper.id[2]
-  BITS eo.cnc.state[1, 0], 8 = cnc.id[1]
-  BITS eo.cnc.state[2, 0], 8 = cnc.id[2]
+  BITS eo.grip.id[1, 0], 8 = gripper.id[1]
+  BITS eo.grip.id[2, 0], 8 = gripper.id[2]
+  BITS eo.cnc.id[1, 0], 8 = cnc.id[1]
+  BITS eo.cnc.id[2, 0], 8 = cnc.id[2]
   BITS eo.wp.processed[0], 8 = processed.wp
   IF current.wp > wp.count THEN
-    BITS eo.next.wp[0], 8 = -1
+    BITS eo.next.wp[0], 8 = 0
   ELSE
     BITS eo.next.wp[0], 8 = current.wp
   END
   ;
   BITS eo.error.code[0], 16 = -ERROR
+  ;
+  CASE gripper.state[1] OF
+    VALUE -1:
+      SIGNAL eo.grip.empty[1]
+      SIGNAL -eo.grip.wp0[1]
+      SIGNAL -eo.grip.wp1[1]
+      SIGNAL -eo.grip.wp2[1]
+    VALUE 0:
+      SIGNAL -eo.grip.empty[1]
+      SIGNAL eo.grip.wp0[1]
+      SIGNAL -eo.grip.wp1[1]
+      SIGNAL -eo.grip.wp2[1]
+    VALUE 1:
+      SIGNAL -eo.grip.empty[1]
+      SIGNAL -eo.grip.wp0[1]
+      SIGNAL eo.grip.wp1[1]
+      SIGNAL -eo.grip.wp2[1]
+    VALUE 2:
+      SIGNAL -eo.grip.empty[1]
+      SIGNAL -eo.grip.wp0[1]
+      SIGNAL -eo.grip.wp1[1]
+      SIGNAL eo.grip.wp2[1]
+  END
+  ;
+  CASE gripper.state[2] OF
+    VALUE -1:
+      SIGNAL eo.grip.empty[2]
+      SIGNAL -eo.grip.wp0[2]
+      SIGNAL -eo.grip.wp1[2]
+      SIGNAL -eo.grip.wp2[2]
+    VALUE 0:
+      SIGNAL -eo.grip.empty[2]
+      SIGNAL eo.grip.wp0[2]
+      SIGNAL -eo.grip.wp1[2]
+      SIGNAL -eo.grip.wp2[2]
+    VALUE 1:
+      SIGNAL -eo.grip.empty[2]
+      SIGNAL -eo.grip.wp0[2]
+      SIGNAL eo.grip.wp1[2]
+      SIGNAL -eo.grip.wp2[2]
+    VALUE 2:
+      SIGNAL -eo.grip.empty[2]
+      SIGNAL -eo.grip.wp0[2]
+      SIGNAL -eo.grip.wp1[2]
+      SIGNAL eo.grip.wp2[2]
+  END
+  ;
+  CASE cnc.state[1] OF
+    VALUE -1:
+      SIGNAL eo.cnc.empty[1]
+      SIGNAL -eo.cnc.wp0[1]
+      SIGNAL -eo.cnc.wp1[1]
+      SIGNAL -eo.cnc.wp2[1]
+    VALUE 0:
+      SIGNAL -eo.cnc.empty[1]
+      SIGNAL eo.cnc.wp0[1]
+      SIGNAL -eo.cnc.wp1[1]
+      SIGNAL -eo.cnc.wp2[1]
+    VALUE 1:
+      SIGNAL -eo.cnc.empty[1]
+      SIGNAL -eo.cnc.wp0[1]
+      SIGNAL eo.cnc.wp1[1]
+      SIGNAL -eo.cnc.wp2[1]
+    VALUE 2:
+      SIGNAL -eo.cnc.empty[1]
+      SIGNAL -eo.cnc.wp0[1]
+      SIGNAL -eo.cnc.wp1[1]
+      SIGNAL eo.cnc.wp2[1]
+  END
+  ;
+  CASE cnc.state[2] OF
+    VALUE -1:
+      SIGNAL eo.cnc.empty[2]
+      SIGNAL -eo.cnc.wp0[2]
+      SIGNAL -eo.cnc.wp1[2]
+      SIGNAL -eo.cnc.wp2[2]
+    VALUE 0:
+      SIGNAL -eo.cnc.empty[2]
+      SIGNAL eo.cnc.wp0[2]
+      SIGNAL -eo.cnc.wp1[2]
+      SIGNAL -eo.cnc.wp2[2]
+    VALUE 1:
+      SIGNAL -eo.cnc.empty[2]
+      SIGNAL -eo.cnc.wp0[2]
+      SIGNAL eo.cnc.wp1[2]
+      SIGNAL -eo.cnc.wp2[2]
+    VALUE 2:
+      SIGNAL -eo.cnc.empty[2]
+      SIGNAL -eo.cnc.wp0[2]
+      SIGNAL -eo.cnc.wp1[2]
+      SIGNAL eo.cnc.wp2[2]
+  END
   ;
 .END
 .PROGRAM set.io.pc() #0
@@ -1378,13 +1574,29 @@ N_INT130    "s.pr.a.home"
   ;
   ; Task state
   eo.error.code[0] = 145
-  eo.grip.state[1, 0] = 161
-  eo.grip.state[2, 0] = 169
-  eo.cnc.state[1, 0] = 177
-  eo.cnc.state[2, 0] = 185
+  eo.grip.id[1, 0] = 161
+  eo.grip.id[2, 0] = 169
+  eo.cnc.id[1, 0] = 177
+  eo.cnc.id[2, 0] = 185
   eo.wp.processed[0] = 193
   eo.next.wp[0] = 201
   ;
+  eo.grip.empty[1] = 209
+  eo.grip.wp0[1] = 210
+  eo.grip.wp1[1] = 211
+  eo.grip.wp2[1] = 212
+  eo.grip.empty[2] = 213
+  eo.grip.wp0[2] = 214
+  eo.grip.wp1[2] = 215
+  eo.grip.wp2[2] = 216
+  eo.cnc.empty[1] = 217
+  eo.cnc.wp0[1] = 218
+  eo.cnc.wp1[1] = 219
+  eo.cnc.wp2[1] = 220
+  eo.cnc.empty[2] = 221
+  eo.cnc.wp0[2] = 222
+  eo.cnc.wp1[2] = 223
+  eo.cnc.wp2[2] = 224
   ; Inputs
   ;
   di.ext.motor.on = 1065
@@ -1434,8 +1646,8 @@ N_INT130    "s.pr.a.home"
   ei.overshoot[0] = 1177 ; 4 bit
   ;
   ei.t.grip.op[1, 0] = 1193 ; 8 bit
-  ei.t.grip.cl[2, 0] = 1201 ; 8 bit
-  ei.t.grip.op[1, 0] = 1209 ; 8 bit
+  ei.t.grip.cl[1, 0] = 1201 ; 8 bit
+  ei.t.grip.op[2, 0] = 1209 ; 8 bit
   ei.t.grip.cl[2, 0] = 1217 ; 8 bit
   ;
   ei.t.cnc.open[1, 0] = 1225; 8 bit
@@ -1468,8 +1680,8 @@ N_INT130    "s.pr.a.home"
   ;
   d.cnc.pg.no[0] = 1513 ; 8 bit
   d.chg.pg.no[0] = 1521 ; 8 bit
-  d.air.pg.1.no[1, 0] = 1529 ; 8 bit
-  d.air.pg.1.no[2, 0] = 1537 ; 8 bit
+  d.air.pg.no[1, 0] = 1529 ; 8 bit
+  d.air.pg.no[2, 0] = 1537 ; 8 bit
   d.wp.count[0] = 1545 ; 8 bit
   ;
   d.grip.inverse[1] = 1561
@@ -1510,9 +1722,9 @@ N_INT130    "s.pr.a.home"
   s.mcode.req = 2013
   s.p.put.air.req = 2014
   s.a.pic.air.req = 2015
-  s.change.req = 2016
+  ;s.change.req = 2016
   s.ext.chg.req = 2017
-  s.chg.ok = 2018
+  s.ext.chg.ok = 2018
   ;
   s.reset.perf = 2020 
   ;
@@ -1548,7 +1760,7 @@ N_INT130    "s.pr.a.home"
   DISP.EXESTEP ON
   PROG.DATE ON
   ABS.SPEED ON
-  ERRSTART.PC ON  ;
+  ERRSTART.PC ON  
   autostart.pc ON
   ;
 .END
@@ -1563,7 +1775,7 @@ N_INT130    "s.pr.a.home"
   WEIGHT 20, 0, 0, 100, 0.1, 0.1, 0.1
   current.grip = .grip.no
   ;
-  CALL log ("Tool" + $ENCODE (/L, .grip.no)+ " set")
+  CALL log ("Tool " + $ENCODE (/L, .grip.no)+ " set")
   ;
 .END
 .PROGRAM set.vars.pc ()
@@ -1574,21 +1786,62 @@ N_INT130    "s.pr.a.home"
   POINT tool.calib[2] = TRANS (202.8, 0, 104, 0, 90, 180)
   POINT tool.pin = TRANS (0, 112, 104, 90, 90, 0)
   ;
+  POINT #shelf.safe = #PPOINT(75, 0, 100, 30, 75, 100)
+  ;#shelf.safe 77.267387 4.813991 100.780472 34.271633 76.990814 99.275299
+  
   hmi.shelf.no = 1
   hmi.wp.id = 1
   ;
   hmi.air.pg = 1
   hmi.chg.pg = 1
   ;
-  IF NOT EXISTREAL("pick.epsilon") THEN
-    pick.epsilon = 0.2
-  END 
+  CALL ciner ("pick.epsilon", pick.epsilon, 0.2)
   ;
-  IF NOT EXISTREAL("cnc.rotations[1, 1]") THEN
-    cnc.rotations[1,1] = 0
-    cnc.rotations[1,2] = 180
-    cnc.rotations[2,1] = 180
-    cnc.rotations[2,2] = 0
+  CALL ciner ("hmi.wp.length", hmi.wp.length, 50)
+  ;
+  CALL ciner ("hmi.grip.j.full[1]", hmi.grip.j.full[1], 40)
+  CALL ciner ("hmi.grip.j.full[2]", hmi.grip.j.full[2], 40)
+  CALL ciner ("hmi.grip.j.body[1]", hmi.grip.j.body[1], 28)
+  CALL ciner ("hmi.grip.j.body[2]", hmi.grip.j.body[2], 28)
+  CALL ciner ("hmi.cnc.j.full[1]", hmi.cnc.j.full[1], 40)
+  CALL ciner ("hmi.cnc.j.full[2]", hmi.cnc.j.full[2], 40)
+  CALL ciner ("hmi.cnc.j.body[1]", hmi.cnc.j.body[1], 28)
+  CALL ciner ("hmi.cnc.j.body[2]", hmi.cnc.j.body[2], 28)
+  ;
+  CALL ciner ("hmi.plate.rows", hmi.plate.rows, 4)
+  CALL ciner ("hmi.plate.col.o", hmi.plate.col.o, 4)
+  CALL ciner ("hmi.plate.col.e", hmi.plate.col.e, 4)
+  CALL ciner ("hmi.plate.dx", hmi.plate.dx, 130)
+  CALL ciner ("hmi.plate.dy", hmi.plate.dy, 160)
+  CALL ciner ("hmi.plate.e.dy", hmi.plate.e.dy, 0)
+  CALL ciner ("hmi.plate.ox", hmi.plate.ox, 80)
+  CALL ciner ("hmi.plate.oy", hmi.plate.oy, 75)
+  ;
+  CALL ciner ("hmi.wp.count", hmi.wp.count, 4)
+  ;
+  CALL ciner ("hmi.air.pg", hmi.air.pg, 1)
+  CALL ciner ("hmi.chg.pg", hmi.chg.pg, 1)
+  ;
+  CALL ciner ("cnc.rotations[1, 1]", cnc.rotations[1, 1], 0)
+  CALL ciner ("cnc.rotations[1, 2]", cnc.rotations[1, 2], 180)
+  CALL ciner ("cnc.rotations[2, 1]", cnc.rotations[2, 1], 180)
+  CALL ciner ("cnc.rotations[2, 2]", cnc.rotations[2, 2], 0)
+  ;
+  CALL ciner ("gripper.id[1]", gripper.id[1], 0)
+  CALL ciner ("gripper.state[1]", gripper.state[1], -1)
+  CALL ciner ("gripper.id[2]", gripper.id[2], 0)
+  CALL ciner ("gripper.state[2]", gripper.state[2], -1)
+  CALL ciner ("cnc.id[1]", cnc.id[1], 0)
+  CALL ciner ("cnc.state[1]", cnc.state[1], -1)
+  CALL ciner ("cnc.id[2]", cnc.id[2], 0)
+  CALL ciner ("cnc.state[2]", cnc.state[2], -1)
+  ;
+  CALL ciner ("processed.wp", processed.wp, 0)
+  CALL ciner ("current.wp", current.wp, 1)
+  CALL ciner ("wp.count", wp.count, 1)
+  ;
+  IF NOT EXISTCHAR ("$safe.slag") THEN
+    $safe.slag = " "
   END
   ;
 .END
@@ -1599,7 +1852,6 @@ N_INT130    "s.pr.a.home"
   SPEED 60 ALWAYS
   ACCURACY 5 ALWAYS
   CALL set.tool (3)
-  ; gripper.no, time, reverse
   CALL grip.close (1, 0, FALSE)
   CALL grip.close (2, 0, FALSE)
   ;
@@ -1627,17 +1879,10 @@ N_INT130    "s.pr.a.home"
     ;
     CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
     ;
-    ;IF kroset THEN
-    ;  SIGNAL k.shelf.pick
-    ;END
-    ;
     SPEED 200 MM/S
     ACCURACY 0.1
     LMOVE .end
     BREAK
-    ;IF kroset THEN
-    ;  SIGNAL -k.shelf.pick
-    ;END
     ;
     SPEED 50 MM/S
     ACCURACY 0.1
@@ -1705,17 +1950,10 @@ N_INT130    "s.pr.a.home"
     ;
     CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
     ;
-    ;IF kroset THEN
-    ;  SIGNAL k.shelf.pick
-    ;END
-    ;
     SPEED 200 MM/S
     ACCURACY 0.1
     LMOVE .end
     BREAK
-    ;IF kroset THEN
-    ;  SIGNAL -k.shelf.pick
-    ;END
     ;
     SPEED 50 MM/S
     ACCURACY 0.1
@@ -1799,6 +2037,7 @@ N_INT130    "s.pr.a.home"
   SIGNAL eo.robot.ready
   CALL log ("Waiting for task start")
   SWAIT ei.task.start
+  CALL log ("Task start command received")
   ;
   ; Resetting signals
   SIGNAL -s.shelf.failed
@@ -1809,8 +2048,9 @@ N_INT130    "s.pr.a.home"
   SIGNAL -s.p.put.air.req
   SIGNAL -s.a.pic.air.req
   SIGNAL -s.mcode.req
-  SIGNAL -s.change.req
-  SIGNAL -s.chg.ok
+  ;SIGNAL -s.change.req
+  ;SIGNAL -s.chg.ok
+  SIGNAL -s.ext.chg.ok
   SIGNAL -s.ext.chg.req
   current.shelf = 0
   ;
@@ -1823,6 +2063,7 @@ N_INT130    "s.pr.a.home"
   CALL log ("State 1: Check ready shelves")
   WHILE TRUE DO
     IF NOT SIG (ei.task.start) THEN
+      CALL log ("Task signal was turned off by operator")
       state = 255
       RETURN
     END
@@ -1845,8 +2086,8 @@ N_INT130    "s.pr.a.home"
       gripper.state[2] = -1
       cnc.id[1]     = 0
       cnc.id[2]     = 0
-      ;cnc.state[1] = -1
-      ;cnc.state[2] = -1
+      cnc.state[1] = -1
+      cnc.state[2] = -1
       current.wp    = 1
       processed.wp  = 0
       ;
@@ -1865,6 +2106,7 @@ N_INT130    "s.pr.a.home"
       state = 100
       RETURN
     END
+    CALL log ("No ready shelves found")
     HOME2
   END
   ;
@@ -1902,8 +2144,9 @@ N_INT130    "s.pr.a.home"
     state = decision.state
   END
   ;
-  SIGNAL s.change.req
+  ;SIGNAL s.change.req
   SIGNAL s.ext.chg.req
+  SIGNAL s.ext.chg.ok
   ;
 .END
 .PROGRAM state100 () ; Select decision making module state
@@ -1986,98 +2229,75 @@ N_INT130    "s.pr.a.home"
 .PROGRAM state101 () ; Decision making module 1
   ;
   CALL log ("State 101: Decision making module 1")
-  ;
-  .shelf.opened = SIG (eo.shelf.opened[current.shelf])
-  .shelf.closed = NOT .shelf.opened
-  .inside.cnc = SIG (s.inside.cnc)
-  .outside.cnc = NOT .inside.cnc
-  ;
-  .gp.empty[1] = gripper.id[1] == 0
-  .gp.full[1] = NOT .gp.empty[1]
-  .gp.empty[2] = gripper.id[2] == 0
-  .gp.full[2] = NOT .gp.empty[2]
-  ;
-  .cnc.empty[1] = cnc.id[1] == 0
-  .cnc.full[1] = NOT .cnc.empty[1]
-  .cnc.ready[1] = cnc.id[1] < 0
-  ;
-  .air.bp = SIG (s.p.put.air.req)
-  .air.ap = SIG (s.a.pic.air.req)
-  ;
-  .rout = .shelf.opened AND .outside.cnc
-  .rin = .shelf.opened AND .inside.cnc
-  ;
-  .mfinish = SIG (s.mcode.req)
-  .not.max.pick = current.wp <= wp.count
-  .max.pick = NOT .not.max.pick
-  ;
+;
   WHILE TRUE DO
+    CALL calc.state.flag
     ; Open shelf in not opened
-    IF .shelf.closed THEN
+    IF shelf.closed THEN
       state = 2
       RETURN
     END
     ;
     ; Send MFINISH
-    IF .rout AND .cnc.full[1] AND .mfinish THEN
+    IF rout AND cnc.full[1] AND mfinish THEN
       state = 18
       RETURN
     END
     ;
     ; Pick workpiece from shelf
-    IF .rout AND .gp.empty[1] AND .gp.empty[2] AND .not.max.pick THEN
+    IF rout AND gp.empty[1] AND gp.empty[2] AND n.max.pick THEN
       state = 4
       RETURN
     END
     ;
     ; Move inside CNC
     ;
-    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[2] AND .cnc.full[1]) THEN
+    IF rout AND (gp.full[1] AND cnc.empty[1] OR gp.empty[2] AND cnc.full[1]) THEN
       state = 7
       RETURN
     END
     ;
     ; Air blow after pick workpiece
-    IF .rin AND .gp.full[2] AND .cnc.empty[1] AND .air.ap THEN
+    IF rin AND gp.full[2] AND cnc.empty[1] AND air.ap THEN
       state = 17
       RETURN
     END
     ;
     ; Air blow before put workpiece
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND .air.bp THEN
+    IF rin AND gp.full[1] AND cnc.empty[1] AND air.bp THEN
       state = 16
       RETURN
     END
     ;
     ; Put workpiece to CNC
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] THEN
+    IF rin AND gp.full[1] AND cnc.empty[1] THEN
       state = 9
       RETURN
     END
     ;
     ; Pick detail from CNC
-    IF .rin AND .gp.empty[2] AND .cnc.ready[1] THEN
+    IF rin AND gp.empty[2] AND cnc.wp2[1] THEN
       state = 12
       RETURN
     END
     ;;;
     ;
     ; Move outside cnc.in
-    IF .rin AND (.gp.empty[1] AND .cnc.full[1] OR .gp.full[2] AND .cnc.empty[1]) THEN
+    IF rin AND (gp.empty[1] AND cnc.full[1] OR gp.full[2] AND cnc.empty[1]) THEN
       state = 8
       RETURN
     END
     ;
     ; Put detail to stocker
-    IF .rout AND .gp.full[2] AND .gp.empty[1] THEN
+    IF rout AND gp.full[2] AND gp.empty[1] THEN
       state = 5
       RETURN
     END
     ;
     ; Close shelf
-    .ge = .gp.empty[1] AND .gp.empty[2]
-    .ce = .cnc.empty[1]
-    IF .rout AND .ge AND .ce AND .max.pick
+    .ge = gp.empty[1] AND gp.empty[2]
+    .ce = cnc.empty[1]
+    IF rout AND .ge AND .ce AND max.pick
       state = 3
       RETURN
     END
@@ -2088,98 +2308,73 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 102: Decision making module 2")
   ;
-  .shelf.opened = SIG (eo.shelf.opened[current.shelf])
-  .shelf.closed = NOT .shelf.opened
-  .inside.cnc = SIG (s.inside.cnc)
-  .outside.cnc = NOT .inside.cnc
-  ;
-  .gp.empty[1] = gripper.id[1] == 0
-  .gp.full[1] = NOT .gp.empty[1]
-  .gp.empty[2] = gripper.id[2] == 0
-  .gp.full[2] = NOT .gp.empty[2]
-  ;
-  .cnc.empty[1] = cnc.id[1] == 0
-  .cnc.full[1] = NOT .cnc.empty[1]
-  .cnc.ready[1] = cnc.id[1] < 0
-  .cnc.empty[2] = cnc.id[2] == 0
-  .cnc.full[2] = NOT .cnc.empty[2]
-  .cnc.ready[2] = cnc.id[2] < 0
-  ;
-  .air.bp = SIG (s.p.put.air.req)
-  .air.ap = SIG (s.a.pic.air.req)
-  ;
-  .rout = .shelf.opened AND .outside.cnc
-  .rin = .shelf.opened AND .inside.cnc
-  ;
-  .mfinish = SIG (s.mcode.req)
-  .not.max.pick = current.wp <= wp.count
-  .max.pick = NOT .not.max.pick
-  ;
   WHILE TRUE DO
+    ;
+    CALL calc.state.flag
     ; Open shelf in not opened
-    IF .shelf.closed THEN
+    IF shelf.closed THEN
       state = 2
       RETURN
     END
     ;
     ; Send MFINISH
-    IF .rout AND .cnc.full[1] AND .mfinish THEN
+    IF rout AND cnc.full[1] AND mfinish THEN
       state = 18
       RETURN
     END
     ;
     ; Pick workpiece from shelf
-    IF .rout AND .gp.empty[1] AND .gp.empty[2] AND .not.max.pick THEN
+    IF rout AND gp.empty[1] AND gp.empty[2] AND n.max.pick THEN
       state = 4
       RETURN
     END
     ;
     ; Move inside CNC
     ;
-    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[2] AND .cnc.full[2]) THEN
+    IF rout AND (gp.full[1] AND cnc.empty[1] OR gp.empty[2] AND cnc.full[2]) THEN
       state = 7
       RETURN
     END
     ;
     ; Air blow before put workpiece
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND .air.bp THEN
+    IF rin AND gp.full[1] AND cnc.empty[1] AND air.bp THEN
       state = 16
       RETURN
     END
     ;
     ; Put workpiece to CNC
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] THEN
+    IF rin AND gp.full[1] AND cnc.empty[1] THEN
       state = 9
       RETURN
     END
     ;
     ; Pick detail from CNC
-    IF .rin AND .gp.empty[2] AND .cnc.ready[2] THEN
+    IF rin AND gp.empty[2] AND cnc.wp2[2] THEN
       state = 12
       RETURN
     END
     ; Air blow after pick workpiece
-    IF .rin AND .gp.full[2] AND .cnc.empty[2] AND .air.ap THEN
+    IF rin AND gp.full[2] AND cnc.empty[2] AND air.ap THEN
       state = 17
       RETURN
     END
     ;
     ; Move outside cnc.in
-    IF .rin AND (.gp.empty[1] AND .cnc.full[1] OR .gp.full[2] AND .cnc.empty[2]) THEN
+    IF rin AND (gp.empty[1] AND cnc.full[1] OR gp.full[2] AND cnc.empty[2]) THEN
       state = 8
       RETURN
     END
     ;
     ; Put detail to stocker
-    IF .rout AND .gp.full[2] AND .gp.empty[1] THEN
+    IF rout AND gp.full[2] AND gp.empty[1] THEN
       state = 5
       RETURN
     END
     ;
     ; Close shelf
-    .ge = .gp.empty[1] AND .gp.empty[2]
-    .ce = .cnc.empty[1]
-    IF .rout AND .ge AND .ce AND .max.pick
+    .ge = gp.empty[1] AND gp.empty[2]
+    .ce = cnc.empty[1]
+    IF rout AND .ge AND .ce AND max.pick
       state = 3
       RETURN
     END
@@ -2190,114 +2385,83 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 103: Decision making module 3")
   ;
-  .shelf.opened = SIG (eo.shelf.opened[current.shelf])
-  .shelf.closed = NOT .shelf.opened
-  .inside.cnc = SIG (s.inside.cnc)
-  .outside.cnc = NOT .inside.cnc
-  ;
-  .gp.empty[1] = gripper.id[1] == 0
-  .gp.full[1] = NOT .gp.empty[1]
-  .gp.empty[2] = gripper.id[2] == 0
-  .gp.full[2] = NOT .gp.empty[2]
-  ;
-  .cnc.empty[1] = cnc.id[1] == 0
-  .cnc.full[1] = NOT .cnc.empty[1]
-  .cnc.ready[1] = cnc.id[1] < 0
-  .cnc.empty[2] = cnc.id[2] == 0
-  .cnc.full[2] = NOT .cnc.empty[2]
-  .cnc.ready[2] = cnc.id[2] < 0
-  ;
-  .air.bp = SIG (s.p.put.air.req)
-  .air.ap = SIG (s.a.pic.air.req)
-  ;
-  .rout = .shelf.opened AND .outside.cnc
-  .rin = .shelf.opened AND .inside.cnc
-  ;
-  .mfinish = SIG (s.mcode.req)
-  .not.max.pick = current.wp <= wp.count
-  .max.pick = NOT .not.max.pick
-  ;
-  IF grip.chg.int[1] THEN
-    .gp.chg = 1
-  ELSE
-    .gp.chg = 2
-  END
-  ;
   WHILE TRUE DO
+    ;
+    CALL calc.state.flag
     ; Open shelf in not opened
-    IF .shelf.closed THEN
+    IF shelf.closed THEN
       state = 2
       RETURN
     END
     ;
     ; Send MFINISH
-    IF .rout AND .cnc.full[1] AND .mfinish THEN
+    IF rout AND cnc.full[1] AND mfinish THEN
       state = 18
       RETURN
     END
     ;
     ; Pick workpiece from shelf
-    IF .rout AND .gp.empty[1] AND .gp.empty[2] AND .not.max.pick AND .cnc.empty[1] AND .cnc.empty[2] THEN
+    IF rout AND gp.empty[1] AND gp.empty[2] AND cnc.empty[1] AND cnc.empty[2] AND n.max.pick THEN
       state = 4
       RETURN
     END
     ;
     ; Move inside CNC
-    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[.gp.chg] AND .cnc.full[2]OR .gp.empty[.gp.chg] AND .cnc.ready[1]) THEN
+    IF rout AND (gp.wp0[1] AND cnc.empty[1] OR gp.empty[gp.int] AND cnc.wp1[2] OR gp.empty[2] AND cnc.wp2[1]) THEN
       state = 7
       RETURN
     END
     ;
     ; Air blow before put workpiece
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND .air.bp AND NOT SIG (s.change.req) THEN
+    IF rin AND gp.wp0[1] AND cnc.empty[1] AND air.bp THEN
       state = 16
       RETURN
     END
     ;
     ; Put workpiece to CNC
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND NOT SIG (s.change.req) THEN
+    IF rin AND gp.wp0[1] AND cnc.empty[1] THEN
       state = 9
       RETURN
     END
     ;
     ; Pick for change
-    IF .rin AND .gp.empty[.gp.chg] AND .cnc.full[2] THEN
+    IF rin AND gp.empty[gp.int] AND cnc.wp1[2] THEN
       state = 10
       RETURN
     END
     ;
     ; Put after change
-    IF .rin AND .gp.full[.gp.chg] AND .cnc.empty[1] AND SIG (s.change.req) THEN
+    IF rin AND gp.wp1[gp.int] AND cnc.empty[1] THEN
       state = 11
       RETURN
     END
     ; Pick detail from CNC
-    IF .rin AND .gp.empty[2] AND .cnc.ready[1] AND NOT SIG(s.change.req) THEN
+    IF rin AND gp.empty[2] AND cnc.wp2[1] THEN
       state = 12
       RETURN
     END
     ; Air blow after pick workpiece
-    IF .rin AND .gp.full[2] AND .cnc.empty[1] AND .air.ap THEN
+    IF rin AND gp.wp2[2] AND cnc.empty[1] AND air.ap THEN
       state = 17
       RETURN
     END
     ;  ;
     ;  ; Move outside cnc.in
-    IF .rin AND (.gp.empty[1] AND .cnc.full[1] OR .gp.full[2] AND .cnc.empty[1]) THEN
+    IF rin AND (gp.empty[1] AND cnc.wp0[1] OR gp.wp2[2] AND cnc.empty[1] OR gp.empty[gp.int] AND cnc.wp1[1]) THEN
       state = 8
       RETURN
     END
     ;  ;
     ; Put detail to stocker
-    IF .rout AND .gp.full[2] AND .gp.empty[1] THEN
+    IF rout AND gp.wp2[2] AND gp.empty[1] THEN
       state = 5
       RETURN
     END
     ;
     ; Close shelf
-    .ge = .gp.empty[1] AND .gp.empty[2]
-    .ce = .cnc.empty[1]
-    IF .rout AND .ge AND .ce AND .max.pick
+    .ge = gp.empty[1] AND gp.empty[2]
+    .ce = cnc.empty[1]
+    IF rout AND .ge AND .ce AND max.pick
       state = 3
       RETURN
     END
@@ -2308,125 +2472,89 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 105: Decision making module 5")
   ;
-  .shelf.opened = SIG (eo.shelf.opened[current.shelf])
-  .shelf.closed = NOT .shelf.opened
-  .inside.cnc = SIG (s.inside.cnc)
-  .outside.cnc = NOT .inside.cnc
-  ;
-  .gp.empty[1] = gripper.id[1] == 0
-  .gp.full[1] = NOT .gp.empty[1]
-  .gp.empty[2] = gripper.id[2] == 0
-  .gp.full[2] = NOT .gp.empty[2]
-  ;
-  .cnc.empty[1] = cnc.id[1] == 0
-  .cnc.full[1] = NOT .cnc.empty[1]
-  .cnc.ready[1] = cnc.id[1] < 0
-  .cnc.empty[2] = cnc.id[2] == 0
-  .cnc.full[2] = NOT .cnc.empty[2]
-  .cnc.ready[2] = cnc.id[2] < 0
-  ;
-  .air.bp = SIG (s.p.put.air.req)
-  .air.ap = SIG (s.a.pic.air.req)
-  ;
-  .rout = .shelf.opened AND .outside.cnc
-  .rin = .shelf.opened AND .inside.cnc
-  ;
-  .mfinish = SIG (s.mcode.req)
-  .not.max.pick = current.wp <= wp.count
-  .max.pick = NOT .not.max.pick
-  ;
-  IF grip.chg.ext[1,1] THEN
-    .gp.chg.1 = 1
-  ELSE
-    .gp.chg.1 = 2
-  END
-  IF grip.chg.ext[2,1] THEN
-    .gp.chg.2 = 1
-  ELSE
-    .gp.chg.2 = 2
-  END
-  ;
   WHILE TRUE DO
+    ;
+    CALL calc.state.flag
     ; Open shelf in not opened
-    IF .shelf.closed THEN
+    IF shelf.closed THEN
       state = 2
       RETURN
     END
     ;
     ; Send MFINISH
-    IF .rout AND .cnc.full[1] AND .mfinish THEN
+    IF rout AND cnc.full[1] AND mfinish THEN
       state = 18
       RETURN
     END
     ;
     ; Pick workpiece from shelf
-    IF .rout AND .gp.empty[1] AND .gp.empty[2] AND .not.max.pick AND .cnc.empty[1] AND .cnc.empty[2] THEN
+    IF rout AND gp.empty[1] AND gp.empty[2] AND cnc.empty[1] AND cnc.empty[2] AND n.max.pick  THEN
       state = 4
       RETURN
     END
     ;
     ; Move inside CNC
-    IF .rout AND (.gp.full[1] AND .cnc.empty[1] OR .gp.empty[2] AND .cnc.ready[1]) THEN
+    IF rout AND (gp.wp0[1] AND cnc.empty[1] OR gp.empty[gp.ext.1] AND cnc.wp1[1] OR  gp.empty[2] AND cnc.wp2[1] ) THEN
       state = 7
       RETURN
     END
     ;
     ; Air blow before put workpiece
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND .air.bp AND NOT SIG (s.change.req) THEN
+    IF rin AND gp.wp0[1] AND cnc.empty[1] AND air.bp THEN
       state = 16
       RETURN
     END
     ;
     ; Put workpiece to CNC
-    IF .rin AND .gp.full[1] AND .cnc.empty[1] AND NOT SIG (s.change.req) THEN
+    IF rin AND gp.wp0[1] AND cnc.empty[1] THEN
       state = 9
       RETURN
     END
     ;
     ; Pick for change
-    IF .rin AND .gp.empty[.gp.chg.1] AND .cnc.ready[1] AND NOT SIG (s.chg.ok) AND NOT SIG (s.change.req) THEN
+    IF rin AND gp.empty[gp.ext.1] AND cnc.wp1[1] AND NOT SIG(s.ext.chg.req) THEN
       state = 10
       RETURN
     END
     ;
     ; Perform change
-    IF .rin AND .gp.full[.gp.chg.1] AND .cnc.empty[1] AND SIG (s.change.req) AND SIG (s.ext.chg.req) THEN
-      state = 15 
+    IF rin AND gp.wp1[gp.ext.1] AND cnc.empty[1] AND SIG(s.ext.chg.req) AND SIG(s.ext.chg.ok) THEN
+      state = 15
       RETURN
     END
     ;
     ; Put after change
-    IF .rin AND .gp.full[.gp.chg.2] AND .cnc.empty[1] AND SIG (s.change.req) THEN
+    IF rin AND gp.wp1[gp.ext.2] AND cnc.empty[1]  THEN
       state = 11
       RETURN
     END
     ; Pick detail from CNC
-    IF .rin AND .gp.empty[2] AND .cnc.ready[1] AND SIG (s.chg.ok) AND  NOT SIG (s.ext.chg.req) THEN
+    IF rin AND gp.empty[2] AND cnc.wp2[1] THEN
       state = 12
       RETURN
     END
     ; Air blow after pick workpiece
-    IF .rin AND .gp.full[2] AND .cnc.empty[1] AND .air.ap THEN
+    IF rin AND gp.wp2[2] AND cnc.empty[1] AND air.ap THEN
       state = 17
       RETURN
     END
     ;  ;
     ;  ; Move outside cnc.in
-    IF .rin AND (.gp.empty[1] AND .cnc.full[1] OR .gp.full[2] AND .cnc.empty[1]) THEN
+    IF rin AND (gp.empty[1] AND cnc.wp0[1] OR gp.empty[gp.ext.2] AND cnc.wp1[1] OR gp.wp2[2] AND cnc.empty[1]) THEN
       state = 8
       RETURN
     END
     ;  ;
     ; Put detail to stocker
-    IF .rout AND .gp.full[2] AND .gp.empty[1] THEN
+    IF rout AND gp.wp2[2] AND gp.empty[1] THEN
       state = 5
       RETURN
     END
     ;
     ; Close shelf
-    .ge = .gp.empty[1] AND .gp.empty[2]
-    .ce = .cnc.empty[1]
-    IF .rout AND .ge AND .ce AND .max.pick
+    .ge = gp.empty[1] AND gp.empty[2]
+    .ce = cnc.empty[1]
+    IF rout AND .ge AND .ce AND max.pick
       state = 3
       RETURN
     END
@@ -2437,10 +2565,19 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 11: Put wp[1] to CNC")
   ;
-  IF grip.chg.int[1] THEN
-    .gp.chg = 1
-  ELSE
-    .gp.chg = 2
+  IF int.change THEN
+    IF grip.chg.int[1] THEN
+      .gp.chg = 1
+    ELSE
+      .gp.chg = 2
+    END
+  END
+  IF ext.change THEN
+    IF grip.chg.ext[2, 1] THEN
+      .gp.chg = 1
+    ELSE
+      .gp.chg = 2
+    END
   END
   ;
   .wp.state = 1
@@ -2451,7 +2588,7 @@ N_INT130    "s.pr.a.home"
   ;
   state = decision.state
   ;
-  SIGNAL s.chg.ok
+  ;SIGNAL s.chg.ok
   
 .END
 .PROGRAM state12 () ; Pick WP[2] from CNC
@@ -2480,8 +2617,8 @@ N_INT130    "s.pr.a.home"
     ;
   CALL log ("State 15: Perform external change")
   CALL ext.change
-  SIGNAL -s.ext.chg.req
   ;
+  SIGNAL -s.ext.chg.ok
   state = decision.state
   ;
 .END
@@ -2522,16 +2659,48 @@ N_INT130    "s.pr.a.home"
   ELSE
     .new.chuck = 2
   END
-  IF int.change THEN
+  IF int.change AND cnc.wp0[1] THEN
     .new.chuck = 2
   END
+  IF ext.change AND cnc.wp0[1] THEN
+    .new.chuck = 1
+  END
   ;
-  IF cnc.id[.current.chuck] > 0 THEN
-    cnc.id[.new.chuck] = -cnc.id[.current.chuck]
-    IF .current.chuck <> .new.chuck THEN
-      cnc.id[.current.chuck] = 0
+  IF decision.state == 101 OR decision.state == 102 THEN
+    IF cnc.state[.current.chuck] == 0 THEN
+      cnc.state[.new.chuck] = 2
+      IF .current.chuck <> .new.chuck THEN
+        cnc.state[.current.chuck] = -1
+      END
+    END
+  ELSE
+    .skip.2 = FALSE
+    IF cnc.state[.current.chuck] == 0 THEN
+      cnc.state[.new.chuck] = 1
+      IF .current.chuck <> .new.chuck THEN
+        cnc.state[.current.chuck] = -1
+      END
+      .skip.2 = TRUE
+    END
+    IF cnc.state[.current.chuck] == 1 AND NOT .skip.2 THEN
+      cnc.state[.new.chuck] = 2
+      IF .current.chuck <> .new.chuck THEN
+        cnc.state[.current.chuck] = -1
+      END
     END
   END
+  ;
+  cnc.id[.new.chuck] = cnc.id[.current.chuck]
+  IF .current.chuck <> .new.chuck THEN
+    cnc.id[.current.chuck] = 0
+  END
+  ;
+  ;IF cnc.id[.current.chuck] > 0 THEN
+  ;  cnc.id[.new.chuck] = -cnc.id[.current.chuck]
+  ;  IF .current.chuck <> .new.chuck THEN
+  ;    cnc.id[.current.chuck] = 0
+  ;  END
+  ;END
   SIGNAL -s.mcode.req
   ;
   state = decision.state
@@ -2621,7 +2790,7 @@ N_INT130    "s.pr.a.home"
   .wp.id = ABS (gripper.id[.grip.no])
   CALL wp.put (current.shelf, .grip.no, .wp.id)
   ;
-  SIGNAL -s.chg.ok
+  ;SIGNAL -s.chg.ok
   ;
   state = decision.state
   ;
@@ -2642,29 +2811,13 @@ N_INT130    "s.pr.a.home"
   ;
   CALL log ("State 7: Move inside CNC")
   ;
-  IF int.change THEN
-    IF grip.chg.int[1] THEN
-      .gp.chg = 1
-    ELSE
-      .gp.chg = 2
-    END
-  END
-  ;
-  IF ext.change THEN
-    IF grip.chg.ext[1, 1] THEN
-      .gp.chg = 1
-    ELSE
-      .gp.chg = 2
-    END
-  END
-  ;
   CASE decision.state OF
     VALUE 101:
-      IF gripper.id[1] <> 0 AND cnc.id[1] == 0 THEN
+      IF gp.full[1] AND cnc.empty[1] THEN
         .grip.no = 1
         .chuck.no = 1
       END
-      IF gripper.id[2] == 0 AND cnc.id[1] <> 0 THEN
+      IF gp.empty[2] AND cnc.full[1] THEN
         .grip.no = 2
         .chuck.no = 1
       END
@@ -2672,30 +2825,29 @@ N_INT130    "s.pr.a.home"
       .grip.no = 1
       .chuck.no = 1
     VALUE 103:
-      IF gripper.id[1] <> 0 AND cnc.id[1] == 0 THEN
+      IF gp.wp0[1] AND cnc.empty[1] THEN
         .grip.no = 1
         .chuck.no = 1
       END
-      IF gripper.id[2] == 0 AND cnc.id[1] < 0 THEN
-        .grip.no = 2
-        .chuck.no = 1
-      END
-      IF gripper.id[.gp.chg] == 0 AND cnc.id[2] <> 0 THEN
-        .grip.no = .gp.chg
+      IF gp.empty[gp.int] AND cnc.wp1[2] THEN
+        .grip.no = gp.int
         .chuck.no = 2
       END
-    VALUE 105:
-      IF gripper.id[1] <> 0 AND cnc.id[1] == 0 THEN
-        .grip.no = 1
-        .chuck.no = 1
-      END
-      IF gripper.id[2] == 0 AND cnc.id[1] < 0 THEN
+      IF gp.empty[2] AND cnc.wp2[1] THEN
         .grip.no = 2
         .chuck.no = 1
       END
-      ;SIG (s.ext.chg.req)
-      IF gripper.id[.gp.chg] == 0 AND cnc.id[1] < 0 AND SIG(s.ext.chg.req) THEN
-        .grip.no = .gp.chg
+    VALUE 105:
+      IF gp.wp0[1] AND cnc.empty[1] THEN
+        .grip.no = 1
+        .chuck.no = 1
+      END
+      IF gp.empty[gp.ext.1] AND cnc.wp1[1] THEN
+        .grip.no = gp.ext.1
+        .chuck.no = 1
+      END
+      IF gp.empty[2] AND cnc.wp2[1] THEN
+        .grip.no = 2
         .chuck.no = 1
       END
   END
@@ -2712,23 +2864,13 @@ N_INT130    "s.pr.a.home"
 .PROGRAM state8 () ; Move outside CNC
   CALL log ("State 8: Move outside CNC")
   ;
-  IF grip.chg.int[1] THEN
-    .gp.chg = 1
-  ELSE
-    .gp.chg = 2
-  END
-  ;
   CASE decision.state OF
     VALUE 101:
-      IF gripper.id[1] == 0 AND cnc.id[1] == 0 THEN
+      IF gp.empty[1] AND cnc.full[1] THEN
         .grip.no = 1
         .chuck.no = 1
       END
-      IF gripper.id[1] == 0 AND cnc.id[1] <> 0 THEN
-        .grip.no = 1
-        .chuck.no = 1
-      END
-      IF gripper.id[2] <> 0 AND cnc.id[1] == 0 THEN
+      IF gp.full[2] AND cnc.empty[1] THEN
         .grip.no = 2
         .chuck.no = 1
       END
@@ -2736,28 +2878,28 @@ N_INT130    "s.pr.a.home"
       .grip.no = 1
       .chuck.no = 1
     VALUE 103:
-      IF gripper.id[1] == 0 AND cnc.id[1] <> 0 THEN
+      IF gp.empty[1] AND cnc.wp0[1] THEN
         .grip.no = 1
         .chuck.no = 1
       END
-      IF gripper.id[.gp.chg] == 0 AND cnc.id[1] < 0 THEN
-        .grip.no = .gp.chg
-        .chuck.no = 1
-      END
-      IF gripper.id[2] <> 0 AND cnc.id[1] == 0 THEN
+      IF gp.wp2[2] AND cnc.empty[1] THEN
         .grip.no = 2
         .chuck.no = 1
       END
+      IF gp.empty[gp.int] AND cnc.wp1[1] THEN
+        .grip.no = gp.int
+        .chuck.no = 1
+      END
     VALUE 105:
-      IF gripper.id[1] == 0 AND cnc.id[1] == 0 THEN
+      IF gp.empty[1] AND cnc.wp0[1] THEN
         .grip.no = 1
         .chuck.no = 1
       END
-      IF gripper.id[1] == 0 AND cnc.id[1] <> 0 THEN
-        .grip.no = 1
+      IF gp.empty[gp.ext.2] AND cnc.wp1[1] THEN
+        .grip.no = gp.ext.2
         .chuck.no = 1
       END
-      IF gripper.id[2] <> 0 AND cnc.id[1] == 0 THEN
+      IF gp.wp2[2] AND cnc.empty[1] THEN
         .grip.no = 2
         .chuck.no = 1
       END
@@ -2775,7 +2917,7 @@ N_INT130    "s.pr.a.home"
   IF air.blow[2] THEN
     SIGNAL s.a.pic.air.req
   END
-  SIGNAL -s.change.req
+  SIGNAL -s.ext.chg.req
   ;
   state = decision.state
   ;
@@ -2795,10 +2937,10 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM wp.pick (.shelf.no,.grip.no,.wp.id)
   ;
-  .$temp = "Pick workpiece. Shelf:" + $ENCODE (.shelf.no)
-  .$temp = .$temp + " Tool:" + $ENCODE (.grip.no)
-  .$temp = .$temp + " ID:" + $ENCODE (.wp.id)
-  .$temp = .$temp + "L:" + $ENCODE (wp.length[0])
+  .$temp = "Pick workpiece. Shelf: " + $ENCODE (.shelf.no)
+  .$temp = .$temp + " Tool: " + $ENCODE (.grip.no)
+  .$temp = .$temp + " ID: " + $ENCODE (.wp.id)
+  .$temp = .$temp + "L: " + $ENCODE (wp.length[0])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -2811,7 +2953,7 @@ N_INT130    "s.pr.a.home"
   SIGNAL -s.search.fail
   ;
   IF SIG (ei.skp.emp.cell) THEN
-    .epsilon = 0.1
+    .epsilon = pick.epsilon
   ELSE
     .epsilon = -1
   END
@@ -2819,16 +2961,16 @@ N_INT130    "s.pr.a.home"
   ; Calculate shifts
   .dx = plt.dx * .i + plt.ox
   IF .i MOD 2 == 0
-    .dy = plt.dy * .j + plt.oy
+    .dy = plt.dy * (plt.cell.odd -1 - .j) + plt.oy
   ELSE
-    .dy = plt.dy * .j + plt.even.dy + plt.oy
+    .dy = plt.dy * (plt.cell.even - 1 - .j) + plt.even.dy + plt.oy
   END
   .dz = wp.length[0] + grip.jaw.body[.grip.no] - overshoot ;
   .z.appro = grip.jaw.full[.grip.no] - grip.jaw.body[.grip.no] + overshoot + 10
   ;
   ; Calculate points
   POINT .temp = shelf.frame[.shelf.no, .grip.no]
-  POINT .x.pick = .temp + TRANS (.dx, -.dy, -.dz)
+  POINT .x.pick = .temp + TRANS (.dx, .dy, -.dz)
   ; Calculate approach point
   POINT .approach = #wp.safe[.grip.no]
   .x = DX (.x.pick)
@@ -2850,14 +2992,6 @@ N_INT130    "s.pr.a.home"
   ACCURACY 0.1
   LAPPRO .x.pick, .z.appro
   BREAK
-  ; Check if gripper is opened
-  ;CALL gripper.is.open (.grip.no, st3.reverse)
-  ;IF SIG (eo.gp.error[.grip.no]) THEN
-  ;  ; Return home if not. Error
-  ;  JMOVE #wp.safe[.grip.no]
-  ;  JMOVE #homyak
-  ;  RETURN
-  ;END
   ;
   SPEED search.speed MM/S
   XMOVE .x.pick TILL grip.sensor[.grip.no]
@@ -2895,10 +3029,10 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM wp.put (.shelf.no,.grip.no,.wp.id)
   ;
-  .$temp = "Put workpiece. Shelf:" + $ENCODE (.shelf.no)
-  .$temp = .$temp + " Tool:" + $ENCODE (.grip.no)
-  .$temp = .$temp + " ID:" + $ENCODE (.wp.id)
-  .$temp = .$temp + "L:" + $ENCODE(wp.length[2])
+  .$temp = "Put workpiece. Shelf: " + $ENCODE (.shelf.no)
+  .$temp = .$temp + " Tool: " + $ENCODE (.grip.no)
+  .$temp = .$temp + " ID: " + $ENCODE (.wp.id)
+  .$temp = .$temp + "L: " + $ENCODE(wp.length[2])
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
@@ -2910,16 +3044,16 @@ N_INT130    "s.pr.a.home"
   ; Calculate shifts
   .dx = plt.dx * .i + plt.ox
   IF .i MOD 2 == 0
-    .dy = plt.dy * .j + plt.oy
+    .dy = plt.dy * (plt.cell.odd -1 - .j) + plt.oy
   ELSE
-    .dy = plt.dy * .j + plt.even.dy + plt.oy
+    .dy = plt.dy * (plt.cell.even - 1 - .j) + plt.even.dy + plt.oy
   END
   .dz = wp.length[2] + grip.jaw.body[.grip.no] - overshoot ;
   .z.appro = grip.jaw.full[.grip.no] - grip.jaw.body[.grip.no] + overshoot + 10
   ;
   ; Calculate points
   POINT .temp = shelf.frame[.shelf.no, .grip.no]
-  POINT .x.put = .temp + TRANS (.dx, -.dy, -.dz)
+  POINT .x.put = .temp + TRANS (.dx, .dy, -.dz)
   ; Calculate approach point
   POINT .approach = #wp.safe[.grip.no]
   .x = DX (.x.put)
@@ -2990,37 +3124,17 @@ N_INT130    "s.pr.a.home"
 .PROGRAM Comment___ () ; Comments for IDE. Do not use.
 	; @@@ PROJECT @@@
 	; @@@ PROJECTNAME @@@
-	; LoadWizardPro_
+	; LoadWizardPro_clean
 	; @@@ HISTORY @@@
 	; @@@ INSPECTION @@@
-	; hmi.shelf.no
-	; current.wp
+	; do.hold
+	; plt.rows
 	; plt.cell.odd
-	; decision.state
-	; gripper.id[1]
-	; cnc.id[1]
-	; gripper.id[2]
-	; wp2.pick[1]
-	; plt.ox
-	; plt.dy
-	; wp2.pick[2]
-	; ei.subspindel
-	; ei.i.changer
-	; ei.e.changer
-	; grip.chg.int[1]
-	; int.change
-	; s.a.pic.air.req
-	; air.blow.on
-	; s.reset.perf
-	; grip.chg.ext[1,1]
-	; grip.chg.ext[2,1]
-	; s.ext.chg.req
-	; tmr.grip.op[1]
-	; tmr.grip.op[2]
+	; plt.cell.even
 	; @@@ CONNECTION @@@
-	; LoadwizardDefault
-	; 192.168.1.102
-	; 23
+	; KROSET R01
+	; 127.0.0.1
+	; 9105
 	; @@@ PROGRAM @@@
 	;   Group:States:1
 	;     1:state0:F
@@ -3034,11 +3148,9 @@ N_INT130    "s.pr.a.home"
 	;       .wp.id 
 	;     1:state6:F
 	;     1:state7:F
-	;       .gp.chg 
 	;       .grip.no 
 	;       .chuck.no 
 	;     1:state8:F
-	;       .gp.chg 
 	;       .grip.no 
 	;       .chuck.no 
 	;     1:state9:F
@@ -3066,105 +3178,25 @@ N_INT130    "s.pr.a.home"
 	;     1:state18:F
 	;       .current.chuck 
 	;       .new.chuck 
+	;       .skip.2 
 	;     1:state100:F
 	;       .config 
 	;     1:state101:F
-	;       .shelf.opened 
-	;       .shelf.closed 
-	;       .inside.cnc 
-	;       .outside.cnc 
-	;       .gp.empty 
-	;       .gp.full 
-	;       .cnc.empty 
-	;       .cnc.full 
-	;       .cnc.ready 
-	;       .air.bp 
-	;       .air.ap 
-	;       .rout 
-	;       .rin 
-	;       .mfinish 
-	;       .not.max.pick 
-	;       .max.pick 
 	;       .ge 
 	;       .ce 
-	;       .gp.empty[1] 
-	;       .gp.full[1] 
-	;       .gp.empty[2] 
-	;       .gp.full[2] 
-	;       .cnc.empty[1] 
-	;       .cnc.full[1] 
+	;       .max.pick 
 	;     1:state102:F
-	;       .shelf.opened 
-	;       .shelf.closed 
-	;       .inside.cnc 
-	;       .outside.cnc 
-	;       .gp.empty 
-	;       .gp.full 
-	;       .cnc.empty 
-	;       .cnc.full 
-	;       .cnc.ready 
-	;       .air.bp 
-	;       .air.ap 
-	;       .rout 
-	;       .rin 
-	;       .mfinish 
-	;       .not.max.pick 
-	;       .max.pick 
 	;       .ge 
 	;       .ce 
-	;       .gp.empty[1] 
-	;       .gp.full[1] 
-	;       .gp.empty[2] 
-	;       .gp.full[2] 
-	;       .cnc.empty[1] 
-	;       .cnc.full[1] 
+	;       .max.pick 
 	;     1:state103:F
-	;       .shelf.opened 
-	;       .shelf.closed 
-	;       .inside.cnc 
-	;       .outside.cnc 
-	;       .gp.empty 
-	;       .gp.full 
-	;       .cnc.empty 
-	;       .cnc.full 
-	;       .cnc.ready 
-	;       .air.bp 
-	;       .air.ap 
-	;       .rout 
-	;       .rin 
-	;       .mfinish 
-	;       .not.max.pick 
-	;       .max.pick 
-	;       .gp.chg 
 	;       .ge 
 	;       .ce 
-	;       .gp.empty[1] 
-	;       .gp.full[1] 
-	;       .gp.empty[2] 
-	;       .gp.full[2] 
-	;       .cnc.empty[1] 
-	;       .cnc.full[1] 
+	;       .max.pick 
 	;     1:state105:F
-	;       .shelf.opened 
-	;       .shelf.closed 
-	;       .inside.cnc 
-	;       .outside.cnc 
-	;       .gp.empty 
-	;       .gp.full 
-	;       .cnc.empty 
-	;       .cnc.full 
-	;       .cnc.ready 
-	;       .air.bp 
-	;       .air.ap 
-	;       .rout 
-	;       .rin 
-	;       .mfinish 
-	;       .not.max.pick 
-	;       .max.pick 
-	;       .gp.chg.1 
-	;       .gp.chg.2 
 	;       .ge 
 	;       .ce 
+	;       .max.pick 
 	;     1:state255:F
 	;   Group:CNC:2
 	;     2:cnc.put:F
@@ -3321,7 +3353,6 @@ N_INT130    "s.pr.a.home"
 	;   Group:Auxilary:12
 	;     12:set.tool:F
 	;       .grip.no 
-	;       .tool.no 
 	;     12:a.home:F
 	;     12:get.task.data:F
 	;     12:get.from.hmi:F
@@ -3334,6 +3365,13 @@ N_INT130    "s.pr.a.home"
 	;       .pair 
 	;       .offset 
 	;     12:get.system.data:F
+	;     12:calc.state.flag:F
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;     12:ciner:F
+	;       .$var.name 
+	;       .var 
+	;       .default 
 	;   Group:Log:13
 	;     13:log:F
 	;       .$msg 
@@ -3372,43 +3410,63 @@ N_INT130    "s.pr.a.home"
 	;     15:set.io.pc:B
 	;   0:autostart.pc:B
 	; @@@ TRANS @@@
-	; shelf.close[] Shelf close points
-	; shelf.open[] Shelf open points
-	; cnc.point[] Point for tool and chuck
+	; shelf.close[] 
+	; shelf.open[] 
+	; cnc.point[] 
 	; @@@ JOINTS @@@
-	; #wp.safe[] Safe point for workpiece pick/put
-	; #plate.pt.o[] Plate teach points O
-	; #plate.pt.x[] Plate teach points X
-	; #plate.pt.y[] Plate teach points Y
-	; #shelf.safe Safe point above shelves
-	; #cnc.in.base Base CNC out point (Tool 1 -> Chuck 1)
-	; #cnc.out Point outside CNC with correct JT6
+	; #wp.safe[] 
+	; #plate.pt.o[] 
+	; #plate.pt.x[] 
+	; #plate.pt.y[] 
+	; #shelf.safe 
 	; #cnc.out.base Base CNC out point (Tool 1 -> Chuck 1)
-	; #cnc.in Point inside CNC with correct JT6
-	; #air.safe[] Safe point for air blow
+	; #cnc.in.base Base CNC out point (Tool 1 -> Chuck 1)
+	; #cnc.in 
+	; #cnc.out 
+	; #cnc.point[] 
 	; @@@ REALS @@@
-	; log.max.count Max log entry count
-	; current.tool Current tool number
-	; state Robot state
-	; hmi.shelf.no Shelf number set on HMI
-	; hmi.wp.id Workpiece id on HMI
-	; grip.jaw.body[] 
-	; grip.jaw.full[] 
-	; wp.length[] 
 	; air.blow[] 
 	; air.pg.no[] 
 	; chg.pg.no 
 	; cnc.first 
+	; cnc.id[] 
+	; cnc.jaw.body[] 
+	; cnc.jaw.full[] 
 	; cnc.pg.no 
+	; cnc.rotations[] 
 	; cnc.run.pg 
+	; cnc.state[] 
+	; current.grip 
+	; current.wp 
 	; ext.change 
 	; grip.chg.ext[] 
 	; grip.chg.int[] 
-	; cnc.jaw.body[] 
-	; cnc.jaw.full[] 
+	; grip.close[] 
 	; grip.first 
 	; grip.inverse[] 
+	; grip.jaw.body[] 
+	; grip.jaw.full[] 
+	; grip.open[] 
+	; grip.opened[] 
+	; grip.sensor[] 
+	; gripper.id[] 
+	; gripper.state[] 
+	; hmi.air.pg 
+	; hmi.chg.pg 
+	; hmi.cnc.j.body[] 
+	; hmi.cnc.j.full[] 
+	; hmi.grip.j.body[] 
+	; hmi.grip.j.full[] 
+	; hmi.plate.col.e 
+	; hmi.plate.col.o 
+	; hmi.plate.e.dy 
+	; hmi.plate.oy 
+	; hmi.plate.rows 
+	; hmi.shelf.no 
+	; hmi.wp.count 
+	; hmi.wp.id 
 	; int.change 
+	; pick.epsilon 
 	; plt.cell.even 
 	; plt.cell.odd 
 	; plt.dx 
@@ -3417,131 +3475,54 @@ N_INT130    "s.pr.a.home"
 	; plt.ox 
 	; plt.oy 
 	; plt.rows 
-	; wp.count 
-	; wp2.pick[] 
-	; hmi.wp.length HMI wp length
-	; hmi.grip.j.full[] 
-	; hmi.grip.j.body[] 
-	; hmi.cnc.j.full[] 
-	; hmi.cnc.j.body[] 
-	; hmi.plate.rows 
-	; hmi.plate.col.o 
-	; hmi.plate.col.e 
-	; hmi.plate.dx 
-	; hmi.plate.dy 
-	; hmi.plate.e.dy 
-	; hmi.plate.ox 
-	; hmi.plate.oy 
-	; hmi.wp.count 
-	; current.grip 
-	; pick.epsilon 
-	; search.speed 
-	; air.blow.speed 
-	; tmr.grip.op[] 
-	; tmr.grip.cl[] 
-	; tmr.cnc.op[] 
-	; tmr.cnc.cl[] 
-	; gripper.id[] 
-	; cnc.id[] 
 	; processed.wp 
-	; current.wp 
-	; current.shelf 
-	; cnc.rotations[] Rotation directions for CNC in/out points
+	; wp.count 
+	; wp.length[] 
+	; wp2.pick[] 
+	; air.blow.speed 
 	; overshoot 
-	; hmi.air.pg 
-	; hmi.chg.pg 
-	; decision.state 
+	; search.speed 
+	; tmr.grip.op[] 
 	; @@@ STRINGS @@@
-	; $safe.flag Flag for safety home
-	; $log.entry[] 
 	; @@@ INTEGER @@@
 	; @@@ SIGNALS @@@
-	; s.reset.perf 
-	; ei.robot.speed[] Robot speed from PLC
-	; o.debug Robot is in DEBUG mode
-	; s.hmi.grip[] Selected tool on HMI
-	; s.cnc.chuck[] Selected CNC chuck on HMI
-	; s.pr.tch.plate Prime teach plate
-	; s.pr.tst.plate Prime test plate
-	; s.pr.tch.shelf Prime teach shelf
-	; s.pr.tst.shelf Prime test shelf
-	; grip.open[] Open gripper
-	; grip.close[] Close gripper
-	; air.blow.on Air blow on
-	; air.blow.off Air blow off
-	; grip.opened[] Gripper opened
-	; grip.sensor[] Gripper force applied
-	; ei.check.grip[] Check gripper sensor
-	; eo.process.err Error in process
-	; eo.grip.error[] Gripper open error
-	; eo.shelf.unlock[] Request shelf unlock
-	; ei.shelf.state[] Shelf state is unlocked
-	; ei.shelf.failed Fail to unlock shelf
-	; eo.shelf.opened[] Shelf is opened
-	; s.shelf.failed Internal signal for shelf fail error
-	; d.wp.length[] Workpiece lengths
-	; d.plt.oy[] Distance between zero point and closest cell by Y
-	; d.plt.ox[] Distance between zero point and closest cell by X
-	; d.plt.even.dy[] Extrs shift on even rows
-	; d.plt.dy[] Distance between cells
-	; d.plt.dx[] Distance between rows
-	; d.plt.cell.even[] Number of cells in even row on plate
-	; d.plt.cell.odd[] Number of cells in odd row on plate
-	; d.plt.rows[] Number of rows on plate
-	; d.grip.jaw.full[] Gripper jaws full length
-	; d.grip.jaw.body[] Gripper jaws body length
-	; d.cnc.jaw.full[] CNC jaws full length
-	; d.cnc.jaw.body[] CNC jaws body length
-	; d.cnc.pg.no[] CNC program number
-	; d.chg.pg.no[] External changer program number
-	; d.air.pg.no[] Air blow before put custom program number
-	; d.grip.inverse[] Inverse gripper 1
-	; d.cnc.run.pg Run program on CNC request
-	; d.air.blow[] Air blow before put (1) and after pick(1)
-	; d.wp3.pick[] Where we get ready detail
-	; d.cnc.first CNC is first close chuck
-	; d.grip.first Gripper is first open chuck
-	; d.int.change Perform intenal change
-	; d.ext.change Perform external change
-	; d.grip.chg.int[] Which gripper will perform internal change
-	; d.grip.chg.ext[] Grippers used for external change station
+	; air.blow.off 
+	; air.blow.on 
+	; d.air.blow[] 
+	; d.air.pg.no[] 
+	; d.chg.pg.no[] 
+	; d.cnc.first 
+	; d.cnc.jaw.body[] 
+	; d.cnc.jaw.full[] 
+	; d.cnc.pg.no[] 
+	; d.cnc.run.pg 
+	; d.ext.change 
+	; d.grip.chg.ext[] 
+	; d.grip.chg.int[] 
+	; d.grip.first 
+	; d.grip.inverse[] 
+	; d.grip.jaw.body[] 
+	; d.grip.jaw.full[] 
+	; d.int.change 
+	; d.plt.cell.even[] 
+	; d.plt.cell.odd[] 
+	; d.plt.dx[] 
+	; d.plt.dy[] 
+	; d.plt.even.dy[] 
+	; d.plt.ox[] 
+	; d.plt.oy[] 
+	; d.plt.rows[] 
 	; d.wp.count[] 
-	; di.ifp.page[] Set interface page X
-	; ei.cnc.ready CNC is ready
-	; ei.cnc.ch.opd[] CNC chuck1 opened
-	; ei.cnc.ch.clsd[] CNC chuck closed
-	; eo.air.enabled Air blow is enabled
-	; eo.cnc.mfinish CNC MCODE Finish
-	; eo.cnc.ch.open[] CNC chuck open
-	; eo.cnc.ch.close[] CNC chuck close
-	; s.search.fail 
-	; ei.xmove.spd[] 
-	; ei.blow.spd[] 
-	; ei.t.grip.op[] 
-	; ei.t.grip.cl[] 
-	; ei.t.cnc.open[] 
-	; ei.t.cnc.close[] 
-	; di.ext.motor.on 
-	; di.ext.ereset 
+	; d.wp.length[] 
+	; d.wp2.pick[] 
 	; di.ext.cs 
-	; di.ext.pgreset 
+	; di.ext.ereset 
 	; di.ext.hold 
 	; di.ext.motor.of 
+	; di.ext.motor.on 
+	; di.ext.pgreset 
 	; di.ext.slow 
-	; eo.error.code[] 
-	; eo.grip.state[] 
-	; eo.cnc.state[] 
-	; eo.wp.processed[] 
-	; eo.next.wp[] 
-	; eo.robot.ready 
-	; eo.task.exec 
-	; eo.data.request[] 
-	; eo.data.read 
-	; s.pr.wp.tst.pic 
-	; s.pr.wp.tst.put 
-	; s.pr.tch.cnc.ap 
-	; s.inside.cnc 
-	; s.pr.a.home 
+	; di.ifp.page[] 
 	; do.automatic 
 	; do.bat.alarm 
 	; do.cs 
@@ -3555,30 +3536,89 @@ N_INT130    "s.pr.a.home"
 	; do.safety.fence 
 	; do.teach 
 	; do.teach.lock 
+	; ei.blow.spd[] 
+	; ei.check.grip[] 
+	; ei.cnc.ch.clsd[] 
+	; ei.cnc.ch.opd[] 
+	; ei.cnc.ready 
 	; ei.data.ready 
 	; ei.e.changer 
-	; eo.shelf.cmplt[] 
-	; ei.i.changer 
-	; eo.grip.c.opend[] 
-	; eo.grip.sensor[] 
-	; eo.grip.s.opend[] 
-	; ei.subspindel 
-	; ei.task.start 
 	; ei.grip.close[] 
-	; s.pr.tst.cnc.pu 
 	; ei.grip.open[] 
-	; ei.shelf.ready[] 
+	; ei.i.changer 
 	; ei.overshoot[] 
+	; ei.robot.speed[] 
+	; ei.shelf.failed 
+	; ei.shelf.ready[] 
+	; ei.shelf.state[] 
+	; ei.skp.emp.cell 
+	; ei.subspindel 
+	; ei.t.cnc.close[] 
+	; ei.t.cnc.open[] 
+	; ei.t.grip.cl[] 
+	; ei.t.grip.op[] 
+	; ei.task.start 
+	; ei.xmove.spd[] 
+	; eo.air.enabled 
+	; eo.cnc.ch.close[] 
+	; eo.cnc.ch.open[] 
+	; eo.cnc.empty[] 
+	; eo.cnc.id[] 
+	; eo.cnc.mfinish 
+	; eo.cnc.wp0[] 
+	; eo.cnc.wp1[] 
+	; eo.cnc.wp2[] 
+	; eo.data.read 
+	; eo.data.request[] 
+	; eo.error.code[] 
 	; eo.grip.c.closd[] 
+	; eo.grip.c.opend[] 
+	; eo.grip.empty[] 
+	; eo.grip.error[] 
+	; eo.grip.id[] 
+	; eo.grip.s.opend[] 
+	; eo.grip.sensor[] 
+	; eo.grip.wp0[] 
+	; eo.grip.wp1[] 
+	; eo.grip.wp2[] 
+	; eo.next.wp[] 
+	; eo.process.err 
+	; eo.robot.ready 
+	; eo.shelf.cmplt[] 
+	; eo.shelf.opened[] 
+	; eo.shelf.unlock[] 
+	; eo.task.exec 
+	; eo.wp.processed[] 
+	; hmi.plate.dx 
+	; hmi.plate.dy 
+	; hmi.plate.ox 
+	; hmi.wp.length 
+	; log.max.count 
+	; o.debug 
 	; s.a.pic.air.req 
+	; s.cnc.chuck[] 
+	; s.ext.chg.ok 
+	; s.ext.chg.req 
+	; s.hmi.grip[] 
+	; s.inside.cnc 
 	; s.mcode.req 
 	; s.p.put.air.req 
+	; s.pr.a.home 
+	; s.pr.tch.air 
+	; s.pr.tch.chg 
 	; s.pr.tch.cnc 
+	; s.pr.tch.cnc.ap 
+	; s.pr.tch.plate 
+	; s.pr.tch.shelf 
 	; s.pr.tst.cnc.pi 
-	; s.change.req 
-	; ei.skp.emp.cell 
-	; s.ext.chg.req 
-	; s.chg.ok 
+	; s.pr.tst.cnc.pu 
+	; s.pr.tst.plate 
+	; s.pr.tst.shelf 
+	; s.pr.wp.tst.pic 
+	; s.pr.wp.tst.put 
+	; s.reset.perf 
+	; s.search.fail 
+	; s.shelf.failed 
 	; @@@ TOOLS @@@
 	; tool.calib[] 
 	; tool.gripper[] 
@@ -3600,193 +3640,145 @@ tool.calib[2] 202.800003 0.000000 104.000000 0.000000 90.000008 -180.000000
 tool.gripper[1] -103.300003 0.000000 104.000000 180.000000 90.000008 -180.000000
 tool.gripper[2] 103.300003 0.000000 104.000000 0.000000 90.000008 -180.000000
 tool.pin 0.000000 112.000000 104.000000 90.000008 90.000008 0.000000
-shelf.frame[1,1] 436.998779 637.500610 13.652647 -60.142857 179.999435 -150.142899
-shelf.frame[1,2] 436.998840 637.500610 13.652647 -60.142841 179.999435 -150.142899
-shelf.close[1,1] 751.995422 712.505249 -3.845108 -89.999977 90.000114 179.999832
-shelf.close[1,2] 752.002197 92.508301 -3.839294 -89.999763 90.000267 -179.999237
-shelf.open[1,1] 752.002197 92.508301 -3.839294 -89.999763 90.000267 -179.999237
-shelf.open[1,2] 751.995422 712.505249 -3.845108 -89.999977 90.000114 179.999832
-shelf.close[2,1] 751.995422 712.505249 -183.845108 -89.999977 90.000114 179.999832
-shelf.close[2,2] 752.002197 92.508301 -183.839294 -89.999763 90.000267 -179.999237
-shelf.open[2,1] 752.002197 92.508301 -183.839294 -89.999763 90.000267 -179.999237
-shelf.open[2,2] 751.995422 712.505249 -183.845108 -89.999977 90.000114 179.999832
-shelf.close[3,1] 751.995422 712.505249 -363.845108 -89.999977 90.000114 179.999832
-shelf.close[3,2] 752.002197 92.508301 -363.839294 -89.999763 90.000267 -179.999237
-shelf.open[3,1] 752.002197 92.508301 -363.839294 -89.999763 90.000267 -179.999237
-shelf.open[3,2] 751.995422 712.505249 -363.845108 -89.999977 90.000114 179.999832
-shelf.close[4,1] 751.995422 712.505249 -543.845108 -89.999977 90.000114 179.999832
-shelf.close[4,2] 752.002197 92.508301 -543.839294 -89.999763 90.000267 -179.999237
-shelf.open[4,1] 752.002197 92.508301 -543.839294 -89.999763 90.000267 -179.999237
-shelf.open[4,2] 751.995422 712.505249 -543.845108 -89.999977 90.000114 179.999832
-cnc.point[2,1] -1002.876343 77.479698 242.755905 -90.045998 89.946999 -90.001434
-cnc.point[1,2] -899.975464 1000.389648 211.689133 89.997078 89.996483 120.955223
-cnc.point[1,1] -1003.931335 76.937141 241.550674 -90.469170 91.337952 -89.994102
-cnc.point[2,2] -1000.531860 677.902039 245.002518 89.331146 89.763901 89.989349
-shelf.frame[2,1] 1056.517822 663.051331 41.468060 -10.040622 179.120285 -100.170883
+shelf.close[1,2] 751.599060 92.626099 -4.641678 -90.000130 89.998672 179.938171
+shelf.close[1,1] 751.632874 712.366943 -5.016479 -89.999550 89.949768 179.934616
+shelf.open[1,1] 751.599060 92.626099 -4.641678 -90.000130 89.998672 179.938171
+shelf.open[1,2] 751.632874 712.366943 -5.016479 -89.999550 89.949768 179.934616
+shelf.close[2,2] 751.599060 92.626099 -184.641678 -90.000130 89.998672 179.938171
+shelf.close[2,1] 751.632874 712.366943 -185.016479 -89.999550 89.949768 179.934616
+shelf.open[2,1] 751.599060 92.626099 -184.641678 -90.000130 89.998672 179.938171
+shelf.open[2,2] 751.632874 712.366943 -185.016479 -89.999550 89.949768 179.934616
+shelf.close[3,2] 751.599060 92.626099 -364.641693 -90.000130 89.998672 179.938171
+shelf.close[3,1] 751.632874 712.366943 -365.016479 -89.999550 89.949768 179.934616
+shelf.open[3,1] 751.599060 92.626099 -364.641693 -90.000130 89.998672 179.938171
+shelf.open[3,2] 751.632874 712.366943 -365.016479 -89.999550 89.949768 179.934616
+shelf.close[4,2] 751.599060 92.626099 -484.641693 -90.000130 89.998672 179.938171
+shelf.close[4,1] 751.632874 712.366943 -485.016479 -89.999550 89.949768 179.934616
+shelf.open[4,1] 751.599060 92.626099 -484.641693 -90.000130 89.998672 179.938171
+shelf.open[4,2] 751.632874 712.366943 -485.016479 -89.999550 89.949768 179.934616
+shelf.frame[1,1] 1066.703735 637.771362 12.052389 -163.597656 179.931793 106.403526
+shelf.frame[1,2] 1066.703735 637.771362 12.052386 -163.595856 179.931793 106.405334
+shelf.frame[2,1] 1066.538208 637.718018 -167.938965 -162.616318 179.929138 107.382050
+shelf.frame[2,2] 1066.538208 637.718018 -167.938965 -162.616333 179.929138 107.382050
+shelf.frame[3,1] 1066.388428 637.672607 -347.937500 -161.177673 179.926987 108.817757
+shelf.frame[3,2] 1066.388550 637.672607 -347.937500 -161.173645 179.927002 108.821800
+shelf.frame[4,1] 1066.259888 637.616638 -527.931274 -159.795624 179.926529 110.198326
+shelf.frame[4,2] 1066.260132 637.616638 -527.931335 -159.789062 179.926529 110.204895
+cnc.point[1,1] -988.810364 118.068756 245.591888 -90.309250 92.062843 -94.804398
+cnc.point[1,2] -1004.094360 799.983398 211.695633 89.609001 87.600105 89.827400
+cnc.point[2,1] -1029.776733 126.145874 211.209824 -89.995255 89.980347 -102.549820
+cnc.point[2,2] -974.147766 800.100342 241.686554 89.601372 87.617241 89.829033
 .END
 .JOINTS
 #wp.safe[1] 69.568573 8.663290 97.904053 114.625549 -68.547127 10.075710
 #wp.safe[2] 69.568573 8.663650 97.904053 114.625549 -68.547127 190.077927
 #plate.pt.o[1,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 13.540280
-#plate.pt.o[1,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
-#plate.pt.o[2,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
-#plate.pt.o[2,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
-#plate.pt.o[3,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
-#plate.pt.o[3,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
-#plate.pt.o[4,1] 63.490707 -38.148388 51.345020 122.649437 -113.012924 14.458617
-#plate.pt.o[4,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
 #plate.pt.x[1,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 20.787384
-#plate.pt.x[1,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
-#plate.pt.x[2,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
-#plate.pt.x[2,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
-#plate.pt.x[3,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
-#plate.pt.x[3,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
-#plate.pt.x[4,1] 79.671600 -31.176153 76.969795 121.567230 -89.531021 21.211517
-#plate.pt.x[4,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
 #plate.pt.y[1,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 40.871090
+#shelf.safe 75.000000 0.000000 100.000000 30.000002 75.000000 100.000000
+#plate.pt.o[1,2] 63.490707 -38.148388 51.345020 122.649437 -113.012924 193.540283
+#plate.pt.o[2,1] 59.752312 -43.579597 54.419567 126.611549 -111.248932 23.385252
+#plate.pt.o[2,2] 59.752312 -43.579597 54.419567 126.611549 -111.248932 203.385269
+#plate.pt.o[3,1] 56.277660 -51.424919 53.133049 130.018097 -109.856422 31.137590
+#plate.pt.o[3,2] 56.277660 -51.424919 53.133049 130.018097 -109.856422 211.137604
+#plate.pt.o[4,1] 53.063168 -61.514263 47.236183 132.789108 -109.394302 36.638897
+#plate.pt.o[4,2] 53.063168 -61.514263 47.236183 132.789108 -109.394302 216.638901
+#plate.pt.x[1,2] 79.671600 -31.176153 76.969795 121.567230 -89.531021 200.787399
+#plate.pt.x[2,1] 75.072891 -37.722801 79.474075 123.156387 -88.273773 30.703522
+#plate.pt.x[2,2] 75.072891 -37.722801 79.474075 123.156387 -88.273773 210.703522
+#plate.pt.x[3,1] 70.662048 -46.317467 78.416313 125.098686 -87.178574 39.068443
+#plate.pt.x[3,2] 70.662048 -46.317467 78.416313 125.098686 -87.178574 219.068451
+#plate.pt.x[4,1] 66.477211 -56.536022 73.750893 127.299370 -86.579819 45.518406
+#plate.pt.x[4,2] 66.477211 -56.536022 73.750893 127.299370 -86.579819 225.518417
 #plate.pt.y[1,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
-#plate.pt.y[2,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
-#plate.pt.y[2,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
-#plate.pt.y[3,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
-#plate.pt.y[3,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
-#plate.pt.y[4,1] 39.390152 4.777491 105.420471 138.215485 -124.432526 41.127808
-#plate.pt.y[4,2] 39.390152 4.777491 105.420471 138.215485 -124.432526 220.871109
-#shelf.safe 77.267387 4.813991 100.780472 34.271633 76.990814 99.275299
-#cnc.in.base -84.195648 -4.285471 91.769966 -41.476643 -8.286439 -171.234955
-#cnc.out -43.126957 51.450104 133.077347 -97.612473 -47.087402 68.938988
+#plate.pt.y[2,1] 35.082180 -4.947217 107.979820 145.950821 -117.252968 53.455601
+#plate.pt.y[2,2] 35.082180 -4.947217 107.979820 145.950821 -117.252968 233.455627
+#plate.pt.y[3,1] 31.532852 -17.011942 106.892090 151.283676 -109.495239 62.582195
+#plate.pt.y[3,2] 31.532852 -17.011942 106.892090 151.283676 -109.495239 242.582199
+#plate.pt.y[4,1] 28.579319 -30.377895 102.213303 154.859421 -102.797020 68.828949
+#plate.pt.y[4,2] 28.579319 -30.377895 102.213303 154.859421 -102.797020 248.828964
 #cnc.out.base -43.126957 51.450104 133.077347 -97.612473 -47.087402 -111.061012
-#cnc.in -84.195648 -4.285471 91.769966 -41.476643 -8.286439 8.765045
-#air.safe[1] -83.724182 -4.380736 91.813301 -41.950989 -8.770523 -78.255249
-#air.safe[2] -84.161491 -4.293500 91.774529 -41.510479 -8.320084 -259.742584
+#cnc.in.base -84.195648 -4.285471 91.769966 -41.476643 -8.286439 -171.234955
+#cnc.in -84.195648 -4.285471 91.769966 -41.476643 -8.286439 -171.234955
+#cnc.out -43.126957 51.450104 133.077347 -97.612473 -47.087402 -111.061012
+#cnc.point[1,1] -77.957314 -10.838689 103.392288 -28.042997 -31.861727 -186.726959
+#cnc.point[1,2] -64.106758 -15.316515 90.602715 -59.875843 -29.922640 23.845030
+#cnc.point[2,1] -75.978096 -16.845503 100.385201 -30.169865 -43.067783 -3.547513
+#cnc.point[2,2] -64.130585 -12.111811 92.496971 -61.855663 -29.260025 -153.851074
 .END
 .REALS
-s.reset.perf = 2020
-log.max.count = 256
-current.tool = 0
-ei.robot.speed[0] = 1145
-o.debug = 78
-state = 0
-s.hmi.grip[1] = 2102
-s.hmi.grip[2] = 2103
-s.cnc.chuck[1] = 2104
-s.cnc.chuck[2] = 2105
-s.pr.tch.plate = 2106
-s.pr.tst.plate = 2107
-s.pr.tch.shelf = 2108
-s.pr.tst.shelf = 2109
-hmi.shelf.no = 1
-grip.open[1] = 33
-grip.open[2] = 35
-grip.close[1] = 34
-grip.close[2] = 36
-air.blow.on = 37
-air.blow.off = 38
-grip.opened[1] = 1033
-grip.opened[2] = 1034
-grip.sensor[1] = 1035
-grip.sensor[2] = 1036
-ei.check.grip[1] = 1084
-ei.check.grip[2] = 1092
-eo.process.err = 115
-eo.grip.error[1] = 84
-eo.grip.error[2] = 92
-eo.shelf.unlock[1] = 133
-eo.shelf.unlock[2] = 134
-eo.shelf.unlock[3] = 135
-eo.shelf.unlock[4] = 136
-ei.shelf.state[1] = 1133
-ei.shelf.state[2] = 1134
-ei.shelf.state[3] = 1135
-ei.shelf.state[4] = 1136
-ei.shelf.failed = 1137
-eo.shelf.opened[1] = 129
-eo.shelf.opened[2] = 130
-eo.shelf.opened[3] = 131
-eo.shelf.opened[4] = 132
-s.shelf.failed = 2010
-hmi.wp.id = 1
-d.wp.length[0,0] = 1321
-d.wp.length[1,0] = 1329
-d.plt.oy[0] = 1497
-d.wp.length[2,0] = 1337
-d.plt.ox[0] = 1481
-d.plt.even.dy[0] = 1465
-d.plt.dy[0] = 1449
-d.plt.dx[0] = 1433
-d.plt.cell.even[0] = 1417
-d.plt.cell.odd[0] = 1413
-d.plt.rows[0] = 1409
-d.grip.jaw.full[1,0] = 1345
-d.grip.jaw.full[2,0] = 1361
-d.grip.jaw.body[1,0] = 1353
-d.grip.jaw.body[2,0] = 1369
-d.cnc.jaw.full[1,0] = 1377
-d.cnc.jaw.full[2,0] = 1393
-d.cnc.jaw.body[1,0] = 1385
-d.cnc.jaw.body[2,0] = 1401
-d.cnc.pg.no[0] = 1513
-d.chg.pg.no[0] = 1521
-d.air.pg.no[1,0] = 1529
-d.air.pg.no[2,0] = 1537
-d.grip.inverse[1] = 1561
-d.grip.inverse[2] = 1562
-d.cnc.run.pg = 1563
-d.air.blow[1] = 1564
-d.air.blow[2] = 1565
-d.wp3.pick[1] = 1566
-d.wp3.pick[2] = 1567
-d.cnc.first = 1568
-d.grip.first = 1569
-d.int.change = 1570
-d.ext.change = 1571
-d.grip.chg.int[1] = 1577
-d.grip.chg.int[2] = 1578
-d.grip.chg.ext[1,1] = 1579
-d.grip.chg.ext[1,2] = 1580
-d.grip.chg.ext[2,1] = 1581
-d.grip.chg.ext[2,2] = 1582
-d.wp.count[0] = 1545
-grip.jaw.body[1] = 0
-grip.jaw.body[2] = 0
-grip.jaw.full[1] = 0
-grip.jaw.full[2] = 0
-wp.length[0] = 0
-wp.length[1] = 0
-wp.length[2] = 0
 air.blow[1] = 0
 air.blow[2] = 0
+air.blow.off = 38
+air.blow.on = 37
 air.pg.no[1] = 0
 air.pg.no[2] = 0
 chg.pg.no = 0
 cnc.first = 0
-cnc.pg.no = 0
-cnc.run.pg = 0
-ext.change = 0
-grip.chg.ext[1,1] = 0
-grip.chg.ext[1,2] = 0
-grip.chg.ext[2,1] = 0
-grip.chg.ext[2,2] = 0
-grip.chg.int[1] = 0
-grip.chg.int[2] = 0
+cnc.id[1] = 0
+cnc.id[2] = 0
 cnc.jaw.body[1] = 0
 cnc.jaw.body[2] = 0
 cnc.jaw.full[1] = 0
 cnc.jaw.full[2] = 0
-grip.first = 0
-grip.inverse[1] = 0
-grip.inverse[2] = 0
-int.change = 0
-plt.cell.even = 0
-plt.cell.odd = 0
-plt.dx = 0
-plt.dy = 0
-plt.even.dy = 0
-plt.ox = 0
-plt.oy = 0
-plt.rows = 0
-wp.count = 0
-wp2.pick[1] = 0
-wp2.pick[2] = 0
+cnc.pg.no = 0
+cnc.rotations[1,1] = 0
+cnc.rotations[1,2] = 180
+cnc.rotations[2,1] = 180
+cnc.rotations[2,2] = 0
+cnc.run.pg = 0
+cnc.state[1] = -1
+cnc.state[2] = -1
+current.grip = 3
+current.wp = 1
+d.air.blow[1] = 1564
+d.air.blow[2] = 1565
+d.air.pg.no[1,0] = 1529
+d.air.pg.no[2,0] = 1537
+d.chg.pg.no[0] = 1521
+d.cnc.first = 1568
+d.cnc.jaw.body[1,0] = 1385
+d.cnc.jaw.body[2,0] = 1401
+d.cnc.jaw.full[1,0] = 1377
+d.cnc.jaw.full[2,0] = 1393
+d.cnc.pg.no[0] = 1513
+d.cnc.run.pg = 1563
+d.ext.change = 1571
+d.grip.chg.ext[1,1] = 1579
+d.grip.chg.ext[1,2] = 1580
+d.grip.chg.ext[2,1] = 1581
+d.grip.chg.ext[2,2] = 1582
+d.grip.chg.int[1] = 1577
+d.grip.chg.int[2] = 1578
+d.grip.first = 1569
+d.grip.inverse[1] = 1561
+d.grip.inverse[2] = 1562
+d.grip.jaw.body[1,0] = 1353
+d.grip.jaw.body[2,0] = 1369
+d.grip.jaw.full[1,0] = 1345
+d.grip.jaw.full[2,0] = 1361
+d.int.change = 1570
+d.plt.cell.even[0] = 1417
+d.plt.cell.odd[0] = 1413
+d.plt.dx[0] = 1433
+d.plt.dy[0] = 1449
+d.plt.even.dy[0] = 1465
+d.plt.ox[0] = 1481
+d.plt.oy[0] = 1497
+d.plt.rows[0] = 1409
+d.wp.count[0] = 1545
+d.wp.length[0,0] = 1321
+d.wp.length[1,0] = 1329
+d.wp.length[2,0] = 1337
+d.wp2.pick[1] = 1566
+d.wp2.pick[2] = 1567
+di.ext.cs = 1067
+di.ext.ereset = 1066
+di.ext.hold = 1069
+di.ext.motor.of = 1070
+di.ext.motor.on = 1065
+di.ext.pgreset = 1068
+di.ext.slow = 1071
 di.ifp.page[1] = 2001
 di.ifp.page[2] = 2002
 di.ifp.page[3] = 2003
@@ -3795,96 +3787,6 @@ di.ifp.page[5] = 2005
 di.ifp.page[6] = 2006
 di.ifp.page[7] = 2007
 di.ifp.page[8] = 2008
-ei.cnc.ready = 1101
-ei.cnc.ch.opd[1] = 1097
-ei.cnc.ch.opd[2] = 1099
-ei.cnc.ch.clsd[1] = 1098
-ei.cnc.ch.clsd[2] = 1100
-eo.air.enabled = 105
-eo.cnc.mfinish = 101
-eo.cnc.ch.open[1] = 97
-eo.cnc.ch.open[2] = 99
-eo.cnc.ch.close[1] = 98
-eo.cnc.ch.close[2] = 100
-hmi.wp.length = 0
-hmi.grip.j.full[1] = 0
-hmi.grip.j.full[2] = 0
-hmi.grip.j.body[1] = 0
-hmi.grip.j.body[2] = 0
-hmi.cnc.j.full[1] = 0
-hmi.cnc.j.full[2] = 0
-hmi.cnc.j.body[1] = 0
-hmi.cnc.j.body[2] = 0
-hmi.plate.rows = 0
-hmi.plate.col.o = 0
-hmi.plate.col.e = 0
-hmi.plate.dx = 0
-hmi.plate.dy = 0
-hmi.plate.e.dy = 0
-hmi.plate.ox = 0
-hmi.plate.oy = 0
-hmi.wp.count = 0
-current.grip = 0
-s.search.fail = 2011
-pick.epsilon = 0.2
-ei.xmove.spd[0] = 1161
-ei.blow.spd[0] = 1169
-search.speed = 0
-air.blow.speed = 0
-ei.t.grip.op[1,0] = 1209
-ei.t.grip.op[2,0] = 1201
-ei.t.grip.cl[1,0] = 1209
-ei.t.grip.cl[2,0] = 1217
-ei.t.cnc.open[1,0] = 1225
-ei.t.cnc.open[2,0] = 1241
-ei.t.cnc.close[1,0] = 1233
-ei.t.cnc.close[2,0] = 1249
-tmr.grip.op[1] = 0
-tmr.grip.op[2] = 0
-tmr.grip.cl[1] = 0
-tmr.grip.cl[2] = 0
-tmr.cnc.op[1] = 0
-tmr.cnc.op[2] = 0
-tmr.cnc.cl[1] = 0
-tmr.cnc.cl[2] = 0
-di.ext.motor.on = 1065
-di.ext.ereset = 1066
-di.ext.cs = 1067
-di.ext.pgreset = 1068
-di.ext.hold = 1069
-di.ext.motor.of = 1070
-di.ext.slow = 1071
-eo.error.code[0] = 145
-eo.grip.state[1,0] = 161
-eo.grip.state[2,0] = 169
-eo.cnc.state[1,0] = 177
-eo.cnc.state[2,0] = 185
-eo.wp.processed[0] = 193
-eo.next.wp[0] = 201
-gripper.id[1] = 0
-gripper.id[2] = 0
-cnc.id[1] = 0
-cnc.id[2] = 0
-processed.wp = 0
-current.wp = 0
-current.shelf = 0
-eo.robot.ready = 113
-eo.task.exec = 114
-eo.data.request[1] = 116
-eo.data.request[2] = 117
-eo.data.request[3] = 118
-eo.data.request[4] = 119
-eo.data.read = 120
-s.pr.wp.tst.pic = 2110
-s.pr.wp.tst.put = 2111
-cnc.rotations[2,2] = 0
-cnc.rotations[2,1] = 180
-cnc.rotations[1,2] = 180
-cnc.rotations[1,1] = 0
-s.pr.tch.cnc.ap = 2112
-s.inside.cnc = 2012
-s.pr.a.home = 2130
-overshoot = 0
 do.automatic = 68
 do.bat.alarm = 77
 do.cs = 67
@@ -3898,302 +3800,198 @@ do.power.on = 73
 do.safety.fence = 76
 do.teach = 69
 do.teach.lock = 70
+ei.blow.spd[0] = 1169
+ei.check.grip[1] = 1084
+ei.check.grip[2] = 1092
+ei.cnc.ch.clsd[1] = 1098
+ei.cnc.ch.clsd[2] = 1100
+ei.cnc.ch.opd[1] = 1097
+ei.cnc.ch.opd[2] = 1099
+ei.cnc.ready = 1101
 ei.data.ready = 1114
 ei.e.changer = 1119
+ei.grip.close[1] = 1082
+ei.grip.close[2] = 1090
+ei.grip.open[1] = 1081
+ei.grip.open[2] = 1089
+ei.i.changer = 1118
+ei.overshoot[0] = 1177
+ei.robot.speed[0] = 1145
+ei.shelf.failed = 1137
+ei.shelf.ready[1] = 1129
+ei.shelf.ready[2] = 1130
+ei.shelf.ready[3] = 1131
+ei.shelf.ready[4] = 1132
+ei.shelf.state[1] = 1133
+ei.shelf.state[2] = 1134
+ei.shelf.state[3] = 1135
+ei.shelf.state[4] = 1136
+ei.skp.emp.cell = 1120
+ei.subspindel = 1117
+ei.t.cnc.close[1,0] = 1233
+ei.t.cnc.close[2,0] = 1249
+ei.t.cnc.open[1,0] = 1225
+ei.t.cnc.open[2,0] = 1241
+ei.t.grip.cl[2,0] = 1217
+ei.t.grip.op[1,0] = 1193
+ei.task.start = 1113
+ei.xmove.spd[0] = 1161
+eo.air.enabled = 105
+eo.cnc.ch.close[1] = 98
+eo.cnc.ch.close[2] = 100
+eo.cnc.ch.open[1] = 97
+eo.cnc.ch.open[2] = 99
+eo.cnc.empty[1] = 217
+eo.cnc.empty[2] = 221
+eo.cnc.id[1,0] = 177
+eo.cnc.id[2,0] = 185
+eo.cnc.mfinish = 101
+eo.cnc.wp0[1] = 218
+eo.cnc.wp0[2] = 222
+eo.cnc.wp1[1] = 219
+eo.cnc.wp1[2] = 223
+eo.cnc.wp2[1] = 220
+eo.cnc.wp2[2] = 224
+eo.data.read = 120
+eo.data.request[1] = 116
+eo.data.request[2] = 117
+eo.data.request[3] = 118
+eo.data.request[4] = 119
+eo.error.code[0] = 145
+eo.grip.c.closd[1] = 83
+eo.grip.c.closd[2] = 91
+eo.grip.c.opend[1] = 82
+eo.grip.c.opend[2] = 90
+eo.grip.empty[1] = 209
+eo.grip.empty[2] = 213
+eo.grip.error[1] = 84
+eo.grip.error[2] = 92
+eo.grip.id[1,0] = 161
+eo.grip.id[2,0] = 169
+eo.grip.s.opend[1] = 81
+eo.grip.s.opend[2] = 89
+eo.grip.sensor[1] = 85
+eo.grip.sensor[2] = 93
+eo.grip.wp0[1] = 210
+eo.grip.wp0[2] = 214
+eo.grip.wp1[1] = 211
+eo.grip.wp1[2] = 215
+eo.grip.wp2[1] = 212
+eo.grip.wp2[2] = 216
+eo.next.wp[0] = 201
+eo.process.err = 115
+eo.robot.ready = 113
+eo.shelf.cmplt[1] = 138
 eo.shelf.cmplt[2] = 139
 eo.shelf.cmplt[3] = 140
-hmi.air.pg = 0
 eo.shelf.cmplt[4] = 141
-ei.i.changer = 1118
-eo.grip.c.opend[2] = 90
-eo.grip.sensor[2] = 93
-eo.grip.sensor[1] = 85
-eo.grip.s.opend[2] = 89
-eo.grip.s.opend[1] = 81
-ei.subspindel = 1117
-ei.task.start = 1113
-ei.grip.close[1] = 1082
-s.pr.tst.cnc.pu = 2115
-ei.grip.open[1] = 1081
-ei.shelf.ready[1] = 1129
-ei.overshoot[0] = 1177
-ei.shelf.ready[3] = 1131
-ei.shelf.ready[2] = 1130
-eo.grip.c.opend[1] = 82
-eo.grip.c.closd[2] = 91
-eo.grip.c.closd[1] = 83
-ei.shelf.ready[4] = 1132
+eo.shelf.opened[1] = 129
+eo.shelf.opened[2] = 130
+eo.shelf.opened[3] = 131
+eo.shelf.opened[4] = 132
+eo.shelf.unlock[1] = 133
+eo.shelf.unlock[2] = 134
+eo.shelf.unlock[3] = 135
+eo.shelf.unlock[4] = 136
+eo.task.exec = 114
+eo.wp.processed[0] = 193
+ext.change = 0
+grip.chg.ext[1,1] = 0
+grip.chg.ext[1,2] = 0
+grip.chg.ext[2,1] = 0
+grip.chg.ext[2,2] = 0
+grip.chg.int[1] = 0
+grip.chg.int[2] = 0
+grip.close[1] = 34
+grip.close[2] = 36
+grip.first = 0
+grip.inverse[1] = 0
+grip.inverse[2] = 0
+grip.jaw.body[1] = 0
+grip.jaw.body[2] = 0
+grip.jaw.full[1] = 0
+grip.jaw.full[2] = 0
+grip.open[1] = 33
+grip.open[2] = 35
+grip.opened[1] = 1033
+grip.opened[2] = 1034
+grip.sensor[1] = 1035
+grip.sensor[2] = 1036
+gripper.id[1] = 0
+gripper.id[2] = 0
+gripper.state[1] = -1
+gripper.state[2] = -1
+hmi.air.pg = 1
+hmi.chg.pg = 1
+hmi.cnc.j.body[1] = 28
+hmi.cnc.j.body[2] = 28
+hmi.cnc.j.full[1] = 40
+hmi.cnc.j.full[2] = 40
+hmi.grip.j.body[1] = 28
+hmi.grip.j.body[2] = 28
+hmi.grip.j.full[1] = 40
+hmi.grip.j.full[2] = 40
+hmi.plate.col.e = 4
+hmi.plate.col.o = 4
+hmi.plate.dx = 130
+hmi.plate.dy = 160
+hmi.plate.e.dy = 0
+hmi.plate.ox = 80
+hmi.plate.oy = 75
+hmi.plate.rows = 4
+hmi.shelf.no = 1
+hmi.wp.count = 4
+hmi.wp.id = 1
+hmi.wp.length = 50
+int.change = 0
+log.max.count = 256
+o.debug = 78
+pick.epsilon = 0.2
+plt.cell.even = 0
+plt.cell.odd = 0
+plt.dx = 0
+plt.dy = 0
+plt.even.dy = 0
+plt.ox = 0
+plt.oy = 0
+plt.rows = 0
+processed.wp = 0
 s.a.pic.air.req = 2015
-eo.shelf.cmplt[1] = 138
+s.cnc.chuck[1] = 2104
+s.cnc.chuck[2] = 2105
+s.ext.chg.ok = 2018
+s.ext.chg.req = 2017
+s.hmi.grip[1] = 2102
+s.hmi.grip[2] = 2103
+s.inside.cnc = 2012
 s.mcode.req = 2013
 s.p.put.air.req = 2014
+s.pr.a.home = 2130
+s.pr.tch.air = 2116
+s.pr.tch.chg = 2117
 s.pr.tch.cnc = 2113
+s.pr.tch.cnc.ap = 2112
+s.pr.tch.plate = 2106
+s.pr.tch.shelf = 2108
 s.pr.tst.cnc.pi = 2114
-ei.grip.close[2] = 1090
-ei.grip.open[2] = 1089
-hmi.chg.pg = 0
-decision.state = 0
-s.change.req = 2016
-ei.skp.emp.cell = 1120
-s.ext.chg.req = 2017
-s.chg.ok = 2018
-.END
-.STRINGS
-$safe.flag = "cnc.in"
-$log.entry[1] = "17:47:40 Move inisde CNC. Tool: 2 Chuck: 1"
-$log.entry[2] = "17:47:40 Tool2 set"
-$log.entry[3] = "17:47:41 Waiting for CNC ready"
-$log.entry[4] = "17:47:41 CNC ready signal received"
-$log.entry[5] = "17:47:42 Robot inside CNC"
-$log.entry[6] = "17:47:43 State 105: Decision making module 5"
-$log.entry[7] = "17:47:43 State 12: Pick wp[2] from CNC"
-$log.entry[8] = "17:47:43 Pick workpiece from CNC. Tool: 2 Chuck: 1L: 50"
-$log.entry[9] = "17:47:43 Tool2 set"
-$log.entry[10] = "17:47:43 Command open gripper 2"
-$log.entry[11] = "17:47:49 Command close gripper 2"
-$log.entry[12] = "17:47:49 Open CNC chuck 1"
-$log.entry[13] = "17:47:49 CNC chuck 1 already opened"
-$log.entry[14] = "17:47:49 State 105: Decision making module 5"
-$log.entry[15] = "17:47:49 State 8: Move outside CNC"
-$log.entry[16] = "17:47:50 Move outside CNC. Tool: 2 Chuck: 1"
-$log.entry[17] = "17:47:50 Tool2 set"
-$log.entry[18] = "17:47:51 Robot outside CNC"
-$log.entry[19] = "17:47:51 State 105: Decision making module 5"
-$log.entry[20] = "17:47:51 State 5: Put WP[2] to shelf"
-$log.entry[21] = "17:47:51 Put workpiece. Shelf: 1 Tool: 2 ID: 4L: 50"
-$log.entry[22] = "17:47:51 Tool2 set"
-$log.entry[23] = "17:47:51 ID: 4 --> i: 0 j: 3"
-$log.entry[24] = "17:47:58 Command open gripper 2"
-$log.entry[25] = "17:47:59 Command close gripper 2"
-$log.entry[26] = "17:47:59 State 105: Decision making module 5"
-$log.entry[27] = "17:47:59 State 3: Close shelf"
-$log.entry[28] = "17:47:59 Closing shelf 1"
-$log.entry[29] = "17:47:59 Tool3 set"
-$log.entry[30] = "17:47:59 Command close gripper 1"
-$log.entry[31] = "17:48:00 Command close gripper 2"
-$log.entry[32] = "17:48:02 Request unlock shelf 1"
-$log.entry[33] = "17:48:03 Shelf 1 successfully unlocked"
-$log.entry[34] = "17:48:45 Reset command executed"
-$log.entry[35] = "17:48:59 Main program executed"
-$log.entry[36] = "17:48:59 Command close gripper 1"
-$log.entry[37] = "17:48:59 Command close gripper 2"
-$log.entry[38] = "17:48:59 Performing safe movement to home position"
-$log.entry[39] = "17:48:59 Safe move from shelf"
-$log.entry[40] = "17:48:59 Tool3 set"
-$log.entry[41] = "17:49:24 Robot in home position"
-$log.entry[42] = "17:49:34 State 0: Initialization"
-$log.entry[43] = "17:49:34 Waiting for task start"
-$log.entry[44] = "17:49:34 State 1: Check ready shelves"
-$log.entry[45] = "17:49:34 Shelf 1 is ready. Request data!"
-$log.entry[46] = "17:49:34 Get task data from PLC"
-$log.entry[47] = "17:49:35 State 100: Select decision making module state"
-$log.entry[48] = "17:49:35 State 105: Decision making module 5"
-$log.entry[49] = "17:49:35 State 2: Open shelf"
-$log.entry[50] = "17:49:35 Open shelf 1"
-$log.entry[51] = "17:49:35 Tool3 set"
-$log.entry[52] = "17:49:35 Command close gripper 1"
-$log.entry[53] = "17:49:35 Command close gripper 2"
-$log.entry[54] = "17:49:38 Request unlock shelf 1"
-$log.entry[55] = "17:49:38 Shelf 1 successfully unlocked"
-$log.entry[56] = "17:49:44 State 105: Decision making module 5"
-$log.entry[57] = "17:49:44 State 4: Pick workpiece from shelf"
-$log.entry[58] = "17:49:44 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
-$log.entry[59] = "17:49:44 Tool1 set"
-$log.entry[60] = "17:49:44 Command open gripper 1"
-$log.entry[61] = "17:49:44 ID: 1 --> i: 0 j: 0"
-$log.entry[62] = "17:49:49 Distance: 0.00543"
-$log.entry[63] = "17:49:50 Detail found"
-$log.entry[64] = "17:49:51 Command close gripper 1"
-$log.entry[65] = "17:49:51 State 105: Decision making module 5"
-$log.entry[66] = "17:49:52 State 7: Move inside CNC"
-$log.entry[67] = "17:49:52 Move inisde CNC. Tool: 1 Chuck: 1"
-$log.entry[68] = "17:49:52 Tool1 set"
-$log.entry[69] = "17:49:53 Waiting for CNC ready"
-$log.entry[70] = "17:49:53 CNC ready signal received"
-$log.entry[71] = "17:49:55 Robot inside CNC"
-$log.entry[72] = "17:49:55 State 105: Decision making module 5"
-$log.entry[73] = "17:49:55 State 9: Put wp[0] to CNC"
-$log.entry[74] = "17:49:55 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
-$log.entry[75] = "17:49:55 Tool1 set"
-$log.entry[76] = "17:49:55 Open CNC chuck 1"
-$log.entry[77] = "17:49:55 CNC chuck 1 already opened"
-$log.entry[78] = "17:50:01 CNC close chuck first"
-$log.entry[79] = "17:50:01 Close CNC chuck 1"
-$log.entry[80] = "17:50:01 CNC chuck 1 closed"
-$log.entry[81] = "17:50:03 Command open gripper 1"
-$log.entry[82] = "17:50:04 Command close gripper 1"
-$log.entry[83] = "17:50:04 State 105: Decision making module 5"
-$log.entry[84] = "17:50:04 State 8: Move outside CNC"
-$log.entry[85] = "17:50:05 Move outside CNC. Tool: 1 Chuck: 1"
-$log.entry[86] = "17:50:05 Tool1 set"
-$log.entry[87] = "17:50:06 Robot outside CNC"
-$log.entry[88] = "17:50:06 State 105: Decision making module 5"
-$log.entry[89] = "17:50:06 State 18: MCODE Execute"
-$log.entry[90] = "17:50:06 State 105: Decision making module 5"
-$log.entry[91] = "17:50:06 State 7: Move inside CNC"
-$log.entry[92] = "17:50:06 Move inisde CNC. Tool: 2 Chuck: 1"
-$log.entry[93] = "17:50:06 Tool2 set"
-$log.entry[94] = "17:50:08 Waiting for CNC ready"
-$log.entry[95] = "17:50:08 CNC ready signal received"
-$log.entry[96] = "17:50:09 Robot inside CNC"
-$log.entry[97] = "17:50:09 State 105: Decision making module 5"
-$log.entry[98] = "17:50:09 State 10: Pick wp[1] from CNC"
-$log.entry[99] = "17:50:09 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
-$log.entry[100] = "17:50:10 Tool1 set"
-$log.entry[101] = "17:50:10 Command open gripper 1"
-$log.entry[102] = "17:50:16 Command close gripper 1"
-$log.entry[103] = "17:50:16 Open CNC chuck 1"
-$log.entry[104] = "17:50:16 CNC chuck 1 already opened"
-$log.entry[105] = "17:50:17 State 105: Decision making module 5"
-$log.entry[106] = "17:50:17 State 15: Perform external change"
-$log.entry[107] = "17:50:17 Use changer program chg.pg.1"
-$log.entry[108] = "17:50:20 State 105: Decision making module 5"
-$log.entry[109] = "17:51:33 Reset command executed"
-$log.entry[110] = "17:51:36 Main program executed"
-$log.entry[111] = "17:51:36 Command close gripper 1"
-$log.entry[112] = "17:51:36 Command close gripper 2"
-$log.entry[113] = "17:51:36 Performing safe movement to home position"
-$log.entry[114] = "17:51:36 Safe move from CNC"
-$log.entry[115] = "17:51:54 Robot in home position"
-$log.entry[116] = "17:52:04 State 0: Initialization"
-$log.entry[117] = "17:52:04 Waiting for task start"
-$log.entry[118] = "17:52:04 State 1: Check ready shelves"
-$log.entry[119] = "17:52:04 Shelf 1 is ready. Request data!"
-$log.entry[120] = "17:52:04 Get task data from PLC"
-$log.entry[121] = "17:52:04 State 100: Select decision making module state"
-$log.entry[122] = "17:52:05 State 105: Decision making module 5"
-$log.entry[123] = "17:52:05 State 2: Open shelf"
-$log.entry[124] = "17:52:05 Open shelf 1"
-$log.entry[125] = "17:52:05 Tool3 set"
-$log.entry[126] = "17:52:05 Command close gripper 1"
-$log.entry[127] = "17:52:05 Command close gripper 2"
-$log.entry[128] = "17:52:08 Request unlock shelf 1"
-$log.entry[129] = "17:52:08 Shelf 1 successfully unlocked"
-$log.entry[130] = "17:52:14 State 105: Decision making module 5"
-$log.entry[131] = "17:52:14 State 4: Pick workpiece from shelf"
-$log.entry[132] = "17:52:14 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
-$log.entry[133] = "17:52:14 Tool1 set"
-$log.entry[134] = "17:52:14 Command open gripper 1"
-$log.entry[135] = "17:52:14 ID: 1 --> i: 0 j: 0"
-$log.entry[136] = "17:52:19 Distance: 0.00543"
-$log.entry[137] = "17:52:20 Detail found"
-$log.entry[138] = "17:52:21 Command close gripper 1"
-$log.entry[139] = "17:52:21 State 105: Decision making module 5"
-$log.entry[140] = "17:52:22 State 7: Move inside CNC"
-$log.entry[141] = "17:52:22 Move inisde CNC. Tool: 1 Chuck: 1"
-$log.entry[142] = "17:52:22 Tool1 set"
-$log.entry[143] = "17:52:23 Waiting for CNC ready"
-$log.entry[144] = "17:52:23 CNC ready signal received"
-$log.entry[145] = "17:52:25 Robot inside CNC"
-$log.entry[146] = "17:52:25 State 105: Decision making module 5"
-$log.entry[147] = "17:52:25 State 9: Put wp[0] to CNC"
-$log.entry[148] = "17:52:25 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
-$log.entry[149] = "17:52:25 Tool1 set"
-$log.entry[150] = "17:52:25 Open CNC chuck 1"
-$log.entry[151] = "17:52:25 CNC chuck 1 already opened"
-$log.entry[152] = "17:52:31 CNC close chuck first"
-$log.entry[153] = "17:52:31 Close CNC chuck 1"
-$log.entry[154] = "17:52:31 CNC chuck 1 closed"
-$log.entry[155] = "18:00:07 Command open gripper 1"
-$log.entry[156] = "18:00:07 Command close gripper 1"
-$log.entry[157] = "18:00:08 State 105: Decision making module 5"
-$log.entry[158] = "18:00:08 State 8: Move outside CNC"
-$log.entry[159] = "18:00:08 Move outside CNC. Tool: 1 Chuck: 1"
-$log.entry[160] = "18:00:08 Tool1 set"
-$log.entry[161] = "18:00:09 Robot outside CNC"
-$log.entry[162] = "18:00:09 State 105: Decision making module 5"
-$log.entry[163] = "18:00:09 State 18: MCODE Execute"
-$log.entry[164] = "18:00:09 State 105: Decision making module 5"
-$log.entry[165] = "18:00:09 State 7: Move inside CNC"
-$log.entry[166] = "18:00:10 Move inisde CNC. Tool: 2 Chuck: 1"
-$log.entry[167] = "18:00:10 Tool2 set"
-$log.entry[168] = "18:00:11 Waiting for CNC ready"
-$log.entry[169] = "18:00:11 CNC ready signal received"
-$log.entry[170] = "18:00:12 Robot inside CNC"
-$log.entry[171] = "18:00:13 State 105: Decision making module 5"
-$log.entry[172] = "18:00:13 State 10: Pick wp[1] from CNC"
-$log.entry[173] = "18:00:13 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
-$log.entry[174] = "18:00:13 Tool1 set"
-$log.entry[175] = "18:00:13 Command open gripper 1"
-$log.entry[176] = "18:00:19 Command close gripper 1"
-$log.entry[177] = "18:00:19 Open CNC chuck 1"
-$log.entry[178] = "18:00:19 CNC chuck 1 already opened"
-$log.entry[179] = "18:00:20 State 105: Decision making module 5"
-$log.entry[180] = "18:00:20 State 15: Perform external change"
-$log.entry[181] = "18:00:20 Use changer program chg.pg.1"
-$log.entry[182] = "10:55:16 Robot boot initialize completed"
-$log.entry[183] = "10:57:52 Reset command executed"
-$log.entry[184] = "10:57:55 Main program executed"
-$log.entry[185] = "10:57:56 Command close gripper 1"
-$log.entry[186] = "10:57:56 Command close gripper 2"
-$log.entry[187] = "10:57:56 Performing safe movement to home position"
-$log.entry[188] = "10:57:56 Safe move from CNC"
-$log.entry[189] = "10:58:53 Robot in home position"
-$log.entry[190] = "10:59:09 State 0: Initialization"
-$log.entry[191] = "10:59:09 Waiting for task start"
-$log.entry[192] = "10:59:10 State 1: Check ready shelves"
-$log.entry[193] = "10:59:10 Shelf 1 is ready. Request data!"
-$log.entry[194] = "10:59:10 Get task data from PLC"
-$log.entry[195] = "10:59:10 State 100: Select decision making module state"
-$log.entry[196] = "10:59:10 State 105: Decision making module 5"
-$log.entry[197] = "10:59:10 State 2: Open shelf"
-$log.entry[198] = "10:59:10 Open shelf 1"
-$log.entry[199] = "10:59:11 Tool3 set"
-$log.entry[200] = "10:59:11 Command close gripper 1"
-$log.entry[201] = "10:59:11 Command close gripper 2"
-$log.entry[202] = "10:59:13 Request unlock shelf 1"
-$log.entry[203] = "10:59:14 Shelf 1 successfully unlocked"
-$log.entry[204] = "10:59:19 State 105: Decision making module 5"
-$log.entry[205] = "10:59:19 State 4: Pick workpiece from shelf"
-$log.entry[206] = "10:59:19 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
-$log.entry[207] = "10:59:19 Tool1 set"
-$log.entry[208] = "10:59:20 Command open gripper 1"
-$log.entry[209] = "10:59:20 ID: 1 --> i: 0 j: 0"
-$log.entry[210] = "10:59:25 Distance: 0.00543"
-$log.entry[211] = "10:59:25 Detail found"
-$log.entry[212] = "10:59:26 Command close gripper 1"
-$log.entry[213] = "10:59:27 State 105: Decision making module 5"
-$log.entry[214] = "10:59:27 State 7: Move inside CNC"
-$log.entry[215] = "10:59:27 Move inisde CNC. Tool: 1 Chuck: 1"
-$log.entry[216] = "10:59:27 Tool1 set"
-$log.entry[217] = "10:59:29 Waiting for CNC ready"
-$log.entry[218] = "10:59:29 CNC ready signal received"
-$log.entry[219] = "10:59:30 Robot inside CNC"
-$log.entry[220] = "10:59:30 State 105: Decision making module 5"
-$log.entry[221] = "10:59:30 State 9: Put wp[0] to CNC"
-$log.entry[222] = "10:59:31 Put workpiece in CNC. Tool: 1 Chuck: 1L: 50"
-$log.entry[223] = "10:59:31 Tool1 set"
-$log.entry[224] = "10:59:31 Open CNC chuck 1"
-$log.entry[225] = "10:59:31 CNC chuck 1 already opened"
-$log.entry[226] = "10:59:37 CNC close chuck first"
-$log.entry[227] = "10:59:37 Close CNC chuck 1"
-$log.entry[228] = "10:59:37 CNC chuck 1 closed"
-$log.entry[229] = "10:59:39 Command open gripper 1"
-$log.entry[230] = "10:59:40 Command close gripper 1"
-$log.entry[231] = "10:59:40 State 105: Decision making module 5"
-$log.entry[232] = "10:59:40 State 8: Move outside CNC"
-$log.entry[233] = "10:59:40 Move outside CNC. Tool: 1 Chuck: 1"
-$log.entry[234] = "10:59:40 Tool1 set"
-$log.entry[235] = "10:59:41 Robot outside CNC"
-$log.entry[236] = "10:59:41 State 105: Decision making module 5"
-$log.entry[237] = "10:59:41 State 18: MCODE Execute"
-$log.entry[238] = "10:59:42 State 105: Decision making module 5"
-$log.entry[239] = "10:59:42 State 7: Move inside CNC"
-$log.entry[240] = "10:59:42 Move inisde CNC. Tool: 2 Chuck: 1"
-$log.entry[241] = "10:59:42 Tool2 set"
-$log.entry[242] = "10:59:43 Waiting for CNC ready"
-$log.entry[243] = "10:59:43 CNC ready signal received"
-$log.entry[244] = "10:59:45 Robot inside CNC"
-$log.entry[245] = "10:59:45 State 105: Decision making module 5"
-$log.entry[246] = "10:59:45 State 10: Pick wp[1] from CNC"
-$log.entry[247] = "10:59:45 Pick workpiece from CNC. Tool: 1 Chuck: 1L: 50"
-$log.entry[248] = "10:59:45 Tool1 set"
-$log.entry[249] = "10:59:45 Command open gripper 1"
-$log.entry[250] = "10:59:51 Command close gripper 1"
-$log.entry[251] = "10:59:51 Open CNC chuck 1"
-$log.entry[252] = "10:59:52 CNC chuck 1 already opened"
-$log.entry[253] = "10:59:52 State 105: Decision making module 5"
-$log.entry[254] = "10:59:52 State 15: Perform external change"
-$log.entry[255] = "10:59:53 Use changer program chg.pg.1"
-$log.entry[256] = "10:59:55 State 105: Decision making module 5"
+s.pr.tst.cnc.pu = 2115
+s.pr.tst.plate = 2107
+s.pr.tst.shelf = 2109
+s.pr.wp.tst.pic = 2110
+s.pr.wp.tst.put = 2111
+s.reset.perf = 2020
+s.search.fail = 2011
+s.shelf.failed = 2010
+wp.count = 0
+wp.length[0] = 0
+wp.length[1] = 0
+wp.length[2] = 0
+wp2.pick[1] = 0
+wp2.pick[2] = 0
+air.blow.speed = 10
+overshoot = 5
+search.speed = 10
+tmr.grip.op[1] = 0
+ei.t.grip.op[2,0] = 1209
+ei.t.grip.cl[1,0] = 1201
 .END
