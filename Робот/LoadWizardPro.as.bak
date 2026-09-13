@@ -748,9 +748,9 @@ EIP_CM32_CONF  6   0,
 SWITCH AUTOSTART.PC    ON 
 .END
 .AUXDATA
-TOOL1           -103.300     0.000   104.000  -180.000    90.000   180.000
+TOOL1           -94.000    -1.500   102.000  -179.600    89.900   180.000
 DFF1             13.000     0.000     0.000     0.000
-TOOL2            103.300     0.000   104.000     0.000    90.000  -180.000
+TOOL2            93.600     0.000   102.000     0.700    90.300  -180.000
 DFF2             13.000     0.000     0.000     0.000
 TOOL3             0.000     0.000     0.000     0.000     0.000     0.000
 DFF3             13.000     0.000     0.000     0.000
@@ -3980,7 +3980,7 @@ N_INT130    "s.pr.a.home"
 .PROGRAM Comment___ () ; Comments for IDE. Do not use.
 	; @@@ PROJECT @@@
 	; @@@ PROJECTNAME @@@
-	; LoadWizardPro
+	; LoadWizardPro_clean
 	; @@@ HISTORY @@@
 	; @@@ INSPECTION @@@
 	; do.hold
