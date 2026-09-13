@@ -1737,6 +1737,8 @@ N_INT130    "s.pr.a.home"
   LMOVE #cnc.in
   ;
   LAPPRO #cnc.point[.grip.no, .chuck.no], 50
+  ; Teach this point 
+  BREAK
   LMOVE #cnc.point[.grip.no, .chuck.no]  ; **== TEACH POINT ==**
   LAPPRO #cnc.point[.grip.no, .chuck.no], 50
   ;
@@ -2118,23 +2120,27 @@ N_INT130    "s.pr.a.home"
   END
   TOOL tool.calib[.grip.no]
   ;
+  BREAK
   JMOVE #wp.safe[.grip.no] ; **== TEACH POINT ==**
   ;
   LAPPRO #plate.pt.o[hmi.shelf.no, .grip.no], 20
   BREAK
   ; Teach this point for origin
+  BREAK
   LMOVE #plate.pt.o[hmi.shelf.no, .grip.no] ; **== TEACH POINT ==**
   LAPPRO #plate.pt.o[hmi.shelf.no, .grip.no], 20
   ;
   LAPPRO #plate.pt.x[hmi.shelf.no, .grip.no], 20
   BREAK
   ; Teach this point for x direction
+  BREAK
   LMOVE #plate.pt.x[hmi.shelf.no, .grip.no] ; **== TEACH POINT ==**
   LAPPRO #plate.pt.x[hmi.shelf.no, .grip.no], 20
   ;
   BREAK
   ; Teach this point for y direction
   LAPPRO #plate.pt.y[hmi.shelf.no, .grip.no], 20
+  BREAK
   LMOVE #plate.pt.y[hmi.shelf.no, .grip.no] ; **== TEACH POINT ==**
   LAPPRO #plate.pt.y[hmi.shelf.no, .grip.no], 20
   ;
@@ -2643,8 +2649,14 @@ N_INT130    "s.pr.a.home"
   POINT tool.pin = TRANS (0, 112, 104, 90, 90, 0)
   ;
   POINT #shelf.safe = #PPOINT(75, 0, 100, 30, 75, 100)
-  ;#shelf.safe 77.267387 4.813991 100.780472 34.271633 76.990814 99.275299
-  
+  ;
+  IF NOT EXISTJOINT("#wp.safe[1]") THEN
+    POINT #wp.safe[1] = #PPOINT(73, 14, 105, 108, -40, 14)
+  END
+  IF NOT EXISTJOINT("#wp.safe[2]") THEN
+    POINT #wp.safe[2] = #PPOINT(73, 14, 105, 108, -40, 194)
+  END
+  ;
   hmi.shelf.no = 1
   hmi.wp.id = 1
   ;
@@ -2844,7 +2856,7 @@ N_INT130    "s.pr.a.home"
   END
 .END
 .PROGRAM shelf.teach ()
-    ;
+  ;
   ; Preaprations for teaching
   TOOL tool.pin
   SIGNAL grip.close[1], -grip.open[1]
@@ -2854,10 +2866,11 @@ N_INT130    "s.pr.a.home"
   ; Teach points for open shelf
   LMOVE shelf.open[hmi.shelf.no, 1] + TRANS (-50, 0, -150)
   LMOVE shelf.open[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
-  BREAK
   ; Teach this point for shelf open
+  BREAK
   LMOVE shelf.open[hmi.shelf.no, 1] ; **== TEACH POINT ==**
   ; Teach this point for shelf close
+  BREAK
   LMOVE shelf.close[hmi.shelf.no, 2] ; **== TEACH POINT ==**
   ;
   LMOVE shelf.open[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
@@ -2868,10 +2881,11 @@ N_INT130    "s.pr.a.home"
   LMOVE shelf.close[hmi.shelf.no, 1] + TRANS (150, 0, -150)
   LMOVE shelf.close[hmi.shelf.no, 1] + TRANS (-50, 0, -150)
   LMOVE shelf.close[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
-  BREAK
   ; Teach this point for shelf close
+  BREAK
   LMOVE shelf.close[hmi.shelf.no, 1] ; **== TEACH POINT ==**
   ; Teach this point for shelf open
+  BREAK
   LMOVE shelf.open[hmi.shelf.no, 2] ; **== TEACH POINT ==**
   ;
   LMOVE shelf.close[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
@@ -2904,8 +2918,6 @@ N_INT130    "s.pr.a.home"
   SIGNAL -s.p.put.air.req
   SIGNAL -s.a.pic.air.req
   SIGNAL -s.mcode.req
-  ;SIGNAL -s.change.req
-  ;SIGNAL -s.chg.ok
   SIGNAL -s.ext.chg.ok
   SIGNAL -s.ext.chg.req
   current.shelf = 0
@@ -2915,7 +2927,7 @@ N_INT130    "s.pr.a.home"
   ;
 .END
 .PROGRAM state1 () ; Check ready shelves
-;
+  ;
   CALL log ("State 1: Check ready shelves")
   WHILE TRUE DO
     IF NOT SIG (ei.task.start) THEN
@@ -3000,7 +3012,6 @@ N_INT130    "s.pr.a.home"
     state = decision.state
   END
   ;
-  ;SIGNAL s.change.req
   SIGNAL s.ext.chg.req
   SIGNAL s.ext.chg.ok
   ;
@@ -3186,7 +3197,6 @@ N_INT130    "s.pr.a.home"
     END
     ;
     ; Move inside CNC
-    ;
     IF rout AND (gp.full[1] AND cnc.empty[1] OR gp.empty[2] AND cnc.full[2]) THEN
       state = 7
       RETURN
@@ -3301,13 +3311,13 @@ N_INT130    "s.pr.a.home"
       state = 17
       RETURN
     END
-    ;  ;
-    ;  ; Move outside cnc.in
+    ; 
+    ; Move outside cnc.in
     IF rin AND (gp.empty[1] AND cnc.wp0[1] OR gp.wp2[2] AND cnc.empty[1] OR gp.empty[gp.int] AND cnc.wp1[1]) THEN
       state = 8
       RETURN
     END
-    ;  ;
+    ; 
     ; Put detail to stocker
     IF rout AND gp.wp2[2] AND gp.empty[1] THEN
       state = 5
@@ -3444,8 +3454,6 @@ N_INT130    "s.pr.a.home"
   ;
   state = decision.state
   ;
-  ;SIGNAL s.chg.ok
-  
 .END
 .PROGRAM state12 () ; Pick WP[2] from CNC
   ;
@@ -3470,7 +3478,6 @@ N_INT130    "s.pr.a.home"
 .END
 .PROGRAM state15 () ; Perform external change
   ; 
-    ;
   CALL log ("State 15: Perform external change")
   CALL ext.change
   ;
@@ -3481,7 +3488,6 @@ N_INT130    "s.pr.a.home"
 .PROGRAM state16 () ; Air blow before put WP[0]
   ;
   CALL log ("State 16: CNC chuck air blow before put wp[0]")
-  ;CALL air.blow(st5.chuck)
   SIGNAL -s.p.put.air.req
   CALL air.blow(1)
   ;
@@ -3489,11 +3495,10 @@ N_INT130    "s.pr.a.home"
   ;
 .END
 .PROGRAM state17 () ; Air blow after pick WP[2]
-    ;
+  ;
   CALL log ("State 17: CNC chuck air blow after pick wp[2]")
-  ;CALL air.blow(st6.chuck)
   SIGNAL -s.a.pic.air.req
-  CALL air.blow(2)
+  CALL air.blow (2)
   ;
   state = decision.state
   ;
@@ -3550,13 +3555,6 @@ N_INT130    "s.pr.a.home"
   IF .current.chuck <> .new.chuck THEN
     cnc.id[.current.chuck] = 0
   END
-  ;
-  ;IF cnc.id[.current.chuck] > 0 THEN
-  ;  cnc.id[.new.chuck] = -cnc.id[.current.chuck]
-  ;  IF .current.chuck <> .new.chuck THEN
-  ;    cnc.id[.current.chuck] = 0
-  ;  END
-  ;END
   SIGNAL -s.mcode.req
   ;
   state = decision.state
@@ -3645,8 +3643,6 @@ N_INT130    "s.pr.a.home"
   ;
   .wp.id = ABS (gripper.id[.grip.no])
   CALL wp.put (current.shelf, .grip.no, .wp.id)
-  ;
-  ;SIGNAL -s.chg.ok
   ;
   state = decision.state
   ;
