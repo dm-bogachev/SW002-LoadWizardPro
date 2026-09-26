@@ -595,13 +595,14 @@ N_INT200    "s.pr.a.home"
   ; Calculate points
   POINT .temp = cnc.point.shaft
   POINT .pick = .temp + TRANS (0, .dy, -.dz)
-  POINT .pick.appro = .pick  + TRANS (0, .y.appro, 0)
+  POINT .pick.appro[1]= .pick  + TRANS (0, 0, -100)
+  POINT .pick.appro[2]= .pick  + TRANS (0, .y.appro, 0)
   ;
   ; Approach
   SPEED 20 ALWAYS
   JMOVE #cnc.in
   ACCURACY 0.1
-  LMOVE .pick.appro
+  LMOVE .pick.appro[1]
   BREAK;
   SPEED 30 MM/S
   LMOVE .pick
@@ -616,7 +617,7 @@ N_INT200    "s.pr.a.home"
   cnc.st = -1
   ;
   ACCURACY 0.1
-  LMOVE .pick.appro
+  LMOVE .pick.appro[2]
   BREAK
   LMOVE #cnc.in
   ;
@@ -697,13 +698,14 @@ N_INT200    "s.pr.a.home"
   ; Calculate points
   POINT .temp = cnc.point.shaft
   POINT .put = .temp + TRANS (0, .dy, -.dz)
-  POINT .put.appro = .put  + TRANS (0, .y.appro, 0)
+  POINT .put.appro[1] = .put  + TRANS (0, .y.appro, 0)
+  POINT .put.appro[2] = .put  + TRANS (0, 0, -100)
   ;
   ; Approach
   SPEED 20 ALWAYS
   JMOVE #cnc.in
   ACCURACY 0.1
-  LMOVE .put.appro
+  LMOVE .put.appro[1]
   BREAK;
   SPEED 30 MM/S
   LMOVE .put
@@ -725,7 +727,7 @@ N_INT200    "s.pr.a.home"
   gripper.prl.st = -1
   ;
   ACCURACY 0.1
-  LMOVE .put.appro
+  LMOVE .put.appro[2]
   BREAK
   LMOVE #cnc.in
   CALL gripper.close (grip.no.par[1], 0, FALSE)
@@ -759,10 +761,10 @@ N_INT200    "s.pr.a.home"
   task.id = 1
   wp.count = hmi.wp.count
   ;
-  wp.type.shaft = FALSE
+  wp.type.shaft = TRUE
   ;
   chg.required = FALSE
-  shaft.return = FALSE
+  shaft.return = FALSE;TRUE
   shaft.rotate = FALSE
   gr.dbl.inv[1] = FALSE
   gr.dbl.inv[2] = FALSE
@@ -1447,7 +1449,7 @@ N_INT200    "s.pr.a.home"
   CALL ciner ("hmi.cond.thick", hmi.cond.thick, 12)
   CALL ciner ("hmi.cond.shift", hmi.cond.shift, 28)
   CALL ciner ("hmi.cond.cx", hmi.cond.cx, 1)
-  CALL ciner ("hmi.cond.cy", hmi.cond.cy, 4)
+  CALL ciner ("hmi.cond.cy", hmi.cond.cy, 3)
   CALL ciner ("hmi.prl.ch.full", hmi.prl.ch.full, 90)
   CALL ciner ("hmi.prl.ch.work", hmi.prl.ch.work, 16)
   ;
@@ -1818,7 +1820,7 @@ N_INT200    "s.pr.a.home"
   SIGNAL -eo.robot.ready
   SIGNAL -s.mcode.req
   SIGNAL -s.inside.cnc
-  current.shelf = 0
+  current.shelf = 5
   ;
   state = 1
   RETURN
@@ -1834,9 +1836,9 @@ N_INT200    "s.pr.a.home"
       RETURN
     END
     ;
-    current.shelf = current.shelf + 1
-    IF current.shelf == 5 THEN
-      current.shelf = 1
+    current.shelf = current.shelf - 1
+    IF current.shelf == 0 THEN
+      current.shelf = 4
     END
     ;
     IF SIG (ei.shelf.ready[current.shelf]) THEN
@@ -1864,9 +1866,6 @@ N_INT200    "s.pr.a.home"
       processed.wp  = 0
       ;
       CALL get.task.data
-      ;
-      SPEED 100
-      HOME
       ;
       state = 99
       RETURN
@@ -2104,11 +2103,24 @@ N_INT200    "s.pr.a.home"
   state = 1
   ;
 .END
+.PROGRAM state120 () ; Work with buffer
+	; *******************************************************************
+	;
+	; Program:      state120
+	; Comment:      Work with buffer
+	; Author:       User
+	;
+	; Date:         9/26/2026
+	;
+	; *******************************************************************
+	;
+	
+.END
 .PROGRAM state200 () ; Select decision state for shaft type
   ;
   CALL log ("State 200: Select decision state for shaft type")
   ;
-  IF NOT shaft.return THEN
+  IF shaft.return THEN
     decision.state = 201
   ELSE
     decision.state = 202
@@ -2118,71 +2130,124 @@ N_INT200    "s.pr.a.home"
   RETURN
   ;
 .END
-.PROGRAM state201 () ; Decision making module. Type: shaft; No return
+.PROGRAM state201 () ; Decision making module. Type: shaft; Return
   ;
-  ;CALL log ("State 201: Decision making module. Type: shaft; No return")
-  ;;
-  ;WHILE TRUE DO
-  ;  ;
-  ;  CALL calc.state.flag
-  ;  ;
-  ;  ; Open shelf in not opened
-  ;  IF shelf.closed THEN
-  ;    state = 110
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Send MFINISH
-  ;  IF rout AND cnc.full[1] AND mfinish THEN
-  ;    state = 18
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Pick workpiece from shelf
-  ;  IF rout AND gp.empty[1] AND gp.empty[2] AND n.max.pick THEN
-  ;    state = 111
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Move inside CNC
-  ;  ;
-  ;  IF rout AND (gp.full[1] AND cnc.empty[1] OR gp.empty[2] AND cnc.full[1]) THEN
-  ;    state = 112
-  ;    RETURN
-  ;  END
-  ;  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;  ; Put workpiece to CNC
-  ;  IF rin AND gp.full[1] AND cnc.empty[1] THEN
-  ;    state = 9
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Pick detail from CNC
-  ;  IF rin AND gp.empty[2] AND cnc.wp2[1] THEN
-  ;    state = 12
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Move outside cnc.in
-  ;  IF rin AND (gp.empty[1] AND cnc.full[1] OR gp.full[2] AND cnc.empty[1]) THEN
-  ;    state = 8
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Put detail to stocker
-  ;  IF rout AND gp.full[2] AND gp.empty[1] THEN
-  ;    state = 5
-  ;    RETURN
-  ;  END
-  ;  ;
-  ;  ; Close shelf
-  ;  .ge = gp.empty[1] AND gp.empty[2]
-  ;  .ce = cnc.empty[1]
-  ;  IF rout AND .ge AND .ce AND max.pick
-  ;    state = 3
-  ;    RETURN
-  ;  END
-  ;END
+  CALL log ("State 201: Decision making module. Type: shaft; Return")
+  ;
+  WHILE TRUE DO
+    ;
+    CALL calc.state.flag
+    ;
+    ; Open shelf in not opened
+    IF shelf.closed THEN
+      state = 210
+      RETURN
+    END
+    ;
+    ; Send MFINISH
+    IF rout AND cnc.full AND mfinish THEN
+      state = 216
+      RETURN
+    END
+    ;
+    ; Pick workpiece from shelf
+    IF rout AND gp.prl.empty AND cnc.empty AND n.max.pick THEN
+      state = 211
+      RETURN
+    END
+    ;
+    ; Move inside CNC
+    IF rout AND (gp.prl.wp0 AND cnc.empty OR gp.prl.empty AND cnc.wp2) THEN
+      state = 212
+      RETURN
+    END
+    ;
+    ; Put workpiece to CNC
+    IF rin AND gp.prl.wp0 AND cnc.empty THEN
+      state = 213
+      RETURN
+    END
+    ;
+    ; Pick detail from CNC
+    IF rin AND gp.prl.empty AND cnc.wp2 THEN
+      state = 214
+      RETURN
+    END
+    ;
+    ; Move outside cnc
+    IF rin AND (gp.prl.empty AND cnc.full OR gp.prl.wp2 AND cnc.empty) THEN
+      state = 215
+      RETURN
+    END
+    ;
+    ; Put detail to stocker
+    IF rout AND gp.prl.wp2 THEN
+      state = 217
+      RETURN
+    END
+    ;
+    ; Close shelf
+    .ge = gp.prl.empty
+    .ce = cnc.empty
+    IF rout AND .ge AND .ce AND max.pick
+      state = 218
+      RETURN
+    END
+  END
+  ;
+.END
+.PROGRAM state202 () ; Decision making module. Type: shaft; No return
+  ;
+  CALL log ("State 201: Decision making module. Type: shaft; No return")
+  ;
+  WHILE TRUE DO
+    ;
+    CALL calc.state.flag
+    ;
+    ; Open shelf in not opened
+    IF shelf.closed THEN
+      state = 210
+      RETURN
+    END
+    ;
+    ; Send MFINISH
+    IF rout AND cnc.full AND mfinish THEN
+      state = 216
+      RETURN
+    END
+    ;
+    ; Pick workpiece from shelf
+    IF rout AND gp.prl.empty AND cnc.empty AND n.max.pick THEN
+      state = 211
+      RETURN
+    END
+    ;
+    ; Move inside CNC
+    IF rout AND gp.prl.wp0 AND cnc.empty THEN
+      state = 212
+      RETURN
+    END
+    ;
+    ; Put workpiece to CNC
+    IF rin AND gp.prl.wp0 AND cnc.empty THEN
+      state = 213
+      RETURN
+    END
+    ;
+    ; Move outside cnc
+    IF rin AND gp.prl.empty AND cnc.full  THEN
+      state = 215
+      RETURN
+    END
+    ;
+    ; Close shelf
+    .ge = gp.prl.empty
+    .ce = cnc.empty
+    IF rout AND .ge AND .ce AND max.pick
+      state = 218
+      RETURN
+    END
+  END
   ;
 .END
 .PROGRAM state210 () ; Open shelf with parallel gripper
@@ -2203,9 +2268,9 @@ N_INT200    "s.pr.a.home"
   ;
   CALL log ("State 211: Pick workpiece from shelf")
   ;
-  IF NOT SIG (do.home) THEN
-    HOME
-  END
+  ;IF NOT SIG (do.home) THEN
+  ;  HOME
+  ;END
   ;
   JMOVE #wp.shaft.safe
   ;
@@ -2221,10 +2286,92 @@ N_INT200    "s.pr.a.home"
   CALL log ("State 212: Move inside CNC")
   ;
   HOME
-  CALL cnc.in.shaft
+  CALL cnc.in.shaft(FALSE)
   ;
   state = decision.state
   RETURN
+  ;
+.END
+.PROGRAM state213 () ; Put workpiece to CNC
+  ;
+  CALL log ("State 213: Put workpiece to CNC")
+  ;
+  CALL cnc.put.shaft
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state214 () ; Pick workpiece from CNC
+  ;
+  CALL log ("State 214: Pick workpiece from CNC")
+  ;
+  CALL cnc.pick.shaft
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state215 () ; Move outside CNC
+  ;
+  CALL log ("State 215: Move outside CNC")
+  ;
+  CALL cnc.out.shaft(FALSE)
+  ;
+  state = decision.state
+  RETURN
+  ;
+.END
+.PROGRAM state216 () ; MCODE Exexute
+  ;
+  CALL log ("State 216: MCODE Execute")
+  ;
+  PULSE eo.cnc.mfinish, 1
+  SIGNAL -s.mcode.req
+  ;
+  IF decision.state == 201 THEN
+    cnc.st = 2
+  ELSE
+    cnc.st = -1
+    cnc.id = 0
+  END
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state217 () ; Put workpiece to shelf
+  ;
+  CALL log ("State 217: Put workpiece to shelf")
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  .wp.id = ABS (gripper.prl.id)
+  CALL wp.prl.put (current.shelf, .wp.id)
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state218 () ; ; Close shelf with parallel gripper
+  ;
+  CALL log ("State 218: Close shelf with parallel gripper")
+  CALL shelf.close (current.shelf, type.parallel)
+  ;
+  IF NOT SIG (s.shelf.failed) THEN
+    state = 219
+    RETURN
+  ELSE
+    state = 999
+    RETURN
+  END
+  ;
+.END
+.PROGRAM state219 () ; Finish shelf
+  ;
+  CALL log("State 219: Finish shelf")
+  PULSE eo.shelf.cmplt[current.shelf], 1
+  ;
+  SPEED 100 ALWAYS
+  HOME
+  ;
+  state = 1
   ;
 .END
 .PROGRAM state99 () ; Decide workpiece type
@@ -2904,77 +3051,97 @@ N_INT200    "s.pr.a.home"
 	; gp.dbl.full[1]
 	; gp.dbl.full[2]
 	; current.wp
+	; cnc.id
+	; current.shelf
 	; @@@ CONNECTION @@@
 	; KROSET R01
 	; 127.0.0.1
 	; 9105
 	; @@@ PROGRAM @@@
-	;   Group:Manual:1
-	;     1:pg0:F
-	;     1:a.transport:F
-	;     1:a.home:F
-	;   Group:States:2
-	;     2:state0:F
-	;     2:state1:F
-	;     2:state99:F
-	;     2:state100:F
-	;     2:state101:F
+	;   Group:States.Bushing:1
+	;     1:state100:F
+	;     1:state101:F
 	;       .ge 
 	;       .ce 
-	;     2:state102:F
-	;     2:state110:F
-	;     2:state111:F
+	;     1:state102:F
+	;     1:state110:F
+	;     1:state111:F
 	;       .grip.no 
-	;     2:state112:F
+	;     1:state112:F
 	;       .grip.no 
-	;     2:state113:F
-	;     2:state114:F
-	;     2:state115:F
-	;     2:state116:F
-	;     2:state117:F
-	;     2:state118:F
-	;     2:state119:F
+	;     1:state113:F
+	;       .grip.no 
+	;     1:state114:F
+	;       .grip.no 
+	;     1:state115:F
+	;       .grip.no 
+	;     1:state116:F
+	;     1:state117:F
+	;       .grip.no 
+	;       .wp.id 
+	;     1:state118:F
+	;     1:state119:F
+	;     1:state120:F
+	;   Group:States.Shaft:2
 	;     2:state200:F
 	;     2:state201:F
+	;       .ge 
+	;       .ce 
+	;     2:state202:F
 	;       .ge 
 	;       .ce 
 	;     2:state210:F
 	;     2:state211:F
 	;     2:state212:F
-	;     2:state999:F
-	;   Group:Shelves:3
-	;     3:shelf.open:F
+	;     2:state213:F
+	;     2:state214:F
+	;     2:state215:F
+	;     2:state216:F
+	;     2:state217:F
+	;     2:state218:F
+	;     2:state219:F
+	;   Group:States.Global:3
+	;     3:state999:F
+	;     3:state0:F
+	;     3:state1:F
+	;     3:state99:F
+	;   Group:Manual:4
+	;     4:pg0:F
+	;     4:a.transport:F
+	;     4:a.home:F
+	;   Group:Shelves:5
+	;     5:shelf.open:F
 	;       .shelf.no 
 	;       .gripper.type 
-	;     3:shelf.open.dbl:F
+	;     5:shelf.open.dbl:F
 	;       .shelf.no 
 	;       .#safe 
 	;       .start 
 	;       .end 
-	;     3:shelf.open.par:F
+	;     5:shelf.open.par:F
 	;       .shelf.no 
 	;       .#safe 
 	;       .start 
 	;       .end 
-	;     3:shelf.close:F
+	;     5:shelf.close:F
 	;       .shelf.no 
 	;       .gripper.type 
-	;     3:shelf.close.dbl:F
+	;     5:shelf.close.dbl:F
 	;       .shelf.no 
 	;       .#safe 
 	;       .start 
 	;       .end 
-	;     3:shelf.close.par:F
+	;     5:shelf.close.par:F
 	;       .shelf.no 
 	;       .#safe 
 	;       .start 
 	;       .end 
-	;     3:teach.shelf.dbl:F
-	;     3:teach.shelf.par:F
-	;     3:test.shelf.dbl:F
-	;     3:test.shelf.par:F
-	;   Group:Plates:4
-	;     4:tch.prl.plate:F
+	;     5:teach.shelf.dbl:F
+	;     5:teach.shelf.par:F
+	;     5:test.shelf.dbl:F
+	;     5:test.shelf.par:F
+	;   Group:Plates:6
+	;     6:tch.prl.plate:F
 	;       .p0 
 	;       .px 
 	;       .py 
@@ -2984,7 +3151,7 @@ N_INT200    "s.pr.a.home"
 	;       .cy 
 	;       .y.vec 
 	;       .y.norm 
-	;     4:tst.prl.plate:F
+	;     6:tst.prl.plate:F
 	;       .p0 
 	;       .x.norm 
 	;       .y.norm 
@@ -2994,7 +3161,7 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .dest 
-	;     4:tch.dbl.plate:F
+	;     6:tch.dbl.plate:F
 	;       .tool.no 
 	;       .z.cor 
 	;       .p0 
@@ -3006,7 +3173,7 @@ N_INT200    "s.pr.a.home"
 	;       .cy 
 	;       .y.vec 
 	;       .y.norm 
-	;     4:tst.dbl.plate:F
+	;     6:tst.dbl.plate:F
 	;       .tool.no 
 	;       .z.cor 
 	;       .p0 
@@ -3018,9 +3185,9 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .dest 
-	;   Group:Workpiece.Shaft:5
-	;     5:tst.wp.prl.pick:F
-	;     5:wp.prl.pick:F
+	;   Group:Workpiece.Shaft:7
+	;     7:tst.wp.prl.pick:F
+	;     7:wp.prl.pick:F
 	;       .shelf.no 
 	;       .wp.id 
 	;       .$temp 
@@ -3037,7 +3204,7 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .pick 
-	;     5:wp.prl.put:F
+	;     7:wp.prl.put:F
 	;       .shelf.no 
 	;       .wp.id 
 	;       .$temp 
@@ -3054,10 +3221,10 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .put 
-	;   Group:Workpiece.Bushing:6
-	;     6:tst.wp.dbl.pick:F
+	;   Group:Workpiece.Bushing:8
+	;     8:tst.wp.dbl.pick:F
 	;       .i 
-	;     6:wp.dbl.pick:F
+	;     8:wp.dbl.pick:F
 	;       .grip.no 
 	;       .shelf.no 
 	;       .wp.id 
@@ -3075,7 +3242,7 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .pick 
-	;     6:wp.dbl.put:F
+	;     8:wp.dbl.put:F
 	;       .grip.no 
 	;       .shelf.no 
 	;       .wp.id 
@@ -3093,144 +3260,194 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .put 
-	;   Group:Buffer:7
-	;   Group:CNC.Appro:8
-	;     8:cnc.in.shaft:F
-	;       .$temp 
+	;   Group:Buffer:9
+	;   Group:CNC.Appro:10
+	;     10:cnc.in.shaft:F
 	;       .rot.required 
-	;     8:cnc.out.shaft:F
 	;       .$temp 
+	;     10:cnc.out.shaft:F
 	;       .rot.required 
-	;     8:cnc.in.bush:F
+	;       .$temp 
+	;     10:cnc.in.bush:F
 	;       .grip.no 
 	;       .$temp 
-	;     8:cnc.out.bush:F
+	;     10:cnc.out.bush:F
 	;       .grip.no 
 	;       .$temp 
-	;     8:tch.cnc.prl.app:F
-	;     8:tch.cnc.dbl.app:F
-	;     8:calc.rot.dbl:F
+	;     10:tch.cnc.prl.app:F
+	;     10:tch.cnc.dbl.app:F
+	;     10:calc.rot.dbl:F
 	;       .grip.no 
 	;       .j6 
 	;       .j 
 	;       .$temp 
-	;     8:calc.rot.prl:F
-	;       .grip.no 
+	;     10:calc.rot.prl:F
+	;       .rot.required 
 	;       .j6 
 	;       .j 
 	;       .$temp 
-	;       .rot.required 
-	;   Group:CNC.Bushing:9
-	;     9:tch.cnc.bushing:F
-	;     9:tst.cnc.bushing:F
-	;     9:cnc.put.bush:F
+	;   Group:CNC.Bushing:11
+	;     11:tch.cnc.bushing:F
 	;       .grip.no 
-	;       .wp.state 
-	;     9:cnc.pick.bush:F
+	;       .gc.full 
+	;       .gc.body 
+	;       .cncc.full 
+	;       .cncc.body 
+	;       .temp 
+	;       .zshift 
+	;     11:tst.cnc.bushing:F
+	;     11:cnc.put.bush:F
 	;       .grip.no 
-	;   Group:CNC.Shaft:10
-	;     10:tch.cnc.shaft:F
-	;     10:cnc.put.shaft:F
-	;     10:cnc.pick.shaft:F
-	;     10:tst.cnc.shaft:F
-	;   Group:Debug:11
-	;     11:prep.points:F
+	;       .$temp 
+	;       .c1 
+	;       .dz 
+	;       .c2 
+	;       .z.appro 
+	;       .temp 
+	;       .put 
+	;     11:cnc.pick.bush:F
+	;       .grip.no 
+	;       .$temp 
+	;       .c1 
+	;       .dz 
+	;       .c2 
+	;       .z.appro 
+	;       .temp 
+	;       .put 
+	;   Group:CNC.Shaft:12
+	;     12:tch.cnc.shaft:F
+	;       .gc.len 
+	;       .gc.body 
+	;       .cncc.full 
+	;       .cncc.body 
+	;       .t 
+	;       .temp 
+	;       .zshift 
+	;       .yshift 
+	;       .temp.appro 
+	;     12:cnc.put.shaft:F
+	;       .$temp 
+	;       .gc.len 
+	;       .gc.body 
+	;       .cncc.full 
+	;       .cncc.body 
+	;       .dz 
+	;       .dy 
+	;       .y.appro 
+	;       .temp 
+	;       .put 
+	;       .put.appro 
+	;     12:cnc.pick.shaft:F
+	;       .$temp 
+	;       .gc.len 
+	;       .gc.body 
+	;       .cncc.full 
+	;       .cncc.body 
+	;       .dz 
+	;       .dy 
+	;       .y.appro 
+	;       .temp 
+	;       .pick 
+	;       .pick.appro 
+	;     12:tst.cnc.shaft:F
+	;   Group:Debug:13
+	;     13:prep.points:F
 	;       .t 
 	;       .draw 
 	;       .i 
-	;   Group:Grippers:12
-	;     12:gripper.open:F
+	;   Group:Grippers:14
+	;     14:gripper.open:F
 	;       .gripper.no 
 	;       .open.time 
 	;       .inverse 
-	;     12:grip.open.dbl:F
+	;     14:grip.open.dbl:F
 	;       .gripper.no 
 	;       .open.time 
 	;       .inverse 
-	;     12:grip.open.par:F
+	;     14:grip.open.par:F
 	;       .open.time 
 	;       .inverse 
-	;     12:gripper.close:F
+	;     14:gripper.close:F
 	;       .gripper.no 
 	;       .close.time 
 	;       .inverse 
-	;     12:grip.close.dbl:F
+	;     14:grip.close.dbl:F
 	;       .gripper.no 
 	;       .close.time 
 	;       .inverse 
-	;     12:grip.close.par:F
+	;     14:grip.close.par:F
 	;       .close.time 
-	;     12:grip.test.dbl:F
+	;     14:grip.test.dbl:F
 	;       .i 
-	;     12:grip.test.prl:F
+	;     14:grip.test.prl:F
 	;       .i 
-	;   Group:CNC.Chuck:13
-	;     13:chuck.open:F
-	;       .open.time 
-	;     13:chuck.close:F
-	;       .close.time 
-	;   Group:Auxilary:14
-	;     14:safe.home:F
-	;     14:set.tool:F
+	;   Group:CNC.Chuck:15
+	;     15:chuck.open:F
+	;     15:chuck.close:F
+	;   Group:Auxilary:16
+	;     16:safe.home:F
+	;     16:set.tool:F
 	;       .tool.no 
-	;     14:ciner:F
+	;     16:ciner:F
 	;       .$var.name 
 	;       .var 
 	;       .default 
-	;     14:get.task.data:F
-	;     14:get.from.hmi:F
-	;     14:get.from.plc:F
-	;     14:id.to.ij.shaft:F
+	;     16:get.task.data:F
+	;     16:get.from.hmi:F
+	;     16:get.from.plc:F
+	;     16:id.to.ij.shaft:F
 	;       .id 
 	;       .i 
 	;       .j 
 	;       .P 
 	;       .pair 
 	;       .offset 
-	;     14:id.to.ij.bush:F
+	;     16:id.to.ij.bush:F
 	;       .id 
 	;       .i 
 	;       .j 
 	;       .P 
 	;       .pair 
 	;       .offset 
-	;     14:get.system.data:F
-	;     14:calc.state.flag:F
+	;     16:get.system.data:F
+	;     16:calc.state.flag:F
 	;       .inside.cnc 
 	;       .outside.cnc 
-	;   Group:Log:15
-	;     15:log:F
+	;   Group:Log:17
+	;     17:log:F
 	;       .$msg 
 	;       .i 
 	;       .$tmp 
-	;     15:log.init:F
+	;     17:log.init:F
 	;       .$tmp1 
 	;       .$tmp2 
 	;       .i 
-	;     15:log.pc1:F
+	;     17:log.pc1:F
 	;       .$msg 
 	;       .i 
 	;       .$tmp 
-	;     15:log.clear:F
+	;     17:log.clear:F
 	;       .i 
 	;   0:a.main:F
-	;   Group:Background:16
-	;     16:dummy.pc:B
-	;     16:check.ifp.pc:B
-	;     16:check.speed.pc:B
-	;     16:check.teach.pc:B
-	;   Group:Initialization:17
-	;     17:initialize.pc:B
-	;     17:set.io.pc:B
-	;     17:disp.info.pc:B
+	;     .$pg.string 
+	;   Group:Background:18
+	;     18:dummy.pc:B
+	;     18:check.ifp.pc:B
+	;     18:check.speed.pc:B
+	;       .speed 
+	;     18:check.teach.pc:B
+	;   Group:Initialization:19
+	;     19:initialize.pc:B
+	;     19:set.io.pc:B
+	;     19:disp.info.pc:B
 	;       .$cont.name 
 	;       .$robot.name 
 	;       .robot.sn 
 	;       .cont.sn 
 	;       .$robot.str 
 	;       .$cont.str 
-	;     17:set.switches.pc:B
-	;     17:set.vars.pc:B
+	;     19:set.switches.pc:B
+	;     19:set.vars.pc:B
 	;   0:autostart.pc:B
 	; @@@ TRANS @@@
 	; shelf.open.dbl[] 
@@ -3798,7 +4015,6 @@ cnc.point.bush[1] -1211.796387 77.807739 217.687927 -88.001602 89.139496 -147.00
 cnc.point.bush[2] -1211.793213 77.787697 217.688080 -88.000603 89.139320 -147.002808
 t.gripper[1] 0.000000 -83.300003 168.000000 -90.000008 90.000008 180.000000
 t.gripper[2] 0.000000 83.300003 168.000000 90.000008 90.000008 -180.000000
-cnc.point.bush[1] -1211.796387 77.807739 217.687927 -88.001602 89.139496 -147.002304
 cnc.point.shaft -1214.989502 73.764427 221.902924 -175.757950 139.999207 179.999420
 .END
 .JOINTS
@@ -4062,7 +4278,6 @@ cnc.point.shaft -1214.989502 73.764427 221.902924 -175.757950 139.999207 179.999
 #cnc.point.bush[2] -79.300629 -40.790260 81.094933 -31.238529 -89.680710 -95.182892
 #cnc.out.prl.bas -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
 #cnc.in.prl.base -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
-#cnc.point.bush[1] -79.300629 -40.790264 81.094933 -31.238525 -89.680710 84.817108
 #cnc.point.shaft -95.920425 -22.574184 79.329063 -36.535080 43.017654 9.961427
 .END
 .REALS
@@ -4261,7 +4476,7 @@ gr.dbl.work[2] = 29
 gr.prl.full = 90
 gr.prl.work = 16
 hmi.cond.cx = 1
-hmi.cond.cy = 4
+hmi.cond.cy = 3
 hmi.wp.id = 2
 plt.cell.even = 6
 plt.cell.odd = 6
@@ -4321,7 +4536,6 @@ cnc.prl.rot[1] = 0
 cnc.prl.rot[2] = 180
 s.pr.a.home = 2200
 chg.st = -1
-cnc.dbl.rot[2] = -180
 cnc.id = 0
 current.wp = 1
 decision.state = 101
