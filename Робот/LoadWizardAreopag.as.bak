@@ -111,7 +111,6 @@ N_WX465    "d.plt.dx[0]"
 N_WX481    "d.plt.even.dy[0]"
 N_WX497    "d.cond.stp.cell[0]"
 N_WX501    "d.cond.stp.row[0]"
-N_WX505    "d.cond.stp.oy[0]"
 N_WX513    "d.bush.wp0.len[0]"
 N_WX529    "d.bush.wp2.len[0]"
 N_WX545    "d.shaft.wp0.l1[0]"
@@ -128,6 +127,7 @@ N_WX705    "d.chg.no[0]"
 N_WX721    "d.chg.h.cor[0]"
 N_WX737    "d.bush.wp0.d[0]"
 N_WX753    "d.bush.wp2.d[0]"
+N_WX769    "d.cond.stp.oy[0]"
 N_INT1    "di.ifp.page[1]"
 N_INT2    "di.ifp.page[2]"
 N_INT3    "di.ifp.page[3]"
@@ -580,7 +580,17 @@ N_INT200    "s.pr.a.home"
   ACCURACY 10 ALWAYS
   CALL set.tool (grip.no.par[1])
   CALL chuck.open
-  CALL calc.rot.prl (FALSE)
+  CALL calc.rot.prl (shaft.rotate)
+  ;
+  IF shaft.rotate THEN
+    .shaft.l = shaft.wp2.l1-shaft.wp2.l2
+    .rz = 180
+    .dir = -1
+  ELSE
+    .shaft.l = shaft.wp2.l2
+    .rz = 0
+    .dir = 1
+  END
   ;
   .gc.len = gr.prl.full
   .gc.body = gr.prl.work
@@ -589,14 +599,15 @@ N_INT200    "s.pr.a.home"
   ;
   ; Calculate shifts
   .dz = gr.prl.full - gr.prl.work
-  .dy = shaft.wp0.l2 + cnc.ch.work - cnc.overshoot
+  .dy = .shaft.l + cnc.ch.work - cnc.overshoot
   .y.appro = cnc.ch.full + cnc.overshoot + 10
   ;
   ; Calculate points
   POINT .temp = cnc.point.shaft
-  POINT .pick = .temp + TRANS (0, .dy, -.dz)
+  POINT .temp = .temp + RZ(.rz)
+  POINT .pick = .temp + TRANS (0, .dir*.dy, -.dz)
   POINT .pick.appro[1]= .pick  + TRANS (0, 0, -100)
-  POINT .pick.appro[2]= .pick  + TRANS (0, .y.appro, 0)
+  POINT .pick.appro[2]= .pick  + TRANS (0, .dir*.y.appro, 0)
   ;
   ; Approach
   SPEED 20 ALWAYS
@@ -683,7 +694,17 @@ N_INT200    "s.pr.a.home"
   SPEED 100 ALWAYS
   ACCURACY 10 ALWAYS
   CALL set.tool (grip.no.par[1])
-  CALL calc.rot.prl (FALSE)
+  CALL calc.rot.prl (chg.required)
+  ;
+  IF chg.required THEN
+    .shaft.l = shaft.wp0.l1-shaft.wp0.l2
+    .rz = 180
+    .dir = -1
+  ELSE
+    .shaft.l = shaft.wp0.l2
+    .rz = 0
+    .dir = 1
+  END
   ;
   .gc.len = gr.prl.full
   .gc.body = gr.prl.work
@@ -692,13 +713,14 @@ N_INT200    "s.pr.a.home"
   ;
   ; Calculate shifts
   .dz = gr.prl.full - gr.prl.work
-  .dy = shaft.wp0.l2 + cnc.ch.work - cnc.overshoot
+  .dy = .shaft.l + cnc.ch.work - cnc.overshoot
   .y.appro = cnc.ch.full + cnc.overshoot + 10
   ;
   ; Calculate points
   POINT .temp = cnc.point.shaft
-  POINT .put = .temp + TRANS (0, .dy, -.dz)
-  POINT .put.appro[1] = .put  + TRANS (0, .y.appro, 0)
+  POINT .temp = .temp + RZ(.rz)
+  POINT .put = .temp + TRANS (0, .dir*.dy, -.dz)
+  POINT .put.appro[1] = .put  + TRANS (0, .dir*.y.appro, 0)
   POINT .put.appro[2] = .put  + TRANS (0, 0, -100)
   ;
   ; Approach
@@ -763,9 +785,9 @@ N_INT200    "s.pr.a.home"
   ;
   wp.type.shaft = TRUE
   ;
-  chg.required = FALSE
-  shaft.return = TRUE
-  shaft.rotate = FALSE
+  chg.required = TRUE;FALSE;
+  shaft.return = TRUE;FALSE;TRUE;
+  shaft.rotate = TRUE
   gr.dbl.inv[1] = FALSE
   gr.dbl.inv[2] = FALSE
   ;
@@ -823,46 +845,46 @@ N_INT200    "s.pr.a.home"
   gr.dbl.inv[1] = SIG (d.gr.dbl.inv[1])
   gr.dbl.inv[1] = SIG (d.gr.dbl.inv[1])
   ;
-  gr.dbl.full[1] = BITS (d.gr.dbl.full[1, 0], 16)
-  gr.dbl.work[1] = BITS (d.gr.dbl.work[1, 0], 16)
-  gr.dbl.full[2] = BITS (d.gr.dbl.full[2, 0], 16)
-  gr.dbl.work[2] = BITS (d.gr.dbl.work[2, 0], 16)
+  gr.dbl.full[1] = BITS (d.gr.dbl.full[1, 0], 16)/10
+  gr.dbl.work[1] = BITS (d.gr.dbl.work[1, 0], 16)/10
+  gr.dbl.full[2] = BITS (d.gr.dbl.full[2, 0], 16)/10
+  gr.dbl.work[2] = BITS (d.gr.dbl.work[2, 0], 16)/10
   ;
-  gr.prl.full = BITS (d.gr.prl.full[0], 16)
-  gr.prl.work = BITS (d.gr.prl.work[0], 16)
+  gr.prl.full = BITS (d.gr.prl.full[0], 16)/10
+  gr.prl.work = BITS (d.gr.prl.work[0], 16)/10
   ;
-  cnc.ch.full = BITS (d.cnc.ch.full[0], 16)
-  cnc.ch.work = BITS (d.cnc.ch.work[0], 16)
+  cnc.ch.full = BITS (d.cnc.ch.full[0], 16)/10
+  cnc.ch.work = BITS (d.cnc.ch.work[0], 16)/10
   ;
   plt.rows = BITS (d.plt.rows[0], 4)
   plt.cell.odd = BITS (d.plt.cell.odd[0], 4)
   plt.cell.even = BITS (d.plt.cell.even[0], 4)
-  plt.dy = BITS (d.plt.dy[0], 16)
-  plt.dx = BITS (d.plt.dx[0], 16)
-  plt.even.dy = BITS (d.plt.even.dy[0], 16)
+  plt.dy = BITS (d.plt.dy[0], 16)/10
+  plt.dx = BITS (d.plt.dx[0], 16)/10
+  plt.even.dy = BITS (d.plt.even.dy[0], 16)/10
   ;
   cond.stp.cell = BITS (d.cond.stp.cell[0], 4)
   cond.stp.row = BITS (d.cond.stp.row[0], 4)
-  cond.stp.oy = BITS (d.cond.stp.oy[0], 4)
+  cond.stp.oy = BITS (d.cond.stp.oy[0], 16)/10
   ;
-  bush.wp0.len = BITS (d.bush.wp0.len[0], 16)
-  bush.wp0.d = BITS (d.bush.wp0.d[0], 16)
-  bush.wp2.len = BITS (d.bush.wp2.len[0], 16)
-  bush.wp2.d = BITS (d.bush.wp2.d[0], 16)
+  bush.wp0.len = BITS (d.bush.wp0.len[0], 16)/10
+  bush.wp0.d = BITS (d.bush.wp0.d[0], 16)/10
+  bush.wp2.len = BITS (d.bush.wp2.len[0], 16)/10
+  bush.wp2.d = BITS (d.bush.wp2.d[0], 16)/10
   ;
-  shaft.wp0.l1 = BITS (d.shaft.wp0.l1[0], 16)
-  shaft.wp0.l2 = BITS (d.shaft.wp0.l2[0], 16)
-  shaft.wp0.l3 = BITS (d.shaft.wp0.l3[0], 16)
-  shaft.wp0.h = BITS (d.shaft.wp0.h[0], 16)
-  shaft.wp0.d = BITS (d.shaft.wp0.d[0], 16)
-  shaft.wp2.l1 = BITS (d.shaft.wp2.l1[0], 16)
-  shaft.wp2.l2 = BITS (d.shaft.wp2.l2[0], 16)
-  shaft.wp2.l3 = BITS (d.shaft.wp2.l3[0], 16)
-  shaft.wp2.h = BITS (d.shaft.wp2.h[0], 16)
-  shaft.wp2.d = BITS (d.shaft.wp2.d[0], 16)
+  shaft.wp0.l1 = BITS (d.shaft.wp0.l1[0], 16)/10
+  shaft.wp0.l2 = BITS (d.shaft.wp0.l2[0], 16)/10
+  shaft.wp0.l3 = BITS (d.shaft.wp0.l3[0], 16)/10
+  shaft.wp0.h = BITS (d.shaft.wp0.h[0], 16)/10
+  shaft.wp0.d = BITS (d.shaft.wp0.d[0], 16)/10
+  shaft.wp2.l1 = BITS (d.shaft.wp2.l1[0], 16)/10
+  shaft.wp2.l2 = BITS (d.shaft.wp2.l2[0], 16)/10
+  shaft.wp2.l3 = BITS (d.shaft.wp2.l3[0], 16)/10
+  shaft.wp2.h = BITS (d.shaft.wp2.h[0], 16)/10
+  shaft.wp2.d = BITS (d.shaft.wp2.d[0], 16)/10
   ;
   chg.no = BITS (d.chg.no[0], 4)
-  chg.h.cor = BITS (d.chg.h.cor[0], 8)
+  chg.h.cor = BITS (d.chg.h.cor[0], 8)/10
   ;
 .END
 .PROGRAM get.system.data ()
@@ -1321,7 +1343,7 @@ N_INT200    "s.pr.a.home"
   ;
   d.cond.stp.cell[0] = 1497 ; 4 bit
   d.cond.stp.row[0] = 1501 ; 4 bit
-  d.cond.stp.oy[0] = 1505 ; 4 bit
+  d.cond.stp.oy[0] = 1769 ; 16 bit
   ;
   d.bush.wp0.len[0] = 1513 ; 16 bit
   d.bush.wp0.d[0] = 1737 ; 16 bit
@@ -2286,7 +2308,28 @@ N_INT200    "s.pr.a.home"
   CALL log ("State 212: Move inside CNC")
   ;
   HOME
-  CALL cnc.in.shaft(FALSE)
+  IF chg.required THEN
+    IF shaft.rotate THEN
+      CALL cnc.in.shaft (TRUE)
+    ELSE
+      IF gp.prl.full THEN
+        CALL cnc.in.shaft (TRUE)
+      ELSE
+        CALL cnc.in.shaft (FALSE)
+      END
+    END
+  ELSE
+    IF shaft.rotate THEN
+      IF gp.prl.full THEN
+        CALL cnc.in.shaft (FALSE)
+      ELSE
+        CALL cnc.in.shaft (TRUE)
+      END
+    ELSE
+      CALL cnc.in.shaft (FALSE)
+    END
+  END
+  ;CALL cnc.in.shaft (chg.required OR shaft.rotate)
   ;
   state = decision.state
   RETURN
@@ -2314,7 +2357,28 @@ N_INT200    "s.pr.a.home"
   ;
   CALL log ("State 215: Move outside CNC")
   ;
-  CALL cnc.out.shaft(FALSE)
+  IF chg.required THEN
+    IF shaft.rotate THEN
+      CALL cnc.out.shaft (TRUE)
+    ELSE
+      IF gp.prl.full THEN
+        CALL cnc.out.shaft (FALSE)
+      ELSE
+        CALL cnc.out.shaft (TRUE)
+      END
+    END
+  ELSE
+    IF shaft.rotate THEN
+      IF gp.prl.full THEN
+        CALL cnc.out.shaft (TRUE)
+      ELSE
+        CALL cnc.out.shaft (FALSE)
+      END
+    ELSE
+      CALL cnc.out.shaft (FALSE)
+    END
+  END
+  ;CALL cnc.out.shaft(shaft.rotate)
   ;
   state = decision.state
   RETURN
@@ -2813,15 +2877,30 @@ N_INT200    "s.pr.a.home"
   ;
   CALL get.task.data
   FOR .i = 1 TO 10
-    CALL wp.dbl.pick (1, 1, .i)
-    CALL wp.dbl.pick (2, 1, .i)
+    CALL wp.dbl.pick (1, hmi.shelf.no, .i)
+    CALL wp.dbl.pick (2, hmi.shelf.no, .i)
+  END
+  ;
+.END
+.PROGRAM tst.wp.dbl.put ()
+  ;
+  CALL get.task.data
+  FOR .i = 1 TO 10
+    CALL wp.dbl.put (1, hmi.shelf.no, .i)
+    CALL wp.dbl.put (2, hmi.shelf.no, .i)
   END
   ;
 .END
 .PROGRAM tst.wp.prl.pick ()
   ;
   CALL get.task.data
-  CALL wp.prl.pick(1, hmi.wp.id)
+  CALL wp.prl.pick(hmi.shelf.no, hmi.wp.id)
+  ;
+.END
+.PROGRAM tst.wp.prl.put ()
+  ;
+  CALL get.task.data
+  CALL wp.prl.put(hmi.shelf.no, hmi.wp.id)
   ;
 .END
 .PROGRAM wp.dbl.pick (.grip.no,.shelf.no,.wp.id)
@@ -3005,14 +3084,16 @@ N_INT200    "s.pr.a.home"
   POINT .put = .origin + .x.vec + .y.vec
   POINT/OAT .put = .p0
   POINT .put = .put + TRANS (0, 0, -.dz)
+  POINT .put.appro = .put + TRANS (0, 5, 0)
   ;
   JMOVE #wp.shaft.safe
   ;
   ; Pick workpiece
   ACCURACY 0.1
-  LAPPRO .put, .z.appro
+  LAPPRO .put.appro, .z.appro
   SPEED 30 MM/S
   ACCURACY 0.1
+  LMOVE .put.appro
   LMOVE .put
   BREAK
   CALL gripper.open(grip.no.par[1], gp.par.op.tmr, FALSE)
@@ -3221,6 +3302,7 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .put 
+	;     7:tst.wp.prl.put:F
 	;   Group:Workpiece.Bushing:8
 	;     8:tst.wp.dbl.pick:F
 	;       .i 
@@ -3260,6 +3342,8 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .put 
+	;     8:tst.wp.dbl.put:F
+	;       .i 
 	;   Group:Buffer:9
 	;   Group:CNC.Appro:10
 	;     10:cnc.in.shaft:F
@@ -3599,7 +3683,14 @@ N_INT200    "s.pr.a.home"
 	; shelf.closed 
 	; shelf.opened 
 	; state 
+	; cnc.empty 
+	; cnc.full 
+	; cnc.wp0 
+	; cnc.wp1 
+	; cnc.wp2 
 	; @@@ STRINGS @@@
+	; $log.entry[] 
+	; $safe.flag 
 	; @@@ INTEGER @@@
 	; @@@ SIGNALS @@@
 	; di.ifp.page[] Interface panel change screen
@@ -3775,7 +3866,7 @@ x.norm.bush[1,1,2] 0.001818 -0.999998 0.000182 0.000000 0.000000 0.000000
 y.norm.bush[1,1,1] -1.000000 0.000036 -0.000012 0.000000 0.000000 0.000000
 y.norm.bush[1,1,2] -0.999999 0.001286 0.000053 0.000000 0.000000 0.000000
 origin.shaft[2,1] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
-origin.shaft[3,1] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774227
+origin.shaft[3,1] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
 origin.shaft[4,1] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 x.norm.shaft[2,1] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
 x.norm.shaft[3,1] 0.000423 -0.999999 0.001042 0.000000 0.000000 0.000000
@@ -3823,37 +3914,37 @@ origin.shaft[2,19] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.0
 origin.shaft[2,20] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
 origin.shaft[3,2] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
 origin.shaft[3,3] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
-origin.shaft[3,4] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
+origin.shaft[3,4] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
 origin.shaft[3,5] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
-origin.shaft[3,6] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
+origin.shaft[3,6] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
 origin.shaft[3,7] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,8] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,9] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
 origin.shaft[3,10] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
-origin.shaft[3,11] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
-origin.shaft[3,12] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774227
+origin.shaft[3,11] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
+origin.shaft[3,12] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
 origin.shaft[3,13] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,14] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
-origin.shaft[3,15] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
-origin.shaft[3,16] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
-origin.shaft[3,17] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
-origin.shaft[3,18] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774227
-origin.shaft[3,19] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
-origin.shaft[3,20] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
-origin.shaft[4,2] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[3,15] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
+origin.shaft[3,16] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
+origin.shaft[3,17] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
+origin.shaft[3,18] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
+origin.shaft[3,19] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
+origin.shaft[3,20] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
+origin.shaft[4,2] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
 origin.shaft[4,3] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
-origin.shaft[4,4] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,4] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
 origin.shaft[4,5] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
-origin.shaft[4,6] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,6] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
 origin.shaft[4,7] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
 origin.shaft[4,8] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,9] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,10] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,11] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.804264
 origin.shaft[4,12] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
-origin.shaft[4,13] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,13] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
 origin.shaft[4,14] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
-origin.shaft[4,15] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,15] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
 origin.shaft[4,16] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
 origin.shaft[4,17] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.804264
 origin.shaft[4,18] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
@@ -4015,7 +4106,7 @@ cnc.point.bush[1] -1211.796387 77.807739 217.687927 -88.001602 89.139496 -147.00
 cnc.point.bush[2] -1211.793213 77.787697 217.688080 -88.000603 89.139320 -147.002808
 t.gripper[1] 0.000000 -83.300003 168.000000 -90.000008 90.000008 180.000000
 t.gripper[2] 0.000000 83.300003 168.000000 90.000008 90.000008 -180.000000
-cnc.point.shaft -1214.989502 73.764427 221.902924 -175.757950 139.999207 179.999420
+cnc.point.shaft -1215.178101 76.215500 221.886932 -175.757202 139.999161 179.996948
 .END
 .JOINTS
 #transport 0.000000 50.000000 -145.000000 0.000000 -120.000008 0.000000
@@ -4272,13 +4363,13 @@ cnc.point.shaft -1214.989502 73.764427 221.902924 -175.757950 139.999207 179.999
 #py.shaft[4,20] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
 #cnc.out.dbl.bas -83.999832 15.999801 105.999863 -28.999689 -83.999413 89.999817
 #cnc.in.dbl.base -78.791817 -28.265640 78.376556 -32.441929 -76.954422 93.294899
-#cnc.in -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
-#cnc.out -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
+#cnc.in -93.767632 -20.610117 55.763763 -28.840342 71.790169 171.227310
+#cnc.out -103.499687 31.399897 102.499741 -42.798779 35.998764 182.999634
 #cnc.point.bush[1] -79.300629 -40.790264 81.094933 -31.238525 -89.680710 84.817108
 #cnc.point.bush[2] -79.300629 -40.790260 81.094933 -31.238529 -89.680710 -95.182892
 #cnc.out.prl.bas -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
 #cnc.in.prl.base -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
-#cnc.point.shaft -95.920425 -22.574184 79.329063 -36.535080 43.017654 9.961427
+#cnc.point.shaft -95.799278 -22.551189 79.266823 -36.402802 43.015594 9.743857
 .END
 .REALS
 di.ifp.page[1] = 2001
@@ -4289,7 +4380,7 @@ di.ifp.page[5] = 2005
 di.ifp.page[6] = 2006
 di.ifp.page[7] = 2007
 di.ifp.page[8] = 2008
-current.tool = 4
+current.tool = 3
 type.parallel = 1
 type.double = 0
 grip.no.dbl[1] = 1
@@ -4337,7 +4428,7 @@ hmi.prl.ch.full = 90
 hmi.prl.ch.work = 16
 hmi.shaft.full = 130
 hmi.shaft.h = 78
-hmi.shaft.pick = 65
+hmi.shaft.pick = 30
 s.hmi.tool[1] = 2101
 s.hmi.tool[2] = 2102
 hmi.bush.length = 50
@@ -4357,7 +4448,7 @@ d.chg.required = 1289
 bush.wp0.d = 0
 bush.wp0.len = 50
 d.cond.stp.cell[0] = 1497
-d.cond.stp.oy[0] = 1505
+d.cond.stp.oy[0] = 1769
 d.cond.stp.row[0] = 1501
 d.gr.dbl.full[1,0] = 1337
 d.gr.dbl.inv[1] = 1297
@@ -4462,10 +4553,10 @@ bush.wp2.d = 0
 bush.wp2.len = 50
 chg.h.cor = 0
 chg.no = 1
-chg.required = 0
+chg.required = -1
 cnc.ch.full = 39
 cnc.ch.work = 0
-cond.stp.cell = 4
+cond.stp.cell = 3
 cond.stp.oy = 28
 cond.stp.row = 1
 gr.dbl.full[1] = 40
@@ -4484,17 +4575,17 @@ plt.dx = 110
 plt.dy = 104
 plt.even.dy = 0
 plt.rows = 4
-shaft.return = 0
-shaft.rotate = 0
+shaft.return = -1
+shaft.rotate = -1
 shaft.wp0.d = 0
 shaft.wp0.h = 78
 shaft.wp0.l1 = 130
-shaft.wp0.l2 = 65
+shaft.wp0.l2 = 30
 shaft.wp0.l3 = 12.5
 shaft.wp2.d = 0
 shaft.wp2.h = 78
 shaft.wp2.l1 = 130
-shaft.wp2.l2 = 65
+shaft.wp2.l2 = 30
 shaft.wp2.l3 = 12.5
 d.task.id[0] = 1273
 task.id = 1
@@ -4522,7 +4613,7 @@ gripper.dbl.id[1] = 0
 gripper.dbl.id[2] = 0
 gripper.dbl.st[1] = -1
 gripper.dbl.st[2] = -1
-hmi.wp.count = 10
+hmi.wp.count = 4
 s.inside.cnc = 2011
 s.mcode.req = 2012
 shelf.overshoot = 5
@@ -4530,16 +4621,16 @@ chg.id = 0
 cnc.first = 0
 cnc.st = -1
 gr.dbl.inv[2] = 0
-wp.count = 10
-wp.type.shaft = 0
+wp.count = 4
+wp.type.shaft = -1
 cnc.prl.rot[1] = 0
 cnc.prl.rot[2] = 180
 s.pr.a.home = 2200
 chg.st = -1
 cnc.id = 0
-current.wp = 1
-decision.state = 101
-decision.type = 100
+current.wp = 2
+decision.state = 201
+decision.type = 200
 gp.dbl.empty[1] = -1
 gp.dbl.empty[2] = -1
 gp.dbl.full[1] = 0
@@ -4555,8 +4646,8 @@ gp.prl.full = 0
 gp.prl.wp0 = 0
 gp.prl.wp1 = 0
 gp.prl.wp2 = 0
-gripper.prl.id = 0
-gripper.prl.st = -1
+gripper.prl.id = 2
+gripper.prl.st = 0
 max.pick = 0
 mfinish = 0
 n.max.pick = -1
@@ -4565,5 +4656,269 @@ rin = 0
 rout = -1
 shelf.closed = 0
 shelf.opened = -1
-state = 101
+state = 211
+cnc.empty = -1
+cnc.full = 0
+cnc.wp0 = 0
+cnc.wp1 = 0
+cnc.wp2 = 0
+.END
+.STRINGS
+$log.entry[1] = "02:43:19 Calculated JT6 degree: -8.77269"
+$log.entry[2] = "02:44:03 Main program executed"
+$log.entry[3] = "02:44:03 State 0: Initialization"
+$log.entry[4] = "02:44:25 Waiting for task start"
+$log.entry[5] = "02:44:25 Task start command received"
+$log.entry[6] = "02:44:25 State 1: Check ready shelves"
+$log.entry[7] = "02:44:26 Shelf 1 is ready. Request data!"
+$log.entry[8] = "02:44:26 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[9] = "02:44:27 State 99: Decide workpiece type"
+$log.entry[10] = "02:44:27 Work with shaft detail type"
+$log.entry[11] = "02:44:27 State 200: Select decision state for shaft type"
+$log.entry[12] = "02:44:27 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[13] = "02:44:27 State 210: Open shelf with parallel gripper"
+$log.entry[14] = "02:44:27 Opening shelf 1 with parallel gripper"
+$log.entry[15] = "02:44:27 Command close parallel gripper"
+$log.entry[16] = "02:44:27 Parallel gripper, pin set"
+$log.entry[17] = "02:44:33 Request shelf 1 unlock"
+$log.entry[18] = "02:44:33 Shelf 1 successfully unlocked"
+$log.entry[19] = "02:44:47 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[20] = "02:44:47 State 211: Pick workpiece from shelf"
+$log.entry[21] = "02:44:47 Pick shaft workpiece with id: 1"
+$log.entry[22] = "02:44:53 Parallel gripper set"
+$log.entry[23] = "02:44:53 Command open parallel gripper"
+$log.entry[24] = "02:44:54 ID: 1 --> i: 0 j: 0"
+$log.entry[25] = "02:44:56 Command close parallel gripper"
+$log.entry[26] = "02:44:57 Shaft picked"
+$log.entry[27] = "02:44:59 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[28] = "02:44:59 State 212: Move inside CNC"
+$log.entry[29] = "02:44:59 Move inside CNC with parallel tool"
+$log.entry[30] = "02:45:00 Parallel gripper set"
+$log.entry[31] = "02:45:00 Calculated JT6 degree: -8.77269"
+$log.entry[32] = "02:45:01 Waiting for CNC ready"
+$log.entry[33] = "02:45:01 CNC ready signal received"
+$log.entry[34] = "02:45:03 Robot inside CNC"
+$log.entry[35] = "02:45:03 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[36] = "02:45:03 State 213: Put workpiece to CNC"
+$log.entry[37] = "02:45:03 Put shaft workpiece in CNC"
+$log.entry[38] = "02:45:03 Parallel gripper set"
+$log.entry[39] = "02:45:03 Calculated JT6 degree: -8.77269"
+$log.entry[40] = "02:45:07 Robot open chuck first"
+$log.entry[41] = "02:45:07 Command open parallel gripper"
+$log.entry[42] = "02:45:08 Send CNC close chuck command"
+$log.entry[43] = "02:45:08 Command close parallel gripper"
+$log.entry[44] = "02:45:08 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[45] = "02:45:09 State 215: Move outside CNC"
+$log.entry[46] = "02:45:09 Move outside CNC with parallel tool"
+$log.entry[47] = "02:45:10 Parallel gripper set"
+$log.entry[48] = "02:45:10 Calculated JT6 degree: -8.77269"
+$log.entry[49] = "02:46:43 Main program executed"
+$log.entry[50] = "02:46:43 State 0: Initialization"
+$log.entry[51] = "02:47:12 Waiting for task start"
+$log.entry[52] = "02:47:12 Task start command received"
+$log.entry[53] = "02:47:12 State 1: Check ready shelves"
+$log.entry[54] = "02:47:22 Shelf 1 is ready. Request data!"
+$log.entry[55] = "02:47:22 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[56] = "02:47:22 State 99: Decide workpiece type"
+$log.entry[57] = "02:47:22 Work with shaft detail type"
+$log.entry[58] = "02:47:22 State 200: Select decision state for shaft type"
+$log.entry[59] = "02:47:22 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[60] = "02:47:23 State 210: Open shelf with parallel gripper"
+$log.entry[61] = "02:47:23 Opening shelf 1 with parallel gripper"
+$log.entry[62] = "02:47:23 Command close parallel gripper"
+$log.entry[63] = "02:47:23 Parallel gripper, pin set"
+$log.entry[64] = "02:47:29 Request shelf 1 unlock"
+$log.entry[65] = "02:47:29 Shelf 1 successfully unlocked"
+$log.entry[66] = "02:47:42 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[67] = "02:47:42 State 211: Pick workpiece from shelf"
+$log.entry[68] = "02:47:42 Pick shaft workpiece with id: 1"
+$log.entry[69] = "02:47:48 Parallel gripper set"
+$log.entry[70] = "02:47:48 Command open parallel gripper"
+$log.entry[71] = "02:47:49 ID: 1 --> i: 0 j: 0"
+$log.entry[72] = "02:47:52 Command close parallel gripper"
+$log.entry[73] = "02:47:53 Shaft picked"
+$log.entry[74] = "02:47:54 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[75] = "02:47:54 State 212: Move inside CNC"
+$log.entry[76] = "02:47:54 Move inside CNC with parallel tool"
+$log.entry[77] = "02:47:55 Parallel gripper set"
+$log.entry[78] = "02:47:55 Calculated JT6 degree: 171.22731"
+$log.entry[79] = "02:47:55 Waiting for CNC ready"
+$log.entry[80] = "02:47:56 CNC ready signal received"
+$log.entry[81] = "02:47:58 Robot inside CNC"
+$log.entry[82] = "02:47:58 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[83] = "02:47:58 State 213: Put workpiece to CNC"
+$log.entry[84] = "02:47:58 Put shaft workpiece in CNC"
+$log.entry[85] = "02:47:59 Parallel gripper set"
+$log.entry[86] = "02:47:59 Calculated JT6 degree: 171.22731"
+$log.entry[87] = "02:48:02 Robot open chuck first"
+$log.entry[88] = "02:48:02 Command open parallel gripper"
+$log.entry[89] = "02:48:03 Send CNC close chuck command"
+$log.entry[90] = "02:48:04 Command close parallel gripper"
+$log.entry[91] = "02:48:04 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[92] = "02:48:04 State 215: Move outside CNC"
+$log.entry[93] = "02:48:04 Move outside CNC with parallel tool"
+$log.entry[94] = "02:48:04 Parallel gripper set"
+$log.entry[95] = "02:48:05 Calculated JT6 degree: -8.77269"
+$log.entry[96] = "02:59:23 Main program executed"
+$log.entry[97] = "02:59:23 State 0: Initialization"
+$log.entry[98] = "02:59:36 Waiting for task start"
+$log.entry[99] = "02:59:36 Task start command received"
+$log.entry[100] = "02:59:36 State 1: Check ready shelves"
+$log.entry[101] = "02:59:39 Shelf 1 is ready. Request data!"
+$log.entry[102] = "02:59:39 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[103] = "02:59:39 State 99: Decide workpiece type"
+$log.entry[104] = "02:59:39 Work with shaft detail type"
+$log.entry[105] = "02:59:39 State 200: Select decision state for shaft type"
+$log.entry[106] = "02:59:39 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[107] = "02:59:39 State 210: Open shelf with parallel gripper"
+$log.entry[108] = "02:59:39 Opening shelf 1 with parallel gripper"
+$log.entry[109] = "02:59:40 Command close parallel gripper"
+$log.entry[110] = "02:59:40 Parallel gripper, pin set"
+$log.entry[111] = "02:59:45 Request shelf 1 unlock"
+$log.entry[112] = "02:59:45 Shelf 1 successfully unlocked"
+$log.entry[113] = "02:59:57 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[114] = "02:59:57 State 211: Pick workpiece from shelf"
+$log.entry[115] = "02:59:57 Pick shaft workpiece with id: 1"
+$log.entry[116] = "03:00:03 Parallel gripper set"
+$log.entry[117] = "03:00:03 Command open parallel gripper"
+$log.entry[118] = "03:00:03 ID: 1 --> i: 0 j: 0"
+$log.entry[119] = "03:00:06 Command close parallel gripper"
+$log.entry[120] = "03:00:07 Shaft picked"
+$log.entry[121] = "03:00:08 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[122] = "03:00:08 State 212: Move inside CNC"
+$log.entry[123] = "03:00:08 Move inside CNC with parallel tool"
+$log.entry[124] = "03:00:09 Parallel gripper set"
+$log.entry[125] = "03:00:09 Calculated JT6 degree: 171.22731"
+$log.entry[126] = "03:00:09 Waiting for CNC ready"
+$log.entry[127] = "03:00:10 CNC ready signal received"
+$log.entry[128] = "03:00:11 Robot inside CNC"
+$log.entry[129] = "03:00:12 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[130] = "03:00:12 State 213: Put workpiece to CNC"
+$log.entry[131] = "03:00:12 Put shaft workpiece in CNC"
+$log.entry[132] = "03:00:12 Parallel gripper set"
+$log.entry[133] = "03:00:12 Calculated JT6 degree: 171.22731"
+$log.entry[134] = "03:00:39 Robot open chuck first"
+$log.entry[135] = "03:00:39 Command open parallel gripper"
+$log.entry[136] = "03:00:40 Send CNC close chuck command"
+$log.entry[137] = "03:00:40 Command close parallel gripper"
+$log.entry[138] = "03:00:41 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[139] = "03:00:41 State 215: Move outside CNC"
+$log.entry[140] = "03:00:41 Move outside CNC with parallel tool"
+$log.entry[141] = "03:00:41 Parallel gripper set"
+$log.entry[142] = "03:00:41 Calculated JT6 degree: 171.22731"
+$log.entry[143] = "03:00:43 Robot outside CNC"
+$log.entry[144] = "03:00:43 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[145] = "03:00:43 State 216: MCODE Execute"
+$log.entry[146] = "03:00:43 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[147] = "03:00:43 State 211: Pick workpiece from shelf"
+$log.entry[148] = "03:00:45 Pick shaft workpiece with id: 2"
+$log.entry[149] = "03:00:46 Parallel gripper set"
+$log.entry[150] = "03:00:46 Command open parallel gripper"
+$log.entry[151] = "03:00:46 ID: 2 --> i: 0 j: 3"
+$log.entry[152] = "03:00:50 Command close parallel gripper"
+$log.entry[153] = "03:00:51 Shaft picked"
+$log.entry[154] = "03:00:52 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[155] = "03:00:52 State 212: Move inside CNC"
+$log.entry[156] = "03:00:52 Move inside CNC with parallel tool"
+$log.entry[157] = "03:00:53 Parallel gripper set"
+$log.entry[158] = "03:00:53 Calculated JT6 degree: 171.22731"
+$log.entry[159] = "03:00:53 Waiting for CNC ready"
+$log.entry[160] = "03:00:53 CNC ready signal received"
+$log.entry[161] = "03:00:55 Robot inside CNC"
+$log.entry[162] = "03:00:55 State 201: Decision making module. Type: shaft; No retu"
+$log.entry[163] = "03:00:55 State 213: Put workpiece to CNC"
+$log.entry[164] = "03:00:55 Put shaft workpiece in CNC"
+$log.entry[165] = "03:00:55 Parallel gripper set"
+$log.entry[166] = "03:00:55 Calculated JT6 degree: 171.22731"
+$log.entry[167] = "03:00:57 Robot open chuck first"
+$log.entry[168] = "03:00:57 Command open parallel gripper"
+$log.entry[169] = "03:00:59 Send CNC close chuck command"
+$log.entry[170] = "03:01:40 Main program executed"
+$log.entry[171] = "03:01:40 State 0: Initialization"
+$log.entry[172] = "03:01:54 Waiting for task start"
+$log.entry[173] = "03:01:55 Task start command received"
+$log.entry[174] = "03:01:55 State 1: Check ready shelves"
+$log.entry[175] = "03:01:55 Shelf 1 is ready. Request data!"
+$log.entry[176] = "03:01:55 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[177] = "03:01:56 State 99: Decide workpiece type"
+$log.entry[178] = "03:01:56 Work with shaft detail type"
+$log.entry[179] = "03:01:56 State 200: Select decision state for shaft type"
+$log.entry[180] = "03:01:56 State 201: Decision making module. Type: shaft; Return"
+$log.entry[181] = "03:01:56 State 210: Open shelf with parallel gripper"
+$log.entry[182] = "03:01:56 Opening shelf 1 with parallel gripper"
+$log.entry[183] = "03:01:56 Command close parallel gripper"
+$log.entry[184] = "03:01:57 Parallel gripper, pin set"
+$log.entry[185] = "03:02:02 Request shelf 1 unlock"
+$log.entry[186] = "03:02:02 Shelf 1 successfully unlocked"
+$log.entry[187] = "03:02:12 State 201: Decision making module. Type: shaft; Return"
+$log.entry[188] = "03:02:12 State 211: Pick workpiece from shelf"
+$log.entry[189] = "03:02:12 Pick shaft workpiece with id: 1"
+$log.entry[190] = "03:02:16 Parallel gripper set"
+$log.entry[191] = "03:02:17 Command open parallel gripper"
+$log.entry[192] = "03:02:17 ID: 1 --> i: 0 j: 0"
+$log.entry[193] = "03:02:19 Command close parallel gripper"
+$log.entry[194] = "03:02:20 Shaft picked"
+$log.entry[195] = "03:02:21 State 201: Decision making module. Type: shaft; Return"
+$log.entry[196] = "03:02:21 State 212: Move inside CNC"
+$log.entry[197] = "03:02:22 Move inside CNC with parallel tool"
+$log.entry[198] = "03:02:23 Parallel gripper set"
+$log.entry[199] = "03:02:23 Calculated JT6 degree: 171.22731"
+$log.entry[200] = "03:02:23 Waiting for CNC ready"
+$log.entry[201] = "03:02:23 CNC ready signal received"
+$log.entry[202] = "03:02:24 Robot inside CNC"
+$log.entry[203] = "03:02:24 State 201: Decision making module. Type: shaft; Return"
+$log.entry[204] = "03:02:24 State 213: Put workpiece to CNC"
+$log.entry[205] = "03:02:24 Put shaft workpiece in CNC"
+$log.entry[206] = "03:02:25 Parallel gripper set"
+$log.entry[207] = "03:02:25 Calculated JT6 degree: 171.22731"
+$log.entry[208] = "03:02:27 Robot open chuck first"
+$log.entry[209] = "03:02:27 Command open parallel gripper"
+$log.entry[210] = "03:02:28 Send CNC close chuck command"
+$log.entry[211] = "03:02:29 Command close parallel gripper"
+$log.entry[212] = "03:02:29 State 201: Decision making module. Type: shaft; Return"
+$log.entry[213] = "03:02:29 State 215: Move outside CNC"
+$log.entry[214] = "03:02:29 Move outside CNC with parallel tool"
+$log.entry[215] = "03:02:30 Parallel gripper set"
+$log.entry[216] = "03:02:30 Calculated JT6 degree: 171.22731"
+$log.entry[217] = "03:02:31 Robot outside CNC"
+$log.entry[218] = "03:02:31 State 201: Decision making module. Type: shaft; Return"
+$log.entry[219] = "03:02:32 State 216: MCODE Execute"
+$log.entry[220] = "03:02:32 State 201: Decision making module. Type: shaft; Return"
+$log.entry[221] = "03:02:32 State 212: Move inside CNC"
+$log.entry[222] = "03:02:33 Move inside CNC with parallel tool"
+$log.entry[223] = "03:02:34 Parallel gripper set"
+$log.entry[224] = "03:02:34 Calculated JT6 degree: 171.22731"
+$log.entry[225] = "03:02:34 Waiting for CNC ready"
+$log.entry[226] = "03:02:34 CNC ready signal received"
+$log.entry[227] = "03:02:37 Robot inside CNC"
+$log.entry[228] = "03:02:37 State 201: Decision making module. Type: shaft; Return"
+$log.entry[229] = "03:02:37 State 214: Pick workpiece from CNC"
+$log.entry[230] = "03:02:37 Put shaft workpiece in CNC:"
+$log.entry[231] = "03:02:37 Parallel gripper set"
+$log.entry[232] = "03:02:37 Send CNC open chuck command"
+$log.entry[233] = "03:02:37 Calculated JT6 degree: 171.22731"
+$log.entry[234] = "03:02:41 Command close parallel gripper"
+$log.entry[235] = "03:02:42 Send CNC open chuck command"
+$log.entry[236] = "03:02:42 State 201: Decision making module. Type: shaft; Return"
+$log.entry[237] = "03:02:42 State 215: Move outside CNC"
+$log.entry[238] = "03:02:43 Move outside CNC with parallel tool"
+$log.entry[239] = "03:02:43 Parallel gripper set"
+$log.entry[240] = "03:02:43 Calculated JT6 degree: 171.22731"
+$log.entry[241] = "03:02:45 Robot outside CNC"
+$log.entry[242] = "03:02:45 State 201: Decision making module. Type: shaft; Return"
+$log.entry[243] = "03:02:45 State 217: Put workpiece to shelf"
+$log.entry[244] = "03:02:46 Put shaft workpiece with id: 1"
+$log.entry[245] = "03:02:47 Parallel gripper set"
+$log.entry[246] = "03:02:47 ID: 1 --> i: 0 j: 0"
+$log.entry[247] = "03:02:50 Command open parallel gripper"
+$log.entry[248] = "03:02:51 Shaft put"
+$log.entry[249] = "03:02:51 State 201: Decision making module. Type: shaft; Return"
+$log.entry[250] = "03:02:51 State 211: Pick workpiece from shelf"
+$log.entry[251] = "03:02:52 Pick shaft workpiece with id: 2"
+$log.entry[252] = "03:02:52 Parallel gripper set"
+$log.entry[253] = "03:02:52 Command open parallel gripper"
+$log.entry[254] = "03:02:52 ID: 2 --> i: 0 j: 3"
+$log.entry[255] = "03:02:54 Command close parallel gripper"
+$log.entry[256] = "03:02:55 Shaft picked"
+$safe.flag = "shelf.safe"
 .END
