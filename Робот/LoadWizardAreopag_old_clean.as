@@ -7678,12 +7678,40 @@ dbg:
 	;     5:stocker.open:F
 	;       .s.no 
 	;   0:a.teach.st.new:F
+	;     .c.x 
+	;     .c.y 
+	;     .dx.vec.teach 
+	;     .dy.vec.teach 
+	;     .stock.m 
+	;     .stock.n.odd 
+	;     .i 
+	;     .j 
+	;     .stock.lx 
+	;     .stock.ly 
+	;     .dx.vec.temp 
+	;     .dy.vec.temp 
+	;     .origin 
+	;     .test.grip 
 	;   0:a.teach.st.prl:F
 	;   0:aaatest:F
 	;   0:copy_for_shaft:F
+	;     .s.no 
+	;     .i 
 	;   0:pg55:F
 	;   0:stock.pick.new:F
+	;     .s.no 
+	;     .g.no 
+	;     .h 
+	;     .$str 
+	;     .dx.vec.temp 
+	;     .dy.vec.temp 
 	;   0:stock.put.new:F
+	;     .s.no 
+	;     .g.no 
+	;     .h 
+	;     .$str 
+	;     .dx.vec.temp 
+	;     .dy.vec.temp 
 	;   0:test_cnc_pick_s:F
 	;   0:autostart.pc:B
 	;   0:autostart2.pc:B

@@ -1,0 +1,4355 @@
+.AUXDATA
+N_OX33    "gripper.open[1]"
+N_OX34    "gripper.close[1]"
+N_OX35    "gripper.open[2]"
+N_OX36    "gripper.close[2]"
+N_OX65    "do.motor.on"
+N_OX66    "do.error"
+N_OX67    "do.cs"
+N_OX68    "do.automatic"
+N_OX69    "do.teach"
+N_OX70    "do.teach.lock"
+N_OX71    "do.home"
+N_OX72    "do.home2"
+N_OX73    "do.power.on"
+N_OX74    "do.emg"
+N_OX75    "do.hold"
+N_OX76    "do.safety.fence"
+N_OX77    "do.bat.alarm"
+N_OX78    "o.debug"
+N_OX97    "eo.cnc.ch.open"
+N_OX98    "eo.cnc.ch.close"
+N_OX99    "eo.cnc.mfinish"
+N_OX113    "eo.robot.ready"
+N_OX114    "eo.task.exec"
+N_OX115    "eo.process.err"
+N_OX116    "eo.data.request[1]"
+N_OX117    "eo.data.request[2]"
+N_OX118    "eo.data.request[3]"
+N_OX119    "eo.data.request[4]"
+N_OX120    "eo.data.read"
+N_OX129    "eo.shelf.opened[1]"
+N_OX130    "eo.shelf.opened[2]"
+N_OX131    "eo.shelf.opened[3]"
+N_OX132    "eo.shelf.opened[4]"
+N_OX133    "eo.shelf.unlock[1]"
+N_OX134    "eo.shelf.unlock[2]"
+N_OX135    "eo.shelf.unlock[3]"
+N_OX136    "eo.shelf.unlock[4]"
+N_OX138    "eo.shelf.cmplt[1]"
+N_OX139    "eo.shelf.cmplt[2]"
+N_OX140    "eo.shelf.cmplt[3]"
+N_OX141    "eo.shelf.cmplt[4]"
+N_OX145    "eo.lidar.small"
+N_OX161    "eo.dbl.grip.st[1,0]"
+N_OX177    "eo.dbl.grip.st[2,0]"
+N_OX193    "eo.prl.grip.st[0]"
+N_OX209    "eo.cnc.id[1,0]"
+N_OX225    "eo.chg.id[0]"
+N_OX241    "eo.wp.processed[0]"
+N_OX257    "eo.next.wp[0]"
+N_OX273    "eo.error.code[0]"
+N_OX289    "eo.gr.dbl.empty[1]"
+N_OX290    "eo.gr.dbl.wp0[1]"
+N_OX291    "eo.gr.dbl.wp1[1]"
+N_OX292    "eo.gr.dbl.wp2[1]"
+N_OX293    "eo.gr.dbl.empty[2]"
+N_OX294    "eo.gr.dbl.wp0[2]"
+N_OX295    "eo.gr.dbl.wp1[2]"
+N_OX296    "eo.gr.dbl.wp2[2]"
+N_OX297    "eo.gr.prl.empty"
+N_OX298    "eo.gr.prl.wp0"
+N_OX299    "eo.gr.prl.wp1"
+N_OX300    "eo.gr.prl.wp2"
+N_OX301    "eo.cnc.empty"
+N_OX302    "eo.cnc.wp0"
+N_OX303    "eo.cnc.wp1"
+N_OX304    "eo.cnc.wp2"
+N_OX305    "eo.chg.empty"
+N_OX306    "eo.chg.wp0"
+N_OX307    "eo.chg.wp1"
+N_WX65    "di.ext.motor.on"
+N_WX66    "di.ext.ereset"
+N_WX67    "di.ext.cs"
+N_WX68    "di.ext.pgreset"
+N_WX69    "di.ext.hold"
+N_WX70    "di.ext.motor.of"
+N_WX71    "di.ext.slow"
+N_WX97    "ei.cnc.ch.opd"
+N_WX98    "ei.cnc.ch.clsd"
+N_WX99    "ei.cnc.ready"
+N_WX113    "ei.task.start"
+N_WX114    "ei.data.ready"
+N_WX129    "ei.shelf.ready[1]"
+N_WX130    "ei.shelf.ready[2]"
+N_WX131    "ei.shelf.ready[3]"
+N_WX132    "ei.shelf.ready[4]"
+N_WX133    "ei.shelf.state[1]"
+N_WX134    "ei.shelf.state[2]"
+N_WX135    "ei.shelf.state[3]"
+N_WX136    "ei.shelf.state[4]"
+N_WX137    "ei.shelf.failed"
+N_WX161    "ei.robot.speed[0]"
+N_WX273    "d.task.id[0]"
+N_WX281    "d.wp.count[0]"
+N_WX289    "d.chg.required"
+N_WX290    "d.shaft.return"
+N_WX291    "d.shaft.rotate"
+N_WX292    "d.wp.type.shaft"
+N_WX297    "d.gr.dbl.inv[1]"
+N_WX337    "d.gr.dbl.full[1,0]"
+N_WX353    "d.gr.dbl.work[1,0]"
+N_WX369    "d.gr.prl.full[0]"
+N_WX385    "d.gr.prl.work[0]"
+N_WX401    "d.cnc.ch.full[0]"
+N_WX417    "d.cnc.ch.work[0]"
+N_WX433    "d.plt.rows[0]"
+N_WX437    "d.plt.cell.odd[0]"
+N_WX441    "d.plt.cell.even[0]"
+N_WX449    "d.plt.dy[0]"
+N_WX465    "d.plt.dx[0]"
+N_WX481    "d.plt.even.dy[0]"
+N_WX497    "d.cond.stp.cell[0]"
+N_WX501    "d.cond.stp.row[0]"
+N_WX505    "d.cond.stp.oy[0]"
+N_WX513    "d.bush.wp0.len[0]"
+N_WX529    "d.bush.wp2.len[0]"
+N_WX545    "d.shaft.wp0.l1[0]"
+N_WX561    "d.shaft.wp0.l2[0]"
+N_WX577    "d.shaft.wp0.l3[0]"
+N_WX593    "d.shaft.wp0.h[0]"
+N_WX609    "d.shaft.wp0.d[0]"
+N_WX625    "d.shaft.wp2.l1[0]"
+N_WX641    "d.shaft.wp2.l2[0]"
+N_WX657    "d.shaft.wp2.l3[0]"
+N_WX673    "d.shaft.wp2.h[0]"
+N_WX689    "d.shaft.wp2.d[0]"
+N_WX705    "d.chg.no[0]"
+N_WX721    "d.chg.h.cor[0]"
+N_WX737    "d.bush.wp0.d[0]"
+N_WX753    "d.bush.wp2.d[0]"
+N_INT1    "di.ifp.page[1]"
+N_INT2    "di.ifp.page[2]"
+N_INT3    "di.ifp.page[3]"
+N_INT4    "di.ifp.page[4]"
+N_INT5    "di.ifp.page[5]"
+N_INT6    "di.ifp.page[6]"
+N_INT7    "di.ifp.page[7]"
+N_INT8    "di.ifp.page[8]"
+N_INT10    "s.shelf.failed"
+N_INT11    "s.inside.cnc"
+N_INT12    "s.mcode.req"
+N_INT50    "s.grip.open[1]"
+N_INT51    "s.grip.open[2]"
+N_INT52    "s.grip.open[3]"
+N_INT53    "s.grip.close[1]"
+N_INT54    "s.grip.close[2]"
+N_INT55    "s.grip.close[3]"
+N_INT101    "s.hmi.tool[1]"
+N_INT102    "s.hmi.tool[2]"
+N_INT200    "s.pr.a.home"
+.END
+.INTER_PANEL_D
+0,9,1,6,9
+6,10,"","PCEXECUTE ","AUTOSTART","",10,4,6,1,"PCEXECUTE autostart.pc",0
+7,9,2,6,9
+13,2,"","   IO","","",10,4,11,2002,0
+14,9,3,6,15
+20,2,"","  DEBUG","","",10,4,11,2008,0
+21,9,8,6,15
+27,2,"","  TEACH","","",10,4,11,2003,0
+28,1,"  CHUCK 1","","","  OPENED",10,15,4,10,1097,0
+29,1,"  CHUCK 1","","","  CLOSED",10,15,4,10,1098,0
+30,1,"   CNC","","","  READY",10,15,4,10,1099,0
+32,2,"  DOUBLE","GRIPPER 1","   OPEN","",10,4,8,2050,0
+33,2,"  DOUBLE","GRIPPER 2","   OPEN","",10,4,8,2051,0
+34,2," PARALLEL"," GRIPPER","   OPEN","",10,4,8,2052,0
+35,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
+36,2,"","  CHUCK 1","   CLOSE","",10,4,15,98,0
+37,2,""," MCODE FIN","","",10,4,15,99,0
+39,2,"  DOUBLE","GRIPPER 1","  CLOSE","",10,4,5,2053,0
+40,2,"  DOUBLE","GRIPPER 2","  CLOSE","",10,4,5,2054,0
+41,2," PARALLEL"," GRIPPER","  CLOSE","",10,4,5,2055,0
+49,2,"","   MAIN","<---------","",10,4,11,2001,0
+50,2,"","  TEACH","--------->","",10,4,11,2003,0
+52,4,2,"SHELF 1","","UNLOCK","",10,4,4,0,133,0
+53,4,2,"SHELF 2","","UNLOCK","",10,4,4,0,134,0
+54,4,2,"SHELF 3","","UNLOCK","",10,4,4,0,135,0
+55,4,2,"SHELF 4","","UNLOCK","",10,4,4,0,136,0
+140,8,"hmi.plate.rows","PLATE ROWS","  COUNT",10,8,2,1,0
+141,8,"hmi.plate.col.o","PLATE ODD","CELL COUNT",10,8,2,1,0
+142,8,"hmi.plate.col.e","PLATE EVEN","CELL COUNT",10,8,2,1,0
+143,8,"hmi.plate.dx","PLATE ROW","  SHIFT",10,8,5,2,0
+144,8,"hmi.plate.dy","PLATE CELL","  SHIFT",10,8,5,2,0
+145,8,"hmi.plate.e.dy","PLATE EVEN","  SHIFT",10,8,5,2,0
+147,8,"hmi.wp.id","WP ID","",10,8,2,1,0
+154,8,"hmi.shaft.full","  SHAFT","  LENGTH",10,8,3,2,0
+155,8,"hmi.shaft.pick","  PICK","  LENGTH",10,8,3,2,0
+156,8,"hmi.shaft.h","  SHAFT","  HEIGHT",10,8,3,2,0
+157,8,"hmi.cond.thick","  COND","  SHIFT",10,8,2,2,0
+159,8,"hmi.prl.ch.full","PARALLEL","FULL LEN",10,8,2,2,0
+160,8,"hmi.prl.ch.work","PARALLEL","WORK LEN",10,8,2,2,0
+168,8,"hmi.dbl.ch.full[1]","ROB DBL 1","GRIP FULL",10,6,5,2,0
+169,8,"hmi.dbl.ch.full[2]","ROB DBL 2","GRIP FULL",10,6,5,2,0
+170,8,"hmi.prl.ch.full","ROB PRL","JAW FULL",10,6,5,2,0
+171,8,"hmi.plate.rows","PLATE ROWS","  COUNT",10,8,2,1,0
+172,8,"hmi.plate.col.o","PLATE ODD","CELL COUNT",10,8,2,1,0
+173,8,"hmi.plate.col.e","PLATE EVEN","CELL COUNT",10,8,2,1,0
+174,8,"hmi.cond.shift","CONDUCTOR","OY SHIFT",10,8,3,2,0
+175,8,"hmi.dbl.ch.work[1]","ROB DBL 1","JAW WORK",10,6,5,2,0
+176,8,"hmi.dbl.ch.work[2]","ROB DBL 2","JAW WORK",10,6,5,2,0
+177,8,"hmi.prl.ch.work","ROB PRL","JAW WORK",10,6,5,2,0
+178,8,"hmi.plate.dx","PLATE ROW","  SHIFT",10,8,5,2,0
+179,8,"hmi.plate.dy","PLATE CELL","  SHIFT",10,8,5,2,0
+180,8,"hmi.plate.e.dy","PLATE EVEN","  SHIFT",10,8,5,2,0
+181,8,"hmi.wp.length"," TEACH WP","  LENGTH",10,4,5,2,0
+188,8,"hmi.wp.count"," TEACH WP","  COUNT",10,4,5,2,0
+192,8,"hmi.shaft.h","  SHAFT","  HEIGHT",10,8,3,2,0
+193,8,"hmi.cond.thick","  COND","  SHIFT",10,8,2,2,0
+196,1," SHELF 1","","","  OPENED",10,15,4,10,129,0
+197,1," SHELF 2","","","  OPENED",10,15,4,10,130,0
+198,1," SHELF 3","","","  OPENED",10,15,4,10,131,0
+199,1," SHELF 4","","","  OPENED",10,15,4,10,132,0
+200,8,"current.wp"," Next"," workpiece",10,15,4,2,0
+201,8,"gripper.id[1]","Gripper 1","   ID",10,15,4,2,0
+202,8,"gripper.id[2]","Gripper 2","   ID",10,15,4,2,0
+203,1," SHELF 1","",""," ENABLED",10,15,4,10,1129,0
+204,1," SHELF 2","",""," ENABLED",10,15,4,10,1130,0
+205,1," SHELF 3","",""," ENABLED",10,15,4,10,1131,0
+206,1," SHELF 4","",""," ENABLED",10,15,4,10,1132,0
+207,8,"state"," State","  ",10,15,4,2,0
+208,8,"cnc.id[1]","Chuck 1","   ID",10,15,4,2,0
+209,8,"cnc.id[2]","Chuck 2","   ID",10,15,4,2,0
+210,8,"hmi.wp.id"," WORKPIECE","    ID",10,8,3,1,0
+214,1,"INSIDE CNC","","","",10,15,4,10,2011,0
+215,8,"processed.wp"," Processed"," Workpiece",10,15,4,1,0
+216,14,"safe.flag","Safe flag","",10,15,0
+217,2,"","   MAIN","<---------","",10,4,11,2001,0
+218,4,2,"DEBUG","DISABLED","ENABLED","",10,4,4,0,78,0
+223,2,""," PLC DATA","","",10,4,11,2006,0
+.END
+.INTER_PANEL_TITLE
+"MAIN",1
+"I/O",1
+"TEACH SHELVES",1
+"TEACH",1
+"",0
+"",0
+"TEACH DATA",1
+"DEBUG",1
+"",0
+"",0
+"",0
+"",0
+"",0
+"",0
+"",0
+"",0
+.END
+.INTER_PANEL_COLOR_D
+182,3,224,244,28,159,252,255,251,255,0,31,2,241,52,255,
+.END
+.PROGRAM a.home ()
+  ;
+  ; Set small speed
+  SPEED 100 MM/S ALWAYS
+  ACCURACY 0.01 ALWAYS
+  ; Move to home pos
+  HOME
+  ;
+.END
+.PROGRAM a.main ()
+  ;
+  CALL log ("Main program executed")
+  CALL safe.home
+  ;
+  WHILE TRUE DO
+    .$pg.string = "state" + $ENCODE (/L, state)
+    IF EXISTPGM (.$pg.string) THEN
+      SCALL .$pg.string
+    ELSE
+      CALL log ("Error! Program is in wrong state. Reset state to 0")
+      RETURN
+    END
+  END
+  ;
+.END
+.PROGRAM a.transport ()
+  ;
+  ; Set small speed
+  SPEED 100 MM/S ALWAYS
+  ACCURACY 0.01 ALWAYS
+  ; Move to home and home standby pos
+  JMOVE #transport 
+  ;
+.END
+.PROGRAM autostart.pc ()
+  ;
+  CALL initialize.pc
+  ;
+  WHILE TRUE DO
+    CALL check.ifp.pc
+  END
+  ;
+.END
+.PROGRAM calc.rot.dbl (.grip.no)
+  ;
+  .j6 = cnc.dbl.rot[.grip.no]
+  DECOMPOSE .j[1] = #cnc.out.dbl.bas
+  POINT #cnc.out = #PPOINT (.j[1], .j[2], .j[3], .j[4], .j[5], .j[6] + .j6)
+  DECOMPOSE .j[1] = #cnc.in.dbl.base
+  POINT #cnc.in = #PPOINT (.j[1], .j[2], .j[3], .j[4], .j[5], .j[6] + .j6)
+  ;
+  .$temp = "Calculated JT6 degree:" + $ENCODE (.j[6] + .j6)
+  CALL log(.$temp)
+  ;
+.END
+.PROGRAM calc.rot.prl (.rot.required)
+  ;
+  IF NOT .rot.required THEN
+    .j6 = cnc.prl.rot[1]
+  ELSE
+    .j6 = cnc.prl.rot[2]
+  END
+  ;
+  DECOMPOSE .j[1] = #cnc.out.prl.bas
+  POINT #cnc.out = #PPOINT (.j[1], .j[2], .j[3], .j[4], .j[5], .j[6] + .j6)
+  DECOMPOSE .j[1] = #cnc.in.prl.base
+  POINT #cnc.in = #PPOINT (.j[1], .j[2], .j[3], .j[4], .j[5], .j[6] + .j6)
+  ;
+  .$temp = "Calculated JT6 degree:" + $ENCODE (.j[6] + .j6)
+  CALL log(.$temp)
+  ;
+.END
+.PROGRAM calc.state.flag ()
+  ;
+  shelf.opened = SIG (eo.shelf.opened[current.shelf])
+  shelf.closed = NOT shelf.opened
+  ;
+  gp.dbl.empty[1] = gripper.dbl.st[1] == -1
+  gp.dbl.full[1] = NOT gp.dbl.empty[1]
+  gp.dbl.wp0[1] = gripper.dbl.st[1] == 0
+  gp.dbl.wp1[1] = gripper.dbl.st[1] == 1
+  gp.dbl.wp2[1] = gripper.dbl.st[1] == 2
+  ;
+  gp.dbl.empty[2] = gripper.dbl.st[2] == -1
+  gp.dbl.full[2] = NOT gp.dbl.empty[2]
+  gp.dbl.wp0[2] = gripper.dbl.st[2] == 0
+  gp.dbl.wp1[2] = gripper.dbl.st[2] == 1
+  gp.dbl.wp2[2] = gripper.dbl.st[2] == 2
+  ;
+  gp.prl.empty = gripper.prl.st == -1
+  gp.prl.full = NOT gp.prl.empty
+  gp.prl.wp0 = gripper.prl.st == 0
+  gp.prl.wp1 = gripper.prl.st == 1
+  gp.prl.wp2 = gripper.prl.st == 2
+  ;
+  cnc.empty = cnc.st == -1
+  cnc.full = NOT cnc.empty
+  cnc.wp0 = cnc.st == 0
+  cnc.wp1 = cnc.st == 1
+  cnc.wp2 = cnc.st == 2
+  ;
+  .inside.cnc = SIG (s.inside.cnc)
+  .outside.cnc = NOT .inside.cnc
+  rout = shelf.opened AND .outside.cnc
+  rin = shelf.opened AND .inside.cnc
+  ;
+  mfinish = SIG (s.mcode.req)
+  n.max.pick = current.wp <= wp.count
+  max.pick = NOT n.max.pick
+  ;
+.END
+.PROGRAM check.ifp.pc ()
+  ;
+  IF SIG (s.grip.open[1]) THEN
+    SIGNAL gripper.open[1], -gripper.close[1]
+  END
+  ;
+  IF SIG (s.grip.open[2]) THEN
+    SIGNAL gripper.open[2], -gripper.close[2]
+  END
+  ;
+  IF SIG (s.grip.open[3]) THEN
+    SIGNAL gripper.open[1], -gripper.close[1]
+    SIGNAL gripper.close[2], -gripper.open[2]
+  END
+  ;
+  IF SIG (s.grip.close[1]) THEN
+    SIGNAL gripper.close[1], -gripper.open[1]
+  END
+  ;
+  IF SIG (s.grip.close[2]) THEN
+    SIGNAL gripper.close[2], -gripper.open[2]
+  END
+  ;
+  IF SIG (s.grip.close[3]) THEN
+    SIGNAL gripper.close[1], -gripper.open[1]
+    SIGNAL gripper.close[2], -gripper.open[2]
+  END
+  ;
+.END
+.PROGRAM check.speed.pc ()
+  ;
+  IF SIG (o.debug) THEN
+    RETURN
+  END
+  ; Set speed from HMI at any time
+  .speed = BITS (ei.robot.speed[0], 16)
+  .speed = MAXVAL (.speed, 1)
+  .speed = MINVAL (.speed, 100)
+  IF .speed <> MSPEED THEN
+    MON_SPEED .speed
+    CALL log.pc1 ("Speed" + $ENCODE (.speed) + " was applied")
+  END
+  ;
+.END
+.PROGRAM check.teach.pc ()
+  ;
+  IF NOT SWITCH (REPEAT ) THEN
+    ;
+    IF SIG(s.pr.a.home) THEN
+      MC PRIME a.home
+    END
+  END
+  ;
+.END
+.PROGRAM chuck.close ()
+  ;
+  CALL log ("Send CNC close chuck command")
+  PULSE eo.cnc.ch.close, 2
+  SWAIT ei.cnc.ch.clsd
+  ;
+.END
+.PROGRAM chuck.open ()
+  ;
+  CALL log ("Send CNC open chuck command")
+  PULSE eo.cnc.ch.open, 2
+  SWAIT ei.cnc.ch.opd
+  ;
+.END
+.PROGRAM ciner (.$var.name,.var,.default)
+	;
+	IF NOT EXISTREAL (.$var.name) THEN
+		CALL log ("Variable " + .$var.name + " is not exist. Default:" + $ENCODE (.default))
+		.var = .default
+	END
+	;
+.END
+.PROGRAM cnc.in.bush (.grip.no)
+  ;
+  .$temp = "Move inside CNC with double tool" + $ENCODE (.grip.no)
+  CALL log (.$temp)
+  ;
+  SPEED 80 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.dbl[.grip.no])
+  CALL calc.rot.dbl(.grip.no)
+  ;
+  HOME
+  ;
+  CALL log ("Waiting for CNC ready")
+  SWAIT ei.cnc.ready
+  CALL log ("CNC ready signal received")
+  ;
+  JMOVE #cnc.out
+  BREAK
+  SPEED 30
+  LMOVE #cnc.in
+  BREAK
+  CALL log ("Robot inside CNC")
+  SIGNAL s.inside.cnc
+  ;
+.END
+.PROGRAM cnc.in.shaft (.rot.required)
+  ;
+  .$temp = "Move inside CNC with parallel tool"
+  CALL log (.$temp)
+  ;
+  SPEED 80 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.par[1])
+  CALL calc.rot.prl(.rot.required)
+  ;
+  HOME
+  ;
+  CALL log ("Waiting for CNC ready")
+  SWAIT ei.cnc.ready
+  CALL log ("CNC ready signal received")
+  ;
+  JMOVE #cnc.out
+  BREAK
+  SPEED 30
+  LMOVE #cnc.in
+  BREAK
+  CALL log ("Robot inside CNC")
+  SIGNAL s.inside.cnc
+  ;
+.END
+.PROGRAM cnc.out.bush (.grip.no)
+  ;
+  .$temp = "Move outside CNC with double tool" + $ENCODE (.grip.no)
+  CALL log (.$temp)
+  ;
+  SPEED 30 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.dbl[.grip.no])
+  CALL calc.rot.dbl(.grip.no)
+  ;
+  LMOVE #cnc.in
+  LMOVE #cnc.out
+  BREAK
+  CALL log ("Robot outside CNC")
+  SIGNAL -s.inside.cnc
+  ;
+  SPEED 80
+  HOME
+  ;
+.END
+.PROGRAM cnc.out.shaft (.rot.required)
+  ;
+  .$temp = "Move outside CNC with parallel tool"
+  CALL log (.$temp)
+  ;
+  SPEED 30 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.par[1])
+  CALL calc.rot.prl(.rot.required)
+  ;
+  LMOVE #cnc.in
+  LMOVE #cnc.out
+  BREAK
+  CALL log ("Robot outside CNC")
+  SIGNAL -s.inside.cnc
+  ;
+  SPEED 80
+  HOME
+  ;
+.END
+.PROGRAM cnc.pick.bush (.grip.no)
+  ;
+  .$temp = "Put bushing workpiece in CNC with tool:" + $ENCODE (.grip.no)
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.dbl[.grip.no])
+  CALL gripper.open (grip.no.dbl[.grip.no], 0, gr.dbl.inv[.grip.no])
+  CALL calc.rot.dbl (.grip.no)
+  ;
+  ; Calculate shifts
+  .c1 = bush.wp2.len + gr.dbl.work[.grip.no] + cnc.ch.work
+  .dz = .c1 - cnc.overshoot ;
+  .c2 = cnc.ch.full - cnc.ch.work
+  .z.appro = .c2 + cnc.overshoot + 10
+  ;
+  ; Calculate points
+  POINT .temp = cnc.point.bush[.grip.no]
+  POINT .put = .temp + TRANS (0, 0, -.dz)
+  ;
+  ; Approach
+  SPEED 20 ALWAYS
+  JMOVE #cnc.in
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  BREAK;
+  SPEED 30 MM/S
+  LMOVE .put
+  BREAK
+  CALL gripper.close (grip.no.dbl[.grip.no], gp.dbl.cl.tmr[.grip.no], gr.dbl.inv[.grip.no])
+  CALL chuck.open
+  ;
+  SIGNAL s.mcode.req
+  gripper.dbl.id[.grip.no] = cnc.id
+  gripper.dbl.st[.grip.no] = cnc.st
+  cnc.id = 0
+  cnc.st = -1
+  ;
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  BREAK
+  LMOVE #cnc.in
+  ;
+.END
+.PROGRAM cnc.pick.shaft ()
+  ;
+  .$temp = "Put shaft workpiece in CNC:"
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.par[1])
+  CALL chuck.open
+  CALL calc.rot.prl (FALSE)
+  ;
+  .gc.len = gr.prl.full
+  .gc.body = gr.prl.work
+  .cncc.full = cnc.ch.full
+  .cncc.body = cnc.ch.work
+  ;
+  ; Calculate shifts
+  .dz = gr.prl.full - gr.prl.work
+  .dy = shaft.wp0.l2 + cnc.ch.work - cnc.overshoot
+  .y.appro = cnc.ch.full + cnc.overshoot + 10
+  ;
+  ; Calculate points
+  POINT .temp = cnc.point.shaft
+  POINT .pick = .temp + TRANS (0, .dy, -.dz)
+  POINT .pick.appro = .pick  + TRANS (0, .y.appro, 0)
+  ;
+  ; Approach
+  SPEED 20 ALWAYS
+  JMOVE #cnc.in
+  ACCURACY 0.1
+  LMOVE .pick.appro
+  BREAK;
+  SPEED 30 MM/S
+  LMOVE .pick
+  BREAK
+  ;
+  CALL gripper.close (grip.no.par[1], gp.par.cl.tmr, FALSE)
+  CALL chuck.open
+  ;
+  gripper.prl.id = cnc.id
+  gripper.prl.st = cnc.st
+  cnc.id = 0
+  cnc.st = -1
+  ;
+  ACCURACY 0.1
+  LMOVE .pick.appro
+  BREAK
+  LMOVE #cnc.in
+  ;
+.END
+.PROGRAM cnc.put.bush (.grip.no)
+  ;
+  .$temp = "Put bushing workpiece in CNC with tool:" + $ENCODE (.grip.no)
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.dbl[.grip.no])
+  CALL chuck.open 
+  CALL calc.rot.dbl (.grip.no)
+  ;
+  ; Calculate shifts
+  .c1 = bush.wp0.len + gr.dbl.work[.grip.no] + cnc.ch.work
+  .dz = .c1 - cnc.overshoot ;
+  .c2 = cnc.ch.full - cnc.ch.work
+  .z.appro = .c2 + cnc.overshoot + 10
+  ;
+  ; Calculate points
+  POINT .temp = cnc.point.bush[.grip.no]
+  POINT .put = .temp + TRANS (0, 0, -.dz)
+  ;
+  ; Approach
+  SPEED 20 ALWAYS
+  JMOVE #cnc.in
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  BREAK;
+  SPEED 30 MM/S
+  LMOVE .put
+  BREAK
+  IF cnc.first THEN
+    CALL log ("CNC close chuck first")
+    CALL chuck.close 
+    CALL gripper.open (grip.no.dbl[.grip.no], gp.dbl.op.tmr[.grip.no], gr.dbl.inv[.grip.no])
+  ELSE
+    CALL log ("Robot open chuck first")
+    CALL gripper.open (grip.no.dbl[.grip.no], gp.dbl.op.tmr[.grip.no], gr.dbl.inv[.grip.no])
+    CALL chuck.close 
+  END
+  ;
+  SIGNAL s.mcode.req
+  cnc.id = gripper.dbl.id[.grip.no]
+  cnc.st = gripper.dbl.st[.grip.no]
+  gripper.dbl.id[.grip.no] = 0
+  gripper.dbl.st[.grip.no] = -1
+  ;
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  BREAK
+  LMOVE #cnc.in
+  CALL gripper.close (grip.no.dbl[.grip.no], 0, gr.dbl.inv[.grip.no])
+  ;
+.END
+.PROGRAM cnc.put.shaft ()
+  ;
+  .$temp = "Put shaft workpiece in CNC" 
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  CALL set.tool (grip.no.par[1])
+  CALL calc.rot.prl (FALSE)
+  ;
+  .gc.len = gr.prl.full
+  .gc.body = gr.prl.work
+  .cncc.full = cnc.ch.full
+  .cncc.body = cnc.ch.work
+  ;
+  ; Calculate shifts
+  .dz = gr.prl.full - gr.prl.work
+  .dy = shaft.wp0.l2 + cnc.ch.work - cnc.overshoot
+  .y.appro = cnc.ch.full + cnc.overshoot + 10
+  ;
+  ; Calculate points
+  POINT .temp = cnc.point.shaft
+  POINT .put = .temp + TRANS (0, .dy, -.dz)
+  POINT .put.appro = .put  + TRANS (0, .y.appro, 0)
+  ;
+  ; Approach
+  SPEED 20 ALWAYS
+  JMOVE #cnc.in
+  ACCURACY 0.1
+  LMOVE .put.appro
+  BREAK;
+  SPEED 30 MM/S
+  LMOVE .put
+  BREAK
+  IF cnc.first THEN
+    CALL log ("CNC close chuck first")
+    CALL chuck.close
+    CALL gripper.open (grip.no.par[1], gp.par.op.tmr, FALSE)
+  ELSE
+    CALL log ("Robot open chuck first")
+    CALL gripper.open (grip.no.par[1], gp.par.op.tmr, FALSE)
+    CALL chuck.close
+  END
+  ;
+  SIGNAL s.mcode.req
+  cnc.id = gripper.prl.id
+  cnc.st = gripper.prl.st
+  gripper.prl.id = 0
+  gripper.prl.st = -1
+  ;
+  ACCURACY 0.1
+  LMOVE .put.appro
+  BREAK
+  LMOVE #cnc.in
+  CALL gripper.close (grip.no.par[1], 0, FALSE)
+  ;
+.END
+.PROGRAM disp.info.pc (.$cont.name)
+  ;
+  .$robot.name = $SYSDATA (ZROB.NAME)
+  .robot.sn = SYSDATA (ZROB.MGFNO)
+  .cont.sn = SYSDATA (CONT.NO)
+  .$robot.str = "Robot: " + .$robot.name +" S/N: C" + $ENCODE (/L, .robot.sn)
+  .$cont.str = "Controller: " + .$cont.name + " S/N: C" + $ENCODE (/L, .cont.sn)
+  IFPWPRINT 8, 1, 1, 5, 10 = .$robot.str, .$cont.str, " ", "Powered by Robowizard Co.Ltd."
+  ;
+.END
+.PROGRAM dummy.pc ()
+	; *******************************************************************
+	;
+	; Program:      dummy.pc
+	; Comment:      
+	; Author:       User
+	;
+	; Date:         9/18/2026
+	;
+	; *******************************************************************
+	;
+	
+.END
+.PROGRAM get.from.hmi ()
+  ;
+  task.id = 1
+  wp.count = hmi.wp.count
+  ;
+  wp.type.shaft = FALSE
+  ;
+  chg.required = FALSE
+  shaft.return = FALSE
+  shaft.rotate = FALSE
+  gr.dbl.inv[1] = FALSE
+  gr.dbl.inv[2] = FALSE
+  ;
+  gr.dbl.full[1] = hmi.dbl.ch.full[1]
+  gr.dbl.work[1] = hmi.dbl.ch.work[1]
+  gr.dbl.full[2] = hmi.dbl.ch.full[2]
+  gr.dbl.work[2] = hmi.dbl.ch.work[2]
+  ;
+  gr.prl.full = hmi.prl.ch.full
+  gr.prl.work = hmi.prl.ch.work
+  ;
+  cnc.ch.full = hmi.cnc.ch.full
+  cnc.ch.work = hmi.cnc.ch.work
+  ;
+  plt.rows = hmi.plate.rows
+  plt.cell.odd = hmi.plate.col.o
+  plt.cell.even = hmi.plate.col.e
+  plt.dy = hmi.plate.dy
+  plt.dx = hmi.plate.dx
+  plt.even.dy = hmi.plate.e.dy
+  ;
+  cond.stp.cell = hmi.cond.cy
+  cond.stp.row = hmi.cond.cx
+  cond.stp.oy = hmi.cond.shift
+  ;
+  bush.wp0.len = hmi.bush.length
+  bush.wp0.d = 0
+  bush.wp2.len = hmi.bush.length
+  bush.wp2.d = 0
+  ;
+  shaft.wp0.l1 = hmi.shaft.full
+  shaft.wp0.l2 = hmi.shaft.pick
+  shaft.wp0.l3 = hmi.cond.thick
+  shaft.wp0.h = hmi.shaft.h
+  shaft.wp0.d = 0
+  shaft.wp2.l1 = hmi.shaft.full
+  shaft.wp2.l2 = hmi.shaft.pick
+  shaft.wp2.l3 = hmi.cond.thick
+  shaft.wp2.h = hmi.shaft.h
+  shaft.wp2.d = 0
+  ;
+  chg.no = 1
+  chg.h.cor = 0
+  ;
+.END
+.PROGRAM get.from.plc ()
+  ;
+  task.id = BITS(d.task.id[0], 8)
+  wp.count = BITS(d.wp.count[0], 8)
+  ;
+  wp.type.shaft = SIG(d.wp.type.shaft)
+  chg.required = SIG (d.chg.required)
+  shaft.return = SIG (d.shaft.return)
+  shaft.rotate = SIG (d.shaft.rotate)
+  gr.dbl.inv[1] = SIG (d.gr.dbl.inv[1])
+  gr.dbl.inv[1] = SIG (d.gr.dbl.inv[1])
+  ;
+  gr.dbl.full[1] = BITS (d.gr.dbl.full[1, 0], 16)
+  gr.dbl.work[1] = BITS (d.gr.dbl.work[1, 0], 16)
+  gr.dbl.full[2] = BITS (d.gr.dbl.full[2, 0], 16)
+  gr.dbl.work[2] = BITS (d.gr.dbl.work[2, 0], 16)
+  ;
+  gr.prl.full = BITS (d.gr.prl.full[0], 16)
+  gr.prl.work = BITS (d.gr.prl.work[0], 16)
+  ;
+  cnc.ch.full = BITS (d.cnc.ch.full[0], 16)
+  cnc.ch.work = BITS (d.cnc.ch.work[0], 16)
+  ;
+  plt.rows = BITS (d.plt.rows[0], 4)
+  plt.cell.odd = BITS (d.plt.cell.odd[0], 4)
+  plt.cell.even = BITS (d.plt.cell.even[0], 4)
+  plt.dy = BITS (d.plt.dy[0], 16)
+  plt.dx = BITS (d.plt.dx[0], 16)
+  plt.even.dy = BITS (d.plt.even.dy[0], 16)
+  ;
+  cond.stp.cell = BITS (d.cond.stp.cell[0], 4)
+  cond.stp.row = BITS (d.cond.stp.row[0], 4)
+  cond.stp.oy = BITS (d.cond.stp.oy[0], 4)
+  ;
+  bush.wp0.len = BITS (d.bush.wp0.len[0], 16)
+  bush.wp0.d = BITS (d.bush.wp0.d[0], 16)
+  bush.wp2.len = BITS (d.bush.wp2.len[0], 16)
+  bush.wp2.d = BITS (d.bush.wp2.d[0], 16)
+  ;
+  shaft.wp0.l1 = BITS (d.shaft.wp0.l1[0], 16)
+  shaft.wp0.l2 = BITS (d.shaft.wp0.l2[0], 16)
+  shaft.wp0.l3 = BITS (d.shaft.wp0.l3[0], 16)
+  shaft.wp0.h = BITS (d.shaft.wp0.h[0], 16)
+  shaft.wp0.d = BITS (d.shaft.wp0.d[0], 16)
+  shaft.wp2.l1 = BITS (d.shaft.wp2.l1[0], 16)
+  shaft.wp2.l2 = BITS (d.shaft.wp2.l2[0], 16)
+  shaft.wp2.l3 = BITS (d.shaft.wp2.l3[0], 16)
+  shaft.wp2.h = BITS (d.shaft.wp2.h[0], 16)
+  shaft.wp2.d = BITS (d.shaft.wp2.d[0], 16)
+  ;
+  chg.no = BITS (d.chg.no[0], 4)
+  chg.h.cor = BITS (d.chg.h.cor[0], 8)
+  ;
+.END
+.PROGRAM get.system.data ()
+  ;
+  gp.par.op.tmr = 2
+  gp.par.cl.tmr = 2
+  gp.dbl.op.tmr[1] = 2
+  gp.dbl.cl.tmr[1] = 2
+  gp.dbl.op.tmr[2] = 2
+  gp.dbl.cl.tmr[2] = 2
+  ;
+  cnc.first = FALSE
+  ;
+.END
+.PROGRAM get.task.data ()
+  ;
+  CALL get.system.data
+  ;
+  IF SIG (o.debug) THEN
+    CALL log ("DEBUG mod activated. Get task data from Robot HMI")
+    CALL get.from.hmi
+  ELSE
+    CALL log ("Get task data from PLC")
+    CALL get.from.plc
+  END
+  ;
+.END
+.PROGRAM grip.close.dbl (.gripper.no,.close.time,.inverse)
+  ;
+  ;IF SIG (ei.check.grip[.grip.no]) AND SIG (grip.opened[.grip.no]) THEN
+  ;  CALL log ("Gripper" + $ENCODE (.grip.no) + "already opened")
+  ;  RETURN
+  ;END
+  ;
+  CALL log ("Command close double gripper" + $ENCODE (.close.time))
+  ;
+  IF NOT .inverse THEN
+    SIGNAL gripper.close[.gripper.no], -gripper.open[.gripper.no]
+  ELSE
+    SIGNAL gripper.open[.gripper.no], -gripper.close[.gripper.no]
+  END
+  TWAIT .close.time
+  
+  ;
+.END
+.PROGRAM grip.close.par (.close.time)
+  ;
+  ;IF SIG (ei.check.grip[.grip.no]) AND SIG (grip.opened[.grip.no]) THEN
+  ;  CALL log ("Gripper" + $ENCODE (.grip.no) + "already opened")
+  ;  RETURN
+  ;END
+  ;
+  CALL log ("Command close parallel gripper")
+  ;
+  SIGNAL gripper.close[2], -gripper.open[2]
+  SIGNAL gripper.close[1], -gripper.open[1]
+  TWAIT .close.time
+  ;
+.END
+.PROGRAM grip.open.dbl (.gripper.no,.open.time,.inverse)
+  ;
+  ;IF SIG (ei.check.grip[.grip.no]) AND SIG (grip.opened[.grip.no]) THEN
+  ;  CALL log ("Gripper" + $ENCODE (.grip.no) + "already opened")
+  ;  RETURN
+  ;END
+  ;
+  CALL log ("Command open double gripper" + $ENCODE (.gripper.no))
+  ;
+  IF NOT .inverse THEN
+    SIGNAL gripper.open[.gripper.no], -gripper.close[.gripper.no]
+  ELSE
+    SIGNAL gripper.close[.gripper.no], -gripper.open[.gripper.no]
+  END
+  TWAIT .open.time
+  ;
+.END
+.PROGRAM grip.open.par (.open.time)
+  ;
+  ;IF SIG (ei.check.grip[.grip.no]) AND SIG (grip.opened[.grip.no]) THEN
+  ;  CALL log ("Gripper" + $ENCODE (.grip.no) + "already opened")
+  ;  RETURN
+  ;END
+  ;
+  CALL log ("Command open parallel gripper")
+  ;
+  SIGNAL gripper.close[2], -gripper.open[2]
+  SIGNAL gripper.open[1], -gripper.close[1]
+  TWAIT .open.time
+  ;
+.END
+.PROGRAM grip.test.dbl ()
+  ;
+  FOR .i = 1 TO 5
+    CALL gripper.open(1, 1.5, FALSE)
+    CALL gripper.open(2, 1.5, FALSE)
+    TWAIT 2
+    CALL gripper.close(1, 1.5, FALSE)
+    CALL gripper.close(2, 1.5, FALSE)
+    TWAIT 2
+  END
+  ;
+.END
+.PROGRAM grip.test.prl ()
+  ;
+  FOR .i = 1 TO 5
+    CALL gripper.open(3, 1.5, FALSE)
+    TWAIT 2
+    CALL gripper.close(3, 1.5, FALSE)
+    TWAIT 2
+  END
+  ;
+.END
+.PROGRAM gripper.close (.gripper.no,.close.time,.inverse)
+  ;
+  ; .gripper.no:
+  ; 1, 2 - Double
+  ; 3 - Parallel
+  ;
+  IF .gripper.no == grip.no.par[1] THEN
+    CALL grip.close.par(.close.time)
+  ELSE
+    CALL grip.close.dbl(.gripper.no, .close.time, .inverse)
+  END
+  ;
+.END
+.PROGRAM gripper.open (.gripper.no,.open.time,.inverse)
+  ;
+  ; .gripper.no:
+  ; 1, 2 - Double
+  ; 3 - Parallel
+  ;
+  IF .gripper.no == grip.no.par[1] THEN
+    CALL grip.open.par(.open.time)
+  ELSE
+    CALL grip.open.dbl(.gripper.no, .open.time, .inverse)
+  END
+  ;
+.END
+.PROGRAM id.to.ij.bush (.id,.i,.j)
+  ;
+  .P = plt.cell.odd + plt.cell.even
+  .pair = INT ((.id - 1) / .P)
+  .offset = (.id - 1) MOD .P
+  ;
+  IF .offset < plt.cell.odd THEN
+    .i = 2 * .pair
+    .j = .offset
+  ELSE
+    .i = 2 * .pair + 1
+    .j = .offset - plt.cell.odd
+  END
+  ;
+  CALL log ("ID:" + $ENCODE (.id) + " --> i:" + $ENCODE (.i) + " j:" + $ENCODE (.j))
+  ;
+.END
+.PROGRAM id.to.ij.shaft (.id,.i,.j)
+  ;
+  ;.cond.cell = INT(plt.cell.odd/cond.stp.cell)
+  ;
+  .P = 2 + 2
+  ;
+  .pair = INT ((.id - 1) / .P)
+  .offset = (.id - 1) MOD .P
+  ;
+  IF .offset < 2 THEN
+    .i = 2 * .pair
+    .j = .offset
+  ELSE
+    .i = 2 * .pair + 1
+    .j = .offset - 2
+  END
+  ;
+  .i = .i*cond.stp.row
+  .j = .j*cond.stp.cell
+  ;
+  CALL log ("ID:" + $ENCODE (.id) + " --> i:" + $ENCODE (.i) + " j:" + $ENCODE (.j))
+  ;
+.END
+.PROGRAM initialize.pc ()
+  ;
+  CALL log.init
+  CALL set.switches.pc
+  CALL set.io.pc
+  CALL set.vars.pc
+  CALL disp.info.pc("F60")
+  ;
+  MC PRIME a.main
+  TWAIT 0.5
+  ;
+  CALL log.pc1 ("Robot boot initialize completed")
+  ;
+.END
+.PROGRAM log (.$msg)
+	;
+	IF LEN (.$msg) > 55 THEN
+		.$msg = $LEFT (.$msg, 55)
+	END
+	;
+	FOR .i = 1 TO log.max.count - 1
+		$log.entry[.i] = $log.entry[.i + 1]
+	END
+	$log.entry[log.max.count] = $TIME + " " + .$msg
+	;
+	FOR .i = 0 TO 11
+		.$tmp[.i] = $log.entry[log.max.count - (11 - .i)]
+	END
+	;
+	IFPWPRINT 1, 1, 1, 9, 10 = .$tmp[0], .$tmp[1], .$tmp[2],  .$tmp[3]
+	IFPWPRINT 2, 1, 1, 9, 10 = .$tmp[4], .$tmp[5], .$tmp[6],  .$tmp[7]
+	IFPWPRINT 3, 1, 1, 9, 10 = .$tmp[8], .$tmp[9], .$tmp[10], .$tmp[11]
+	;
+.END
+.PROGRAM log.clear ()
+	;
+	FOR .i = 1 TO log.max.count
+		$log.entry[.i] = ""
+	END
+	;
+.END
+.PROGRAM log.init ()
+	;
+	; Change this number if needed
+	log.max.count = 256
+	;
+	.$tmp1 = $ENCODE (/L, log.max.count)
+	.$tmp2 = "$log.entry[" + .$tmp1 + "]"
+	IF NOT EXISTCHAR (.$tmp2) THEN
+		FOR .i = 1 TO log.max.count
+			$log.entry[.i] = ""
+		END
+	END
+	;
+.END
+.PROGRAM log.pc1 (.$msg)
+	;
+	IF LEN (.$msg) > 55 THEN
+		.$msg = $LEFT (.$msg, 55)
+	END
+	;
+	FOR .i = 1 TO log.max.count - 1
+		$log.entry[.i] = $log.entry[.i + 1]
+	END
+	$log.entry[log.max.count] = $TIME + " " + .$msg
+	;
+	FOR .i = 0 TO 11
+		.$tmp[.i] = $log.entry[log.max.count - (11 - .i)]
+	END
+	;
+	IFPWPRINT 1, 1, 1, 9, 10 = .$tmp[0], .$tmp[1], .$tmp[2],  .$tmp[3]
+	IFPWPRINT 2, 1, 1, 9, 10 = .$tmp[4], .$tmp[5], .$tmp[6],  .$tmp[7]
+	IFPWPRINT 3, 1, 1, 9, 10 = .$tmp[8], .$tmp[9], .$tmp[10], .$tmp[11]
+	;
+.END
+.PROGRAM pg0 ()
+  ;
+  state = 0
+  CALL a.main 
+  ;
+.END
+.PROGRAM prep.points ()
+  ;
+  TOOL t.calib[3]
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  FOR .t = 1 TO 20
+    hmi.task.no = .t
+    .draw = 0
+    FOR .i = 1 TO 4
+      LMOVE #p0.shaft[1, 1] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #p0.shaft[.i, .t]
+      ;
+      LMOVE #px.shaft[1, 1] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #px.shaft[.i, .t]
+      ;
+      LMOVE #py.shaft[1, 1] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #py.shaft[.i, .t]
+      .draw = .draw + 180
+      hmi.shelf.no = .i
+      CALL tch.prl.plate
+    END
+    
+    
+  END
+.END
+.PROGRAM safe.home ()
+  ;
+  ; Set small speed
+  SPEED 100 MM/S ALWAYS
+  ACCURACY 0.01 ALWAYS
+  ; Move to home pos
+  HOME
+  ;
+.END
+.PROGRAM set.io.pc()@26/09/25 20:11 #0
+  ;
+  ; Robot external I/O
+  ;
+  ; Gripper IO
+  ; Gripper outputs
+  gripper.open[1] = 33
+  gripper.close[1] = 34
+  gripper.open[2] = 35
+  gripper.close[2] = 36
+  ; Gripper input
+  gripper.opened[1] = 1033
+  gripper.opened[2] = 1034
+  ;
+  ; Ethernet I/P IO (Start: 65 Count:896)
+  ;
+  ; Outputs
+  ;
+  do.motor.on = 65
+  do.error = 66
+  do.cs = 67
+  do.automatic = 68
+  do.teach = 69
+  do.teach.lock = 70
+  do.home = 71
+  do.home2 = 72
+  do.power.on = 73
+  do.emg = 74
+  do.hold = 75
+  do.safety.fence = 76
+  do.bat.alarm = 77
+  o.debug = 78
+  ;
+  ;eo.grip.s.opend[1] = 81
+  ;eo.grip.c.opend[1] = 82
+  ;eo.grip.c.closd[1] = 83
+  ;eo.grip.error[1] = 84
+  ;eo.grip.sensor[1] = 85
+  ;
+  eo.cnc.ch.open = 97
+  eo.cnc.ch.close = 98
+  eo.cnc.mfinish = 99
+  ;
+  eo.robot.ready = 113
+  eo.task.exec = 114
+  eo.process.err = 115
+  eo.data.request[1] = 116
+  eo.data.request[2] = 117
+  eo.data.request[3] = 118
+  eo.data.request[4] = 119
+  eo.data.read = 120
+  ;
+  eo.shelf.opened[1] = 129
+  eo.shelf.opened[2] = 130
+  eo.shelf.opened[3] = 131
+  eo.shelf.opened[4] = 132
+  eo.shelf.unlock[1] = 133
+  eo.shelf.unlock[2] = 134
+  eo.shelf.unlock[3] = 135
+  eo.shelf.unlock[4] = 136
+  ;
+  eo.shelf.cmplt[1] = 138
+  eo.shelf.cmplt[2] = 139
+  eo.shelf.cmplt[3] = 140
+  eo.shelf.cmplt[4] = 141
+  ;
+  eo.lidar.small = 145
+  ;
+  eo.dbl.grip.st[1, 0] = 161
+  eo.dbl.grip.st[2, 0] = 177
+  eo.prl.grip.st[0] = 193
+  eo.cnc.id[1, 0] = 209
+  eo.chg.id[0] = 225
+  eo.wp.processed[0] = 241
+  eo.next.wp[0] = 257
+  eo.error.code[0] = 273
+  ;
+  eo.gr.dbl.empty[1] = 289
+  eo.gr.dbl.wp0[1] = 290
+  eo.gr.dbl.wp1[1] = 291
+  eo.gr.dbl.wp2[1] = 292
+  eo.gr.dbl.empty[2] = 293
+  eo.gr.dbl.wp0[2] = 294
+  eo.gr.dbl.wp1[2] = 295
+  eo.gr.dbl.wp2[2] = 296
+  eo.gr.prl.empty = 297
+  eo.gr.prl.wp0 = 298
+  eo.gr.prl.wp1 = 299
+  eo.gr.prl.wp2 = 300
+  eo.cnc.empty = 301
+  eo.cnc.wp0 = 302
+  eo.cnc.wp1 = 303
+  eo.cnc.wp2 = 304
+  eo.chg.empty = 305
+  eo.chg.wp0 = 306
+  eo.chg.wp1 = 307
+  ;
+  ; Inputs
+  ;
+  di.ext.motor.on = 1065
+  di.ext.ereset = 1066
+  di.ext.cs = 1067
+  di.ext.pgreset = 1068
+  di.ext.hold = 1069
+  di.ext.motor.of = 1070
+  di.ext.slow = 1071
+  ;
+  ei.cnc.ch.opd = 1097
+  ei.cnc.ch.clsd = 1098
+  ei.cnc.ready = 1099
+  ;
+  ei.task.start = 1113
+  ei.data.ready = 1114
+  ;
+  ei.shelf.ready[1] = 1129
+  ei.shelf.ready[2] = 1130
+  ei.shelf.ready[3] = 1131
+  ei.shelf.ready[4] = 1132
+  ;
+  ei.shelf.state[1] = 1133
+  ei.shelf.state[2] = 1134
+  ei.shelf.state[3] = 1135
+  ei.shelf.state[4] = 1136
+  ;
+  ei.shelf.failed = 1137
+  ;
+  ei.robot.speed[0] = 1161; 8 bit
+  ;
+  d.task.id[0] = 1273 ; 8 bit
+  d.wp.count[0] = 1281
+  ;
+  d.chg.required = 1289
+  d.shaft.return = 1290
+  d.shaft.rotate = 1291
+  d.wp.type.shaft = 1292
+  ;
+  d.gr.dbl.inv[1] = 1296
+  d.gr.dbl.inv[1] = 1297
+  ;
+  d.gr.dbl.full[1, 0] = 1305
+  d.gr.dbl.work[1, 0] = 1321
+  d.gr.dbl.full[1, 0] = 1337
+  d.gr.dbl.work[1, 0] = 1353
+  d.gr.prl.full[0] = 1369
+  d.gr.prl.work[0] = 1385
+  ;
+  d.cnc.ch.full[0] = 1401
+  d.cnc.ch.work[0] = 1417
+  ;
+  d.plt.rows[0] = 1433 ; 4 bit
+  d.plt.cell.odd[0] = 1437 ; 4 bit
+  d.plt.cell.even[0] = 1441 ; 4 bit
+  d.plt.dy[0] = 1449 ; 16 bit
+  d.plt.dx[0] = 1465 ; 16 bit
+  d.plt.even.dy[0] = 1481 ; 16 bit
+  ;
+  d.cond.stp.cell[0] = 1497 ; 4 bit
+  d.cond.stp.row[0] = 1501 ; 4 bit
+  d.cond.stp.oy[0] = 1505 ; 4 bit
+  ;
+  d.bush.wp0.len[0] = 1513 ; 16 bit
+  d.bush.wp0.d[0] = 1737 ; 16 bit
+  d.bush.wp2.len[0] = 1529 ; 16 bit
+  d.bush.wp2.d[0] = 1753 ; 16 bit
+  ;
+  d.shaft.wp0.l1[0] = 1545 ; 16 bit
+  d.shaft.wp0.l2[0] = 1561 ; 16 bit
+  d.shaft.wp0.l3[0] = 1577 ; 16 bit
+  d.shaft.wp0.h[0] = 1593 ; 16 bit
+  d.shaft.wp0.d[0] = 1609 ; 16 bit
+  d.shaft.wp2.l1[0] = 1625 ; 16 bit
+  d.shaft.wp2.l2[0] = 1641 ; 16 bit
+  d.shaft.wp2.l3[0] = 1657 ; 16 bit
+  d.shaft.wp2.h[0] = 1673 ; 16 bit
+  d.shaft.wp2.d[0] = 1689 ; 16 bit
+  ;
+  d.chg.no[0] = 1705 ; 4 bit
+  d.chg.h.cor[0] = 1721 ; 8 bit
+  ;
+  ; Internal signals
+  ; IFP page change 2001-2008
+  di.ifp.page[1] = 2001
+  di.ifp.page[2] = 2002
+  di.ifp.page[3] = 2003
+  di.ifp.page[4] = 2004
+  di.ifp.page[5] = 2005
+  di.ifp.page[6] = 2006
+  di.ifp.page[7] = 2007
+  di.ifp.page[8] = 2008
+  ;
+  s.shelf.failed = 2010
+  s.inside.cnc = 2011
+  s.mcode.req = 2012
+  ;
+  s.grip.open[1] = 2050
+  s.grip.open[2] = 2051
+  s.grip.open[3] = 2052
+  s.grip.close[1] = 2053
+  s.grip.close[2] = 2054
+  s.grip.close[3] = 2055
+  ;
+  s.hmi.tool[1] = 2101
+  s.hmi.tool[2] = 2102
+  ;
+  s.pr.a.home = 2200
+  ;
+.END
+.PROGRAM set.switches.pc ()
+	;
+	; System switches
+	CP ON
+	PREFETCH.SIGINS OFF
+	QTOOL OFF
+	REP_ONCE ON
+	HOLD.STEP ON
+	DISP.EXESTEP ON
+	PROG.DATE ON
+	ABS.SPEED ON
+	ERRSTART.PC ON
+	autostart.pc ON
+	;
+.END
+.PROGRAM set.tool (.tool.no)
+  ;
+  CASE .tool.no OF
+    VALUE 1:
+      ; Double gripper, tool 1
+      TOOL t.gripper[1]
+      CALL log ("Double gripper, tool 1 set")
+    VALUE 2:
+      ; Double gripper, tool 2
+      TOOL t.gripper[2]
+      CALL log ("Double gripper, tool 2 set")
+    VALUE 3:
+      ; Parallel gripper
+      TOOL t.gripper[3]
+      CALL log ("Parallel gripper set")
+    VALUE 4:
+      ; Double gripper, pin
+      TOOL t.pin[1]
+      CALL log ("Double gripper, pin set")
+    VALUE 5:
+      ; Parallel gripper, pin
+      TOOL t.pin[2]
+      CALL log ("Parallel gripper, pin set")
+  END
+  current.tool = .tool.no
+  ;
+  WEIGHT 20, 0, 0, 100, 0.1, 0.1, 0.1
+  ;
+.END
+.PROGRAM set.vars.pc()@26/09/24 22:38 #1
+  ;
+  SETHOME 100, #PPOINT (0, 60, 120, 0, -90, 90)
+  POINT #transport = #PPOINT (0, 50, -145, 0, -120, 0)
+  ;
+  POINT t.gripper[1] = TRANS (0, -83.3, 168, -90, 90, -180)
+  POINT t.gripper[2] = TRANS (0, 83.3, 168, 90, 90, 180)
+  POINT t.gripper[3] = TRANS (0, 0, 180, 90, 0, 0)
+  POINT t.calib[3] = TRANS (0, 0, 280, 90, 0, 0)
+  POINT t.pin[1] = TRANS (82, 0, 167, 0, 90, 180) ; +
+  POINT t.pin[2] = TRANS (0, -80, 75, -90, 90, 90) ; +
+  ;
+  type.double = 0
+  type.parallel = 1
+  ;
+  ; For set.tool function
+  grip.no.dbl[1] = 1
+  grip.no.dbl[2] = 2
+  grip.no.par[1] = 3
+  pin.double = 4
+  pin.parallel = 5
+  ;
+  hmi.shelf.no = 1
+  hmi.task.no = 1
+  ;
+  CALL ciner ("hmi.wp.count", hmi.wp.count, 16)
+  ;
+  CALL ciner ("hmi.bush.length", hmi.bush.length, 50)
+  ;
+  CALL ciner ("hmi.shaft.full", hmi.shaft.full, 130)
+  CALL ciner ("hmi.shaft.pick", hmi.shaft.pick, 60)
+  CALL ciner ("hmi.shaft.h", hmi.shaft.h, 78)
+  CALL ciner ("hmi.cond.thick", hmi.cond.thick, 12)
+  CALL ciner ("hmi.cond.shift", hmi.cond.shift, 28)
+  CALL ciner ("hmi.cond.cx", hmi.cond.cx, 1)
+  CALL ciner ("hmi.cond.cy", hmi.cond.cy, 4)
+  CALL ciner ("hmi.prl.ch.full", hmi.prl.ch.full, 90)
+  CALL ciner ("hmi.prl.ch.work", hmi.prl.ch.work, 16)
+  ;
+  CALL ciner ("hmi.plate.rows", hmi.plate.rows, 4)
+  CALL ciner ("hmi.plate.col.o", hmi.plate.col.o, 6)
+  CALL ciner ("hmi.plate.col.e", hmi.plate.col.e, 6)
+  CALL ciner ("hmi.plate.dx", hmi.plate.dx, 110)
+  CALL ciner ("hmi.plate.dy", hmi.plate.dy, 104)
+  CALL ciner ("hmi.plate.e.dy", hmi.plate.e.dy, 0)
+  CALL ciner ("hmi.dbl.ch.full[1]", hmi.dbl.ch.full[1], 40)
+  CALL ciner ("hmi.dbl.ch.full[2]", hmi.dbl.ch.full[2], 40)
+  CALL ciner ("hmi.dbl.ch.work[1]", hmi.dbl.ch.work[1], 29)
+  CALL ciner ("hmi.dbl.ch.work[2]", hmi.dbl.ch.work[2], 29)
+  CALL ciner ("hmi.cnc.ch.full", hmi.cnc.ch.full, 40)
+  CALL ciner ("hmi.cnc.ch.work", hmi.cnc.ch.work, 28)
+  ;
+  shelf.overshoot = 5 ; Replace from HMI
+  cnc.overshoot = 5 ; Replace from HMI
+  ;
+  cnc.dbl.rot[1] = 0
+  cnc.dbl.rot[2] = -180
+  ;
+  cnc.prl.rot[1] = 0
+  cnc.prl.rot[2] = 180
+  ;
+.END
+.PROGRAM shelf.close (.shelf.no,.gripper.type)
+  ;
+  ; .gripper.type:
+  ; 0 - Double
+  ; 1 - Parallel
+  ;
+  IF .gripper.type == type.double THEN
+    CALL shelf.close.dbl (.shelf.no)
+  ELSE
+    CALL shelf.close.par (.shelf.no)
+  END
+  ;
+.END
+.PROGRAM shelf.close.dbl (.shelf.no)
+  ;
+  CALL log ("Closing shelf"+ $ENCODE (.shelf.no) +" with double gripper")
+  ;
+  CALL gripper.close (grip.no.dbl[1], 0, FALSE)
+  CALL gripper.close (grip.no.dbl[2], 0, FALSE)
+  CALL set.tool (pin.double)
+  ;
+  POINT .#safe = #shelf.safe.dbl
+  POINT .start = shelf.close.dbl[.shelf.no, 1]
+  POINT .end = shelf.close.dbl[.shelf.no, 2]
+  ;
+  SPEED 150 MM/S ALWAYS
+  ACCURACY 50 ALWAYS
+  ;
+  JMOVE .#safe
+  $safe.flag = "shelf.safe"
+  ; Change zone to small for avoiding lidar crossing
+  IF .shelf.no == 3 OR .shelf.no == 4 THEN
+    SIGNAL eo.lidar.small
+  END
+  ;
+  LMOVE .start + TRANS (-150, 0, 200)
+  LMOVE .start + TRANS (-150, 0, -20)
+  LMOVE .start + TRANS (0, 0, -20)
+  BREAK
+  $safe.flag = "shelf.work"
+  ; Set smaller speed
+  SPEED 50 MM/S ALWAYS
+  ACCURACY 0.1 ALWAYS
+  LMOVE .start
+  BREAK
+  ; Open shelf
+  CALL log ("Request shelf" + $ENCODE (.shelf.no) + " unlock")
+  SIGNAL eo.shelf.unlock[.shelf.no]
+  WAIT BITS (ei.shelf.state[1], 5) <> 0
+  ;
+  IF NOT SIG (ei.shelf.failed) THEN
+    CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
+    LMOVE .end
+    BREAK
+    LMOVE .end + TRANS (0, 0, -20)
+    BREAK
+    ;
+    ; Lock shelf
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    SIGNAL -eo.shelf.opened[.shelf.no]
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .end + TRANS (-350, 0, -20)
+    LMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  ELSE
+    CALL log ("Failed to open shelf" + $ENCODE (.shelf.no) +". Task will be stopped")
+    SIGNAL s.shelf.failed
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    LMOVE .start + TRANS (0, 0, -20)
+    BREAK
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .start + TRANS (-150, 0, -20)
+    LMOVE .start + TRANS (-150, 0, 200)
+    JMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  END
+  ;
+.END
+.PROGRAM shelf.close.par (.shelf.no)
+  ;
+  CALL log ("Closing shelf"+ $ENCODE (.shelf.no) +" with parallel gripper")
+  ;
+  CALL gripper.close (grip.no.par[1], 0, FALSE)
+  CALL set.tool (pin.parallel)
+  ;
+  POINT .#safe = #shelf.safe.par
+  POINT .start = shelf.close.par[.shelf.no, 1]
+  POINT .end = shelf.close.par[.shelf.no, 2]
+  ;
+  SPEED 150 MM/S ALWAYS
+  ACCURACY 50 ALWAYS
+  ;
+  JMOVE .#safe
+  $safe.flag = "shelf.safe"
+  ; Change zone to small for avoiding lidar crossing
+  IF .shelf.no == 3 OR .shelf.no == 4 THEN
+    SIGNAL eo.lidar.small
+  END
+  ;
+  LMOVE .start + TRANS (-150, -150, 200) + RZ (70)
+  LMOVE .start + TRANS (-150, -150, -20) + RZ (70)
+  LMOVE .start + TRANS (-150, -150, -20)
+  LMOVE .start + TRANS (0, 0, -20)
+  BREAK
+  ;
+  $safe.flag = "shelf.work"
+  ; Set smaller speed
+  SPEED 50 MM/S ALWAYS
+  ACCURACY 0.1 ALWAYS
+  LMOVE .start
+  BREAK
+  ; Open shelf
+  CALL log ("Request shelf" + $ENCODE (.shelf.no) + " unlock")
+  SIGNAL eo.shelf.unlock[.shelf.no]
+  WAIT BITS (ei.shelf.state[1], 5) <> 0
+  ;
+  IF NOT SIG (ei.shelf.failed) THEN
+    CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
+    LMOVE .end
+    BREAK
+    LMOVE .end + TRANS (0, 0, -20)
+    BREAK
+    ;
+    ; Lock shelf
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    SIGNAL -eo.shelf.opened[.shelf.no]
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .end + TRANS (-350, -350, -20)
+    LMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  ELSE
+    CALL log ("Failed to open shelf" + $ENCODE (.shelf.no) +". Task will be stopped")
+    SIGNAL s.shelf.failed
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    LMOVE .start + TRANS (0, 0, -20)
+    LMOVE .start + TRANS (-150, -150, -20)
+    LMOVE .start + TRANS (-150, -150, -20) + RZ (70)
+    LMOVE .start + TRANS (-150, -150, 200) + RZ (70)
+    BREAK
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .start + TRANS (-350, -350, -20)
+    JMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  END
+  ;
+.END
+.PROGRAM shelf.open (.shelf.no,.gripper.type)
+  ;
+  ; .gripper.type:
+  ; 0 - Double
+  ; 1 - Parallel
+  ;
+  IF .gripper.type == type.double THEN
+    CALL shelf.open.dbl (.shelf.no)
+  ELSE
+    CALL shelf.open.par (.shelf.no)
+  END
+  ;
+.END
+.PROGRAM shelf.open.dbl (.shelf.no)
+  ;
+  CALL log ("Opening shelf"+ $ENCODE (.shelf.no) +" with double gripper")
+  ;
+  CALL gripper.close (grip.no.dbl[1], 0, FALSE)
+  CALL gripper.close (grip.no.dbl[2], 0, FALSE)
+  CALL set.tool (pin.double)
+  ;
+  POINT .#safe = #shelf.safe.dbl
+  POINT .start = shelf.open.dbl[.shelf.no, 1]
+  POINT .end = shelf.open.dbl[.shelf.no, 2]
+  ;
+  SPEED 150 MM/S ALWAYS
+  ACCURACY 50 ALWAYS
+  ;
+  JMOVE .#safe
+  $safe.flag = "shelf.safe"
+  ; Change zone to small for avoiding lidar crossing
+  IF .shelf.no == 3 OR .shelf.no == 4 THEN
+    SIGNAL eo.lidar.small
+  END
+  ;
+  LMOVE .start + TRANS (-350, 0, -20)
+  LMOVE .start + TRANS (0, 0, -20)
+  BREAK
+  $safe.flag = "shelf.work"
+  ; Set smaller speed
+  SPEED 50 MM/S ALWAYS
+  ACCURACY 0.1 ALWAYS
+  LMOVE .start
+  BREAK
+  ; Open shelf
+  CALL log ("Request shelf" + $ENCODE (.shelf.no) + " unlock")
+  SIGNAL eo.shelf.unlock[.shelf.no]
+  WAIT BITS (ei.shelf.state[1], 5) <> 0
+  ;
+  IF NOT SIG (ei.shelf.failed) THEN
+    CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
+    LMOVE .end
+    BREAK
+    LMOVE .end + TRANS (0, 0, -20)
+    BREAK
+    ;
+    ; Lock shelf
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    SIGNAL eo.shelf.opened[.shelf.no]
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .end + TRANS (-150, 0, -20)
+    LMOVE .end + TRANS (-150, 0, 200)
+    LMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  ELSE
+    CALL log ("Failed to open shelf" + $ENCODE (.shelf.no) +". Task will be stopped")
+    SIGNAL s.shelf.failed
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    LMOVE .start + TRANS (0, 0, -20)
+    BREAK
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .start + TRANS (-350, 0, -20)
+    JMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  END
+  ;
+.END
+.PROGRAM shelf.open.par (.shelf.no)
+  ;
+  CALL log ("Opening shelf"+ $ENCODE (.shelf.no) +" with parallel gripper")
+  ;
+  CALL gripper.close (grip.no.par[1], 0, FALSE)
+  CALL set.tool (pin.parallel)
+  ;
+  POINT .#safe = #shelf.safe.par
+  POINT .start = shelf.open.par[.shelf.no, 1]
+  POINT .end = shelf.open.par[.shelf.no, 2]
+  ;
+  SPEED 150 MM/S ALWAYS
+  ACCURACY 50 ALWAYS
+  ;
+  JMOVE .#safe
+  $safe.flag = "shelf.safe"
+  ; Change zone to small for avoiding lidar crossing
+  IF .shelf.no == 3 OR .shelf.no == 4 THEN
+    SIGNAL eo.lidar.small
+  END
+  ;
+  LMOVE .start + TRANS (-350, -350, -20)
+  LMOVE .start + TRANS (0, 0, -20)
+  BREAK
+  ;
+  $safe.flag = "shelf.work"
+  ; Set smaller speed
+  SPEED 50 MM/S ALWAYS
+  ACCURACY 0.1 ALWAYS
+  LMOVE .start
+  BREAK
+  ; Open shelf
+  CALL log ("Request shelf" + $ENCODE (.shelf.no) + " unlock")
+  SIGNAL eo.shelf.unlock[.shelf.no]
+  WAIT BITS (ei.shelf.state[1], 5) <> 0
+  ;
+  IF NOT SIG (ei.shelf.failed) THEN
+    CALL log ("Shelf" + $ENCODE (.shelf.no) +" successfully unlocked")
+    LMOVE .end
+    BREAK
+    LMOVE .end + TRANS (0, 0, -20)
+    BREAK
+    ;
+    ; Lock shelf
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    SIGNAL eo.shelf.opened[.shelf.no]
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .end + TRANS (-150, -150, -20)
+    LMOVE .end + TRANS (-150, -150, -20) + RZ (70)
+    LMOVE .end + TRANS (-150, -150, 200) + RZ (70)
+    LMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  ELSE
+    CALL log ("Failed to open shelf" + $ENCODE (.shelf.no) +". Task will be stopped")
+    SIGNAL s.shelf.failed
+    SIGNAL -eo.shelf.unlock[.shelf.no]
+    LMOVE .start + TRANS (0, 0, -20)
+    BREAK
+    ;
+    SPEED 150 MM/S ALWAYS
+    ACCURACY 50 ALWAYS
+    LMOVE .start + TRANS (-350, -350, -20)
+    JMOVE .#safe
+    $safe.flag = "shelf.safe"
+    BREAK
+    ;
+    RETURN
+  END
+  ;
+.END
+.PROGRAM state0 () ; Initialization
+  ;
+  CALL log ("State 0: Initialization")
+  ;
+  SIGNAL eo.robot.ready
+  CALL log ("Waiting for task start")
+  SWAIT ei.task.start
+  CALL log ("Task start command received")
+  ;
+  ; Resetting signals
+  BITS eo.shelf.opened[1], 4 = 0
+  ;
+  SIGNAL eo.task.exec
+  SIGNAL -eo.robot.ready
+  SIGNAL -s.mcode.req
+  SIGNAL -s.inside.cnc
+  current.shelf = 0
+  ;
+  state = 1
+  RETURN
+  ;
+.END
+.PROGRAM state1 () ; Check ready shelves
+  ;
+  CALL log ("State 1: Check ready shelves")
+  WHILE TRUE DO
+    IF NOT SIG (ei.task.start) THEN
+      CALL log ("Task signal was turned off by operator")
+      state = 255
+      RETURN
+    END
+    ;
+    current.shelf = current.shelf + 1
+    IF current.shelf == 5 THEN
+      current.shelf = 1
+    END
+    ;
+    IF SIG (ei.shelf.ready[current.shelf]) THEN
+      CALL log ("Shelf" + $ENCODE (current.shelf) + " is ready. Request data!")
+      ;
+      SIGNAL eo.data.request[current.shelf]
+      SWAIT ei.data.ready
+      SIGNAL -eo.data.request[current.shelf]
+      ;
+      gripper.dbl.id[1] = 0
+      gripper.dbl.st[1] = -1
+      gripper.dbl.id[2] = 0
+      gripper.dbl.st[2] = -1
+      ;
+      gripper.prl.id = 0
+      gripper.prl.st = -1
+      ;
+      cnc.id = 0
+      cnc.st = -1
+      ;
+      chg.id = 0
+      chg.st = -1
+      ;
+      current.wp    = 1
+      processed.wp  = 0
+      ;
+      CALL get.task.data
+      ;
+      SPEED 100
+      HOME
+      ;
+      state = 99
+      RETURN
+    END
+    HOME
+  END
+  ;
+.END
+.PROGRAM state100 () ; Select decision state for bushing type
+  ;
+  CALL log ("State 100: Select decision state for bushing type")
+  ;
+  IF NOT chg.required THEN
+    decision.state = 101
+  ELSE
+    decision.state = 102
+  END
+  ;
+  state = decision.state
+  RETURN
+  ;
+.END
+.PROGRAM state101 () ; Decision making module. Type: bushing; No buffer
+  ;
+  CALL log ("State 101: Decision making module. Type: bushing; No buffer")
+  ;
+  WHILE TRUE DO
+    ;
+    CALL calc.state.flag
+    ;
+    ; Open shelf in not opened
+    IF shelf.closed THEN
+      state = 110
+      RETURN
+    END
+    ;
+    ; Send MFINISH
+    IF rout AND cnc.full AND mfinish THEN
+      state = 116
+      RETURN
+    END
+    ;
+    ; Pick workpiece from shelf
+    IF rout AND gp.dbl.empty[1] AND gp.dbl.empty[2] AND n.max.pick THEN
+      state = 111
+      RETURN
+    END
+    ;
+    ; Move inside CNC
+    ;
+    IF rout AND (gp.dbl.full[1] AND cnc.empty OR gp.dbl.empty[2] AND cnc.full) THEN
+      state = 112
+      RETURN
+    END
+    ;
+    ; Put workpiece to CNC
+    IF rin AND gp.dbl.full[1] AND cnc.empty THEN
+      state = 113
+      RETURN
+    END
+    ;
+    ; Pick detail from CNC
+    IF rin AND gp.dbl.empty[2] AND cnc.wp2 THEN
+      state = 114
+      RETURN
+    END
+    ;
+    ; Move outside cnc.in
+    IF rin AND (gp.dbl.empty[1] AND cnc.full OR gp.dbl.full[2] AND cnc.empty) THEN
+      state = 115
+      RETURN
+    END
+    ;
+    ; Put detail to stocker
+    IF rout AND gp.dbl.full[2] AND gp.dbl.empty[1] THEN
+      state = 117
+      RETURN
+    END
+    ;
+    ; Close shelf
+    .ge = gp.dbl.empty[1] AND gp.dbl.empty[2]
+    .ce = cnc.empty
+    IF rout AND .ge AND .ce AND max.pick
+      state = 118
+      RETURN
+    END
+  END
+  ;
+.END
+.PROGRAM state102 () ; Decision making module. Type: bushing; With buffer
+  ;
+  CALL log ("State 102: Decision making module. Type: bushing; With buffer")
+  ;
+  WHILE TRUE DO
+    CALL calc.state.flag
+    ;
+  END
+  ;
+.END
+.PROGRAM state110 () ; Open shelf with double gripper
+  ;
+  CALL log ("State 110: Open shelf with double gripper")
+  CALL shelf.open (current.shelf, type.double)
+  ;
+  IF NOT SIG (s.shelf.failed) THEN
+    state = decision.state
+    RETURN
+  ELSE
+    state = 999
+    RETURN
+  END
+  ;
+.END
+.PROGRAM state111 () ; Pick workpiece from shelf
+  ;
+  CALL log ("State 111: Pick workpiece from shelf")
+  ;
+  .grip.no = 1
+  ;
+  ;IF NOT SIG (do.home) THEN
+  ;  HOME
+  ;END
+  ;
+  JMOVE #wp.bush.safe[.grip.no]
+  ;
+  CALL wp.dbl.pick (.grip.no, current.shelf, current.wp)
+  current.wp = current.wp + 1
+  state = decision.state
+  ;
+  RETURN
+  ;
+.END
+.PROGRAM state112 () ; Move inside CNC
+  ;
+  CALL log ("State 112: Move inside CNC")
+  ;
+  IF gp.dbl.full[1] AND cnc.empty THEN
+    .grip.no = 1
+  ELSE
+    .grip.no = 2
+  END
+  ;
+  HOME
+  CALL cnc.in.bush (.grip.no)
+  ;
+  state = decision.state
+  RETURN
+  ;
+.END
+.PROGRAM state113 () ; Put workpiece to CNC
+  ;
+  CALL log ("State 113: Put workpiece to CNC")
+  ;
+  .grip.no = 1
+  ;
+  CALL cnc.put.bush(.grip.no)
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state114 () ; Pick workpiece from CNC
+  ;
+  CALL log ("State 114: Pick workpiece from CNC")
+  ;
+  .grip.no = 2
+  ;
+  CALL cnc.pick.bush(.grip.no)
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state115 () ; Move outside CNC
+  ;
+  CALL log ("State 115: Move outside CNC")
+  ;
+  IF gp.dbl.full[2] AND cnc.empty THEN
+    .grip.no = 2
+  ELSE
+    .grip.no = 1
+  END
+  ;
+  CALL cnc.out.bush (.grip.no)
+  ;
+  state = decision.state
+  RETURN
+  ;
+.END
+.PROGRAM state116 () ; MCODE Exexute
+  ;
+  CALL log ("State 116: MCODE Execute")
+  ;
+  PULSE eo.cnc.mfinish, 1
+  SIGNAL -s.mcode.req
+  cnc.st = 2
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state117 () ; Put workpiece to shelf
+  ;
+  CALL log ("State 117: Put workpiece to shelf")
+  ;
+  .grip.no = 2 ;
+  ;
+  JMOVE #wp.bush.safe[.grip.no]
+  ;
+  .wp.id = ABS (gripper.dbl.id[.grip.no])
+  CALL wp.dbl.put (.grip.no, current.shelf, .wp.id)
+  ;
+  state = decision.state
+  ;
+.END
+.PROGRAM state118 () ; Close shelf with double gripper
+  ;
+  CALL log ("State 118: Close shelf with double gripper")
+  CALL shelf.close (current.shelf, type.double)
+  ;
+  IF NOT SIG (s.shelf.failed) THEN
+    state = 119
+    RETURN
+  ELSE
+    state = 999
+    RETURN
+  END
+  ;
+.END
+.PROGRAM state119 () ; Finish shelf
+  ;
+  CALL log("State 119: Finish shelf")
+  PULSE eo.shelf.cmplt[current.shelf], 1
+  ;
+  SPEED 100 ALWAYS
+  HOME
+  ;
+  state = 1
+  ;
+.END
+.PROGRAM state200 () ; Select decision state for shaft type
+  ;
+  CALL log ("State 200: Select decision state for shaft type")
+  ;
+  IF NOT shaft.return THEN
+    decision.state = 201
+  ELSE
+    decision.state = 202
+  END
+  ;
+  state = decision.state
+  RETURN
+  ;
+.END
+.PROGRAM state201 () ; Decision making module. Type: shaft; No return
+  ;
+  ;CALL log ("State 201: Decision making module. Type: shaft; No return")
+  ;;
+  ;WHILE TRUE DO
+  ;  ;
+  ;  CALL calc.state.flag
+  ;  ;
+  ;  ; Open shelf in not opened
+  ;  IF shelf.closed THEN
+  ;    state = 110
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Send MFINISH
+  ;  IF rout AND cnc.full[1] AND mfinish THEN
+  ;    state = 18
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Pick workpiece from shelf
+  ;  IF rout AND gp.empty[1] AND gp.empty[2] AND n.max.pick THEN
+  ;    state = 111
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Move inside CNC
+  ;  ;
+  ;  IF rout AND (gp.full[1] AND cnc.empty[1] OR gp.empty[2] AND cnc.full[1]) THEN
+  ;    state = 112
+  ;    RETURN
+  ;  END
+  ;  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;  ; Put workpiece to CNC
+  ;  IF rin AND gp.full[1] AND cnc.empty[1] THEN
+  ;    state = 9
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Pick detail from CNC
+  ;  IF rin AND gp.empty[2] AND cnc.wp2[1] THEN
+  ;    state = 12
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Move outside cnc.in
+  ;  IF rin AND (gp.empty[1] AND cnc.full[1] OR gp.full[2] AND cnc.empty[1]) THEN
+  ;    state = 8
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Put detail to stocker
+  ;  IF rout AND gp.full[2] AND gp.empty[1] THEN
+  ;    state = 5
+  ;    RETURN
+  ;  END
+  ;  ;
+  ;  ; Close shelf
+  ;  .ge = gp.empty[1] AND gp.empty[2]
+  ;  .ce = cnc.empty[1]
+  ;  IF rout AND .ge AND .ce AND max.pick
+  ;    state = 3
+  ;    RETURN
+  ;  END
+  ;END
+  ;
+.END
+.PROGRAM state210 () ; Open shelf with parallel gripper
+  ;
+  CALL log ("State 210: Open shelf with parallel gripper")
+  CALL shelf.open (current.shelf, type.parallel)
+  ;
+  IF NOT SIG (s.shelf.failed) THEN
+    state = decision.state
+    RETURN
+  ELSE
+    state = 999
+    RETURN
+  END
+  ;
+.END
+.PROGRAM state211 () ; Pick workpiece from shelf
+  ;
+  CALL log ("State 211: Pick workpiece from shelf")
+  ;
+  IF NOT SIG (do.home) THEN
+    HOME
+  END
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  CALL wp.prl.pick (current.shelf, current.wp)
+  current.wp = current.wp + 1
+  state = decision.state
+  ;
+  RETURN
+  ;
+.END
+.PROGRAM state212 () ; Move inside CNC
+  ;
+  CALL log ("State 212: Move inside CNC")
+  ;
+  HOME
+  CALL cnc.in.shaft
+  ;
+  state = decision.state
+  RETURN
+  ;
+.END
+.PROGRAM state99 () ; Decide workpiece type
+  ;
+  CALL log ("State 99: Decide workpiece type")
+  ;
+  IF NOT wp.type.shaft THEN
+    CALL log ("Work with bushing detail type")
+    decision.type = 100
+  ELSE
+    CALL log ("Work with shaft detail type")
+    decision.type = 200
+  END
+  ;
+  state = decision.type
+  RETURN
+  ;
+.END
+.PROGRAM state999 () ; Task complete
+  ;
+  CALL log("State 999: Task complete")
+  ;
+  SIGNAL -eo.task.exec
+  ;
+  state = 0 
+  RETURN
+  ;
+.END
+.PROGRAM tch.cnc.bushing ()
+  ;
+  IF SIG (s.hmi.tool[1]) THEN
+    .grip.no = 1
+  ELSE
+    .grip.no = 2
+  END
+  ;
+  .gc.full = hmi.dbl.ch.full[.grip.no]
+  .gc.body = hmi.dbl.ch.work[.grip.no]
+  .cncc.full = hmi.cnc.ch.full
+  .cncc.body = hmi.cnc.ch.work
+  ;
+  TOOL t.gripper[.grip.no]
+  CALL calc.rot.dbl (.grip.no)
+  ;
+  JMOVE #cnc.out
+  LMOVE #cnc.in
+  ;
+  LAPPRO #cnc.point.bush[.grip.no], 50
+  ; Teach this point 
+  BREAK
+  LMOVE #cnc.point.bush[.grip.no]  ; **== TEACH POINT ==**
+  LAPPRO #cnc.point.bush[.grip.no], 50
+  ;
+  POINT .temp = #cnc.point.bush[.grip.no]
+  .zshift = .gc.body + .cncc.body + hmi.bush.length
+  POINT cnc.point.bush[.grip.no] = .temp + TRANS (, , .zshift)
+  ;
+  POINT .temp = cnc.point.bush[.grip.no] + TRANS (, , -.zshift)
+  LAPPRO .temp, 50
+  LMOVE .temp
+  LAPPRO .temp, 50
+  ;
+.END
+.PROGRAM tch.cnc.dbl.app ()
+  ;
+  JMOVE #cnc.out.dbl.bas ; ***TEACH POINT***
+  LMOVE #cnc.in.dbl.base ; ***TEACH POINT***
+  ;
+.END
+.PROGRAM tch.cnc.prl.app ()
+  ;
+  JMOVE #cnc.out.prl.bas ; ***TEACH POINT***
+  LMOVE #cnc.in.prl.base ; ***TEACH POINT***
+  ;
+.END
+.PROGRAM tch.cnc.shaft ()
+  ;
+  .gc.len = hmi.prl.ch.full
+  .gc.body = hmi.prl.ch.work
+  .cncc.full = hmi.cnc.ch.full
+  .cncc.body = hmi.cnc.ch.work
+  ;
+  TOOL t.gripper[3]
+  CALL calc.rot.prl (FALSE)
+  ;
+  JMOVE #cnc.out
+  LMOVE #cnc.in
+  ;
+  POINT .t = #cnc.point.shaft
+  POINT .t = .t + TRANS(0,150,0)
+  LMOVE .t
+  ; Teach this point 
+  BREAK
+  LMOVE #cnc.point.shaft  ; **== TEACH POINT ==**
+  POINT .t = #cnc.point.shaft
+  POINT .t = .t + TRANS(0,150,0)
+  LMOVE .t
+  ;
+  POINT .temp = #cnc.point.shaft
+  .zshift = .gc.len - .gc.body;
+  .yshift = hmi.cnc.ch.work + hmi.shaft.pick
+  POINT cnc.point.shaft = .temp + TRANS (, -.yshift, .zshift)
+  ;
+  POINT .temp = cnc.point.shaft + TRANS (, .yshift, -.zshift)
+  POINT .temp.appro = .temp + TRANS(0, 150, 0 )
+  LMOVE .temp.appro
+  LMOVE .temp
+  LMOVE .temp.appro
+  ;
+.END
+.PROGRAM tch.dbl.plate ()
+  ;
+  IF SIG (s.hmi.tool[1]) THEN
+    .tool.no = 1
+  ELSE
+    .tool.no = 2
+  END
+  ;
+  .z.cor = hmi.dbl.ch.work[.tool.no] + hmi.bush.length
+  TOOL t.gripper[.tool.no] + TRANS(0, 0, .z.cor)
+  ;
+  JMOVE #wp.bush.safe[.tool.no]
+  ;
+  LAPPRO #p0.bush[hmi.shelf.no, hmi.task.no, .tool.no], 20
+  BREAK
+  ; Zero point
+  LMOVE #p0.bush[hmi.shelf.no, hmi.task.no, .tool.no] ; ***TEACH POINT***
+  LAPPRO #p0.bush[hmi.shelf.no, hmi.task.no, .tool.no], 20
+  ;
+  LAPPRO #px.bush[hmi.shelf.no, hmi.task.no, .tool.no], 20
+  BREAK
+  ; X-direction
+  LMOVE #px.bush[hmi.shelf.no, hmi.task.no, .tool.no] ; ***TEACH POINT***
+  LAPPRO #px.bush[hmi.shelf.no, hmi.task.no, .tool.no], 20
+  ;
+  LAPPRO #py.bush[hmi.shelf.no, hmi.task.no, .tool.no], 20
+  BREAK
+  ; Y-direction
+  LMOVE #py.bush[hmi.shelf.no, hmi.task.no, .tool.no] ; ***TEACH POINT***
+  LAPPRO #py.bush[hmi.shelf.no, hmi.task.no, .tool.no], 20
+  ;
+  ; Calculation
+  POINT .p0 = #p0.bush[hmi.shelf.no, hmi.task.no, .tool.no]
+  POINT .px = #px.bush[hmi.shelf.no, hmi.task.no, .tool.no]
+  POINT .py = #py.bush[hmi.shelf.no, hmi.task.no, .tool.no]
+  ;
+  ; Direction vectors
+  ; X
+  .cx = 1 / DISTANCE (.p0, .px)
+  POINT .x.vec = TRANS (DX (.px) - DX (.p0), DY (.px) - DY (.p0), DZ (.px) - DZ (.p0))
+  POINT .x.norm = TRANS (DX (.x.vec) * .cx, DY (.x.vec) * .cx, DZ (.x.vec) * .cx)
+  ; Y
+  .cy = 1 / DISTANCE (.p0, .py)
+  POINT .y.vec = TRANS (DX (.py) - DX (.p0), DY (.py) - DY (.p0), DZ (.py) - DZ (.p0))
+  POINT .y.norm = TRANS (DX (.y.vec) * .cy, DY (.y.vec) * .cy, DZ (.y.vec) * .cy)
+  ;
+  POINT origin.bush[hmi.shelf.no, hmi.task.no, .tool.no] = .p0
+  POINT x.norm.bush[hmi.shelf.no, hmi.task.no, .tool.no] =.x.norm
+  POINT y.norm.bush[hmi.shelf.no, hmi.task.no, .tool.no] =.y.norm
+  ;
+.END
+.PROGRAM tch.prl.plate ()
+  ;
+  TOOL t.calib[3]
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  LAPPRO #p0.shaft[hmi.shelf.no, hmi.task.no], 20
+  BREAK
+  ; Zero point
+  LMOVE #p0.shaft[hmi.shelf.no, hmi.task.no] ; ***TEACH POINT***
+  LAPPRO #p0.shaft[hmi.shelf.no, hmi.task.no], 20
+  ;
+  LAPPRO #px.shaft[hmi.shelf.no, hmi.task.no], 20
+  BREAK
+  ; X-direction
+  LMOVE #px.shaft[hmi.shelf.no, hmi.task.no] ; ***TEACH POINT***
+  LAPPRO #px.shaft[hmi.shelf.no, hmi.task.no], 20
+  ;
+  LAPPRO #py.shaft[hmi.shelf.no, hmi.task.no], 20
+  BREAK
+  ; Y-direction
+  LMOVE #py.shaft[hmi.shelf.no, hmi.task.no] ; ***TEACH POINT***
+  LAPPRO #py.shaft[hmi.shelf.no, hmi.task.no], 20
+  ;
+  ; Calculation
+  POINT .p0 = #p0.shaft[hmi.shelf.no, hmi.task.no]
+  POINT .px = #px.shaft[hmi.shelf.no, hmi.task.no]
+  POINT .py = #py.shaft[hmi.shelf.no, hmi.task.no]
+  ;
+  ; Direction vectors
+  ; X
+  .cx = 1 / DISTANCE (.p0, .px)
+  POINT .x.vec = TRANS (DX (.px) - DX (.p0), DY (.px) - DY (.p0), DZ (.px) - DZ (.p0))
+  POINT .x.norm = TRANS (DX (.x.vec) * .cx, DY (.x.vec) * .cx, DZ (.x.vec) * .cx)
+  ; Y
+  .cy = 1 / DISTANCE (.p0, .py)
+  POINT .y.vec = TRANS (DX (.py) - DX (.p0), DY (.py) - DY (.p0), DZ (.py) - DZ (.p0))
+  POINT .y.norm = TRANS (DX (.y.vec) * .cy, DY (.y.vec) * .cy, DZ (.y.vec) * .cy)
+  ;
+  POINT origin.shaft[hmi.shelf.no, hmi.task.no] = .p0
+  POINT x.norm.shaft[hmi.shelf.no, hmi.task.no] =.x.norm
+  POINT y.norm.shaft[hmi.shelf.no, hmi.task.no] =.y.norm
+  ;
+.END
+.PROGRAM teach.shelf.dbl ()
+  ;
+  TOOL t.pin[1]
+  SIGNAL gripper.close[1], -gripper.open[1]
+  SIGNAL gripper.close[2], -gripper.open[2]
+  ;
+  JMOVE #shelf.safe.dbl
+  ;
+  ; Teach points for open shelf
+  LMOVE shelf.open.dbl[hmi.shelf.no, 1] + TRANS (-350, 0, -20)
+  LMOVE shelf.open.dbl[hmi.shelf.no, 1] + TRANS (0, 0, -20)
+  ; Teach this point for shelf open
+  BREAK
+  LMOVE shelf.open.dbl[hmi.shelf.no, 1] ; **== TEACH POINT ==**
+  ; Teach this point for shelf close
+  BREAK
+  LMOVE shelf.close.dbl[hmi.shelf.no, 2] ; **== TEACH POINT ==**
+  ;
+  LMOVE shelf.open.dbl[hmi.shelf.no, 1] + TRANS (0, 0, -20)
+  LMOVE shelf.open.dbl[hmi.shelf.no, 1] + TRANS (-350, 0, -20)
+  JMOVE #shelf.safe.dbl
+  ;
+  ; Teach points for close shelf
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] + TRANS (-150, 0, 200)
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] + TRANS (-150, 0, -20)
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] + TRANS (0, 0, -20)
+  ; Teach this point for shelf close
+  BREAK
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] ; **== TEACH POINT ==**
+  ; Teach this point for shelf open
+  BREAK
+  LMOVE shelf.open.dbl[hmi.shelf.no, 2] ; **== TEACH POINT ==**
+  ;
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] + TRANS (0, 0, -20)
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] + TRANS (-150, 0, -20)
+  LMOVE shelf.close.dbl[hmi.shelf.no, 1] + TRANS (-150, 0, 200)
+  ;
+  JMOVE #shelf.safe.dbl
+  ;
+.END
+.PROGRAM teach.shelf.par ()
+  ;
+  TOOL t.pin[2]
+  SIGNAL gripper.close[1], -gripper.open[1]
+  SIGNAL gripper.close[2], -gripper.open[2]
+  ;
+  JMOVE #shelf.safe.par
+  ;
+  ; Teach points for open shelf
+  LMOVE shelf.open.par[hmi.shelf.no, 1] + TRANS (-50, 0, -150)
+  LMOVE shelf.open.par[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
+  ; Teach this point for shelf open
+  BREAK
+  LMOVE shelf.open.par[hmi.shelf.no, 1] ; **== TEACH POINT ==**
+  ; Teach this point for shelf close
+  BREAK
+  LMOVE shelf.close.par[hmi.shelf.no, 2] ; **== TEACH POINT ==**
+  ;
+  LMOVE shelf.open.par[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
+  LMOVE shelf.open.par[hmi.shelf.no, 1] + TRANS (-50, 0, -150)
+  JMOVE #shelf.safe.par
+  ;
+  ; Teach points for close shelf
+  LMOVE shelf.close.par[hmi.shelf.no, 1] + TRANS (150, 0, -150)
+  LMOVE shelf.close.par[hmi.shelf.no, 1] + TRANS (-50, 0, -150)
+  LMOVE shelf.close.par[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
+  ; Teach this point for shelf close
+  BREAK
+  LMOVE shelf.close.par[hmi.shelf.no, 1] ; **== TEACH POINT ==**
+  ; Teach this point for shelf open
+  BREAK
+  LMOVE shelf.open.par[hmi.shelf.no, 2] ; **== TEACH POINT ==**
+  ;
+  LMOVE shelf.close.par[hmi.shelf.no, 1] + TRANS (-50, 0, 0)
+  LMOVE shelf.close.par[hmi.shelf.no, 1] + TRANS (-50, 0, -150)
+  LMOVE shelf.close.par[hmi.shelf.no, 1] + TRANS (150, 0, -150)
+  JMOVE #shelf.safe.par
+  ;
+.END
+.PROGRAM test.shelf.dbl ()
+  ;
+  CALL shelf.open.dbl (hmi.shelf.no)
+  CALL shelf.close.dbl (hmi.shelf.no)
+  ;
+.END
+.PROGRAM test.shelf.par ()
+  ;
+  CALL shelf.open.par (hmi.shelf.no)
+  CALL shelf.close.par (hmi.shelf.no)
+  ;
+.END
+.PROGRAM tst.cnc.bushing ()
+  ;
+  CALL get.task.data
+  ;
+  CALL cnc.put.bush(1)
+  CALL cnc.pick.bush(2)
+  ;
+.END
+.PROGRAM tst.cnc.shaft ()
+  ;
+  CALL get.task.data
+  ;
+  CALL cnc.put.shaft
+  CALL cnc.pick.shaft
+  ;
+.END
+.PROGRAM tst.dbl.plate ()
+  ;
+  IF SIG (s.hmi.tool[1]) THEN
+    .tool.no = 1
+  ELSE
+    .tool.no = 2
+  END
+  ;
+  .z.cor = hmi.dbl.ch.work[.tool.no] + hmi.bush.length
+  TOOL t.gripper[.tool.no] + TRANS (0, 0, .z.cor)
+  ;
+  POINT .p0 = origin.bush[hmi.shelf.no, hmi.task.no, .tool.no]
+  POINT .x.norm = x.norm.bush[hmi.shelf.no, hmi.task.no, .tool.no]
+  POINT .y.norm = y.norm.bush[hmi.shelf.no, hmi.task.no, .tool.no]
+  ;
+  JMOVE #wp.bush.safe[.tool.no]
+  ;
+  ; Test points
+  ; Origin
+  ;
+  .dx = 0
+  .dy = 0
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .dest = .origin + .x.vec + .y.vec
+  POINT/OAT .dest = .p0
+  ;
+  LAPPRO .dest, 30
+  LMOVE .dest
+  LAPPRO .dest, 30
+  ;
+  ; X-Direction
+  ;
+  .dx = (hmi.plate.rows - 1) * hmi.plate.dx
+  .dy = 0
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .dest = .origin + .x.vec + .y.vec
+  POINT/OAT .dest = .p0
+  ;
+  LAPPRO .dest, 30
+  LMOVE .dest
+  LAPPRO .dest, 30
+  ;
+  ; Y-Direction
+  ;
+  .dx = 0
+  .dy = (hmi.plate.col.o - 1) * hmi.plate.dy
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .dest = .origin + .x.vec + .y.vec
+  POINT/OAT .dest = .p0
+  ;
+  LAPPRO .dest, 30
+  LMOVE .dest
+  LAPPRO .dest, 30
+  ;
+  JMOVE #wp.bush.safe[.tool.no]
+  ;
+.END
+.PROGRAM tst.prl.plate ()
+  ;
+  TOOL t.calib[3]
+  ;
+  POINT .p0 = origin.shaft[hmi.shelf.no, hmi.task.no]
+  POINT .x.norm = x.norm.shaft[hmi.shelf.no, hmi.task.no]
+  POINT .y.norm = y.norm.shaft[hmi.shelf.no, hmi.task.no]
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  ; Test points
+  ; Origin
+  ;
+  .dx = 0
+  .dy = 0
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .dest = .origin + .x.vec + .y.vec
+  POINT/OAT .dest = .p0
+  ;
+  LAPPRO .dest, 30
+  LMOVE .dest
+  LAPPRO .dest, 30
+  ;
+  ; X-Direction
+  ;
+  .dx = (hmi.plate.rows - 1) * hmi.plate.dx
+  .dy = 0
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .dest = .origin + .x.vec + .y.vec
+  POINT/OAT .dest = .p0
+  ;
+  LAPPRO .dest, 30
+  LMOVE .dest
+  LAPPRO .dest, 30
+  ;
+  ; Y-Direction
+  ;
+  .dx = 0
+  .dy = (hmi.plate.col.o - 1) * hmi.plate.dy
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .dest = .origin + .x.vec + .y.vec
+  POINT/OAT .dest = .p0
+  ;
+  LAPPRO .dest, 30
+  LMOVE .dest
+  LAPPRO .dest, 30
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+.END
+.PROGRAM tst.wp.dbl.pick ()
+  ;
+  CALL get.task.data
+  FOR .i = 1 TO 10
+    CALL wp.dbl.pick (1, 1, .i)
+    CALL wp.dbl.pick (2, 1, .i)
+  END
+  ;
+.END
+.PROGRAM tst.wp.prl.pick ()
+  ;
+  CALL get.task.data
+  CALL wp.prl.pick(1, hmi.wp.id)
+  ;
+.END
+.PROGRAM wp.dbl.pick (.grip.no,.shelf.no,.wp.id)
+  ;
+  .$temp = "Pick bushing workpiece with id:" + $ENCODE (.wp.id)
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  ;
+  CALL set.tool (grip.no.dbl[.grip.no])
+  CALL gripper.open (grip.no.dbl[.grip.no], 0, gr.dbl.inv[.grip.no])
+  CALL id.to.ij.bush (.wp.id, .i, .j)
+  ;
+  .dx = plt.dx * .i
+  IF .i MOD 2 == 0
+    .dy = plt.dy * (plt.cell.odd - 1 - .j)
+  ELSE
+    .dy = plt.dy * (plt.cell.even - 1 - .j) + plt.even.dy
+  END
+  .dz = bush.wp0.len + gr.dbl.work[.grip.no] - shelf.overshoot ;
+  .z.appro = gr.dbl.full[.grip.no] - gr.dbl.work[.grip.no] + shelf.overshoot + 10
+  ;
+  POINT .p0 = origin.bush[.shelf.no, task.id, .grip.no]
+  POINT .x.norm = x.norm.bush[.shelf.no, task.id, .grip.no]
+  POINT .y.norm = y.norm.bush[.shelf.no, task.id, .grip.no]
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .pick = .origin + .x.vec + .y.vec
+  POINT/OAT .pick = .p0
+  POINT .pick = .pick + TRANS (0, 0, -.dz)
+  ;
+  JMOVE #wp.bush.safe[.grip.no]
+  ;
+  ; Pick workpiece
+  ACCURACY 0.1
+  LAPPRO .pick, .z.appro
+  SPEED 30 MM/S
+  ACCURACY 0.1
+  LMOVE .pick
+  BREAK
+  CALL gripper.close (grip.no.dbl[.grip.no], gp.dbl.cl.tmr[.grip.no], gr.dbl.inv[.grip.no])
+  CALL log ("Bush picked")
+  gripper.dbl.id[.grip.no] = .wp.id
+  gripper.dbl.st[.grip.no] = 0
+  ;
+  SPEED 80 MM/S
+  ACCURACY 0.1
+  LAPPRO .pick, .z.appro
+  JMOVE #wp.bush.safe[.grip.no]
+  ;
+.END
+.PROGRAM wp.dbl.put (.grip.no,.shelf.no,.wp.id)
+  ;
+  .$temp = "Put bushing workpiece with id:" + $ENCODE (.wp.id)
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  ;
+  CALL set.tool (grip.no.dbl[.grip.no])
+  CALL id.to.ij.bush (.wp.id, .i, .j)
+  ;
+  .dx = plt.dx * .i
+  IF .i MOD 2 == 0
+    .dy = plt.dy * (plt.cell.odd - 1 - .j)
+  ELSE
+    .dy = plt.dy * (plt.cell.even - 1 - .j) + plt.even.dy
+  END
+  .dz = bush.wp0.len + gr.dbl.work[.grip.no] - shelf.overshoot ;
+  .z.appro = gr.dbl.full[.grip.no] - gr.dbl.work[.grip.no] + shelf.overshoot + 10
+  ;
+  POINT .p0 = origin.bush[.shelf.no, task.id, .grip.no]
+  POINT .x.norm = x.norm.bush[.shelf.no, task.id, .grip.no]
+  POINT .y.norm = y.norm.bush[.shelf.no, task.id, .grip.no]
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .put = .origin + .x.vec + .y.vec
+  POINT/OAT .put = .p0
+  POINT .put = .put + TRANS (0, 0, -.dz)
+  ;
+  JMOVE #wp.bush.safe[.grip.no]
+  ;
+  ; Pick workpiece
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  SPEED 30 MM/S
+  ACCURACY 0.1
+  LMOVE .put
+  BREAK
+  CALL gripper.open (grip.no.dbl[.grip.no], gp.dbl.op.tmr[.grip.no], gr.dbl.inv[.grip.no])
+  CALL log ("Bush put")
+  gripper.dbl.id[.grip.no] = 0
+  gripper.dbl.st[.grip.no] = -1
+  ;
+  SPEED 80 MM/S
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  JMOVE #wp.bush.safe[.grip.no]
+  ;
+.END
+.PROGRAM wp.prl.pick (.shelf.no,.wp.id)
+  ;
+  .$temp = "Pick shaft workpiece with id:" + $ENCODE (.wp.id)
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  ;
+  CALL set.tool (grip.no.par[1])
+  CALL gripper.open (grip.no.par[1], 0, FALSE)
+  CALL id.to.ij.shaft (.wp.id, .i, .j)
+  ;
+  .dx = plt.dx * .i
+  .dy = plt.dy * .j + shaft.wp0.l2 + shaft.wp0.l3 - cond.stp.oy
+  .dz = shaft.wp0.h + gr.prl.full - gr.prl.work
+  ;
+  .z.appro = shaft.wp0.h + 20
+  ;
+  POINT .p0 = origin.shaft[.shelf.no, task.id]
+  POINT .x.norm = x.norm.shaft[.shelf.no, task.id]
+  POINT .y.norm = y.norm.shaft[.shelf.no, task.id]
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .pick = .origin + .x.vec + .y.vec
+  POINT/OAT .pick = .p0
+  POINT .pick = .pick + TRANS (0, 0, -.dz)
+  ;
+  ;IF
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  ; Pick workpiece
+  ACCURACY 0.1
+  LAPPRO .pick, .z.appro
+  SPEED 30 MM/S
+  ACCURACY 0.1
+  LMOVE .pick
+  BREAK
+  CALL gripper.close (grip.no.par[1], gp.par.cl.tmr, FALSE)
+  CALL log ("Shaft picked")
+  gripper.prl.id = .wp.id
+  gripper.prl.st = 0
+  ;
+  SPEED 80 MM/S
+  ACCURACY 0.1
+  LAPPRO .pick, .z.appro
+  JMOVE #wp.shaft.safe
+  ;
+.END
+.PROGRAM wp.prl.put (.shelf.no,.wp.id)
+  ;
+  .$temp = "Put shaft workpiece with id:" + $ENCODE (.wp.id)
+  CALL log (.$temp)
+  ;
+  SPEED 100 ALWAYS
+  ACCURACY 10 ALWAYS
+  ;
+  CALL set.tool (grip.no.par[1])
+  CALL id.to.ij.shaft (.wp.id, .i, .j)
+  ;
+  .dx = plt.dx * .i
+  .dy = plt.dy * .j + shaft.wp0.l2 + shaft.wp0.l3 - cond.stp.oy
+  .dz = shaft.wp0.h + gr.prl.full - gr.prl.work
+  ;
+  .z.appro = shaft.wp0.h + 20
+  ;
+  POINT .p0 = origin.shaft[.shelf.no, task.id]
+  POINT .x.norm = x.norm.shaft[.shelf.no, task.id]
+  POINT .y.norm = y.norm.shaft[.shelf.no, task.id]
+  ;
+  POINT .x.vec = TRANS (DX (.x.norm) * .dx, DY (.x.norm) * .dx, DZ (.x.norm) * .dx)
+  POINT .y.vec = TRANS (DX (.y.norm) * .dy, DY (.y.norm) * .dy, DZ (.y.norm) * .dy)
+  POINT .origin = TRANS (DX (.p0), DY (.p0), DZ (.p0))
+  POINT .put = .origin + .x.vec + .y.vec
+  POINT/OAT .put = .p0
+  POINT .put = .put + TRANS (0, 0, -.dz)
+  ;
+  JMOVE #wp.shaft.safe
+  ;
+  ; Pick workpiece
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  SPEED 30 MM/S
+  ACCURACY 0.1
+  LMOVE .put
+  BREAK
+  CALL gripper.open(grip.no.par[1], gp.par.op.tmr, FALSE)
+  CALL log ("Shaft put")
+  gripper.prl.id = 0
+  gripper.prl.st = -1
+  ;
+  SPEED 80 MM/S
+  ACCURACY 0.1
+  LAPPRO .put, .z.appro
+  JMOVE #wp.shaft.safe
+  ;
+.END
+.PROGRAM Comment___ () ; Comments for IDE. Do not use.
+	; @@@ PROJECT @@@
+	; @@@ PROJECTNAME @@@
+	; LoadWizardAreopag
+	; @@@ HISTORY @@@
+	; @@@ INSPECTION @@@
+	; wp.count
+	; wp.type.shaft
+	; chg.required
+	; shaft.return
+	; shaft.rotate
+	; gr.dbl.inv[1]
+	; gr.dbl.inv[2]
+	; gr.dbl.full[1]
+	; gr.dbl.work[1]
+	; gr.dbl.full[2]
+	; gr.dbl.work[2]
+	; cnc.ch.full
+	; cnc.ch.work
+	; bush.wp0.len
+	; bush.wp2.len
+	; cnc.st
+	; gp.dbl.full[1]
+	; gp.dbl.full[2]
+	; current.wp
+	; @@@ CONNECTION @@@
+	; KROSET R01
+	; 127.0.0.1
+	; 9105
+	; @@@ PROGRAM @@@
+	;   Group:Manual:1
+	;     1:pg0:F
+	;     1:a.transport:F
+	;     1:a.home:F
+	;   Group:States:2
+	;     2:state0:F
+	;     2:state1:F
+	;     2:state99:F
+	;     2:state100:F
+	;     2:state101:F
+	;       .ge 
+	;       .ce 
+	;     2:state102:F
+	;     2:state110:F
+	;     2:state111:F
+	;       .grip.no 
+	;     2:state112:F
+	;       .grip.no 
+	;     2:state113:F
+	;     2:state114:F
+	;     2:state115:F
+	;     2:state116:F
+	;     2:state117:F
+	;     2:state118:F
+	;     2:state119:F
+	;     2:state200:F
+	;     2:state201:F
+	;       .ge 
+	;       .ce 
+	;     2:state210:F
+	;     2:state211:F
+	;     2:state212:F
+	;     2:state999:F
+	;   Group:Shelves:3
+	;     3:shelf.open:F
+	;       .shelf.no 
+	;       .gripper.type 
+	;     3:shelf.open.dbl:F
+	;       .shelf.no 
+	;       .#safe 
+	;       .start 
+	;       .end 
+	;     3:shelf.open.par:F
+	;       .shelf.no 
+	;       .#safe 
+	;       .start 
+	;       .end 
+	;     3:shelf.close:F
+	;       .shelf.no 
+	;       .gripper.type 
+	;     3:shelf.close.dbl:F
+	;       .shelf.no 
+	;       .#safe 
+	;       .start 
+	;       .end 
+	;     3:shelf.close.par:F
+	;       .shelf.no 
+	;       .#safe 
+	;       .start 
+	;       .end 
+	;     3:teach.shelf.dbl:F
+	;     3:teach.shelf.par:F
+	;     3:test.shelf.dbl:F
+	;     3:test.shelf.par:F
+	;   Group:Plates:4
+	;     4:tch.prl.plate:F
+	;       .p0 
+	;       .px 
+	;       .py 
+	;       .cx 
+	;       .x.vec 
+	;       .x.norm 
+	;       .cy 
+	;       .y.vec 
+	;       .y.norm 
+	;     4:tst.prl.plate:F
+	;       .p0 
+	;       .x.norm 
+	;       .y.norm 
+	;       .dx 
+	;       .dy 
+	;       .x.vec 
+	;       .y.vec 
+	;       .origin 
+	;       .dest 
+	;     4:tch.dbl.plate:F
+	;       .tool.no 
+	;       .z.cor 
+	;       .p0 
+	;       .px 
+	;       .py 
+	;       .cx 
+	;       .x.vec 
+	;       .x.norm 
+	;       .cy 
+	;       .y.vec 
+	;       .y.norm 
+	;     4:tst.dbl.plate:F
+	;       .tool.no 
+	;       .z.cor 
+	;       .p0 
+	;       .x.norm 
+	;       .y.norm 
+	;       .dx 
+	;       .dy 
+	;       .x.vec 
+	;       .y.vec 
+	;       .origin 
+	;       .dest 
+	;   Group:Workpiece.Shaft:5
+	;     5:tst.wp.prl.pick:F
+	;     5:wp.prl.pick:F
+	;       .shelf.no 
+	;       .wp.id 
+	;       .$temp 
+	;       .i 
+	;       .j 
+	;       .dx 
+	;       .dy 
+	;       .dz 
+	;       .z.appro 
+	;       .p0 
+	;       .x.norm 
+	;       .y.norm 
+	;       .x.vec 
+	;       .y.vec 
+	;       .origin 
+	;       .pick 
+	;     5:wp.prl.put:F
+	;       .shelf.no 
+	;       .wp.id 
+	;       .$temp 
+	;       .i 
+	;       .j 
+	;       .dx 
+	;       .dy 
+	;       .dz 
+	;       .z.appro 
+	;       .p0 
+	;       .x.norm 
+	;       .y.norm 
+	;       .x.vec 
+	;       .y.vec 
+	;       .origin 
+	;       .put 
+	;   Group:Workpiece.Bushing:6
+	;     6:tst.wp.dbl.pick:F
+	;       .i 
+	;     6:wp.dbl.pick:F
+	;       .grip.no 
+	;       .shelf.no 
+	;       .wp.id 
+	;       .$temp 
+	;       .i 
+	;       .j 
+	;       .dx 
+	;       .dy 
+	;       .dz 
+	;       .z.appro 
+	;       .p0 
+	;       .x.norm 
+	;       .y.norm 
+	;       .x.vec 
+	;       .y.vec 
+	;       .origin 
+	;       .pick 
+	;     6:wp.dbl.put:F
+	;       .grip.no 
+	;       .shelf.no 
+	;       .wp.id 
+	;       .$temp 
+	;       .i 
+	;       .j 
+	;       .dx 
+	;       .dy 
+	;       .dz 
+	;       .z.appro 
+	;       .p0 
+	;       .x.norm 
+	;       .y.norm 
+	;       .x.vec 
+	;       .y.vec 
+	;       .origin 
+	;       .put 
+	;   Group:Buffer:7
+	;   Group:CNC.Appro:8
+	;     8:cnc.in.shaft:F
+	;       .$temp 
+	;       .rot.required 
+	;     8:cnc.out.shaft:F
+	;       .$temp 
+	;       .rot.required 
+	;     8:cnc.in.bush:F
+	;       .grip.no 
+	;       .$temp 
+	;     8:cnc.out.bush:F
+	;       .grip.no 
+	;       .$temp 
+	;     8:tch.cnc.prl.app:F
+	;     8:tch.cnc.dbl.app:F
+	;     8:calc.rot.dbl:F
+	;       .grip.no 
+	;       .j6 
+	;       .j 
+	;       .$temp 
+	;     8:calc.rot.prl:F
+	;       .grip.no 
+	;       .j6 
+	;       .j 
+	;       .$temp 
+	;       .rot.required 
+	;   Group:CNC.Bushing:9
+	;     9:tch.cnc.bushing:F
+	;     9:tst.cnc.bushing:F
+	;     9:cnc.put.bush:F
+	;       .grip.no 
+	;       .wp.state 
+	;     9:cnc.pick.bush:F
+	;       .grip.no 
+	;   Group:CNC.Shaft:10
+	;     10:tch.cnc.shaft:F
+	;     10:cnc.put.shaft:F
+	;     10:cnc.pick.shaft:F
+	;     10:tst.cnc.shaft:F
+	;   Group:Debug:11
+	;     11:prep.points:F
+	;       .t 
+	;       .draw 
+	;       .i 
+	;   Group:Grippers:12
+	;     12:gripper.open:F
+	;       .gripper.no 
+	;       .open.time 
+	;       .inverse 
+	;     12:grip.open.dbl:F
+	;       .gripper.no 
+	;       .open.time 
+	;       .inverse 
+	;     12:grip.open.par:F
+	;       .open.time 
+	;       .inverse 
+	;     12:gripper.close:F
+	;       .gripper.no 
+	;       .close.time 
+	;       .inverse 
+	;     12:grip.close.dbl:F
+	;       .gripper.no 
+	;       .close.time 
+	;       .inverse 
+	;     12:grip.close.par:F
+	;       .close.time 
+	;     12:grip.test.dbl:F
+	;       .i 
+	;     12:grip.test.prl:F
+	;       .i 
+	;   Group:CNC.Chuck:13
+	;     13:chuck.open:F
+	;       .open.time 
+	;     13:chuck.close:F
+	;       .close.time 
+	;   Group:Auxilary:14
+	;     14:safe.home:F
+	;     14:set.tool:F
+	;       .tool.no 
+	;     14:ciner:F
+	;       .$var.name 
+	;       .var 
+	;       .default 
+	;     14:get.task.data:F
+	;     14:get.from.hmi:F
+	;     14:get.from.plc:F
+	;     14:id.to.ij.shaft:F
+	;       .id 
+	;       .i 
+	;       .j 
+	;       .P 
+	;       .pair 
+	;       .offset 
+	;     14:id.to.ij.bush:F
+	;       .id 
+	;       .i 
+	;       .j 
+	;       .P 
+	;       .pair 
+	;       .offset 
+	;     14:get.system.data:F
+	;     14:calc.state.flag:F
+	;       .inside.cnc 
+	;       .outside.cnc 
+	;   Group:Log:15
+	;     15:log:F
+	;       .$msg 
+	;       .i 
+	;       .$tmp 
+	;     15:log.init:F
+	;       .$tmp1 
+	;       .$tmp2 
+	;       .i 
+	;     15:log.pc1:F
+	;       .$msg 
+	;       .i 
+	;       .$tmp 
+	;     15:log.clear:F
+	;       .i 
+	;   0:a.main:F
+	;   Group:Background:16
+	;     16:dummy.pc:B
+	;     16:check.ifp.pc:B
+	;     16:check.speed.pc:B
+	;     16:check.teach.pc:B
+	;   Group:Initialization:17
+	;     17:initialize.pc:B
+	;     17:set.io.pc:B
+	;     17:disp.info.pc:B
+	;       .$cont.name 
+	;       .$robot.name 
+	;       .robot.sn 
+	;       .cont.sn 
+	;       .$robot.str 
+	;       .$cont.str 
+	;     17:set.switches.pc:B
+	;     17:set.vars.pc:B
+	;   0:autostart.pc:B
+	; @@@ TRANS @@@
+	; shelf.open.dbl[] 
+	; shelf.close.dbl[] 
+	; shelf.close.par[] 
+	; shelf.open.par[] 
+	; origin.shaft[] 
+	; x.norm.shaft[] 
+	; y.norm.shaft[] 
+	; origin.bush[] 
+	; x.norm.bush[] 
+	; y.norm.bush[] 
+	; cnc.point.bush[] 
+	; cnc.point.shaft 
+	; @@@ JOINTS @@@
+	; #transport Robot transport position
+	; #shelf.safe.par 
+	; #shelf.safe.dbl 
+	; #wp.shaft.safe 
+	; #p0.shaft[] 
+	; #px.shaft[] 
+	; #py.shaft[] 
+	; #wp.bush.safe[] 
+	; #p0.bush[] 
+	; #px.bush[] 
+	; #py.bush[] 
+	; #cnc.out.dbl.bas 
+	; #cnc.in.dbl.base 
+	; #cnc.in 
+	; #cnc.out 
+	; #cnc.point.bush[] 
+	; #cnc.out.prl.bas 
+	; #cnc.in.prl.base 
+	; #cnc.point.shaft 
+	; @@@ REALS @@@
+	; current.tool Current tool no
+	; type.parallel 
+	; type.double 
+	; grip.no.dbl[] 
+	; grip.no.par[] 
+	; shelf.close.par[] 
+	; hmi.shelf.no 
+	; gripper.opened[] 
+	; log.max.count 
+	; tool.grip.dbl[] 
+	; tool.grip.par[] 
+	; pin.double 
+	; pin.parallel 
+	; hmi.task.no 
+	; hmi.plate.col.e 
+	; hmi.plate.col.o 
+	; hmi.plate.dx 
+	; hmi.plate.dy 
+	; hmi.plate.e.dy 
+	; hmi.plate.rows 
+	; hmi.cond.shift 
+	; hmi.cond.thick 
+	; hmi.prl.ch.full 
+	; hmi.prl.ch.work 
+	; hmi.shaft.full 
+	; hmi.shaft.h 
+	; hmi.shaft.pick 
+	; hmi.bush.length 
+	; hmi.cnc.ch.work 
+	; hmi.cnc.ch.full 
+	; hmi.dbl.ch.work[] 
+	; hmi.dbl.ch.full[] 
+	; bush.wp0.d 
+	; bush.wp0.len 
+	; hmi.cnc.j.body[] 
+	; hmi.cnc.j.full[] 
+	; bush.wp2.d 
+	; bush.wp2.len 
+	; chg.h.cor 
+	; chg.no 
+	; chg.required 
+	; cnc.ch.full 
+	; cnc.ch.work 
+	; cond.stp.cell 
+	; cond.stp.oy 
+	; cond.stp.row 
+	; gr.dbl.full[] 
+	; gr.dbl.inv[] 
+	; gr.dbl.work[] 
+	; gr.prl.full 
+	; gr.prl.work 
+	; hmi.cond.cx 
+	; hmi.cond.cy 
+	; hmi.wp.id 
+	; plt.cell.even 
+	; plt.cell.odd 
+	; plt.dx 
+	; plt.dy 
+	; plt.even.dy 
+	; plt.rows 
+	; shaft.return 
+	; shaft.rotate 
+	; shaft.wp0.d 
+	; shaft.wp0.h 
+	; shaft.wp0.l1 
+	; shaft.wp0.l2 
+	; shaft.wp0.l3 
+	; shaft.wp2.d 
+	; shaft.wp2.h 
+	; shaft.wp2.l1 
+	; shaft.wp2.l2 
+	; shaft.wp2.l3 
+	; task.id 
+	; gp.dbl.cl.tmr[] 
+	; gp.dbl.op.tmr[] 
+	; gp.par.cl.tmr 
+	; gp.par.op.tmr 
+	; current.shelf 
+	; cnc.overshoot 
+	; cnc.dbl.rot[] 
+	; gripper.dbl.id[] 
+	; gripper.dbl.st[] 
+	; hmi.wp.count 
+	; shelf.overshoot 
+	; chg.id 
+	; cnc.first 
+	; cnc.st 
+	; wp.count 
+	; wp.type.shaft 
+	; cnc.prl.rot[] 
+	; chg.st 
+	; cnc.id 
+	; current.wp 
+	; decision.state 
+	; decision.type 
+	; gp.dbl.empty[] 
+	; gp.dbl.full[] 
+	; gp.dbl.wp0[] 
+	; gp.dbl.wp1[] 
+	; gp.dbl.wp2[] 
+	; gp.prl.empty 
+	; gp.prl.full 
+	; gp.prl.wp0 
+	; gp.prl.wp1 
+	; gp.prl.wp2 
+	; gripper.prl.id 
+	; gripper.prl.st 
+	; max.pick 
+	; mfinish 
+	; n.max.pick 
+	; processed.wp 
+	; rin 
+	; rout 
+	; shelf.closed 
+	; shelf.opened 
+	; state 
+	; @@@ STRINGS @@@
+	; @@@ INTEGER @@@
+	; @@@ SIGNALS @@@
+	; di.ifp.page[] Interface panel change screen
+	; eo.lidar.small 
+	; eo.shelf.unlock[] 
+	; ei.shelf.state[] 
+	; ei.shelf.failed 
+	; eo.shelf.opened[] 
+	; s.shelf.failed 
+	; gripper.close[] 
+	; gripper.open[] 
+	; s.hmi.tool[] 
+	; d.bush.wp0.d[] 
+	; d.bush.wp0.len[] 
+	; d.bush.wp2.d[] 
+	; d.bush.wp2.len[] 
+	; d.chg.h.cor[] 
+	; d.chg.no[] 
+	; d.chg.required 
+	; d.cond.stp.cell[] 
+	; d.cond.stp.oy[] 
+	; d.cond.stp.row[] 
+	; d.gr.dbl.full[] 
+	; d.gr.dbl.inv[] 
+	; d.gr.dbl.work[] 
+	; d.gr.prl.full[] 
+	; d.gr.prl.work[] 
+	; d.plt.cell.even[] 
+	; d.plt.cell.odd[] 
+	; d.plt.dx[] 
+	; d.plt.dy[] 
+	; d.plt.even.dy[] 
+	; d.plt.rows[] 
+	; d.shaft.return 
+	; d.shaft.rotate 
+	; d.shaft.wp0.d[] 
+	; d.shaft.wp0.h[] 
+	; d.shaft.wp0.l1[] 
+	; d.shaft.wp0.l2[] 
+	; d.shaft.wp0.l3[] 
+	; d.shaft.wp2.d[] 
+	; d.shaft.wp2.h[] 
+	; d.shaft.wp2.l1[] 
+	; d.shaft.wp2.l2[] 
+	; d.shaft.wp2.l3[] 
+	; di.ext.cs 
+	; di.ext.ereset 
+	; di.ext.hold 
+	; di.ext.motor.of 
+	; di.ext.motor.on 
+	; di.ext.pgreset 
+	; di.ext.slow 
+	; do.automatic 
+	; do.bat.alarm 
+	; do.cs 
+	; do.emg 
+	; do.error 
+	; do.hold 
+	; do.home 
+	; do.home2 
+	; do.motor.on 
+	; do.power.on 
+	; do.safety.fence 
+	; do.teach 
+	; do.teach.lock 
+	; ei.cnc.ch.clsd 
+	; ei.cnc.ch.opd 
+	; ei.cnc.ready 
+	; ei.data.ready 
+	; ei.robot.speed[] 
+	; ei.shelf.ready[] 
+	; ei.task.start 
+	; eo.chg.empty 
+	; eo.chg.id[] 
+	; eo.chg.wp0 
+	; eo.chg.wp1 
+	; eo.cnc.ch.close 
+	; eo.cnc.ch.open 
+	; eo.cnc.empty 
+	; eo.cnc.id[] 
+	; eo.cnc.mfinish 
+	; eo.cnc.wp0 
+	; eo.cnc.wp1 
+	; eo.cnc.wp2 
+	; eo.data.read 
+	; eo.data.request[] 
+	; eo.dbl.grip.st[] 
+	; eo.error.code[] 
+	; eo.gr.dbl.empty[] 
+	; eo.gr.dbl.wp0[] 
+	; eo.gr.dbl.wp1[] 
+	; eo.gr.dbl.wp2[] 
+	; eo.gr.prl.empty 
+	; eo.gr.prl.wp0 
+	; eo.gr.prl.wp1 
+	; eo.gr.prl.wp2 
+	; eo.next.wp[] 
+	; eo.prl.grip.st[] 
+	; eo.process.err 
+	; eo.robot.ready 
+	; eo.shelf.cmplt[] 
+	; eo.task.exec 
+	; eo.wp.processed[] 
+	; o.debug 
+	; d.task.id[] 
+	; s.grip.open[] 
+	; s.grip.close[] 
+	; d.cnc.ch.full[] 
+	; d.cnc.ch.work[] 
+	; d.wp.count[] 
+	; d.wp.type.shaft 
+	; s.inside.cnc 
+	; s.mcode.req 
+	; s.pr.a.home 
+	; @@@ TOOLS @@@
+	; t.calib[] 
+	; t.pin[] 
+	; t.gripper[] 
+	; @@@ BASE @@@
+	; @@@ FRAME @@@
+	; @@@ BOOL @@@
+	; @@@ DEFAULTS @@@
+	; BASE: NULL
+	; TOOL: NULL
+	; @@@ WCD @@@
+	; SIGNAME: sig1 sig2 sig3 sig4
+	; SIGDIM: % % % %
+.END
+.TRANS
+shelf.open.dbl[1,2] 756.158081 739.930298 -11.747040 -158.387817 1.145720 92.886253
+shelf.open.dbl[1,1] 756.166992 113.552933 -7.319550 -158.135345 1.141500 92.636330
+shelf.close.dbl[1,1] 756.158081 739.930298 -11.747040 -158.387817 1.145720 92.886253
+shelf.close.dbl[1,2] 756.166992 113.552933 -7.319550 -158.135345 1.141500 92.636330
+shelf.close.par[1,2] 756.342651 117.224083 -5.209400 -112.593155 0.614270 3.266360
+shelf.open.par[1,1] 756.342651 117.224083 -5.209400 -112.593155 0.614270 3.266360
+shelf.open.par[1,2] 755.895386 739.406433 -9.998410 -156.399719 0.610680 3.549668
+shelf.close.par[1,1] 755.895386 739.406433 -9.998410 -156.399719 0.610680 3.549668
+shelf.close.par[2,2] 756.342651 117.224083 -185.209396 -112.593155 0.614270 3.266360
+shelf.open.par[2,1] 756.342651 117.224083 -185.209396 -112.593155 0.614270 3.266360
+shelf.open.par[2,2] 755.895386 739.406433 -189.998413 -156.399719 0.610680 3.549668
+shelf.close.par[2,1] 755.895386 739.406433 -189.998413 -156.399719 0.610680 3.549668
+shelf.close.par[3,2] 756.342651 117.224083 -365.209412 -112.593155 0.614270 3.266360
+shelf.open.par[3,1] 756.342651 117.224083 -365.209412 -112.593155 0.614270 3.266360
+shelf.open.par[3,2] 755.895386 739.406433 -369.998413 -156.399719 0.610680 3.549668
+shelf.close.par[3,1] 755.895386 739.406433 -369.998413 -156.399719 0.610680 3.549668
+shelf.close.par[4,2] 756.342651 117.224083 -525.209412 -112.593155 0.614270 3.266360
+shelf.open.par[4,1] 756.342651 117.224083 -525.209412 -112.593155 0.614270 3.266360
+shelf.open.par[4,2] 755.895386 739.406433 -529.998413 -156.399719 0.610680 3.549668
+shelf.close.par[4,1] 755.895386 739.406433 -529.998413 -156.399719 0.610680 3.549668
+shelf.open.dbl[2,2] 756.158081 739.930298 -191.747040 -158.387817 1.145720 92.886253
+shelf.open.dbl[2,1] 756.166992 113.552933 -187.319550 -158.135345 1.141500 92.636330
+shelf.close.dbl[2,1] 756.158081 739.930298 -191.747040 -158.387817 1.145720 92.886253
+shelf.close.dbl[2,2] 756.166992 113.552933 -187.319550 -158.135345 1.141500 92.636330
+shelf.open.dbl[3,2] 756.158081 739.930298 -371.747040 -158.387817 1.145720 92.886253
+shelf.open.dbl[3,1] 756.166992 113.552933 -367.319550 -158.135345 1.141500 92.636330
+shelf.close.dbl[3,1] 756.158081 739.930298 -371.747040 -158.387817 1.145720 92.886253
+shelf.close.dbl[3,2] 756.166992 113.552933 -367.319550 -158.135345 1.141500 92.636330
+shelf.open.dbl[4,2] 756.158081 739.930298 -551.747070 -158.387817 1.145720 92.886253
+shelf.open.dbl[4,1] 756.166992 113.552933 -547.319580 -158.135345 1.141500 92.636330
+shelf.close.dbl[4,1] 756.158081 739.930298 -551.747070 -158.387817 1.145720 92.886253
+shelf.close.dbl[4,2] 756.166992 113.552933 -547.319580 -158.135345 1.141500 92.636330
+t.calib[3] 0.000000 0.000000 280.000000 90.000008 0.000000 0.000000
+t.pin[1] 82.000000 0.000000 167.000000 0.000000 90.000008 -180.000000
+t.pin[2] 0.000000 -80.000000 75.000000 -90.000008 90.000008 90.000008
+origin.shaft[1,1] 1015.889099 466.487976 8.859192 121.855545 179.924240 30.119694
+t.gripper[3] 0.000000 0.000000 180.000000 90.000008 0.000000 0.000000
+x.norm.shaft[1,1] 0.000436 -1.000000 -0.000333 0.000000 0.000000 0.000000
+y.norm.shaft[1,1] -1.000000 -0.000082 -0.000159 0.000000 0.000000 0.000000
+origin.bush[1,1,1] 1016.075195 516.634033 14.228577 30.620493 179.929626 -87.888023
+origin.bush[1,1,2] 1018.853088 518.142822 14.263245 28.633669 178.813599 -89.874809
+x.norm.bush[1,1,1] 0.000033 -1.000000 0.000133 0.000000 0.000000 0.000000
+x.norm.bush[1,1,2] 0.001818 -0.999998 0.000182 0.000000 0.000000 0.000000
+y.norm.bush[1,1,1] -1.000000 0.000036 -0.000012 0.000000 0.000000 0.000000
+y.norm.bush[1,1,2] -0.999999 0.001286 0.000053 0.000000 0.000000 0.000000
+origin.shaft[2,1] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[3,1] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774227
+origin.shaft[4,1] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+x.norm.shaft[2,1] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[3,1] 0.000423 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[4,1] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+y.norm.shaft[2,1] -1.000000 -0.000011 0.000802 0.000000 0.000000 0.000000
+y.norm.shaft[3,1] -0.999999 -0.000019 -0.001525 0.000000 0.000000 0.000000
+y.norm.shaft[4,1] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+origin.shaft[1,2] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,3] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,4] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,5] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,6] 1015.752502 466.562469 8.736145 118.882202 179.923843 27.138458
+origin.shaft[1,7] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,8] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,9] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,10] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,11] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,12] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,13] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,14] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,15] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,16] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,17] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,18] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,19] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,20] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[2,2] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,3] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,4] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,5] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,6] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,7] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,8] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,9] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,10] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,11] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,12] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,13] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,14] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,15] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,16] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,17] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,18] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
+origin.shaft[2,19] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,20] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[3,2] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
+origin.shaft[3,3] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
+origin.shaft[3,4] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
+origin.shaft[3,5] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
+origin.shaft[3,6] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
+origin.shaft[3,7] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
+origin.shaft[3,8] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
+origin.shaft[3,9] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
+origin.shaft[3,10] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
+origin.shaft[3,11] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
+origin.shaft[3,12] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774227
+origin.shaft[3,13] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
+origin.shaft[3,14] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
+origin.shaft[3,15] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
+origin.shaft[3,16] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
+origin.shaft[3,17] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
+origin.shaft[3,18] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774227
+origin.shaft[3,19] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254820
+origin.shaft[3,20] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803185
+origin.shaft[4,2] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,3] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+origin.shaft[4,4] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,5] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
+origin.shaft[4,6] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,7] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
+origin.shaft[4,8] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+origin.shaft[4,9] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+origin.shaft[4,10] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+origin.shaft[4,11] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.804264
+origin.shaft[4,12] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+origin.shaft[4,13] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,14] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
+origin.shaft[4,15] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927235
+origin.shaft[4,16] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
+origin.shaft[4,17] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.804264
+origin.shaft[4,18] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
+origin.shaft[4,19] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
+origin.shaft[4,20] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
+x.norm.shaft[1,2] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,3] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,4] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,5] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,6] 0.000829 -1.000000 0.000128 0.000000 0.000000 0.000000
+x.norm.shaft[1,7] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,8] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,9] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,10] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,11] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,12] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,13] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,14] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,15] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,16] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,17] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,18] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,19] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,20] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[2,2] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[2,3] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,4] 0.000415 -1.000000 0.000603 0.000000 0.000000 0.000000
+x.norm.shaft[2,5] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,6] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,7] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[2,8] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[2,9] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,10] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,11] 0.000426 -1.000000 0.000613 0.000000 0.000000 0.000000
+x.norm.shaft[2,12] 0.000415 -1.000000 0.000603 0.000000 0.000000 0.000000
+x.norm.shaft[2,13] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,14] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,15] 0.000415 -1.000000 0.000603 0.000000 0.000000 0.000000
+x.norm.shaft[2,16] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
+x.norm.shaft[2,17] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[2,18] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[2,19] 0.000422 -1.000000 0.000601 0.000000 0.000000 0.000000
+x.norm.shaft[2,20] 0.000415 -1.000000 0.000603 0.000000 0.000000 0.000000
+x.norm.shaft[3,2] 0.000416 -0.999999 0.001024 0.000000 0.000000 0.000000
+x.norm.shaft[3,3] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,4] 0.000416 -0.999999 0.001036 0.000000 0.000000 0.000000
+x.norm.shaft[3,5] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,6] 0.000389 -0.999999 0.001007 0.000000 0.000000 0.000000
+x.norm.shaft[3,7] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,8] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,9] 0.000389 -0.999999 0.001007 0.000000 0.000000 0.000000
+x.norm.shaft[3,10] 0.000416 -0.999999 0.001024 0.000000 0.000000 0.000000
+x.norm.shaft[3,11] 0.000389 -0.999999 0.001007 0.000000 0.000000 0.000000
+x.norm.shaft[3,12] 0.000423 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,13] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,14] 0.000409 -0.999999 0.001025 0.000000 0.000000 0.000000
+x.norm.shaft[3,15] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,16] 0.000416 -0.999999 0.001024 0.000000 0.000000 0.000000
+x.norm.shaft[3,17] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,18] 0.000423 -0.999999 0.001042 0.000000 0.000000 0.000000
+x.norm.shaft[3,19] 0.000443 -0.999999 0.001053 0.000000 0.000000 0.000000
+x.norm.shaft[3,20] 0.000416 -0.999999 0.001024 0.000000 0.000000 0.000000
+x.norm.shaft[4,2] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,3] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,4] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,5] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,6] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,7] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,8] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,9] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,10] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,11] 0.000351 -0.999999 0.001186 0.000000 0.000000 0.000000
+x.norm.shaft[4,12] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,13] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,14] 0.000364 -0.999999 0.001186 0.000000 0.000000 0.000000
+x.norm.shaft[4,15] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,16] 0.000364 -0.999999 0.001186 0.000000 0.000000 0.000000
+x.norm.shaft[4,17] 0.000351 -0.999999 0.001186 0.000000 0.000000 0.000000
+x.norm.shaft[4,18] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,19] 0.000364 -0.999999 0.001186 0.000000 0.000000 0.000000
+x.norm.shaft[4,20] 0.000364 -0.999999 0.001186 0.000000 0.000000 0.000000
+y.norm.shaft[1,2] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
+y.norm.shaft[1,3] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,4] -1.000000 -0.000490 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,5] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,6] -1.000000 -0.000498 0.000096 0.000000 0.000000 0.000000
+y.norm.shaft[1,7] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,8] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,9] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,10] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,11] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,12] -1.000000 -0.000478 0.000102 0.000000 0.000000 0.000000
+y.norm.shaft[1,13] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,14] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,15] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,16] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
+y.norm.shaft[1,17] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
+y.norm.shaft[1,18] -1.000000 -0.000490 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[1,19] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
+y.norm.shaft[1,20] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
+y.norm.shaft[2,2] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,3] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,4] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,5] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,6] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,7] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,8] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,9] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,10] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,11] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,12] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,13] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,14] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,15] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,16] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,17] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,18] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,19] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,20] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[3,2] -0.999999 -0.000010 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,3] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
+y.norm.shaft[3,4] -0.999999 -0.000014 -0.001525 0.000000 0.000000 0.000000
+y.norm.shaft[3,5] -0.999999 -0.000013 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,6] -0.999999 -0.000014 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,7] -0.999999 -0.000013 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,8] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
+y.norm.shaft[3,9] -0.999999 -0.000014 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,10] -0.999999 -0.000027 -0.001537 0.000000 0.000000 0.000000
+y.norm.shaft[3,11] -0.999999 -0.000014 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,12] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
+y.norm.shaft[3,13] -0.999999 -0.000019 -0.001525 0.000000 0.000000 0.000000
+y.norm.shaft[3,14] -0.999999 0.000004 -0.001520 0.000000 0.000000 0.000000
+y.norm.shaft[3,15] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
+y.norm.shaft[3,16] -0.999999 -0.000014 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,17] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
+y.norm.shaft[3,18] -0.999999 -0.000019 -0.001525 0.000000 0.000000 0.000000
+y.norm.shaft[3,19] -0.999999 0.000004 -0.001520 0.000000 0.000000 0.000000
+y.norm.shaft[3,20] -0.999999 -0.000031 -0.001537 0.000000 0.000000 0.000000
+y.norm.shaft[4,2] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,3] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,4] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,5] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,6] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,7] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,8] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,9] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,10] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,11] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
+y.norm.shaft[4,12] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,13] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,14] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
+y.norm.shaft[4,15] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,16] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
+y.norm.shaft[4,17] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
+y.norm.shaft[4,18] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,19] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
+y.norm.shaft[4,20] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
+cnc.point.bush[1] -1211.796387 77.807739 217.687927 -88.001602 89.139496 -147.002304
+cnc.point.bush[2] -1211.793213 77.787697 217.688080 -88.000603 89.139320 -147.002808
+t.gripper[1] 0.000000 -83.300003 168.000000 -90.000008 90.000008 180.000000
+t.gripper[2] 0.000000 83.300003 168.000000 90.000008 90.000008 -180.000000
+cnc.point.bush[1] -1211.796387 77.807739 217.687927 -88.001602 89.139496 -147.002304
+cnc.point.shaft -1214.989502 73.764427 221.902924 -175.757950 139.999207 179.999420
+.END
+.JOINTS
+#transport 0.000000 50.000000 -145.000000 0.000000 -120.000008 0.000000
+#shelf.safe.par 50.381710 4.668720 91.191223 113.073929 -88.282021 105.419182
+#shelf.safe.dbl 57.549076 -9.413360 87.556847 126.090446 -111.491997 23.525410
+#wp.shaft.safe 89.000000 2.000000 90.000000 -150.000000 -90.000000 -90.000000
+#p0.shaft[1,1] 77.772224 -24.017761 72.680099 -149.970154 -78.132706 -84.478668
+#px.shaft[1,1] 93.670319 -25.336143 83.615173 -148.916260 -75.514534 -104.569748
+#py.shaft[1,1] 66.082802 17.257954 116.177628 -150.907150 -70.469055 -75.156212
+#wp.bush.safe[1] 54.472012 1.334442 88.116364 116.351891 -94.451523 -75.616081
+#wp.bush.safe[2] 54.472012 1.334442 88.116364 116.351891 -94.451523 105.616081
+#p0.bush[1,1,1] 58.700943 -25.377024 73.190079 115.719429 -85.537491 -67.159607
+#px.bush[1,1,1] 74.542244 -19.928297 94.205811 108.962929 -65.511482 -58.406178
+#py.bush[1,1,1] 34.701672 6.125438 109.574287 121.687210 -104.001396 -51.639355
+#p0.bush[1,1,2] 58.700943 -25.377024 73.190079 115.719429 -85.537491 113.956451
+#px.bush[1,1,2] 74.542244 -19.928297 94.205811 108.962929 -65.511482 122.956451
+#py.bush[1,1,2] 34.701672 6.125438 109.574287 121.687210 -104.001396 129.956451
+#p0.shaft[2,1] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[3,1] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[4,1] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#px.shaft[2,1] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[3,1] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[4,1] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#py.shaft[2,1] 58.198097 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[3,1] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[4,1] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#p0.shaft[1,2] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,3] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,4] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,5] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,6] 77.764282 -24.007542 72.699982 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,7] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,8] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,9] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,10] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,11] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,12] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,13] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,14] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,15] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,16] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,17] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,18] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[2,2] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,3] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,4] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,5] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,6] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,7] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,8] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,9] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,10] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,11] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,12] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,13] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,14] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,15] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,16] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,17] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,18] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[3,2] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,3] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,4] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,5] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,6] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,7] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,8] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,9] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,10] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,11] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,12] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[3,13] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,14] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,15] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,16] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,17] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,18] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[4,2] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,3] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,4] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,5] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.563065
+#p0.shaft[4,6] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,7] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.563065
+#p0.shaft[4,8] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,9] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,10] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,11] 64.341103 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,12] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,13] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,14] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,15] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,16] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,17] 64.341103 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,18] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#px.shaft[1,2] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,3] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,4] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,5] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,6] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,7] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,8] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,9] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,10] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,11] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,12] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,13] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,14] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,15] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,16] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,17] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,18] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[2,2] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,3] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,4] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,5] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,6] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,7] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,8] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,9] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,10] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,11] 88.726845 -30.289202 88.899086 -146.284897 -64.454041 -106.331566
+#px.shaft[2,12] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,13] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,14] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,15] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,16] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,17] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,18] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[3,2] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,3] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,4] 83.681679 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,5] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,6] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,7] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,8] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,9] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,10] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,11] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.820312
+#px.shaft[3,12] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,13] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,14] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,15] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,16] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,17] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,18] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[4,2] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,3] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,4] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,5] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,6] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,7] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,8] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,9] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,10] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,11] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,12] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,13] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,14] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,15] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,16] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,17] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,18] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#py.shaft[1,2] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
+#py.shaft[1,3] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,4] 66.107025 17.240797 116.170456 -150.897919 -70.473862 -75.189262
+#py.shaft[1,5] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,6] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,7] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,8] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,9] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
+#py.shaft[1,10] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,11] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,12] 66.107025 17.240797 116.169815 -150.897919 -70.473862 -75.191460
+#py.shaft[1,13] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,14] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,15] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
+#py.shaft[1,16] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
+#py.shaft[1,17] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.191460
+#py.shaft[1,18] 66.107025 17.240797 116.170456 -150.897919 -70.473862 -75.189262
+#py.shaft[2,2] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,3] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,4] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,5] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,6] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,7] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,8] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,9] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,10] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,11] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,12] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,13] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,14] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,15] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,16] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,17] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,18] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[3,2] 51.249973 -2.445503 124.571274 -142.103149 -39.550781 -79.869514
+#py.shaft[3,3] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,4] 51.249973 -2.445503 124.571930 -142.103149 -39.550781 -79.869514
+#py.shaft[3,5] 51.249577 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,6] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,7] 51.249577 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,8] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,9] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,10] 51.249973 -2.445503 124.571930 -142.103149 -39.550781 -79.869514
+#py.shaft[3,11] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,12] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,13] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,14] 51.249577 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,15] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,16] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,17] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,18] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[4,2] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,3] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,4] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,5] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,6] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,7] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,8] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,9] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,10] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,11] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,12] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,13] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,14] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,15] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,16] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,17] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,18] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#p0.shaft[1,19] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,20] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[2,19] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,20] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[3,19] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,20] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[4,19] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,20] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#px.shaft[1,19] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,20] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[2,19] 88.726440 -30.289202 88.899086 -146.284897 -64.454041 -106.331566
+#px.shaft[2,20] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[3,19] 83.681679 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,20] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[4,19] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,20] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#py.shaft[1,19] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
+#py.shaft[1,20] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
+#py.shaft[2,19] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,20] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[3,19] 51.249577 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,20] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[4,19] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,20] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#cnc.out.dbl.bas -83.999832 15.999801 105.999863 -28.999689 -83.999413 89.999817
+#cnc.in.dbl.base -78.791817 -28.265640 78.376556 -32.441929 -76.954422 93.294899
+#cnc.in -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
+#cnc.out -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
+#cnc.point.bush[1] -79.300629 -40.790264 81.094933 -31.238525 -89.680710 84.817108
+#cnc.point.bush[2] -79.300629 -40.790260 81.094933 -31.238529 -89.680710 -95.182892
+#cnc.out.prl.bas -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
+#cnc.in.prl.base -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
+#cnc.point.bush[1] -79.300629 -40.790264 81.094933 -31.238525 -89.680710 84.817108
+#cnc.point.shaft -95.920425 -22.574184 79.329063 -36.535080 43.017654 9.961427
+.END
+.REALS
+di.ifp.page[1] = 2001
+di.ifp.page[2] = 2002
+di.ifp.page[3] = 2003
+di.ifp.page[4] = 2004
+di.ifp.page[5] = 2005
+di.ifp.page[6] = 2006
+di.ifp.page[7] = 2007
+di.ifp.page[8] = 2008
+current.tool = 4
+type.parallel = 1
+type.double = 0
+grip.no.dbl[1] = 1
+grip.no.dbl[2] = 2
+grip.no.par[1] = 3
+eo.lidar.small = 145
+eo.shelf.unlock[1] = 133
+eo.shelf.unlock[2] = 134
+eo.shelf.unlock[3] = 135
+eo.shelf.unlock[4] = 136
+ei.shelf.state[1] = 1133
+ei.shelf.state[2] = 1134
+ei.shelf.state[3] = 1135
+ei.shelf.state[4] = 1136
+ei.shelf.failed = 1137
+eo.shelf.opened[1] = 129
+eo.shelf.opened[2] = 130
+eo.shelf.opened[3] = 131
+eo.shelf.opened[4] = 132
+s.shelf.failed = 2010
+shelf.close.par[1,2] = 0
+hmi.shelf.no = 1
+gripper.close[1] = 34
+gripper.open[1] = 33
+gripper.open[2] = 35
+gripper.close[2] = 36
+gripper.opened[1] = 1033
+gripper.opened[2] = 1034
+log.max.count = 256
+tool.grip.dbl[1] = 1
+tool.grip.dbl[2] = 2
+tool.grip.par[1] = 3
+pin.double = 4
+pin.parallel = 5
+hmi.task.no = 1
+hmi.plate.col.e = 6
+hmi.plate.col.o = 6
+hmi.plate.dx = 110
+hmi.plate.dy = 104
+hmi.plate.e.dy = 0
+hmi.plate.rows = 4
+hmi.cond.shift = 28
+hmi.cond.thick = 12.5
+hmi.prl.ch.full = 90
+hmi.prl.ch.work = 16
+hmi.shaft.full = 130
+hmi.shaft.h = 78
+hmi.shaft.pick = 65
+s.hmi.tool[1] = 2101
+s.hmi.tool[2] = 2102
+hmi.bush.length = 50
+hmi.cnc.ch.work = 0
+hmi.cnc.ch.full = 39
+hmi.dbl.ch.work[1] = 29
+hmi.dbl.ch.work[2] = 29
+hmi.dbl.ch.full[1] = 40
+hmi.dbl.ch.full[2] = 40
+d.bush.wp0.d[0] = 1737
+d.bush.wp0.len[0] = 1513
+d.bush.wp2.d[0] = 1753
+d.bush.wp2.len[0] = 1529
+d.chg.h.cor[0] = 1721
+d.chg.no[0] = 1705
+d.chg.required = 1289
+bush.wp0.d = 0
+bush.wp0.len = 50
+d.cond.stp.cell[0] = 1497
+d.cond.stp.oy[0] = 1505
+d.cond.stp.row[0] = 1501
+d.gr.dbl.full[1,0] = 1337
+d.gr.dbl.inv[1] = 1297
+d.gr.dbl.work[1,0] = 1353
+d.gr.prl.full[0] = 1369
+d.gr.prl.work[0] = 1385
+d.plt.cell.even[0] = 1441
+d.plt.cell.odd[0] = 1437
+d.plt.dx[0] = 1465
+d.plt.dy[0] = 1449
+d.plt.even.dy[0] = 1481
+d.plt.rows[0] = 1433
+d.shaft.return = 1290
+d.shaft.rotate = 1291
+d.shaft.wp0.d[0] = 1609
+d.shaft.wp0.h[0] = 1593
+d.shaft.wp0.l1[0] = 1545
+d.shaft.wp0.l2[0] = 1561
+d.shaft.wp0.l3[0] = 1577
+d.shaft.wp2.d[0] = 1689
+d.shaft.wp2.h[0] = 1673
+d.shaft.wp2.l1[0] = 1625
+d.shaft.wp2.l2[0] = 1641
+d.shaft.wp2.l3[0] = 1657
+di.ext.cs = 1067
+di.ext.ereset = 1066
+di.ext.hold = 1069
+di.ext.motor.of = 1070
+di.ext.motor.on = 1065
+di.ext.pgreset = 1068
+di.ext.slow = 1071
+do.automatic = 68
+do.bat.alarm = 77
+do.cs = 67
+do.emg = 74
+do.error = 66
+do.hold = 75
+do.home = 71
+do.home2 = 72
+do.motor.on = 65
+do.power.on = 73
+do.safety.fence = 76
+do.teach = 69
+do.teach.lock = 70
+ei.cnc.ch.clsd = 1098
+ei.cnc.ch.opd = 1097
+ei.cnc.ready = 1099
+ei.data.ready = 1114
+ei.robot.speed[0] = 1161
+ei.shelf.ready[1] = 1129
+ei.shelf.ready[2] = 1130
+ei.shelf.ready[3] = 1131
+ei.shelf.ready[4] = 1132
+ei.task.start = 1113
+eo.chg.empty = 305
+eo.chg.id[0] = 225
+eo.chg.wp0 = 306
+eo.chg.wp1 = 307
+eo.cnc.ch.close = 98
+eo.cnc.ch.open = 97
+eo.cnc.empty = 301
+eo.cnc.id[1,0] = 209
+eo.cnc.mfinish = 99
+eo.cnc.wp0 = 302
+eo.cnc.wp1 = 303
+eo.cnc.wp2 = 304
+eo.data.read = 120
+eo.data.request[1] = 116
+eo.data.request[2] = 117
+eo.data.request[3] = 118
+eo.data.request[4] = 119
+eo.dbl.grip.st[1,0] = 161
+eo.dbl.grip.st[2,0] = 177
+eo.error.code[0] = 273
+eo.gr.dbl.empty[1] = 289
+eo.gr.dbl.empty[2] = 293
+eo.gr.dbl.wp0[1] = 290
+eo.gr.dbl.wp0[2] = 294
+eo.gr.dbl.wp1[1] = 291
+eo.gr.dbl.wp1[2] = 295
+eo.gr.dbl.wp2[1] = 292
+eo.gr.dbl.wp2[2] = 296
+eo.gr.prl.empty = 297
+eo.gr.prl.wp0 = 298
+eo.gr.prl.wp1 = 299
+eo.gr.prl.wp2 = 300
+eo.next.wp[0] = 257
+eo.prl.grip.st[0] = 193
+eo.process.err = 115
+eo.robot.ready = 113
+eo.shelf.cmplt[1] = 138
+eo.shelf.cmplt[2] = 139
+eo.shelf.cmplt[3] = 140
+eo.shelf.cmplt[4] = 141
+eo.task.exec = 114
+eo.wp.processed[0] = 241
+o.debug = 78
+d.gr.dbl.inv[2] = 1297
+hmi.cnc.j.body[1] = 28
+hmi.cnc.j.full[1] = 40
+bush.wp2.d = 0
+bush.wp2.len = 50
+chg.h.cor = 0
+chg.no = 1
+chg.required = 0
+cnc.ch.full = 39
+cnc.ch.work = 0
+cond.stp.cell = 4
+cond.stp.oy = 28
+cond.stp.row = 1
+gr.dbl.full[1] = 40
+gr.dbl.full[2] = 40
+gr.dbl.inv[1] = 0
+gr.dbl.work[1] = 29
+gr.dbl.work[2] = 29
+gr.prl.full = 90
+gr.prl.work = 16
+hmi.cond.cx = 1
+hmi.cond.cy = 4
+hmi.wp.id = 2
+plt.cell.even = 6
+plt.cell.odd = 6
+plt.dx = 110
+plt.dy = 104
+plt.even.dy = 0
+plt.rows = 4
+shaft.return = 0
+shaft.rotate = 0
+shaft.wp0.d = 0
+shaft.wp0.h = 78
+shaft.wp0.l1 = 130
+shaft.wp0.l2 = 65
+shaft.wp0.l3 = 12.5
+shaft.wp2.d = 0
+shaft.wp2.h = 78
+shaft.wp2.l1 = 130
+shaft.wp2.l2 = 65
+shaft.wp2.l3 = 12.5
+d.task.id[0] = 1273
+task.id = 1
+gp.dbl.cl.tmr[1] = 2
+gp.dbl.cl.tmr[2] = 2
+gp.dbl.op.tmr[1] = 2
+gp.dbl.op.tmr[2] = 2
+gp.par.cl.tmr = 2
+gp.par.op.tmr = 2
+s.grip.open[1] = 2050
+s.grip.open[2] = 2051
+s.grip.open[3] = 2052
+s.grip.close[1] = 2053
+s.grip.close[2] = 2054
+s.grip.close[3] = 2055
+current.shelf = 1
+cnc.overshoot = 5
+cnc.dbl.rot[1] = 0
+cnc.dbl.rot[2] = -180
+d.cnc.ch.full[0] = 1401
+d.cnc.ch.work[0] = 1417
+d.wp.count[0] = 1281
+d.wp.type.shaft = 1292
+gripper.dbl.id[1] = 0
+gripper.dbl.id[2] = 0
+gripper.dbl.st[1] = -1
+gripper.dbl.st[2] = -1
+hmi.wp.count = 10
+s.inside.cnc = 2011
+s.mcode.req = 2012
+shelf.overshoot = 5
+chg.id = 0
+cnc.first = 0
+cnc.st = -1
+gr.dbl.inv[2] = 0
+wp.count = 10
+wp.type.shaft = 0
+cnc.prl.rot[1] = 0
+cnc.prl.rot[2] = 180
+s.pr.a.home = 2200
+chg.st = -1
+cnc.dbl.rot[2] = -180
+cnc.id = 0
+current.wp = 1
+decision.state = 101
+decision.type = 100
+gp.dbl.empty[1] = -1
+gp.dbl.empty[2] = -1
+gp.dbl.full[1] = 0
+gp.dbl.full[2] = 0
+gp.dbl.wp0[1] = 0
+gp.dbl.wp0[2] = 0
+gp.dbl.wp1[1] = 0
+gp.dbl.wp1[2] = 0
+gp.dbl.wp2[1] = 0
+gp.dbl.wp2[2] = 0
+gp.prl.empty = -1
+gp.prl.full = 0
+gp.prl.wp0 = 0
+gp.prl.wp1 = 0
+gp.prl.wp2 = 0
+gripper.prl.id = 0
+gripper.prl.st = -1
+max.pick = 0
+mfinish = 0
+n.max.pick = -1
+processed.wp = 0
+rin = 0
+rout = -1
+shelf.closed = 0
+shelf.opened = -1
+state = 101
+.END
