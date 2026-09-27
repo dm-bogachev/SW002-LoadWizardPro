@@ -41,9 +41,9 @@ N_OX139    "eo.shelf.cmplt[2]"
 N_OX140    "eo.shelf.cmplt[3]"
 N_OX141    "eo.shelf.cmplt[4]"
 N_OX145    "eo.lidar.small"
-N_OX161    "eo.dbl.grip.st[1,0]"
-N_OX177    "eo.dbl.grip.st[2,0]"
-N_OX193    "eo.prl.grip.st[0]"
+N_OX161    "eo.dbl.grip.id[1,0]"
+N_OX177    "eo.dbl.grip.id[2,0]"
+N_OX193    "eo.prl.grip.id[0]"
 N_OX209    "eo.cnc.id[1,0]"
 N_OX225    "eo.chg.id[0]"
 N_OX241    "eo.wp.processed[0]"
@@ -80,6 +80,7 @@ N_WX98    "ei.cnc.ch.clsd"
 N_WX99    "ei.cnc.ready"
 N_WX113    "ei.task.start"
 N_WX114    "ei.data.ready"
+N_WX115    "ei.robot.home"
 N_WX129    "ei.shelf.ready[1]"
 N_WX130    "ei.shelf.ready[2]"
 N_WX131    "ei.shelf.ready[3]"
@@ -90,6 +91,15 @@ N_WX135    "ei.shelf.state[3]"
 N_WX136    "ei.shelf.state[4]"
 N_WX137    "ei.shelf.failed"
 N_WX161    "ei.robot.speed[0]"
+N_WX177    "ei.shelf.oversh[0]"
+N_WX193    "ei.cnc.oversh[0]"
+N_WX209    "ei.chg.oversh[0]"
+N_WX225    "ei.dbl.gp.o.tmr[1,0]"
+N_WX233    "ei.dbl.gp.c.tmr[1,0]"
+N_WX241    "ei.dbl.gp.o.tmr[2,0]"
+N_WX249    "ei.dbl.gp.c.tmr[2,0]"
+N_WX257    "ei.prl.gp.o.tmr[0]"
+N_WX265    "ei.prl.gp.c.tmr[0]"
 N_WX273    "d.task.id[0]"
 N_WX281    "d.wp.count[0]"
 N_WX289    "d.chg.required"
@@ -97,8 +107,11 @@ N_WX290    "d.shaft.return"
 N_WX291    "d.shaft.rotate"
 N_WX292    "d.wp.type.shaft"
 N_WX297    "d.gr.dbl.inv[1]"
-N_WX337    "d.gr.dbl.full[1,0]"
-N_WX353    "d.gr.dbl.work[1,0]"
+N_WX298    "d.cnc.first"
+N_WX305    "d.gr.dbl.full[1,0]"
+N_WX321    "d.gr.dbl.work[1,0]"
+N_WX337    "d.gr.dbl.full[2,0]"
+N_WX353    "d.gr.dbl.work[2,0]"
 N_WX369    "d.gr.prl.full[0]"
 N_WX385    "d.gr.prl.work[0]"
 N_WX401    "d.cnc.ch.full[0]"
@@ -128,6 +141,8 @@ N_WX721    "d.chg.h.cor[0]"
 N_WX737    "d.bush.wp0.d[0]"
 N_WX753    "d.bush.wp2.d[0]"
 N_WX769    "d.cond.stp.oy[0]"
+N_WX785    "d.gr.dbl.full[3,0]"
+N_WX801    "d.gr.dbl.work[3,0]"
 N_INT1    "di.ifp.page[1]"
 N_INT2    "di.ifp.page[2]"
 N_INT3    "di.ifp.page[3]"
@@ -139,6 +154,7 @@ N_INT8    "di.ifp.page[8]"
 N_INT10    "s.shelf.failed"
 N_INT11    "s.inside.cnc"
 N_INT12    "s.mcode.req"
+N_INT20    "s.reset.perf"
 N_INT50    "s.grip.open[1]"
 N_INT51    "s.grip.open[2]"
 N_INT52    "s.grip.open[3]"
@@ -147,6 +163,26 @@ N_INT54    "s.grip.close[2]"
 N_INT55    "s.grip.close[3]"
 N_INT101    "s.hmi.tool[1]"
 N_INT102    "s.hmi.tool[2]"
+N_INT110    "s.tch.shlf.dbl"
+N_INT111    "s.tst.shlf.dbl"
+N_INT112    "s.tch.shlf.prl"
+N_INT113    "s.tst.shlf.prl"
+N_INT114    "s.tch.plate.dbl"
+N_INT115    "s.tst.plate.dbl"
+N_INT116    "s.tch.plate.prl"
+N_INT117    "s.tst.plate.prl"
+N_INT118    "s.tst.wp.dbl.pi"
+N_INT119    "s.tst.wp.dbl.pu"
+N_INT120    "s.tst.wp.prl.pi"
+N_INT121    "s.tst.wp.prl.pu"
+N_INT122    "s.tch.buffer"
+N_INT123    "s.tst.buffer"
+N_INT124    "s.tch.cnc.d.app"
+N_INT125    "s.tch.cnc.p.app"
+N_INT126    "s.tch.cnc.bush"
+N_INT127    "s.tst.cnc.bush"
+N_INT128    "s.tch.cnc.shaft"
+N_INT129    "s.tst.cnc.shaft"
 N_INT200    "s.pr.a.home"
 .END
 .INTER_PANEL_D
@@ -161,15 +197,11 @@ N_INT200    "s.pr.a.home"
 28,1,"  CHUCK 1","","","  OPENED",10,15,4,10,1097,0
 29,1,"  CHUCK 1","","","  CLOSED",10,15,4,10,1098,0
 30,1,"   CNC","","","  READY",10,15,4,10,1099,0
-32,2,"  DOUBLE","GRIPPER 1","   OPEN","",10,4,8,2050,0
-33,2,"  DOUBLE","GRIPPER 2","   OPEN","",10,4,8,2051,0
-34,2," PARALLEL"," GRIPPER","   OPEN","",10,4,8,2052,0
+33,4,2,"GRIPPER 1","OPEN","CLOSE","",10,4,4,33,34,0
+34,4,2,"GRIPPER 2","OPEN","CLOSE","",10,4,4,35,36,0
 35,2,"","  CHUCK 1","   OPEN","",10,4,15,97,0
 36,2,"","  CHUCK 1","   CLOSE","",10,4,15,98,0
 37,2,""," MCODE FIN","","",10,4,15,99,0
-39,2,"  DOUBLE","GRIPPER 1","  CLOSE","",10,4,5,2053,0
-40,2,"  DOUBLE","GRIPPER 2","  CLOSE","",10,4,5,2054,0
-41,2," PARALLEL"," GRIPPER","  CLOSE","",10,4,5,2055,0
 49,2,"","   MAIN","<---------","",10,4,11,2001,0
 50,2,"","  TEACH","--------->","",10,4,11,2003,0
 52,4,2,"SHELF 1","","UNLOCK","",10,4,4,0,133,0
@@ -289,7 +321,63 @@ N_INT200    "s.pr.a.home"
   ;
   WHILE TRUE DO
     CALL check.ifp.pc
+    CALL check.speed.pc
+    CALL check.teach.pc
+    CALL check.reset.pc
+    CALL check.limits.pc
+    CALL send.plc.pc
   END
+  ;
+.END
+.PROGRAM buffer.flip (.task.id)
+  ;
+  CALL log ("Performing buffer flip")
+  CALL set.tool (grip.no.dbl[1])
+  ;
+  SPEED 350 MM/S ALWAYS
+  ACCURACY 10 ALWAYS
+  ;
+  JMOVE #shelf.safe.dbl
+  LMOVE #buff.appro
+  LMOVE #buff.safe[1]
+  LMOVE #buff.put.appro[.task.id]
+  SPEED 50 MM/S ALWAYS
+  ACCURACY 0.1 ALWAYS
+  LMOVE #buff.put[.task.id]
+  BREAK
+  CALL gripper.open (grip.no.dbl[1], gp.dbl.op.tmr[1], gr.dbl.inv[1])
+  chg.id = gripper.dbl.id[1]
+  chg.st = 0
+  gripper.dbl.id[1] = 0
+  gripper.dbl.st[1] = -1
+  ;
+  LMOVE #buff.put.depar[.task.id]
+  SPEED 350 MM/S ALWAYS
+  ACCURACY 10 ALWAYS
+  LMOVE #buff.safe[1]
+  ;
+  chg.st = 1
+  ;
+  JMOVE #buff.safe[2]
+  LMOVE #buff.pick.appro[.task.id]
+  SPEED 50 MM/S ALWAYS
+  ACCURACY 0.1 ALWAYS
+  LMOVE #buff.pick[.task.id]
+  BREAK
+  CALL gripper.close (grip.no.dbl[1], gp.dbl.cl.tmr[1], gr.dbl.inv[1])
+  gripper.dbl.id[1] = chg.id
+  gripper.dbl.st[1] = chg.st
+  chg.id = 0
+  chg.st = -1
+  ;
+  LMOVE #buff.pick.depar[.task.id]
+  SPEED 350 MM/S ALWAYS
+  ACCURACY 10 ALWAYS
+  LMOVE #buff.safe[2]
+  JMOVE #buff.safe[1]
+  LMOVE #buff.appro
+  JMOVE #shelf.safe.dbl
+  HOME
   ;
 .END
 .PROGRAM calc.rot.dbl (.grip.no)
@@ -360,32 +448,56 @@ N_INT200    "s.pr.a.home"
   max.pick = NOT n.max.pick
   ;
 .END
-.PROGRAM check.ifp.pc ()
+.PROGRAM check.limits.pc ()
+	; *******************************************************************
+	;
+	; Program:      check.limits.pc
+	; Comment:      
+	; Author:       User
+	;
+	; Date:         9/27/2026
+	;
+	; *******************************************************************
+	;
+	
+.END
+.PROGRAM check.reset.pc ()
   ;
-  IF SIG (s.grip.open[1]) THEN
-    SIGNAL gripper.open[1], -gripper.close[1]
+  IF NOT SIG (di.ext.pgreset) THEN
+    SIGNAL -s.reset.perf
   END
-  ;
-  IF SIG (s.grip.open[2]) THEN
-    SIGNAL gripper.open[2], -gripper.close[2]
-  END
-  ;
-  IF SIG (s.grip.open[3]) THEN
-    SIGNAL gripper.open[1], -gripper.close[1]
-    SIGNAL gripper.close[2], -gripper.open[2]
-  END
-  ;
-  IF SIG (s.grip.close[1]) THEN
-    SIGNAL gripper.close[1], -gripper.open[1]
-  END
-  ;
-  IF SIG (s.grip.close[2]) THEN
-    SIGNAL gripper.close[2], -gripper.open[2]
-  END
-  ;
-  IF SIG (s.grip.close[3]) THEN
-    SIGNAL gripper.close[1], -gripper.open[1]
-    SIGNAL gripper.close[2], -gripper.open[2]
+  IF SIG (di.ext.pgreset) THEN
+    IF NOT SIG (s.reset.perf) THEN
+      CALL log.pc1 ("Reset command executed")
+      ; Resetting signals
+      BITS eo.shelf.opened[1], 4 = 0
+      ;
+      SIGNAL -eo.robot.ready
+      SIGNAL -s.mcode.req
+      SIGNAL -s.inside.cnc
+      ;
+      gripper.dbl.id[1] = 0
+      gripper.dbl.st[1] = -1
+      gripper.dbl.id[2] = 0
+      gripper.dbl.st[2] = -1
+      ;
+      gripper.prl.id = 0
+      gripper.prl.st = -1
+      ;
+      cnc.id = 0
+      cnc.st = -1
+      ;
+      chg.id = 0
+      chg.st = -1
+      ;
+      current.wp    = 1
+      processed.wp  = 0
+      current.shelf = 5
+      ;
+      state = 0
+      ;
+    END
+    SIGNAL s.reset.perf
   END
   ;
 .END
@@ -644,6 +756,12 @@ N_INT200    "s.pr.a.home"
   CALL chuck.open 
   CALL calc.rot.dbl (.grip.no)
   ;
+  IF NOT d.chg.required THEN
+    .gr.dbl.work = gr.dbl.work[.grip.no]
+  ELSE
+    .gr.dbl.work = gr.dbl.work[3]
+  END
+  ;
   ; Calculate shifts
   .c1 = bush.wp0.len + gr.dbl.work[.grip.no] + cnc.ch.work
   .dz = .c1 - cnc.overshoot ;
@@ -755,6 +873,80 @@ N_INT200    "s.pr.a.home"
   CALL gripper.close (grip.no.par[1], 0, FALSE)
   ;
 .END
+.PROGRAM copy.buff () ; Do not use
+  ;
+  FOR .i = 2 TO 180
+    POINT #buff.put.appro[.i] = #buff.put.appro[1]
+    POINT #buff.put[.i] = #buff.put[1]
+    POINT #buff.put.depar[.i] = #buff.put.depar[1]
+    POINT #buff.pick.appro[.i] = #buff.pick.appro[1]
+    POINT #buff.pick[.i] = #buff.pick[1]
+    POINT #buff.pick.depar[.i] = #buff.pick.depar[1]
+  END
+  ;
+.END
+.PROGRAM copy.plate.bush (.source,.dest)
+  ;
+  FOR .i = 1 TO 4
+    FOR .j = 1 TO 2
+      POINT #p0.bush[.i, .dest, .j] = #p0.bush[.i, .source, .j]
+      POINT #px.bush[.i, .dest, .j] = #px.bush[.i, .source, .j]
+      POINT #py.bush[.i, .dest, .j] = #py.bush[.i, .source, .j]
+      ;
+      ;
+      ; Calculation
+      POINT .p0 = #p0.bush[.i, .dest, .j]
+      POINT .px = #px.bush[.i, .dest, .j]
+      POINT .py = #py.bush[.i, .dest, .j]
+      ;
+      ; Direction vectors
+      ; X
+      .cx = 1 / DISTANCE (.p0, .px)
+      POINT .x.vec = TRANS (DX (.px) - DX (.p0), DY (.px) - DY (.p0), DZ (.px) - DZ (.p0))
+      POINT .x.norm = TRANS (DX (.x.vec) * .cx, DY (.x.vec) * .cx, DZ (.x.vec) * .cx)
+      ; Y
+      .cy = 1 / DISTANCE (.p0, .py)
+      POINT .y.vec = TRANS (DX (.py) - DX (.p0), DY (.py) - DY (.p0), DZ (.py) - DZ (.p0))
+      POINT .y.norm = TRANS (DX (.y.vec) * .cy, DY (.y.vec) * .cy, DZ (.y.vec) * .cy)
+      ;
+      POINT origin.bush[.i, .dest, .j] = .p0
+      POINT x.norm.bush[.i, .dest, .j] =.x.norm
+      POINT y.norm.bush[.i, .dest, .j] =.y.norm
+      ;
+    END
+  END
+  ;
+.END
+.PROGRAM copy.plate.shaf (.source,.dest)
+  ;
+  FOR .i = 1 TO 4
+    POINT #p0.shaft[.i, .dest] = #p0.shaft[.i, .source]
+    POINT #px.shaft[.i, .dest] = #px.shaft[.i, .source]
+    POINT #py.shaft[.i, .dest] = #py.shaft[.i, .source]
+    ;
+    ;
+    ; Calculation
+    POINT .p0 = #p0.shaft[.i, .dest]
+    POINT .px = #px.shaft[.i, .dest]
+    POINT .py = #py.shaft[.i, .dest]
+    ;
+    ; Direction vectors
+    ; X
+    .cx = 1 / DISTANCE (.p0, .px)
+    POINT .x.vec = TRANS (DX (.px) - DX (.p0), DY (.px) - DY (.p0), DZ (.px) - DZ (.p0))
+    POINT .x.norm = TRANS (DX (.x.vec) * .cx, DY (.x.vec) * .cx, DZ (.x.vec) * .cx)
+    ; Y
+    .cy = 1 / DISTANCE (.p0, .py)
+    POINT .y.vec = TRANS (DX (.py) - DX (.p0), DY (.py) - DY (.p0), DZ (.py) - DZ (.p0))
+    POINT .y.norm = TRANS (DX (.y.vec) * .cy, DY (.y.vec) * .cy, DZ (.y.vec) * .cy)
+    ;
+    POINT origin.shaft[.i, .dest] = .p0
+    POINT x.norm.shaft[.i, .dest] =.x.norm
+    POINT y.norm.shaft[.i, .dest] =.y.norm
+    ;
+  END
+  ;
+.END
 .PROGRAM disp.info.pc (.$cont.name)
   ;
   .$robot.name = $SYSDATA (ZROB.NAME)
@@ -765,25 +957,12 @@ N_INT200    "s.pr.a.home"
   IFPWPRINT 8, 1, 1, 5, 10 = .$robot.str, .$cont.str, " ", "Powered by Robowizard Co.Ltd."
   ;
 .END
-.PROGRAM dummy.pc ()
-	; *******************************************************************
-	;
-	; Program:      dummy.pc
-	; Comment:      
-	; Author:       User
-	;
-	; Date:         9/18/2026
-	;
-	; *******************************************************************
-	;
-	
-.END
 .PROGRAM get.from.hmi ()
   ;
   task.id = 1
   wp.count = hmi.wp.count
   ;
-  wp.type.shaft = TRUE
+  wp.type.shaft = FALSE;TRUE;
   ;
   chg.required = TRUE;FALSE;
   shaft.return = TRUE;FALSE;TRUE;
@@ -795,6 +974,8 @@ N_INT200    "s.pr.a.home"
   gr.dbl.work[1] = hmi.dbl.ch.work[1]
   gr.dbl.full[2] = hmi.dbl.ch.full[2]
   gr.dbl.work[2] = hmi.dbl.ch.work[2]
+  gr.dbl.full[3] = hmi.dbl.ch.full[1]
+  gr.dbl.work[3] = hmi.dbl.ch.work[1]
   ;
   gr.prl.full = hmi.prl.ch.full
   gr.prl.work = hmi.prl.ch.work
@@ -849,6 +1030,8 @@ N_INT200    "s.pr.a.home"
   gr.dbl.work[1] = BITS (d.gr.dbl.work[1, 0], 16)/10
   gr.dbl.full[2] = BITS (d.gr.dbl.full[2, 0], 16)/10
   gr.dbl.work[2] = BITS (d.gr.dbl.work[2, 0], 16)/10
+  gr.dbl.full[3] = BITS (d.gr.dbl.full[3, 0], 16)/10
+  gr.dbl.work[3] = BITS (d.gr.dbl.work[3, 0], 16)/10
   ;
   gr.prl.full = BITS (d.gr.prl.full[0], 16)/10
   gr.prl.work = BITS (d.gr.prl.work[0], 16)/10
@@ -889,14 +1072,18 @@ N_INT200    "s.pr.a.home"
 .END
 .PROGRAM get.system.data ()
   ;
-  gp.par.op.tmr = 2
-  gp.par.cl.tmr = 2
-  gp.dbl.op.tmr[1] = 2
-  gp.dbl.cl.tmr[1] = 2
-  gp.dbl.op.tmr[2] = 2
-  gp.dbl.cl.tmr[2] = 2
+  gp.par.op.tmr = BITS(ei.prl.gp.o.tmr[0], 8)/10
+  gp.par.cl.tmr = BITS(ei.prl.gp.c.tmr[0], 8)/10
+  gp.dbl.op.tmr[1] = BITS(ei.dbl.gp.o.tmr[1, 0], 8)/10
+  gp.dbl.cl.tmr[1] = BITS(ei.dbl.gp.c.tmr[1, 0], 8)/10
+  gp.dbl.op.tmr[2] = BITS(ei.dbl.gp.o.tmr[2, 0], 8)/10
+  gp.dbl.cl.tmr[2] = BITS(ei.dbl.gp.c.tmr[2, 0], 8)/10
   ;
-  cnc.first = FALSE
+  shelf.overshoot = BITS(ei.shelf.oversh[0], 8)
+  cnc.overshoot = BITS(ei.cnc.oversh[0], 8)
+  chg.overshoot = BITS(ei.chg.oversh[0], 8)
+  ;
+  cnc.first = SIG(d.cnc.first)
   ;
 .END
 .PROGRAM get.task.data ()
@@ -919,7 +1106,7 @@ N_INT200    "s.pr.a.home"
   ;  RETURN
   ;END
   ;
-  CALL log ("Command close double gripper" + $ENCODE (.close.time))
+  CALL log ("Command close double gripper" + $ENCODE (.gripper.no))
   ;
   IF NOT .inverse THEN
     SIGNAL gripper.close[.gripper.no], -gripper.open[.gripper.no]
@@ -1144,13 +1331,74 @@ N_INT200    "s.pr.a.home"
   CALL a.main 
   ;
 .END
-.PROGRAM prep.points ()
+.PROGRAM prep.points.dbl () ; Do not use
+  ;
+  SIGNAL s.hmi.tool[1]
+  TOOL t.gripper[1]
+  ;
+  JMOVE #wp.bush.safe[1]
+  ;
+  FOR .t = 1 TO 180
+    hmi.task.no = .t
+    .draw = 0
+    FOR .i = 1 TO 4
+      LMOVE #p0.bush[1, 1, 1] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #p0.bush[.i, .t, 1]
+      ;
+      LMOVE #px.bush[1, 1, 1] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #px.bush[.i, .t, 1]
+      ;
+      LMOVE #py.bush[1, 1, 1] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #py.bush[.i, .t, 1]
+      .draw = .draw + 180
+      hmi.shelf.no = .i
+      CALL tch.dbl.plate
+    END
+  END
+  ;
+  SIGNAL -s.hmi.tool[1]
+  SIGNAL s.hmi.tool[2]
+  JMOVE #wp.bush.safe[1]
+  TOOL t.gripper[2]
+  ;
+  JMOVE #wp.bush.safe[2]
+  FOR .t = 1 TO 180
+    hmi.task.no = .t
+    .draw = 0
+    FOR .i = 1 TO 4
+      LMOVE #p0.bush[1, 1, 2] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #p0.bush[.i, .t, 2]
+      ;
+      LMOVE #px.bush[1, 1, 2] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #px.bush[.i, .t, 2]
+      ;
+      LMOVE #py.bush[1, 1, 2] ; ***TEACH POINT***
+      DRAW 0, 0, -.draw
+      BREAK
+      HERE #py.bush[.i, .t, 2]
+      .draw = .draw + 180
+      hmi.shelf.no = .i
+      CALL tch.dbl.plate
+    END
+  END
+.END
+.PROGRAM prep.points.prl () ; Do not use
   ;
   TOOL t.calib[3]
   ;
   JMOVE #wp.shaft.safe
   ;
-  FOR .t = 1 TO 20
+  FOR .t = 1 TO 180
     hmi.task.no = .t
     .draw = 0
     FOR .i = 1 TO 4
@@ -1172,8 +1420,6 @@ N_INT200    "s.pr.a.home"
       hmi.shelf.no = .i
       CALL tch.prl.plate
     END
-    
-    
   END
 .END
 .PROGRAM safe.home ()
@@ -1183,6 +1429,77 @@ N_INT200    "s.pr.a.home"
   ACCURACY 0.01 ALWAYS
   ; Move to home pos
   HOME
+  ;
+.END
+.PROGRAM send.plc.pc ()
+  ;
+  BITS eo.dbl.grip.id[1, 0], 16 = gripper.dbl.id[1]
+  BITS eo.dbl.grip.id[2, 0], 16 = gripper.dbl.id[2]
+  BITS eo.prl.grip.id[0], 16 = gripper.prl.id
+  BITS eo.cnc.id[1, 0], 16 = cnc.id
+  BITS eo.chg.id[0], 16 = chg.id
+  BITS eo.wp.processed[0], 16 = processed.wp
+  IF current.wp > wp.count THEN
+    BITS eo.next.wp[0], 16 = 0
+  ELSE
+    BITS eo.next.wp[0], 16 = current.wp
+  END
+  ;
+  BITS eo.error.code[0], 16 = -ERROR
+  ;
+  FOR .i = 1 TO 2
+    IF gripper.dbl.st[.i] == -1 THEN
+      BITS eo.gr.dbl.empty[.i], 4 = 1
+    END
+    IF gripper.dbl.st[.i] == 0 THEN
+      BITS eo.gr.dbl.empty[.i], 4 = 2
+    END
+    IF gripper.dbl.st[.i] == 1 THEN
+      BITS eo.gr.dbl.empty[.i], 4 = 4
+    END
+    IF gripper.dbl.st[.i] == 2 THEN
+      BITS eo.gr.dbl.empty[.i], 4 = 8
+    END
+  END
+  ;
+  IF gripper.prl.st == -1 THEN
+    BITS eo.gr.prl.empty, 4 = 1
+  END
+  IF gripper.prl.st == 0 THEN
+    BITS eo.gr.prl.empty, 4 = 2
+  END
+  IF gripper.prl.st == 1 THEN
+    BITS eo.gr.prl.empty, 4 = 4
+  END
+  IF gripper.prl.st == 2 THEN
+    BITS eo.gr.prl.empty, 4 = 8
+  END
+  ;
+  IF cnc.st == -1 THEN
+    BITS eo.cnc.empty, 4 = 1
+  END
+  IF cnc.st == 0 THEN
+    BITS eo.cnc.empty, 4 = 2
+  END
+  IF cnc.st == 1 THEN
+    BITS eo.cnc.empty, 4 = 4
+  END
+  IF cnc.st == 2 THEN
+    BITS eo.cnc.empty, 4 = 8
+  END
+    ;
+  IF chg.st == -1 THEN
+    BITS eo.chg.empty, 4 = 1
+  END
+  IF chg.st == 0 THEN
+    BITS eo.chg.empty, 4 = 2
+  END
+  IF chg.st == 1 THEN
+    BITS eo.chg.empty, 4 = 4
+  END
+  IF chg.st == 2 THEN
+    BITS eo.chg.empty, 4 = 8
+  END
   ;
 .END
 .PROGRAM set.io.pc()@26/09/25 20:11 #0
@@ -1253,9 +1570,9 @@ N_INT200    "s.pr.a.home"
   ;
   eo.lidar.small = 145
   ;
-  eo.dbl.grip.st[1, 0] = 161
-  eo.dbl.grip.st[2, 0] = 177
-  eo.prl.grip.st[0] = 193
+  eo.dbl.grip.id[1, 0] = 161
+  eo.dbl.grip.id[2, 0] = 177
+  eo.prl.grip.id[0] = 193
   eo.cnc.id[1, 0] = 209
   eo.chg.id[0] = 225
   eo.wp.processed[0] = 241
@@ -1298,6 +1615,7 @@ N_INT200    "s.pr.a.home"
   ;
   ei.task.start = 1113
   ei.data.ready = 1114
+  ei.robot.home = 1115
   ;
   ei.shelf.ready[1] = 1129
   ei.shelf.ready[2] = 1130
@@ -1313,8 +1631,20 @@ N_INT200    "s.pr.a.home"
   ;
   ei.robot.speed[0] = 1161; 8 bit
   ;
+  ei.shelf.oversh[0] = 1177 ; 16 bit
+  ei.cnc.oversh[0] = 1193 ; 16 bit
+  ei.chg.oversh[0] = 1209 ; 16 bit
+  ;
+  ei.dbl.gp.o.tmr[1, 0] = 1225 ; 8 bit
+  ei.dbl.gp.c.tmr[1, 0] = 1233 ; 8 bit
+  ei.dbl.gp.o.tmr[2, 0] = 1241 ; 8 bit
+  ei.dbl.gp.c.tmr[2, 0] = 1249 ; 8 bit
+  ei.prl.gp.o.tmr[0] = 1257 ; 8 bit
+  ei.prl.gp.c.tmr[0] = 1265 ; 8 bit
+  ;
+  ;
   d.task.id[0] = 1273 ; 8 bit
-  d.wp.count[0] = 1281
+  d.wp.count[0] = 1281 ; 8 bit
   ;
   d.chg.required = 1289
   d.shaft.return = 1290
@@ -1322,12 +1652,13 @@ N_INT200    "s.pr.a.home"
   d.wp.type.shaft = 1292
   ;
   d.gr.dbl.inv[1] = 1296
-  d.gr.dbl.inv[1] = 1297
+  d.gr.dbl.inv[2] = 1297
+  d.cnc.first = 1298
   ;
   d.gr.dbl.full[1, 0] = 1305
   d.gr.dbl.work[1, 0] = 1321
-  d.gr.dbl.full[1, 0] = 1337
-  d.gr.dbl.work[1, 0] = 1353
+  d.gr.dbl.full[2, 0] = 1337
+  d.gr.dbl.work[2, 0] = 1353
   d.gr.prl.full[0] = 1369
   d.gr.prl.work[0] = 1385
   ;
@@ -1364,6 +1695,9 @@ N_INT200    "s.pr.a.home"
   d.chg.no[0] = 1705 ; 4 bit
   d.chg.h.cor[0] = 1721 ; 8 bit
   ;
+  d.gr.dbl.full[3, 0] = 1785
+  d.gr.dbl.work[3, 0] = 1801
+  ;
   ; Internal signals
   ; IFP page change 2001-2008
   di.ifp.page[1] = 2001
@@ -1379,15 +1713,31 @@ N_INT200    "s.pr.a.home"
   s.inside.cnc = 2011
   s.mcode.req = 2012
   ;
-  s.grip.open[1] = 2050
-  s.grip.open[2] = 2051
-  s.grip.open[3] = 2052
-  s.grip.close[1] = 2053
-  s.grip.close[2] = 2054
-  s.grip.close[3] = 2055
+  s.reset.perf = 2020
   ;
   s.hmi.tool[1] = 2101
   s.hmi.tool[2] = 2102
+  ;
+  s.tch.shlf.dbl = 2110
+  s.tst.shlf.dbl = 2111
+  s.tch.shlf.prl = 2112
+  s.tst.shlf.prl = 2113
+  s.tch.plate.dbl = 2114
+  s.tst.plate.dbl = 2115
+  s.tch.plate.prl = 2116
+  s.tst.plate.prl = 2117
+  s.tst.wp.dbl.pi = 2118
+  s.tst.wp.dbl.pu = 2119
+  s.tst.wp.prl.pi = 2120
+  s.tst.wp.prl.pu = 2121
+  s.tch.buffer = 2122
+  s.tst.buffer = 2123
+  s.tch.cnc.d.app = 2124
+  s.tch.cnc.p.app = 2125
+  s.tch.cnc.bush = 2126
+  s.tst.cnc.bush = 2127
+  s.tch.cnc.shaft = 2128
+  s.tst.cnc.shaft = 2129
   ;
   s.pr.a.home = 2200
   ;
@@ -1445,8 +1795,8 @@ N_INT200    "s.pr.a.home"
   POINT t.gripper[2] = TRANS (0, 83.3, 168, 90, 90, 180)
   POINT t.gripper[3] = TRANS (0, 0, 180, 90, 0, 0)
   POINT t.calib[3] = TRANS (0, 0, 280, 90, 0, 0)
-  POINT t.pin[1] = TRANS (82, 0, 167, 0, 90, 180) ; +
-  POINT t.pin[2] = TRANS (0, -80, 75, -90, 90, 90) ; +
+  POINT t.pin[1] = TRANS (82, 0, 167, 0, 90, 180) 
+  POINT t.pin[2] = TRANS (0, -80, 75, -90, 90, 90) 
   ;
   type.double = 0
   type.parallel = 1
@@ -1461,8 +1811,15 @@ N_INT200    "s.pr.a.home"
   hmi.shelf.no = 1
   hmi.task.no = 1
   ;
+  cnc.dbl.rot[1] = 0
+  cnc.dbl.rot[2] = -180
+  ;
+  cnc.prl.rot[1] = 0
+  cnc.prl.rot[2] = 180
+  ;
   CALL ciner ("hmi.wp.count", hmi.wp.count, 16)
   ;
+  CALL ciner ("hmi.shelf.no", hmi.shelf.no, 1)
   CALL ciner ("hmi.bush.length", hmi.bush.length, 50)
   ;
   CALL ciner ("hmi.shaft.full", hmi.shaft.full, 130)
@@ -1487,16 +1844,7 @@ N_INT200    "s.pr.a.home"
   CALL ciner ("hmi.dbl.ch.work[2]", hmi.dbl.ch.work[2], 29)
   CALL ciner ("hmi.cnc.ch.full", hmi.cnc.ch.full, 40)
   CALL ciner ("hmi.cnc.ch.work", hmi.cnc.ch.work, 28)
-  ;
-  shelf.overshoot = 5 ; Replace from HMI
-  cnc.overshoot = 5 ; Replace from HMI
-  ;
-  cnc.dbl.rot[1] = 0
-  cnc.dbl.rot[2] = -180
-  ;
-  cnc.prl.rot[1] = 0
-  cnc.prl.rot[2] = 180
-  ;
+  
 .END
 .PROGRAM shelf.close (.shelf.no,.gripper.type)
   ;
@@ -1984,7 +2332,70 @@ N_INT200    "s.pr.a.home"
   WHILE TRUE DO
     CALL calc.state.flag
     ;
+    ; Open shelf in not opened
+    IF shelf.closed THEN
+      state = 110
+      RETURN
+    END
+    ;
+    ; Send MFINISH
+    IF rout AND cnc.full AND mfinish THEN
+      state = 116
+      RETURN
+    END
+    ;
+    ; Pick workpiece from shelf
+    IF rout AND gp.dbl.empty[1] AND gp.dbl.empty[2] AND n.max.pick THEN
+      state = 111
+      RETURN
+    END
+    ;
+    ; Buffer change
+    IF rout AND gp.dbl.wp0[1] THEN
+      state = 120
+      RETURN
+    END
+    ;
+    ; Move inside CNC
+    ;
+    IF rout AND (gp.dbl.wp1[1] AND cnc.empty OR gp.dbl.empty[2] AND cnc.full) THEN
+      state = 112
+      RETURN
+    END
+    ;
+    ; Put workpiece to CNC
+    IF rin AND gp.dbl.full[1] AND cnc.empty THEN
+      state = 113
+      RETURN
+    END
+    ;
+    ; Pick detail from CNC
+    IF rin AND gp.dbl.empty[2] AND cnc.wp2 THEN
+      state = 114
+      RETURN
+    END
+    ;
+    ; Move outside cnc.in
+    IF rin AND (gp.dbl.empty[1] AND cnc.full OR gp.dbl.full[2] AND cnc.empty) THEN
+      state = 115
+      RETURN
+    END
+    ;
+    ; Put detail to stocker
+    IF rout AND gp.dbl.full[2] AND gp.dbl.empty[1] THEN
+      state = 117
+      RETURN
+    END
+    ;
+    ; Close shelf
+    .ge = gp.dbl.empty[1] AND gp.dbl.empty[2]
+    .ce = cnc.empty
+    IF rout AND .ge AND .ce AND max.pick
+      state = 118
+      RETURN
+    END
   END
+  ;
   ;
 .END
 .PROGRAM state110 () ; Open shelf with double gripper
@@ -2126,17 +2537,13 @@ N_INT200    "s.pr.a.home"
   ;
 .END
 .PROGRAM state120 () ; Work with buffer
-	; *******************************************************************
-	;
-	; Program:      state120
-	; Comment:      Work with buffer
-	; Author:       User
-	;
-	; Date:         9/26/2026
-	;
-	; *******************************************************************
-	;
-	
+  ; 
+  CALL log("State 120: Work with buffer")
+  ;
+  CALL buffer.flip(task.id)
+  ;
+  state = decision.state
+  ;
 .END
 .PROGRAM state200 () ; Select decision state for shaft type
   ;
@@ -2464,6 +2871,25 @@ N_INT200    "s.pr.a.home"
   RETURN
   ;
 .END
+.PROGRAM tch.buffer.flip ()
+  ;
+  JMOVE #shelf.safe.dbl
+  ;
+  LMOVE #buff.appro ; ***TEACH POINT***
+  LMOVE #buff.safe[1] ; ***TEACH POINT***
+  LMOVE #buff.put.appro[hmi.task.no] ; ***TEACH POINT***
+  LMOVE #buff.put[hmi.task.no] ; ***TEACH POINT***
+  LMOVE #buff.put.depar[hmi.task.no] ; ***TEACH POINT***
+  LMOVE #buff.safe[1] 
+  JMOVE #buff.safe[2] ; ***TEACH POINT***
+  LMOVE #buff.pick.appro[hmi.task.no] ; ***TEACH POINT***
+  LMOVE #buff.pick[hmi.task.no] ; ***TEACH POINT***
+  LMOVE #buff.pick.depar[hmi.task.no] ; ***TEACH POINT***
+  LMOVE #buff.safe[2]
+  JMOVE #buff.safe[1]
+  JMOVE #shelf.safe.dbl
+  ;
+.END
 .PROGRAM tch.cnc.bushing ()
   ;
   IF SIG (s.hmi.tool[1]) THEN
@@ -2730,6 +3156,11 @@ N_INT200    "s.pr.a.home"
   ;
   CALL shelf.open.par (hmi.shelf.no)
   CALL shelf.close.par (hmi.shelf.no)
+  ;
+.END
+.PROGRAM tst.buffer.flip ()
+  ;
+  CALL buffer.flip(hmi.task.no)
   ;
 .END
 .PROGRAM tst.cnc.bushing ()
@@ -3113,27 +3544,8 @@ N_INT200    "s.pr.a.home"
 	; LoadWizardAreopag
 	; @@@ HISTORY @@@
 	; @@@ INSPECTION @@@
-	; wp.count
-	; wp.type.shaft
-	; chg.required
-	; shaft.return
-	; shaft.rotate
-	; gr.dbl.inv[1]
-	; gr.dbl.inv[2]
-	; gr.dbl.full[1]
-	; gr.dbl.work[1]
-	; gr.dbl.full[2]
-	; gr.dbl.work[2]
-	; cnc.ch.full
-	; cnc.ch.work
-	; bush.wp0.len
-	; bush.wp2.len
-	; cnc.st
-	; gp.dbl.full[1]
-	; gp.dbl.full[2]
-	; current.wp
-	; cnc.id
-	; current.shelf
+	; gp.dbl.wp0[1]
+	; gp.dbl.empty[1]
 	; @@@ CONNECTION @@@
 	; KROSET R01
 	; 127.0.0.1
@@ -3145,6 +3557,8 @@ N_INT200    "s.pr.a.home"
 	;       .ge 
 	;       .ce 
 	;     1:state102:F
+	;       .ge 
+	;       .ce 
 	;     1:state110:F
 	;     1:state111:F
 	;       .grip.no 
@@ -3179,6 +3593,7 @@ N_INT200    "s.pr.a.home"
 	;     2:state215:F
 	;     2:state216:F
 	;     2:state217:F
+	;       .wp.id 
 	;     2:state218:F
 	;     2:state219:F
 	;   Group:States.Global:3
@@ -3302,6 +3717,7 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .put 
+	;       .put.appro 
 	;     7:tst.wp.prl.put:F
 	;   Group:Workpiece.Bushing:8
 	;     8:tst.wp.dbl.pick:F
@@ -3345,6 +3761,10 @@ N_INT200    "s.pr.a.home"
 	;     8:tst.wp.dbl.put:F
 	;       .i 
 	;   Group:Buffer:9
+	;     9:tch.buffer.flip:F
+	;     9:buffer.flip:F
+	;       .task.id 
+	;     9:tst.buffer.flip:F
 	;   Group:CNC.Appro:10
 	;     10:cnc.in.shaft:F
 	;       .rot.required 
@@ -3383,6 +3803,7 @@ N_INT200    "s.pr.a.home"
 	;     11:cnc.put.bush:F
 	;       .grip.no 
 	;       .$temp 
+	;       .gr.dbl.work 
 	;       .c1 
 	;       .dz 
 	;       .c2 
@@ -3411,6 +3832,9 @@ N_INT200    "s.pr.a.home"
 	;       .temp.appro 
 	;     12:cnc.put.shaft:F
 	;       .$temp 
+	;       .shaft.l 
+	;       .rz 
+	;       .dir 
 	;       .gc.len 
 	;       .gc.body 
 	;       .cncc.full 
@@ -3423,6 +3847,9 @@ N_INT200    "s.pr.a.home"
 	;       .put.appro 
 	;     12:cnc.pick.shaft:F
 	;       .$temp 
+	;       .shaft.l 
+	;       .rz 
+	;       .dir 
 	;       .gc.len 
 	;       .gc.body 
 	;       .cncc.full 
@@ -3435,7 +3862,13 @@ N_INT200    "s.pr.a.home"
 	;       .pick.appro 
 	;     12:tst.cnc.shaft:F
 	;   Group:Debug:13
-	;     13:prep.points:F
+	;     13:prep.points.prl:F
+	;       .t 
+	;       .draw 
+	;       .i 
+	;     13:copy.buff:F
+	;       .i 
+	;     13:prep.points.dbl:F
 	;       .t 
 	;       .draw 
 	;       .i 
@@ -3497,6 +3930,14 @@ N_INT200    "s.pr.a.home"
 	;     16:calc.state.flag:F
 	;       .inside.cnc 
 	;       .outside.cnc 
+	;     16:copy.plate.shaf:F
+	;       .source 
+	;       .dest 
+	;       .shelf.no 
+	;     16:copy.plate.bush:F
+	;       .source 
+	;       .dest 
+	;       .shelf.no 
 	;   Group:Log:17
 	;     17:log:F
 	;       .$msg 
@@ -3515,11 +3956,13 @@ N_INT200    "s.pr.a.home"
 	;   0:a.main:F
 	;     .$pg.string 
 	;   Group:Background:18
-	;     18:dummy.pc:B
-	;     18:check.ifp.pc:B
 	;     18:check.speed.pc:B
 	;       .speed 
 	;     18:check.teach.pc:B
+	;     18:check.reset.pc:B
+	;     18:check.limits.pc:B
+	;     18:send.plc.pc:B
+	;       .i 
 	;   Group:Initialization:19
 	;     19:initialize.pc:B
 	;     19:set.io.pc:B
@@ -3547,25 +3990,33 @@ N_INT200    "s.pr.a.home"
 	; cnc.point.bush[] 
 	; cnc.point.shaft 
 	; @@@ JOINTS @@@
-	; #transport Robot transport position
-	; #shelf.safe.par 
-	; #shelf.safe.dbl 
-	; #wp.shaft.safe 
-	; #p0.shaft[] 
-	; #px.shaft[] 
-	; #py.shaft[] 
-	; #wp.bush.safe[] 
+	; #buff.pick.appro[] 
+	; #buff.pick.depar[] 
 	; #p0.bush[] 
-	; #px.bush[] 
+	; #buff.put.depar[] 
+	; #buff.put.appro[] 
+	; #buff.pick[] 
+	; #py.shaft[] 
+	; #px.shaft[] 
+	; #p0.shaft[] 
 	; #py.bush[] 
-	; #cnc.out.dbl.bas 
-	; #cnc.in.dbl.base 
-	; #cnc.in 
-	; #cnc.out 
-	; #cnc.point.bush[] 
-	; #cnc.out.prl.bas 
-	; #cnc.in.prl.base 
+	; #px.bush[] 
+	; #wp.bush.safe[] 
+	; #wp.shaft.safe 
+	; #shelf.safe.dbl 
+	; #shelf.safe.par 
+	; #buff.put[] 
+	; #transport Robot transport position
+	; #buff.safe[] 
+	; #buff.appro 
 	; #cnc.point.shaft 
+	; #cnc.in.prl.base 
+	; #cnc.out.prl.bas 
+	; #cnc.point.bush[] 
+	; #cnc.out 
+	; #cnc.in 
+	; #cnc.in.dbl.base 
+	; #cnc.out.dbl.bas 
 	; @@@ REALS @@@
 	; current.tool Current tool no
 	; type.parallel 
@@ -3688,6 +4139,7 @@ N_INT200    "s.pr.a.home"
 	; cnc.wp0 
 	; cnc.wp1 
 	; cnc.wp2 
+	; chg.overshoot 
 	; @@@ STRINGS @@@
 	; $log.entry[] 
 	; $safe.flag 
@@ -3777,7 +4229,7 @@ N_INT200    "s.pr.a.home"
 	; eo.cnc.wp2 
 	; eo.data.read 
 	; eo.data.request[] 
-	; eo.dbl.grip.st[] 
+	; eo.dbl.grip.id[] 
 	; eo.error.code[] 
 	; eo.gr.dbl.empty[] 
 	; eo.gr.dbl.wp0[] 
@@ -3788,7 +4240,7 @@ N_INT200    "s.pr.a.home"
 	; eo.gr.prl.wp1 
 	; eo.gr.prl.wp2 
 	; eo.next.wp[] 
-	; eo.prl.grip.st[] 
+	; eo.prl.grip.id[] 
 	; eo.process.err 
 	; eo.robot.ready 
 	; eo.shelf.cmplt[] 
@@ -3805,6 +4257,36 @@ N_INT200    "s.pr.a.home"
 	; s.inside.cnc 
 	; s.mcode.req 
 	; s.pr.a.home 
+	; s.reset.perf 
+	; ei.robot.home 
+	; d.cnc.first 
+	; ei.dbl.gp.o.tmr[] 
+	; ei.dbl.gp.c.tmr[] 
+	; ei.prl.gp.o.tmr[] 
+	; ei.prl.gp.c.tmr[] 
+	; ei.chg.oversh[] 
+	; ei.cnc.oversh[] 
+	; ei.shelf.oversh[] 
+	; s.tch.buffer 
+	; s.tch.cnc.bush 
+	; s.tch.cnc.d.app 
+	; s.tch.cnc.p.app 
+	; s.tch.cnc.shaft 
+	; s.tch.plate.dbl 
+	; s.tch.plate.prl 
+	; s.tch.shlf.dbl 
+	; s.tch.shlf.prl 
+	; s.tst.buffer 
+	; s.tst.cnc.bush 
+	; s.tst.cnc.shaft 
+	; s.tst.plate.dbl 
+	; s.tst.plate.prl 
+	; s.tst.shlf.dbl 
+	; s.tst.shlf.prl 
+	; s.tst.wp.dbl.pi 
+	; s.tst.wp.dbl.pu 
+	; s.tst.wp.prl.pi 
+	; s.tst.wp.prl.pu 
 	; @@@ TOOLS @@@
 	; t.calib[] 
 	; t.pin[] 
@@ -3859,12 +4341,12 @@ origin.shaft[1,1] 1015.889099 466.487976 8.859192 121.855545 179.924240 30.11969
 t.gripper[3] 0.000000 0.000000 180.000000 90.000008 0.000000 0.000000
 x.norm.shaft[1,1] 0.000436 -1.000000 -0.000333 0.000000 0.000000 0.000000
 y.norm.shaft[1,1] -1.000000 -0.000082 -0.000159 0.000000 0.000000 0.000000
-origin.bush[1,1,1] 1016.075195 516.634033 14.228577 30.620493 179.929626 -87.888023
-origin.bush[1,1,2] 1018.853088 518.142822 14.263245 28.633669 178.813599 -89.874809
-x.norm.bush[1,1,1] 0.000033 -1.000000 0.000133 0.000000 0.000000 0.000000
-x.norm.bush[1,1,2] 0.001818 -0.999998 0.000182 0.000000 0.000000 0.000000
-y.norm.bush[1,1,1] -1.000000 0.000036 -0.000012 0.000000 0.000000 0.000000
-y.norm.bush[1,1,2] -0.999999 0.001286 0.000053 0.000000 0.000000 0.000000
+origin.bush[1,1,1] 1015.876831 516.659241 14.339264 30.732227 179.935898 -87.776062
+origin.bush[1,1,2] 1018.665283 518.167114 14.355057 28.651810 178.818176 -89.855873
+x.norm.bush[1,1,1] 0.000543 -1.000000 -0.000282 0.000000 0.000000 0.000000
+x.norm.bush[1,1,2] 0.002286 -0.999997 -0.000178 0.000000 0.000000 0.000000
+y.norm.bush[1,1,1] -1.000000 -0.000387 -0.000301 0.000000 0.000000 0.000000
+y.norm.bush[1,1,2] -1.000000 0.000817 -0.000191 0.000000 0.000000 0.000000
 origin.shaft[2,1] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
 origin.shaft[3,1] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
 origin.shaft[4,1] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
@@ -3916,35 +4398,35 @@ origin.shaft[3,2] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.80
 origin.shaft[3,3] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,4] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
 origin.shaft[3,5] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
-origin.shaft[3,6] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
+origin.shaft[3,6] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803173
 origin.shaft[3,7] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,8] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,9] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
 origin.shaft[3,10] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
-origin.shaft[3,11] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
+origin.shaft[3,11] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803173
 origin.shaft[3,12] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
 origin.shaft[3,13] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,14] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,15] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
-origin.shaft[3,16] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
+origin.shaft[3,16] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803173
 origin.shaft[3,17] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
 origin.shaft[3,18] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
 origin.shaft[3,19] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
-origin.shaft[3,20] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803177
-origin.shaft[4,2] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
+origin.shaft[3,20] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803173
+origin.shaft[4,2] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
 origin.shaft[4,3] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
-origin.shaft[4,4] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
+origin.shaft[4,4] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
 origin.shaft[4,5] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
-origin.shaft[4,6] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
+origin.shaft[4,6] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
 origin.shaft[4,7] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
 origin.shaft[4,8] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,9] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,10] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,11] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.804264
 origin.shaft[4,12] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
-origin.shaft[4,13] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
+origin.shaft[4,13] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
 origin.shaft[4,14] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
-origin.shaft[4,15] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927231
+origin.shaft[4,15] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
 origin.shaft[4,16] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
 origin.shaft[4,17] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.804264
 origin.shaft[4,18] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
@@ -4107,269 +4589,2300 @@ cnc.point.bush[2] -1211.793213 77.787697 217.688080 -88.000603 89.139320 -147.00
 t.gripper[1] 0.000000 -83.300003 168.000000 -90.000008 90.000008 180.000000
 t.gripper[2] 0.000000 83.300003 168.000000 90.000008 90.000008 -180.000000
 cnc.point.shaft -1215.178101 76.215500 221.886932 -175.757202 139.999161 179.996948
+origin.bush[1,2,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.337715
+origin.bush[1,2,2] 1018.465393 518.223694 14.198700 28.688492 178.810989 -89.819092
+origin.bush[1,3,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,3,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,4,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,4,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,5,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,5,2] 1018.457581 518.232666 14.188217 28.696634 178.811630 -89.811493
+origin.bush[1,6,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,7,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,8,1] 1015.693420 516.728577 14.197495 31.597906 179.928146 -86.911888
+origin.bush[1,9,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,10,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.337715
+origin.bush[1,11,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,12,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,13,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,14,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,15,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,16,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[1,17,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.337715
+origin.bush[1,18,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.337715
+origin.bush[1,19,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.337715
+origin.bush[1,20,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121498
+origin.bush[2,1,1] 1015.901917 516.645874 -161.682892 28.912294 179.940903 -89.595840
+origin.bush[2,1,2] 1018.699036 518.148804 -161.076950 28.540134 178.824661 -89.965790
+origin.bush[2,2,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,2,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,3,1] 1015.918213 516.644531 -161.085800 28.171818 179.941391 -90.336037
+origin.bush[2,3,2] 1018.698120 518.153625 -161.076614 28.501795 178.823822 -90.004242
+origin.bush[2,4,1] 1015.912842 516.648499 -161.087723 27.900972 179.941574 -90.606644
+origin.bush[2,4,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,5,1] 1015.912903 516.643738 -161.088654 28.821295 179.941315 -89.685318
+origin.bush[2,5,2] 1018.697205 518.149475 -161.079163 28.565100 178.824615 -89.940498
+origin.bush[2,6,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,7,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,8,1] 1015.918213 516.644531 -161.085800 28.171818 179.941391 -90.336037
+origin.bush[2,9,1] 1015.912903 516.643738 -161.088654 28.821295 179.941315 -89.685318
+origin.bush[2,10,1] 1015.909241 516.649841 -161.092178 28.914766 179.941467 -89.592186
+origin.bush[2,11,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,12,1] 1015.918213 516.644531 -161.085800 28.171818 179.941391 -90.336037
+origin.bush[2,13,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,14,1] 1015.918213 516.644531 -161.085800 28.171818 179.941391 -90.336037
+origin.bush[2,15,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,16,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696899
+origin.bush[2,17,1] 1015.912903 516.643738 -161.088654 28.821295 179.941315 -89.685318
+origin.bush[2,18,1] 1015.912903 516.643738 -161.088654 28.821295 179.941315 -89.685318
+origin.bush[2,19,1] 1015.918213 516.644531 -161.085800 28.171818 179.941391 -90.336037
+origin.bush[2,20,1] 1015.912903 516.643738 -161.088654 28.821295 179.941315 -89.685318
+origin.bush[3,1,1] 1015.888977 516.581055 -342.424438 27.194078 179.946503 -91.313568
+origin.bush[3,1,2] 1018.674744 518.087646 -342.410706 28.464401 178.829575 -90.042656
+origin.bush[3,2,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
+origin.bush[3,2,2] 1018.680115 518.089111 -342.408569 28.441904 178.829651 -90.066483
+origin.bush[3,3,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
+origin.bush[3,3,2] 1018.674744 518.087646 -342.410706 28.464401 178.829575 -90.042656
+origin.bush[3,4,1] 1015.893188 516.584229 -342.413879 26.300032 179.946243 -92.208542
+origin.bush[3,4,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,5,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
+origin.bush[3,5,2] 1018.680359 518.092957 -342.402283 28.445993 178.829346 -90.062531
+origin.bush[3,6,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[3,7,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[3,8,1] 1015.890625 516.587280 -342.419800 27.769564 179.946152 -90.738747
+origin.bush[3,9,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
+origin.bush[3,10,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[3,11,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
+origin.bush[3,12,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[3,13,1] 1015.893188 516.584229 -342.413879 26.300032 179.946243 -92.208542
+origin.bush[3,14,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[3,15,1] 1015.893188 516.584229 -342.413879 26.300032 179.946243 -92.208542
+origin.bush[3,16,1] 1015.890625 516.587280 -342.419800 27.769564 179.946152 -90.738747
+origin.bush[3,17,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
+origin.bush[3,18,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[3,19,1] 1015.890625 516.587280 -342.419800 27.769564 179.946152 -90.738747
+origin.bush[3,20,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
+origin.bush[4,1,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,1,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,2,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,2,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,3,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,3,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,4,1] 1015.910522 516.603760 -522.043945 28.077717 179.946381 -90.433525
+origin.bush[4,4,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,5,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,5,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,6,1] 1015.917786 516.601929 -522.044556 29.027908 179.946167 -89.483925
+origin.bush[4,7,1] 1015.910522 516.603760 -522.043945 28.077717 179.946381 -90.433525
+origin.bush[4,8,1] 1015.910522 516.603760 -522.043945 28.077717 179.946381 -90.433525
+origin.bush[4,9,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,10,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,11,1] 1015.917786 516.601929 -522.044556 29.027908 179.946167 -89.483925
+origin.bush[4,12,1] 1015.914673 516.593018 -522.046631 27.860596 179.946518 -90.650162
+origin.bush[4,13,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,14,1] 1015.912842 516.608215 -522.048218 29.132738 179.946350 -89.379448
+origin.bush[4,15,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,16,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,17,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,18,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,19,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+origin.bush[4,20,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
+x.norm.bush[1,2,1] 0.001018 -0.999999 0.000033 0.000000 0.000000 0.000000
+x.norm.bush[1,2,2] 0.002798 -0.999996 0.000186 0.000000 0.000000 0.000000
+x.norm.bush[1,3,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,3,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,4,1] 0.000996 -0.999999 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,4,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,5,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,5,2] 0.002821 -0.999996 0.000217 0.000000 0.000000 0.000000
+x.norm.bush[1,6,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,7,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,8,1] 0.001006 -0.999999 0.000040 0.000000 0.000000 0.000000
+x.norm.bush[1,9,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,10,1] 0.001018 -0.999999 0.000033 0.000000 0.000000 0.000000
+x.norm.bush[1,11,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,12,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,13,1] 0.000996 -0.999999 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,14,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,15,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,16,1] 0.000996 -0.999999 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[1,17,1] 0.001018 -0.999999 0.000033 0.000000 0.000000 0.000000
+x.norm.bush[1,18,1] 0.001003 -0.999999 0.000033 0.000000 0.000000 0.000000
+x.norm.bush[1,19,1] 0.001006 -0.999999 0.000000 0.000000 0.000000 0.000000
+x.norm.bush[1,20,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
+x.norm.bush[2,1,1] 0.000522 -1.000000 0.000317 0.000000 0.000000 0.000000
+x.norm.bush[2,1,2] 0.002290 -0.999997 0.001043 0.000000 0.000000 0.000000
+x.norm.bush[2,2,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,2,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,3,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
+x.norm.bush[2,3,2] 0.002293 -0.999997 0.001042 0.000000 0.000000 0.000000
+x.norm.bush[2,4,1] 0.000561 -0.999999 0.000938 0.000000 0.000000 0.000000
+x.norm.bush[2,4,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,5,1] 0.000561 -0.999999 0.000941 0.000000 0.000000 0.000000
+x.norm.bush[2,5,2] 0.002295 -0.999997 0.001049 0.000000 0.000000 0.000000
+x.norm.bush[2,6,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,7,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,8,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
+x.norm.bush[2,9,1] 0.000561 -0.999999 0.000941 0.000000 0.000000 0.000000
+x.norm.bush[2,10,1] 0.000572 -0.999999 0.000951 0.000000 0.000000 0.000000
+x.norm.bush[2,11,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,12,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
+x.norm.bush[2,13,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,14,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
+x.norm.bush[2,15,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,16,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
+x.norm.bush[2,17,1] 0.000561 -0.999999 0.000941 0.000000 0.000000 0.000000
+x.norm.bush[2,18,1] 0.000561 -0.999999 0.000941 0.000000 0.000000 0.000000
+x.norm.bush[2,19,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
+x.norm.bush[2,20,1] 0.000540 -0.999999 0.000924 0.000000 0.000000 0.000000
+x.norm.bush[3,1,1] 0.000441 -1.000000 0.000055 0.000000 0.000000 0.000000
+x.norm.bush[3,1,2] 0.002200 -0.999998 0.000145 0.000000 0.000000 0.000000
+x.norm.bush[3,2,1] 0.000448 -1.000000 0.000036 0.000000 0.000000 0.000000
+x.norm.bush[3,2,2] 0.002184 -0.999998 0.000139 0.000000 0.000000 0.000000
+x.norm.bush[3,3,1] 0.000448 -1.000000 0.000036 0.000000 0.000000 0.000000
+x.norm.bush[3,3,2] 0.002200 -0.999998 0.000145 0.000000 0.000000 0.000000
+x.norm.bush[3,4,1] 0.000437 -1.000000 0.000025 0.000000 0.000000 0.000000
+x.norm.bush[3,4,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,5,1] 0.000448 -1.000000 0.000036 0.000000 0.000000 0.000000
+x.norm.bush[3,5,2] 0.002185 -0.999998 0.000132 0.000000 0.000000 0.000000
+x.norm.bush[3,6,1] 0.000427 -1.000000 0.000023 0.000000 0.000000 0.000000
+x.norm.bush[3,7,1] 0.000421 -1.000000 0.000014 0.000000 0.000000 0.000000
+x.norm.bush[3,8,1] 0.000443 -1.000000 0.000019 0.000000 0.000000 0.000000
+x.norm.bush[3,9,1] 0.000440 -1.000000 0.000036 0.000000 0.000000 0.000000
+x.norm.bush[3,10,1] 0.000421 -1.000000 0.000014 0.000000 0.000000 0.000000
+x.norm.bush[3,11,1] 0.000440 -1.000000 0.000036 0.000000 0.000000 0.000000
+x.norm.bush[3,12,1] 0.000427 -1.000000 0.000023 0.000000 0.000000 0.000000
+x.norm.bush[3,13,1] 0.000429 -1.000000 0.000025 0.000000 0.000000 0.000000
+x.norm.bush[3,14,1] 0.000423 -1.000000 0.000007 0.000000 0.000000 0.000000
+x.norm.bush[3,15,1] 0.000429 -1.000000 0.000025 0.000000 0.000000 0.000000
+x.norm.bush[3,16,1] 0.000444 -1.000000 0.000042 0.000000 0.000000 0.000000
+x.norm.bush[3,17,1] 0.000440 -1.000000 0.000036 0.000000 0.000000 0.000000
+x.norm.bush[3,18,1] 0.000421 -1.000000 0.000014 0.000000 0.000000 0.000000
+x.norm.bush[3,19,1] 0.000444 -1.000000 0.000042 0.000000 0.000000 0.000000
+x.norm.bush[3,20,1] 0.000424 -1.000000 0.000030 0.000000 0.000000 0.000000
+x.norm.bush[4,1,1] 0.000435 -0.999999 -0.001100 0.000000 0.000000 0.000000
+x.norm.bush[4,1,2] 0.002196 -0.999997 -0.001001 0.000000 0.000000 0.000000
+x.norm.bush[4,2,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,2,2] 0.002199 -0.999997 -0.000983 0.000000 0.000000 0.000000
+x.norm.bush[4,3,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,3,2] 0.002196 -0.999997 -0.000968 0.000000 0.000000 0.000000
+x.norm.bush[4,4,1] 0.000454 -0.999999 -0.001086 0.000000 0.000000 0.000000
+x.norm.bush[4,4,2] 0.002196 -0.999997 -0.001001 0.000000 0.000000 0.000000
+x.norm.bush[4,5,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,5,2] 0.002182 -0.999997 -0.000991 0.000000 0.000000 0.000000
+x.norm.bush[4,6,1] 0.000433 -0.999999 -0.001084 0.000000 0.000000 0.000000
+x.norm.bush[4,7,1] 0.000449 -0.999999 -0.001090 0.000000 0.000000 0.000000
+x.norm.bush[4,8,1] 0.000454 -0.999999 -0.001086 0.000000 0.000000 0.000000
+x.norm.bush[4,9,1] 0.000445 -0.999999 -0.001093 0.000000 0.000000 0.000000
+x.norm.bush[4,10,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,11,1] 0.000433 -0.999999 -0.001084 0.000000 0.000000 0.000000
+x.norm.bush[4,12,1] 0.000437 -0.999999 -0.001082 0.000000 0.000000 0.000000
+x.norm.bush[4,13,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,14,1] 0.000452 -0.999999 -0.001070 0.000000 0.000000 0.000000
+x.norm.bush[4,15,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,16,1] 0.000435 -0.999999 -0.001100 0.000000 0.000000 0.000000
+x.norm.bush[4,17,1] 0.000435 -0.999999 -0.001100 0.000000 0.000000 0.000000
+x.norm.bush[4,18,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,19,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
+x.norm.bush[4,20,1] 0.000445 -0.999999 -0.001093 0.000000 0.000000 0.000000
+y.norm.bush[1,2,1] -1.000000 -0.000939 -0.000107 0.000000 0.000000 0.000000
+y.norm.bush[1,2,2] -1.000000 0.000283 0.000036 0.000000 0.000000 0.000000
+y.norm.bush[1,3,1] -1.000000 -0.000938 -0.000097 0.000000 0.000000 0.000000
+y.norm.bush[1,3,2] -1.000000 0.000268 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,4,1] -1.000000 -0.000952 -0.000114 0.000000 0.000000 0.000000
+y.norm.bush[1,4,2] -1.000000 0.000259 0.000054 0.000000 0.000000 0.000000
+y.norm.bush[1,5,1] -1.000000 -0.000938 -0.000097 0.000000 0.000000 0.000000
+y.norm.bush[1,5,2] -1.000000 0.000265 0.000060 0.000000 0.000000 0.000000
+y.norm.bush[1,6,1] -1.000000 -0.000936 -0.000088 0.000000 0.000000 0.000000
+y.norm.bush[1,7,1] -1.000000 -0.000937 -0.000104 0.000000 0.000000 0.000000
+y.norm.bush[1,8,1] -1.000000 -0.000942 -0.000094 0.000000 0.000000 0.000000
+y.norm.bush[1,9,1] -1.000000 -0.000943 -0.000104 0.000000 0.000000 0.000000
+y.norm.bush[1,10,1] -1.000000 -0.000932 -0.000098 0.000000 0.000000 0.000000
+y.norm.bush[1,11,1] -1.000000 -0.000936 -0.000088 0.000000 0.000000 0.000000
+y.norm.bush[1,12,1] -1.000000 -0.000938 -0.000097 0.000000 0.000000 0.000000
+y.norm.bush[1,13,1] -1.000000 -0.000937 -0.000104 0.000000 0.000000 0.000000
+y.norm.bush[1,14,1] -1.000000 -0.000938 -0.000097 0.000000 0.000000 0.000000
+y.norm.bush[1,15,1] -1.000000 -0.000937 -0.000104 0.000000 0.000000 0.000000
+y.norm.bush[1,16,1] -1.000000 -0.000937 -0.000104 0.000000 0.000000 0.000000
+y.norm.bush[1,17,1] -1.000000 -0.000940 -0.000099 0.000000 0.000000 0.000000
+y.norm.bush[1,18,1] -1.000000 -0.000934 -0.000099 0.000000 0.000000 0.000000
+y.norm.bush[1,19,1] -1.000000 -0.000933 -0.000107 0.000000 0.000000 0.000000
+y.norm.bush[1,20,1] -1.000000 -0.000952 -0.000114 0.000000 0.000000 0.000000
+y.norm.bush[2,1,1] -0.999999 -0.000402 -0.001421 0.000000 0.000000 0.000000
+y.norm.bush[2,1,2] -0.999998 0.000847 -0.001878 0.000000 0.000000 0.000000
+y.norm.bush[2,2,1] -0.999998 -0.000363 -0.002008 0.000000 0.000000 0.000000
+y.norm.bush[2,2,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,3,1] -0.999998 -0.000364 -0.001997 0.000000 0.000000 0.000000
+y.norm.bush[2,3,2] -0.999998 0.000838 -0.001878 0.000000 0.000000 0.000000
+y.norm.bush[2,4,1] -0.999998 -0.000372 -0.001994 0.000000 0.000000 0.000000
+y.norm.bush[2,4,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,5,1] -0.999998 -0.000370 -0.001996 0.000000 0.000000 0.000000
+y.norm.bush[2,5,2] -0.999998 0.000846 -0.001873 0.000000 0.000000 0.000000
+y.norm.bush[2,6,1] -0.999998 -0.000360 -0.002000 0.000000 0.000000 0.000000
+y.norm.bush[2,7,1] -0.999998 -0.000367 -0.001996 0.000000 0.000000 0.000000
+y.norm.bush[2,8,1] -0.999998 -0.000364 -0.001997 0.000000 0.000000 0.000000
+y.norm.bush[2,9,1] -0.999998 -0.000362 -0.001992 0.000000 0.000000 0.000000
+y.norm.bush[2,10,1] -0.999998 -0.000381 -0.001993 0.000000 0.000000 0.000000
+y.norm.bush[2,11,1] -0.999998 -0.000366 -0.002008 0.000000 0.000000 0.000000
+y.norm.bush[2,12,1] -0.999998 -0.000364 -0.001997 0.000000 0.000000 0.000000
+y.norm.bush[2,13,1] -0.999998 -0.000360 -0.002000 0.000000 0.000000 0.000000
+y.norm.bush[2,14,1] -0.999998 -0.000364 -0.001997 0.000000 0.000000 0.000000
+y.norm.bush[2,15,1] -0.999998 -0.000366 -0.002008 0.000000 0.000000 0.000000
+y.norm.bush[2,16,1] -0.999998 -0.000364 -0.001996 0.000000 0.000000 0.000000
+y.norm.bush[2,17,1] -0.999998 -0.000366 -0.002000 0.000000 0.000000 0.000000
+y.norm.bush[2,18,1] -0.999998 -0.000367 -0.001987 0.000000 0.000000 0.000000
+y.norm.bush[2,19,1] -0.999998 -0.000368 -0.001993 0.000000 0.000000 0.000000
+y.norm.bush[2,20,1] -0.999998 -0.000369 -0.002000 0.000000 0.000000 0.000000
+y.norm.bush[3,1,1] -1.000000 -0.000389 -0.000363 0.000000 0.000000 0.000000
+y.norm.bush[3,1,2] -1.000000 0.000830 -0.000252 0.000000 0.000000 0.000000
+y.norm.bush[3,2,1] -1.000000 -0.000391 -0.000379 0.000000 0.000000 0.000000
+y.norm.bush[3,2,2] -1.000000 0.000827 -0.000256 0.000000 0.000000 0.000000
+y.norm.bush[3,3,1] -1.000000 -0.000391 -0.000379 0.000000 0.000000 0.000000
+y.norm.bush[3,3,2] -1.000000 0.000830 -0.000252 0.000000 0.000000 0.000000
+y.norm.bush[3,4,1] -1.000000 -0.000390 -0.000386 0.000000 0.000000 0.000000
+y.norm.bush[3,4,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,5,1] -1.000000 -0.000391 -0.000379 0.000000 0.000000 0.000000
+y.norm.bush[3,5,2] -1.000000 0.000819 -0.000268 0.000000 0.000000 0.000000
+y.norm.bush[3,6,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[3,7,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[3,8,1] -1.000000 -0.000396 -0.000375 0.000000 0.000000 0.000000
+y.norm.bush[3,9,1] -1.000000 -0.000397 -0.000375 0.000000 0.000000 0.000000
+y.norm.bush[3,10,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[3,11,1] -1.000000 -0.000391 -0.000379 0.000000 0.000000 0.000000
+y.norm.bush[3,12,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[3,13,1] -1.000000 -0.000390 -0.000386 0.000000 0.000000 0.000000
+y.norm.bush[3,14,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[3,15,1] -1.000000 -0.000390 -0.000386 0.000000 0.000000 0.000000
+y.norm.bush[3,16,1] -1.000000 -0.000396 -0.000375 0.000000 0.000000 0.000000
+y.norm.bush[3,17,1] -1.000000 -0.000397 -0.000375 0.000000 0.000000 0.000000
+y.norm.bush[3,18,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[3,19,1] -1.000000 -0.000401 -0.000372 0.000000 0.000000 0.000000
+y.norm.bush[3,20,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
+y.norm.bush[4,1,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,1,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,2,1] -0.999999 -0.000411 -0.001080 0.000000 0.000000 0.000000
+y.norm.bush[4,2,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,3,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,3,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,4,1] -0.999999 -0.000417 -0.001076 0.000000 0.000000 0.000000
+y.norm.bush[4,4,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,5,1] -0.999999 -0.000411 -0.001080 0.000000 0.000000 0.000000
+y.norm.bush[4,5,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,6,1] -0.999999 -0.000413 -0.001075 0.000000 0.000000 0.000000
+y.norm.bush[4,7,1] -0.999999 -0.000423 -0.001073 0.000000 0.000000 0.000000
+y.norm.bush[4,8,1] -0.999999 -0.000423 -0.001073 0.000000 0.000000 0.000000
+y.norm.bush[4,9,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,10,1] -0.999999 -0.000411 -0.001080 0.000000 0.000000 0.000000
+y.norm.bush[4,11,1] -0.999999 -0.000419 -0.001071 0.000000 0.000000 0.000000
+y.norm.bush[4,12,1] -0.999999 -0.000396 -0.001071 0.000000 0.000000 0.000000
+y.norm.bush[4,13,1] -0.999999 -0.000411 -0.001080 0.000000 0.000000 0.000000
+y.norm.bush[4,14,1] -0.999999 -0.000426 -0.001068 0.000000 0.000000 0.000000
+y.norm.bush[4,15,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,16,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,17,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,18,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+y.norm.bush[4,19,1] -0.999999 -0.000411 -0.001080 0.000000 0.000000 0.000000
+y.norm.bush[4,20,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
+origin.bush[1,6,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,7,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,8,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,9,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,10,2] 1018.457581 518.232666 14.188217 28.696634 178.811630 -89.811493
+origin.bush[1,11,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,12,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,13,2] 1018.457581 518.232666 14.188217 28.696634 178.811630 -89.811493
+origin.bush[1,14,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,15,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,16,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,17,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,18,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,19,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[1,20,2] 1018.459351 518.235840 14.191696 28.698284 178.811340 -89.809990
+origin.bush[2,6,2] 1018.699951 518.150940 -161.079102 28.565109 178.823517 -89.940483
+origin.bush[2,7,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,8,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,9,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,10,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,11,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,12,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,13,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,14,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,15,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,16,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,17,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,18,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[2,19,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,20,2] 1018.703552 518.149597 -161.074646 28.515285 178.823624 -89.990974
+origin.bush[3,6,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,7,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,8,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,9,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,10,2] 1018.676147 518.089905 -342.412598 28.486897 178.829544 -90.020691
+origin.bush[3,11,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,12,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,13,2] 1018.680115 518.089111 -342.408569 28.441904 178.829651 -90.066483
+origin.bush[3,14,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,15,2] 1018.680115 518.089111 -342.408569 28.441904 178.829651 -90.066483
+origin.bush[3,16,2] 1018.676392 518.093750 -342.406311 28.490938 178.829224 -90.016785
+origin.bush[3,17,2] 1018.676147 518.089905 -342.412598 28.486897 178.829544 -90.020691
+origin.bush[3,18,2] 1018.676147 518.089905 -342.412598 28.486897 178.829544 -90.020691
+origin.bush[3,19,2] 1018.676147 518.089905 -342.412598 28.486897 178.829544 -90.020691
+origin.bush[3,20,2] 1018.676147 518.089905 -342.412598 28.486897 178.829544 -90.020691
+origin.bush[4,6,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,7,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,8,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,9,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,10,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,11,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,12,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,13,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,14,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,15,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,16,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,17,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,18,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+origin.bush[4,19,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,20,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006248
+x.norm.bush[1,6,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,7,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,8,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,9,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,10,2] 0.002821 -0.999996 0.000217 0.000000 0.000000 0.000000
+x.norm.bush[1,11,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,12,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,13,2] 0.002821 -0.999996 0.000217 0.000000 0.000000 0.000000
+x.norm.bush[1,14,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,15,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,16,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,17,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,18,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,19,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[1,20,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
+x.norm.bush[2,6,2] 0.002287 -0.999997 0.001049 0.000000 0.000000 0.000000
+x.norm.bush[2,7,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,8,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,9,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,10,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,11,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,12,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,13,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,14,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,15,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,16,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,17,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,18,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,19,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,20,2] 0.002277 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[3,6,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,7,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,8,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,9,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,10,2] 0.002195 -0.999998 0.000151 0.000000 0.000000 0.000000
+x.norm.bush[3,11,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,12,2] 0.002192 -0.999998 0.000140 0.000000 0.000000 0.000000
+x.norm.bush[3,13,2] 0.002184 -0.999998 0.000139 0.000000 0.000000 0.000000
+x.norm.bush[3,14,2] 0.002195 -0.999998 0.000133 0.000000 0.000000 0.000000
+x.norm.bush[3,15,2] 0.002184 -0.999998 0.000139 0.000000 0.000000 0.000000
+x.norm.bush[3,16,2] 0.002195 -0.999998 0.000133 0.000000 0.000000 0.000000
+x.norm.bush[3,17,2] 0.002187 -0.999998 0.000148 0.000000 0.000000 0.000000
+x.norm.bush[3,18,2] 0.002195 -0.999998 0.000151 0.000000 0.000000 0.000000
+x.norm.bush[3,19,2] 0.002195 -0.999998 0.000151 0.000000 0.000000 0.000000
+x.norm.bush[3,20,2] 0.002193 -0.999998 0.000158 0.000000 0.000000 0.000000
+x.norm.bush[4,6,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,7,2] 0.002199 -0.999997 -0.000983 0.000000 0.000000 0.000000
+x.norm.bush[4,8,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,9,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,10,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,11,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,12,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,13,2] 0.002184 -0.999997 -0.001006 0.000000 0.000000 0.000000
+x.norm.bush[4,14,2] 0.002193 -0.999997 -0.000987 0.000000 0.000000 0.000000
+x.norm.bush[4,15,2] 0.002199 -0.999997 -0.000983 0.000000 0.000000 0.000000
+x.norm.bush[4,16,2] 0.002182 -0.999997 -0.000991 0.000000 0.000000 0.000000
+x.norm.bush[4,17,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,18,2] 0.002196 -0.999997 -0.001001 0.000000 0.000000 0.000000
+x.norm.bush[4,19,2] 0.002187 -0.999997 -0.000988 0.000000 0.000000 0.000000
+x.norm.bush[4,20,2] 0.002184 -0.999997 -0.001006 0.000000 0.000000 0.000000
+y.norm.bush[1,6,2] -1.000000 0.000259 0.000054 0.000000 0.000000 0.000000
+y.norm.bush[1,7,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,8,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,9,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,10,2] -1.000000 0.000265 0.000060 0.000000 0.000000 0.000000
+y.norm.bush[1,11,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,12,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,13,2] -1.000000 0.000265 0.000060 0.000000 0.000000 0.000000
+y.norm.bush[1,14,2] -1.000000 0.000268 0.000066 0.000000 0.000000 0.000000
+y.norm.bush[1,15,2] -1.000000 0.000262 0.000066 0.000000 0.000000 0.000000
+y.norm.bush[1,16,2] -1.000000 0.000259 0.000054 0.000000 0.000000 0.000000
+y.norm.bush[1,17,2] -1.000000 0.000265 0.000054 0.000000 0.000000 0.000000
+y.norm.bush[1,18,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[1,19,2] -1.000000 0.000312 0.000060 0.000000 0.000000 0.000000
+y.norm.bush[1,20,2] -1.000000 0.000262 0.000070 0.000000 0.000000 0.000000
+y.norm.bush[2,6,2] -0.999998 0.000843 -0.001873 0.000000 0.000000 0.000000
+y.norm.bush[2,7,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,8,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,9,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,10,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,11,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,12,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,13,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,14,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,15,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,16,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,17,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,18,2] -0.999998 0.000846 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,19,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,20,2] -0.999998 0.000829 -0.001889 0.000000 0.000000 0.000000
+y.norm.bush[3,6,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,7,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,8,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,9,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,10,2] -1.000000 0.000825 -0.000248 0.000000 0.000000 0.000000
+y.norm.bush[3,11,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,12,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,13,2] -1.000000 0.000827 -0.000256 0.000000 0.000000 0.000000
+y.norm.bush[3,14,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,15,2] -1.000000 0.000827 -0.000256 0.000000 0.000000 0.000000
+y.norm.bush[3,16,2] -1.000000 0.000818 -0.000261 0.000000 0.000000 0.000000
+y.norm.bush[3,17,2] -1.000000 0.000825 -0.000248 0.000000 0.000000 0.000000
+y.norm.bush[3,18,2] -1.000000 0.000825 -0.000248 0.000000 0.000000 0.000000
+y.norm.bush[3,19,2] -1.000000 0.000825 -0.000248 0.000000 0.000000 0.000000
+y.norm.bush[3,20,2] -1.000000 0.000825 -0.000248 0.000000 0.000000 0.000000
+y.norm.bush[4,6,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,7,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,8,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,9,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,10,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,11,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,12,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,13,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,14,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,15,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,16,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,17,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,18,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
+y.norm.bush[4,19,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,20,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
 .END
 .JOINTS
-#transport 0.000000 50.000000 -145.000000 0.000000 -120.000008 0.000000
-#shelf.safe.par 50.381710 4.668720 91.191223 113.073929 -88.282021 105.419182
-#shelf.safe.dbl 57.549076 -9.413360 87.556847 126.090446 -111.491997 23.525410
-#wp.shaft.safe 89.000000 2.000000 90.000000 -150.000000 -90.000000 -90.000000
-#p0.shaft[1,1] 77.772224 -24.017761 72.680099 -149.970154 -78.132706 -84.478668
-#px.shaft[1,1] 93.670319 -25.336143 83.615173 -148.916260 -75.514534 -104.569748
-#py.shaft[1,1] 66.082802 17.257954 116.177628 -150.907150 -70.469055 -75.156212
-#wp.bush.safe[1] 54.472012 1.334442 88.116364 116.351891 -94.451523 -75.616081
-#wp.bush.safe[2] 54.472012 1.334442 88.116364 116.351891 -94.451523 105.616081
-#p0.bush[1,1,1] 58.700943 -25.377024 73.190079 115.719429 -85.537491 -67.159607
-#px.bush[1,1,1] 74.542244 -19.928297 94.205811 108.962929 -65.511482 -58.406178
-#py.bush[1,1,1] 34.701672 6.125438 109.574287 121.687210 -104.001396 -51.639355
-#p0.bush[1,1,2] 58.700943 -25.377024 73.190079 115.719429 -85.537491 113.956451
-#px.bush[1,1,2] 74.542244 -19.928297 94.205811 108.962929 -65.511482 122.956451
-#py.bush[1,1,2] 34.701672 6.125438 109.574287 121.687210 -104.001396 129.956451
-#p0.shaft[2,1] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[3,1] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
-#p0.shaft[4,1] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#px.shaft[2,1] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[3,1] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[4,1] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#py.shaft[2,1] 58.198097 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[3,1] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
-#py.shaft[4,1] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#p0.shaft[1,2] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,3] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,4] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,5] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,6] 77.764282 -24.007542 72.699982 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,7] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,8] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,9] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,10] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,11] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,12] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,13] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,14] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,15] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,16] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,17] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,18] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[2,2] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,3] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,4] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,5] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,6] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,7] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,8] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,9] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,10] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,11] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,12] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,13] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,14] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[2,15] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,16] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,17] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,18] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
-#p0.shaft[3,2] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,3] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,4] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,5] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,6] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,7] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,8] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,9] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,10] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,11] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,12] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
-#p0.shaft[3,13] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,14] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,15] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,16] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,17] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,18] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
-#p0.shaft[4,2] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,3] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,4] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,5] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.563065
-#p0.shaft[4,6] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,7] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.563065
-#p0.shaft[4,8] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,9] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,10] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,11] 64.341103 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,12] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,13] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,14] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,15] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,16] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,17] 64.341103 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
-#p0.shaft[4,18] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#px.shaft[1,2] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,3] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,4] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,5] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,6] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,7] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,8] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,9] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,10] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,11] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,12] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,13] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,14] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,15] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,16] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,17] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,18] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[2,2] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,3] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,4] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,5] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,6] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,7] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,8] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,9] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,10] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,11] 88.726845 -30.289202 88.899086 -146.284897 -64.454041 -106.331566
-#px.shaft[2,12] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,13] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,14] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,15] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,16] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,17] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[2,18] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[3,2] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
-#px.shaft[3,3] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,4] 83.681679 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
-#px.shaft[3,5] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,6] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
-#px.shaft[3,7] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,8] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,9] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
-#px.shaft[3,10] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,11] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.820312
-#px.shaft[3,12] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
-#px.shaft[3,13] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,14] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
-#px.shaft[3,15] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
-#px.shaft[3,16] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,17] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
-#px.shaft[3,18] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[4,2] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,3] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,4] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,5] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,6] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,7] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,8] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,9] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,10] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,11] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,12] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,13] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,14] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,15] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,16] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,17] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,18] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#py.shaft[1,2] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
-#py.shaft[1,3] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,4] 66.107025 17.240797 116.170456 -150.897919 -70.473862 -75.189262
-#py.shaft[1,5] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,6] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,7] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,8] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,9] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
-#py.shaft[1,10] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,11] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,12] 66.107025 17.240797 116.169815 -150.897919 -70.473862 -75.191460
-#py.shaft[1,13] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,14] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
-#py.shaft[1,15] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
-#py.shaft[1,16] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
-#py.shaft[1,17] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.191460
-#py.shaft[1,18] 66.107025 17.240797 116.170456 -150.897919 -70.473862 -75.189262
-#py.shaft[2,2] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,3] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#buff.pick.appro[175] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[174] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[173] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[172] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.depar[179] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[178] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[177] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[176] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[175] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#p0.bush[1,3,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#buff.pick.depar[174] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[173] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#p0.bush[1,3,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#buff.pick.depar[172] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[171] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[170] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[169] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[168] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[167] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[166] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[165] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[164] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[163] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[162] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[161] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[160] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[159] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[158] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[157] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[156] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[155] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[154] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[153] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#p0.bush[1,2,2] 58.685452 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,2,1] 58.685848 -25.352568 73.222672 115.721291 -85.547112 -67.144417
+#buff.put.depar[180] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[179] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[178] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[177] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[176] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[175] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[174] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[173] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[172] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[171] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[170] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[169] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[168] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[167] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[166] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[165] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[164] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[163] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[162] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[161] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[160] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[159] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[158] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[157] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[156] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[155] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[154] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[153] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[152] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[151] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[150] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[149] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[148] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[147] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[146] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[145] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[144] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[143] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[142] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[141] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[140] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[139] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[138] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[137] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[136] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[135] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[134] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[133] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[132] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[131] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[130] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[129] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[128] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[127] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[126] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[125] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick.depar[152] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[151] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[150] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[149] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[148] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[147] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[146] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[145] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[144] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[143] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[142] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[141] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[140] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[139] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[138] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[137] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[136] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[135] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[134] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[133] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[132] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[131] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[130] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[129] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[128] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[127] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[126] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[125] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[124] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[123] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[122] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[121] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[120] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[119] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[118] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[117] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[116] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[115] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[114] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[113] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[112] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[111] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[110] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[109] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[108] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[107] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[106] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[105] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[104] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[103] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[102] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[101] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[100] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[99] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[98] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[97] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[96] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[95] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[94] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[93] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[92] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[91] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[90] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[89] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[88] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[87] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[86] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[85] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[84] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[83] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[82] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[81] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[80] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[79] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[78] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[77] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[76] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[75] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[74] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[73] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[72] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[71] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[70] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[69] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[68] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[67] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[66] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[65] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[64] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[63] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[62] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[61] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[60] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[59] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[58] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[57] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[56] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[55] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[54] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[53] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[52] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[51] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[50] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[49] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[48] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[47] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[46] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[45] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[44] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[43] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[42] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[41] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[40] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[39] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[38] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[37] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[36] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[35] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[34] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[33] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[32] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[31] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[30] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[29] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[28] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[27] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[26] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[25] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[24] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[23] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[22] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[21] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[20] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[19] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[18] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[17] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.put.depar[124] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[123] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[122] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[121] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[120] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[119] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[118] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[117] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick.depar[16] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[15] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[14] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[13] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[12] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[11] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[10] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[9] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[8] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[7] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[6] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[5] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[4] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[3] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[2] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.appro[180] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[171] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[170] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[169] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[168] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.put.depar[116] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[115] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick.appro[167] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[166] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[165] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[164] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.put.depar[114] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[113] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.appro[2] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.depar[112] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick[104] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #py.shaft[2,4] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#buff.put.depar[4] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick.appro[163] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.put.depar[3] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[2] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.appro[180] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[179] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[178] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[177] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[176] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[175] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[174] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[173] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[172] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[171] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[170] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[169] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[168] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[167] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[166] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[165] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[164] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[163] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[162] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[161] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[160] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[159] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[158] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[157] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[156] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[155] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[154] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[153] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[152] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[151] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[150] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[149] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[148] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[147] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[146] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[145] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[144] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[143] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[142] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[141] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[140] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[139] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[138] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[137] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[136] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[135] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[134] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[133] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[132] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[131] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[130] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[129] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[128] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[127] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[126] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[125] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[124] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[123] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[122] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[121] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[120] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[119] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[118] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[117] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[116] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[115] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[114] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[113] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[112] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[111] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[110] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[109] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[108] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[107] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[106] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[105] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[104] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[103] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[102] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[101] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[100] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[99] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[98] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[97] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[96] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[95] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[94] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[93] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[92] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[91] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[90] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[89] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[88] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[87] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[86] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[85] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[84] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[83] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[82] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[81] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#py.shaft[2,3] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,2] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[1,18] 66.107025 17.240797 116.170456 -150.897919 -70.473862 -75.189262
+#py.shaft[1,17] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.191460
+#py.shaft[1,16] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
+#py.shaft[1,15] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
+#py.shaft[1,14] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,13] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,12] 66.107025 17.240797 116.169815 -150.897919 -70.473862 -75.191460
+#py.shaft[1,11] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,10] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,9] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
+#py.shaft[1,8] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,7] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,6] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,5] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,4] 66.107025 17.240797 116.170456 -150.897919 -70.473862 -75.189262
+#py.shaft[1,3] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.189262
+#py.shaft[1,2] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
+#px.shaft[4,18] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,17] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,16] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,15] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,14] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,13] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,12] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,11] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,10] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,9] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,8] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,7] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,6] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,5] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,4] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,3] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,2] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[3,18] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,17] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,16] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,15] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,14] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,13] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,12] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,11] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.820312
+#px.shaft[3,10] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,9] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,8] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,7] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,6] 83.681282 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,5] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,4] 83.681679 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
+#px.shaft[3,3] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,2] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[2,18] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,17] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,16] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,15] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,14] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,13] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,12] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,11] 88.726845 -30.289202 88.899086 -146.284897 -64.454041 -106.331566
+#px.shaft[2,10] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,9] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,8] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,7] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,6] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,5] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,4] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,3] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,2] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[1,18] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,17] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,16] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,15] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,14] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,13] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,12] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,11] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,10] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,9] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,8] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,7] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,6] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,5] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,4] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,3] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,2] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#p0.shaft[4,18] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,17] 64.341103 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,16] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,15] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,14] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,13] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,12] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,11] 64.341103 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,10] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,9] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,8] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,7] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.563065
+#p0.shaft[4,6] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,5] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.563065
+#p0.shaft[4,4] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[4,3] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,2] 64.340706 -44.396469 78.574364 -143.402527 -49.277119 -88.565254
+#p0.shaft[3,18] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[3,17] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,16] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,15] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,14] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,13] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,12] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[3,11] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,10] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,9] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,8] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,7] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,6] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,5] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,4] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,3] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
+#p0.shaft[3,2] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.051590
+#p0.shaft[2,18] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,17] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,16] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,15] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,14] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,13] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,12] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,11] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,10] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,9] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,8] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,7] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,6] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,5] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,4] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,3] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
+#p0.shaft[2,2] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[1,18] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,17] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,16] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,15] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,14] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,13] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,12] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,11] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,10] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,9] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,8] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,7] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,6] 77.764282 -24.007542 72.699982 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,5] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,4] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,3] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,2] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#py.shaft[4,1] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[3,1] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[2,1] 58.198097 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#px.shaft[4,1] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[3,1] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[2,1] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
+#p0.shaft[4,1] 64.340706 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[3,1] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[2,1] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#py.bush[1,1,2] 34.729870 6.118868 109.579498 121.674904 -103.971863 129.939972
+#px.bush[1,1,2] 74.528336 -19.929390 94.195381 108.974007 -65.527954 122.943718
+#p0.bush[1,1,2] 58.696968 -25.362425 73.203110 115.720657 -85.542297 113.952126
+#py.bush[1,1,1] 34.727089 6.119233 109.579498 121.674904 -103.972557 -51.651962
+#px.bush[1,1,1] 74.527939 -19.929756 94.194733 108.974007 -65.528641 -58.418610
+#p0.bush[1,1,1] 58.696968 -25.361330 73.203438 115.720047 -85.542297 -67.166290
+#wp.bush.safe[2] 54.472012 1.334442 88.116364 116.351891 -94.451523 105.616081
+#wp.bush.safe[1] 54.472012 1.334442 88.116364 116.351891 -94.451523 -75.616081
+#py.shaft[1,1] 66.082802 17.257954 116.177628 -150.907150 -70.469055 -75.156212
+#px.shaft[1,1] 93.670319 -25.336143 83.615173 -148.916260 -75.514534 -104.569748
+#p0.shaft[1,1] 77.772224 -24.017761 72.680099 -149.970154 -78.132706 -84.478668
+#wp.shaft.safe 89.000000 2.000000 90.000000 -150.000000 -90.000000 -90.000000
+#shelf.safe.dbl 57.549076 -9.413360 87.556847 126.090446 -111.491997 23.525410
+#shelf.safe.par 50.381710 4.668720 91.191223 113.073929 -88.282021 105.419182
+#buff.put[180] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#transport 0.000000 50.000000 -145.000000 0.000000 -120.000008 0.000000
+#buff.put.appro[80] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.pick.appro[179] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick[103] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.put.depar[111] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick[106] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[105] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #py.shaft[2,5] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,12] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,8] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[2,11] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#buff.pick[108] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[107] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#py.shaft[2,9] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
 #py.shaft[2,6] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
 #py.shaft[2,7] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,8] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,9] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
 #py.shaft[2,10] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,11] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,12] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#buff.pick.appro[162] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[161] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[160] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[159] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[158] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[157] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[156] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[155] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[93] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[92] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[91] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[90] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[89] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[88] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[87] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[86] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[11] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[10] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[9] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[8] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[7] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[6] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[5] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[4] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[154] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[153] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[152] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[151] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[150] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[149] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[148] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[147] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[146] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[145] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[144] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[143] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[142] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[141] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[140] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[139] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[138] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[137] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[136] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[135] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[134] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[133] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[132] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[131] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[130] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[129] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[128] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[127] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[126] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[125] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[124] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[123] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[122] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[121] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[120] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[119] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[118] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[117] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[116] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[115] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[114] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[113] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[112] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[111] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[110] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[109] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[108] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[107] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[106] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[105] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[104] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[103] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[102] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[101] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[100] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[85] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[84] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[83] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[82] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[81] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[80] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[79] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[78] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[77] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[76] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[75] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[74] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[73] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[72] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[71] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[70] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[69] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[68] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[67] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[66] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[65] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[64] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[63] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[62] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[61] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[60] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[59] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[58] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[57] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[56] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[55] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[54] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[53] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[52] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[51] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[50] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[49] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[48] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[47] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[46] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[45] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[44] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[43] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[42] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[41] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[40] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[39] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[38] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[37] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[36] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[35] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[34] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[33] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[32] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[31] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[30] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[29] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[28] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[27] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[26] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[25] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[24] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[23] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[22] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[21] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[20] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[19] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[18] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[3] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[2] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick[180] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[179] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[178] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[177] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[176] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[175] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[174] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[173] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[172] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[171] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[170] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[169] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[168] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[167] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[166] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[165] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[164] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[163] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[162] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[161] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[160] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[159] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[158] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[157] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[156] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[155] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[154] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[153] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[152] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[151] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[150] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[149] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[148] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[147] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[146] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[145] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[144] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[143] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[142] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[141] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[140] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[139] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[138] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[137] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[136] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[135] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[134] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[133] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[132] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[131] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[130] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[129] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[128] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[127] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[126] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[125] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[124] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[123] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[122] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[121] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[120] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[119] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[118] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[117] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[116] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[115] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick.appro[99] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[98] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[97] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[17] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[16] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[15] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick[114] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[113] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[112] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick.appro[95] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[13] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick[110] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick.appro[94] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[12] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick[109] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick.appro[177] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[176] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[96] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[14] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick[111] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#py.shaft[2,16] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
 #py.shaft[2,13] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
 #py.shaft[2,14] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
 #py.shaft[2,15] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
-#py.shaft[2,16] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,17] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
-#py.shaft[2,18] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
-#py.shaft[3,2] 51.249973 -2.445503 124.571274 -142.103149 -39.550781 -79.869514
-#py.shaft[3,3] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,4] 51.249973 -2.445503 124.571930 -142.103149 -39.550781 -79.869514
-#py.shaft[3,5] 51.249577 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
-#py.shaft[3,6] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,7] 51.249577 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
-#py.shaft[3,8] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,9] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,10] 51.249973 -2.445503 124.571930 -142.103149 -39.550781 -79.869514
-#py.shaft[3,11] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,12] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,13] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
-#py.shaft[3,14] 51.249577 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,15] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,16] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,17] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,18] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
-#py.shaft[4,2] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,3] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,4] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,5] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,6] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,7] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,8] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,9] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,10] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,11] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,12] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,13] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,14] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,15] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,16] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,17] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,18] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#p0.shaft[1,19] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[1,20] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
-#p0.shaft[2,19] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[2,20] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
-#p0.shaft[3,19] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
-#p0.shaft[3,20] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
-#p0.shaft[4,19] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#p0.shaft[4,20] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
-#px.shaft[1,19] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[1,20] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
-#px.shaft[2,19] 88.726440 -30.289202 88.899086 -146.284897 -64.454041 -106.331566
-#px.shaft[2,20] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
-#px.shaft[3,19] 83.681679 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
-#px.shaft[3,20] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
-#px.shaft[4,19] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#px.shaft[4,20] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
-#py.shaft[1,19] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
-#py.shaft[1,20] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
-#py.shaft[2,19] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
-#py.shaft[2,20] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
-#py.shaft[3,19] 51.249577 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
-#py.shaft[3,20] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
-#py.shaft[4,19] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#py.shaft[4,20] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#cnc.out.dbl.bas -83.999832 15.999801 105.999863 -28.999689 -83.999413 89.999817
-#cnc.in.dbl.base -78.791817 -28.265640 78.376556 -32.441929 -76.954422 93.294899
-#cnc.in -93.767632 -20.610117 55.763763 -28.840342 71.790169 171.227310
-#cnc.out -103.499687 31.399897 102.499741 -42.798779 35.998764 182.999634
-#cnc.point.bush[1] -79.300629 -40.790264 81.094933 -31.238525 -89.680710 84.817108
-#cnc.point.bush[2] -79.300629 -40.790260 81.094933 -31.238529 -89.680710 -95.182892
-#cnc.out.prl.bas -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
-#cnc.in.prl.base -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
+#buff.put.depar[110] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[109] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[108] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[107] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[106] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[105] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[104] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[103] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[102] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[101] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[100] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[99] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[98] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[97] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[96] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[95] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[94] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[93] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[92] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[91] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[90] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[89] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[88] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[87] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[86] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[85] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[84] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[83] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[82] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[81] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[80] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[79] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[78] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[77] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[76] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[75] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[74] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[73] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[72] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[71] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[70] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[69] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[68] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[67] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[66] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[65] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[64] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[63] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[62] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[61] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[60] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[59] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[58] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[57] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[56] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[55] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[54] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[53] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[52] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[51] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[50] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[49] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[48] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[47] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[46] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[45] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[44] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[43] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[42] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[41] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[40] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[39] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[38] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[37] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[36] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[35] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[34] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[33] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[32] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[31] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[30] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[29] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[28] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[27] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[26] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[25] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[24] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[23] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[22] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[21] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[20] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[19] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[18] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[17] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[16] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[15] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[14] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[13] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[12] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[11] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[10] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[9] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[8] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[7] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[6] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.pick[102] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[101] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[100] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[99] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[98] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[97] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[96] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[95] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[94] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[93] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[92] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[91] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[90] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[89] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[88] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[87] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[86] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[85] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[84] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[83] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[82] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[81] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[80] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[79] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[78] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[77] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[76] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[75] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[74] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[73] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[72] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[71] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[70] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[69] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[68] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[67] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[66] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[65] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[64] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[63] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[62] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[61] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[60] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[59] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[58] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[57] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[56] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[55] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[54] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[53] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[52] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[51] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[50] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[49] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[48] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[47] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[46] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[45] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[44] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[43] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[42] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[41] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[40] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[39] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[38] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[37] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[36] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[35] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[34] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[33] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[32] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[31] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[30] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[29] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.put[179] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[178] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[177] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[176] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[175] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[174] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[173] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[172] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[171] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[170] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[169] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[168] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[167] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[166] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[165] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[164] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[163] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[162] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[161] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[160] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[159] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[158] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[157] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[156] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[155] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[154] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[153] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[152] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[151] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[150] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[149] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[148] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[147] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[146] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[145] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[144] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[143] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[142] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[141] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[140] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[139] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[138] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[137] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[136] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[135] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[134] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[133] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[132] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[131] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[130] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[129] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[128] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[127] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[126] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[125] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[124] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[123] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[122] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[121] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[120] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[119] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[118] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[117] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[116] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[115] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[114] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[113] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[112] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[111] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[110] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[109] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[108] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[107] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[106] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[105] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[104] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[103] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[102] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[101] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[100] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[99] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[98] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[97] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[96] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[95] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[94] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[93] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[92] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[91] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[90] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[89] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[88] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[87] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[86] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[85] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[84] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[83] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[82] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[81] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[80] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[79] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[78] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[77] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put.appro[79] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[78] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[77] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[76] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[75] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[74] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[73] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[72] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[71] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[70] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[69] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[68] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[67] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[66] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[65] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[64] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[63] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[62] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[61] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[60] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[59] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[58] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[57] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[56] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[55] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[54] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[53] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[52] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[51] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[50] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[49] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[48] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[47] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[46] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[45] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[44] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[43] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[42] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[41] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[40] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[39] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[38] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[37] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[36] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[35] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[34] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[33] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[32] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[31] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[30] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[29] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[28] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[27] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[26] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[25] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[24] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[23] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[22] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[21] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[20] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[19] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[18] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[17] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[16] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[15] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[14] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[13] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[12] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[11] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[10] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[9] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[8] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[7] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[6] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[5] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[4] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.pick[28] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[27] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[26] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[25] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[24] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[23] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[22] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[21] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[20] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[19] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[18] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[17] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[16] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[15] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[14] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[13] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[12] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[11] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[10] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[9] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[8] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[7] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[6] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[5] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[4] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[3] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick[2] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick.depar[1] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick[1] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
+#buff.pick.appro[1] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.put.depar[1] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put[1] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put.appro[1] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.safe[2] 139.175262 18.258419 107.517746 133.760574 -47.670368 -31.995277
+#buff.safe[1] 109.846451 -40.996124 37.907955 124.892578 -76.800613 159.946533
+#buff.appro 73.927383 -7.056920 55.915619 112.777390 -113.936470 142.000000
 #cnc.point.shaft -95.799278 -22.551189 79.266823 -36.402802 43.015594 9.743857
+#cnc.in.prl.base -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
+#cnc.out.prl.bas -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
+#cnc.point.bush[2] -79.300629 -40.790260 81.094933 -31.238529 -89.680710 -95.182892
+#cnc.point.bush[1] -79.300629 -40.790264 81.094933 -31.238525 -89.680710 84.817108
+#cnc.out -103.499687 31.399897 102.499741 -42.798779 35.998764 182.999634
+#cnc.in -93.767632 -20.610117 55.763763 -28.840342 71.790169 171.227310
+#cnc.in.dbl.base -78.791817 -28.265640 78.376556 -32.441929 -76.954422 93.294899
+#cnc.out.dbl.bas -83.999832 15.999801 105.999863 -28.999689 -83.999413 89.999817
+#py.shaft[4,20] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,19] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[3,20] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,19] 51.249577 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[2,20] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#py.shaft[2,19] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
+#py.shaft[1,20] 66.107025 17.240797 116.170456 -150.899155 -70.473862 -75.191460
+#py.shaft[1,19] 66.107025 17.240797 116.169815 -150.899155 -70.473862 -75.189262
+#px.shaft[4,20] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[4,19] 78.730659 -47.304062 89.338028 -136.813980 -45.894703 -111.936943
+#px.shaft[3,20] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[3,19] 83.681679 -37.819527 90.859169 -142.184982 -54.308857 -108.820312
+#px.shaft[2,20] 88.726845 -30.289202 88.899414 -146.284897 -64.454041 -106.331566
+#px.shaft[2,19] 88.726440 -30.289202 88.899086 -146.284897 -64.454041 -106.331566
+#px.shaft[1,20] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#px.shaft[1,19] 93.654831 -25.329208 83.609634 -148.916260 -75.517960 -104.547844
+#p0.shaft[4,20] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[4,19] 64.341103 -44.396469 78.574364 -143.402527 -49.277805 -88.565269
+#p0.shaft[3,20] 68.603394 -35.427677 80.129715 -146.395020 -57.474293 -87.053787
+#p0.shaft[3,19] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
+#p0.shaft[2,20] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[2,19] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
+#p0.shaft[1,20] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#p0.shaft[1,19] 77.764282 -24.007542 72.699654 -149.967697 -78.116913 -84.484947
+#py.shaft[4,18] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,17] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,16] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,15] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,14] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,13] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,12] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,11] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,10] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,9] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,8] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,7] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,6] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,5] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,4] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,3] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[4,2] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
+#py.shaft[3,18] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,17] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,16] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,15] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,14] 51.249577 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,13] 51.249973 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,12] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,11] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,10] 51.249973 -2.445503 124.571930 -142.103149 -39.550781 -79.869514
+#py.shaft[3,9] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,8] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,7] 51.249577 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,6] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,5] 51.249577 -2.445503 124.571930 -142.103775 -39.550781 -79.869514
+#py.shaft[3,4] 51.249973 -2.445503 124.571930 -142.103149 -39.550781 -79.869514
+#py.shaft[3,3] 51.249973 -2.445503 124.571274 -142.103775 -39.550781 -79.869514
+#py.shaft[3,2] 51.249973 -2.445503 124.571274 -142.103149 -39.550781 -79.869514
+#py.shaft[2,18] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#buff.put[76] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[75] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[74] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[73] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[72] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[71] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[70] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[69] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[68] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[67] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[66] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[65] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[64] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[63] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[62] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[61] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[60] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[59] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[58] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[57] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[56] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[55] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[54] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[53] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[52] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[51] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[50] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[49] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[48] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[47] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[46] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[45] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[44] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[43] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[42] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[41] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[40] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[39] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[38] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[37] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[36] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[35] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[34] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[33] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[32] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[31] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[30] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[29] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[28] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[27] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[26] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[25] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[24] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[23] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[22] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[21] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[20] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[19] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[18] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[17] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[16] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[15] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[14] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[13] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[12] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[11] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[10] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[9] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[8] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[7] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[6] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[5] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[4] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[3] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[2] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put.depar[5] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#py.shaft[2,17] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
+#buff.pick.appro[178] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.put.appro[3] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.pick.depar[180] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#p0.bush[1,4,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,4,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,5,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,6,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,7,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,8,1] 58.685848 -25.352568 73.222672 115.721291 -85.545738 -67.144386
+#p0.bush[1,9,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,10,1] 58.685848 -25.352568 73.222672 115.721291 -85.547112 -67.144417
+#p0.bush[1,11,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,12,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,13,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,14,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,15,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,16,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[1,17,1] 58.685848 -25.352568 73.222672 115.721291 -85.547112 -67.144417
+#p0.bush[1,18,1] 58.685848 -25.352568 73.222672 115.721291 -85.547112 -67.144417
+#p0.bush[1,19,1] 58.685848 -25.352568 73.222672 115.721291 -85.547112 -67.144417
+#p0.bush[1,20,1] 58.685848 -25.352568 73.222672 115.721291 -85.546417 -67.144402
+#p0.bush[2,1,1] 54.776665 -32.270786 74.947472 115.830788 -85.225754 -57.687553
+#p0.bush[2,1,2] 54.789768 -32.246696 74.944870 115.830788 -85.227821 123.398964
+#p0.bush[2,2,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,2,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,3,1] 54.789768 -32.245239 74.945518 115.828941 -85.227127 -57.718338
+#p0.bush[2,3,2] 54.789371 -32.246696 74.944870 115.830177 -85.228500 123.400047
+#p0.bush[2,4,1] 54.789371 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,4,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,5,1] 54.789768 -32.245239 74.945518 115.830177 -85.227821 -57.718349
+#p0.bush[2,6,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,7,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,8,1] 54.789768 -32.245239 74.945518 115.828941 -85.227127 -57.718338
+#p0.bush[2,9,1] 54.789768 -32.245239 74.945518 115.830177 -85.227821 -57.718349
+#p0.bush[2,10,1] 54.789371 -32.245239 74.945518 115.830177 -85.227821 -57.718349
+#p0.bush[2,11,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,12,1] 54.789768 -32.245239 74.945518 115.828941 -85.227127 -57.718338
+#p0.bush[2,13,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,14,1] 54.789768 -32.245239 74.945518 115.828941 -85.227127 -57.718338
+#p0.bush[2,15,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,16,1] 54.789768 -32.245239 74.945518 115.828941 -85.227821 -57.718349
+#p0.bush[2,17,1] 54.789768 -32.245239 74.945518 115.830177 -85.227821 -57.718349
+#p0.bush[2,18,1] 54.789768 -32.245239 74.945518 115.830177 -85.227821 -57.718349
+#p0.bush[2,19,1] 54.789768 -32.245239 74.945518 115.828941 -85.227127 -57.718338
+#p0.bush[2,20,1] 54.789768 -32.245239 74.945518 115.830177 -85.227821 -57.718349
+#p0.bush[3,1,1] 51.110954 -41.357841 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,1,2] 51.110954 -41.359299 73.133377 116.457100 -85.100098 131.490753
+#p0.bush[3,2,1] 51.110954 -41.357475 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,2,2] 51.110954 -41.359299 73.133377 116.455872 -85.099411 131.490753
+#p0.bush[3,3,1] 51.110954 -41.357475 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,3,2] 51.110954 -41.359299 73.133377 116.457100 -85.100098 131.490753
+#p0.bush[3,4,1] 51.110954 -41.357475 73.134354 116.455261 -85.100098 -49.626564
+#p0.bush[3,4,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,5,1] 51.110954 -41.357475 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,6,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[3,7,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[3,8,1] 51.110954 -41.357475 73.134354 116.456490 -85.099411 -49.626549
+#p0.bush[3,9,1] 51.110954 -41.357475 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,10,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[3,11,1] 51.110954 -41.357475 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,12,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[3,13,1] 51.110954 -41.357475 73.134354 116.455261 -85.100098 -49.626564
+#p0.bush[3,14,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[3,15,1] 51.110954 -41.357475 73.134354 116.455261 -85.100098 -49.626564
+#p0.bush[3,16,1] 51.110954 -41.357475 73.134354 116.456490 -85.099411 -49.626549
+#p0.bush[3,17,1] 51.110954 -41.357475 73.134354 116.456490 -85.100098 -49.626564
+#p0.bush[3,18,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[3,19,1] 51.110954 -41.357475 73.134354 116.456490 -85.099411 -49.626549
+#p0.bush[3,20,1] 51.110954 -41.357475 73.134354 116.455261 -85.099411 -49.626549
+#p0.bush[4,1,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,1,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,2,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,2,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,3,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,3,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,4,1] 47.805901 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,5,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,6,1] 47.806301 -52.043961 67.585846 117.467934 -85.391235 -43.693180
+#p0.bush[4,7,1] 47.805901 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,8,1] 47.805901 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,9,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,10,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,11,1] 47.806301 -52.043961 67.585846 117.467934 -85.391235 -43.693180
+#p0.bush[4,12,1] 47.806301 -52.044323 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,13,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,14,1] 47.805901 -52.043961 67.585846 117.467934 -85.391235 -43.693180
+#p0.bush[4,15,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,16,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,17,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,18,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,19,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#p0.bush[4,20,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
+#px.bush[1,2,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,2,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,3,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,3,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,4,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.432117
+#px.bush[1,4,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,5,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,6,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,7,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,8,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,9,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,10,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,11,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,12,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,13,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.432117
+#px.bush[1,14,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,15,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,16,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.432117
+#px.bush[1,17,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[1,18,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.432117
+#px.bush[1,19,1] 74.514038 -19.931581 94.184303 108.985085 -65.545128 -58.432117
+#px.bush[1,20,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
+#px.bush[2,1,1] 69.463318 -27.953197 95.876518 106.746857 -66.774910 -46.841969
+#px.bush[2,1,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,2,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,2,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,3,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,3,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,4,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,4,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,5,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,6,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,7,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,8,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,9,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,10,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,11,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,12,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,13,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,14,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,15,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,16,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,17,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,18,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,19,1] 69.486359 -27.913048 95.873589 106.755470 -66.769409 -46.892395
+#px.bush[2,20,1] 69.486359 -27.913048 95.874237 106.755470 -66.769409 -46.892395
+#px.bush[3,1,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,1,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,2,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.862980
+#px.bush[3,2,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,3,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.862980
+#px.bush[3,3,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,4,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.862980
+#px.bush[3,4,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,5,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.862980
+#px.bush[3,6,1] 64.582199 -38.185986 94.127922 105.926132 -68.087082 -36.864059
+#px.bush[3,7,1] 64.582199 -38.186352 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,8,1] 64.582199 -38.186352 94.127922 105.926132 -68.087082 -36.862965
+#px.bush[3,9,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,10,1] 64.582199 -38.186352 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,11,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,12,1] 64.582199 -38.185986 94.127922 105.926132 -68.087082 -36.864059
+#px.bush[3,13,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,14,1] 64.582199 -38.186352 94.127922 105.926132 -68.087082 -36.864059
+#px.bush[3,15,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,16,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.862980
+#px.bush[3,17,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,18,1] 64.582199 -38.186352 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[3,19,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.862980
+#px.bush[3,20,1] 64.582199 -38.185986 94.127922 105.926132 -68.087776 -36.864075
+#px.bush[4,1,1] 60.083973 -49.706131 88.886703 106.439850 -69.372482 -29.453125
+#px.bush[4,1,2] 60.084370 -49.705765 88.887352 106.439240 -69.370430 151.909225
+#px.bush[4,2,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,2,2] 60.084370 -49.705765 88.887352 106.439240 -69.370430 151.909225
+#px.bush[4,3,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,3,2] 60.084370 -49.705765 88.887352 106.439240 -69.371803 151.909195
+#px.bush[4,4,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,5,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,6,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,7,1] 60.083973 -49.706131 88.886703 106.439850 -69.372482 -29.453125
+#px.bush[4,8,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,9,1] 60.083973 -49.706131 88.886703 106.438622 -69.372482 -29.453125
+#px.bush[4,10,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,11,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,12,1] 60.083973 -49.706131 88.886703 106.439850 -69.372482 -29.453125
+#px.bush[4,13,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,14,1] 60.083973 -49.706131 88.886703 106.438622 -69.372482 -29.453125
+#px.bush[4,15,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,16,1] 60.083973 -49.706131 88.886703 106.439850 -69.372482 -29.453125
+#px.bush[4,17,1] 60.083973 -49.706131 88.886703 106.439850 -69.372482 -29.453125
+#px.bush[4,18,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,19,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
+#px.bush[4,20,1] 60.083973 -49.706131 88.886703 106.438622 -69.372482 -29.453125
+#py.bush[1,2,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.667839
+#py.bush[1,2,2] 34.758469 6.111933 109.584709 121.662598 -103.941658 129.924088
+#py.bush[1,3,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,3,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.926285
+#py.bush[1,4,1] 34.755688 6.112298 109.585365 121.662598 -103.942337 -51.665642
+#py.bush[1,4,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,5,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,6,1] 34.755688 6.112663 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,7,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.665642
+#py.bush[1,8,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,9,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.667839
+#py.bush[1,10,1] 34.755688 6.112663 109.584709 121.662598 -103.942337 -51.665642
+#py.bush[1,11,1] 34.755688 6.112663 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,12,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,13,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.665642
+#py.bush[1,14,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,15,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.665642
+#py.bush[1,16,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.665642
+#py.bush[1,17,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.667839
+#py.bush[1,18,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
+#py.bush[1,19,1] 34.755688 6.112298 109.584709 121.662598 -103.942337 -51.665642
+#py.bush[1,20,1] 34.755688 6.112298 109.585365 121.662598 -103.942337 -51.665642
+#py.bush[2,1,1] 30.824657 -4.509946 111.367195 125.646233 -100.148628 -39.009323
+#py.bush[2,1,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,2,1] 30.831013 -4.490601 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,2,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,3,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,3,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,4,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,4,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,5,1] 30.831013 -4.490601 111.365891 125.640091 -100.154800 -39.029221
+#py.bush[2,6,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,7,1] 30.831013 -4.490236 111.365891 125.640091 -100.154800 -39.030319
+#py.bush[2,8,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,9,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,10,1] 30.831013 -4.490601 111.365891 125.640091 -100.154121 -39.030308
+#py.bush[2,11,1] 30.831013 -4.490601 111.365891 125.640091 -100.154121 -39.030308
+#py.bush[2,12,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,13,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,14,1] 30.831013 -4.490236 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,15,1] 30.831013 -4.490601 111.365891 125.640091 -100.154121 -39.030308
+#py.bush[2,16,1] 30.831013 -4.490236 111.365891 125.640091 -100.154800 -39.029221
+#py.bush[2,17,1] 30.831013 -4.490601 111.365891 125.640091 -100.154121 -39.029209
+#py.bush[2,18,1] 30.831013 -4.490236 111.365891 125.640091 -100.154800 -39.029221
+#py.bush[2,19,1] 30.831013 -4.490236 111.365891 125.640091 -100.154800 -39.029221
+#py.bush[2,20,1] 30.831013 -4.490601 111.365891 125.640091 -100.154121 -39.030308
+#py.bush[3,1,1] 27.588318 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,1,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,2,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,2,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,3,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,3,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,4,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,4,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,5,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,6,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,7,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,8,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,9,1] 27.588318 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,10,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,11,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,12,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,13,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,14,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,15,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,16,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,17,1] 27.588318 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,18,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,19,1] 27.588318 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[3,20,1] 27.587921 -17.510168 109.502274 128.803619 -95.604408 -28.379251
+#py.bush[4,1,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,1,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,2,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,2,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,3,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,3,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,4,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,5,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,6,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,7,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,8,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,9,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,10,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,11,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,12,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,13,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,14,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,15,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,16,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,17,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,18,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,19,1] 24.929499 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#py.bush[4,20,1] 24.929104 -31.522171 104.026428 131.060928 -91.652756 -20.537279
+#p0.bush[1,5,2] 58.684658 -25.353298 73.224625 115.721901 -85.547112 113.975105
+#p0.bush[1,6,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,7,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,8,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,9,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,10,2] 58.684658 -25.353298 73.224625 115.721901 -85.547112 113.975105
+#p0.bush[1,11,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,12,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,13,2] 58.684658 -25.353298 73.224625 115.721901 -85.547112 113.975105
+#p0.bush[1,14,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,15,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,16,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,17,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,18,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,19,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[1,20,2] 58.684658 -25.353298 73.224297 115.721901 -85.547112 113.975105
+#p0.bush[2,5,2] 54.789768 -32.246696 74.944870 115.831406 -85.227821 123.398964
+#p0.bush[2,6,2] 54.789768 -32.246696 74.944870 115.831406 -85.227821 123.400063
+#p0.bush[2,7,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,8,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,9,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,10,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,11,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,12,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,13,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,14,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,15,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,16,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,17,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,18,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[2,19,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.398964
+#p0.bush[2,20,2] 54.789768 -32.246696 74.944870 115.830177 -85.227821 123.400063
+#p0.bush[3,5,2] 51.110954 -41.358932 73.133377 116.455872 -85.099411 131.490753
+#p0.bush[3,6,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,7,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,8,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,9,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,10,2] 51.110954 -41.359299 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,11,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,12,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,13,2] 51.110954 -41.359299 73.133377 116.455872 -85.099411 131.490753
+#p0.bush[3,14,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,15,2] 51.110954 -41.359299 73.133377 116.455872 -85.099411 131.490753
+#p0.bush[3,16,2] 51.110954 -41.358932 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,17,2] 51.110954 -41.359299 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,18,2] 51.110954 -41.359299 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,19,2] 51.110954 -41.359299 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[3,20,2] 51.110954 -41.359299 73.133377 116.457100 -85.099411 131.490753
+#p0.bush[4,4,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,5,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,6,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,7,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,8,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,9,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,10,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,11,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,12,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,13,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,14,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,15,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,16,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,17,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,18,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,19,2] 47.806301 -52.045784 67.584541 117.468544 -85.392609 137.424118
+#p0.bush[4,20,2] 47.806301 -52.045422 67.584541 117.468544 -85.392609 137.424118
+#px.bush[1,5,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,6,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,7,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,8,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,9,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,10,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,11,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,12,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,13,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,14,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,15,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,16,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,17,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,18,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,19,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[1,20,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
+#px.bush[2,5,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,6,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,7,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,8,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,9,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,10,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,11,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,12,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,13,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,14,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,15,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,16,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,17,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,18,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,19,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[2,20,2] 69.486755 -27.912682 95.874893 106.755470 -66.768730 134.469940
+#px.bush[3,5,2] 64.582596 -38.185986 94.128578 105.925522 -68.087082 144.499344
+#px.bush[3,6,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,7,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,8,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,9,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,10,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,11,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,12,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,13,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,14,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,15,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,16,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,17,2] 64.582199 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[3,18,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,19,2] 64.582596 -38.185986 94.128578 105.926132 -68.086403 144.499374
+#px.bush[3,20,2] 64.582596 -38.185986 94.128578 105.926132 -68.087082 144.499344
+#px.bush[4,4,2] 60.084370 -49.705765 88.887352 106.439240 -69.370430 151.909225
+#px.bush[4,5,2] 60.084370 -49.705765 88.887680 106.439240 -69.371803 151.909195
+#px.bush[4,6,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,7,2] 60.084370 -49.705765 88.887352 106.439240 -69.370430 151.909225
+#px.bush[4,8,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,9,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,10,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,11,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,12,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,13,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,14,2] 60.084370 -49.705765 88.887352 106.439240 -69.371803 151.909195
+#px.bush[4,15,2] 60.084370 -49.705765 88.887352 106.439240 -69.370430 151.909225
+#px.bush[4,16,2] 60.084370 -49.705765 88.887680 106.439240 -69.371803 151.909195
+#px.bush[4,17,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,18,2] 60.084370 -49.705765 88.887352 106.439240 -69.370430 151.909225
+#px.bush[4,19,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#px.bush[4,20,2] 60.084370 -49.705765 88.887680 106.439240 -69.370430 151.909225
+#py.bush[1,5,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,6,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,7,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,8,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,9,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,10,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,11,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,12,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,13,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,14,2] 34.758469 6.112663 109.584709 121.662598 -103.941658 129.926285
+#py.bush[1,15,2] 34.758469 6.112663 109.584709 121.662598 -103.941658 129.924088
+#py.bush[1,16,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,17,2] 34.758469 6.111933 109.584709 121.661980 -103.941658 129.926285
+#py.bush[1,18,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[1,19,2] 34.755291 6.112663 109.584061 121.663208 -103.944405 129.926239
+#py.bush[1,20,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.924088
+#py.bush[2,5,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,6,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,7,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,8,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,9,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,10,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,11,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,12,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,13,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,14,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,15,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,16,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,17,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,18,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,19,2] 30.833393 -4.490601 111.365891 125.640091 -100.154121 142.562729
+#py.bush[2,20,2] 30.833393 -4.490601 111.366547 125.640091 -100.154121 142.562729
+#py.bush[3,5,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,6,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,7,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,8,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,9,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,10,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,11,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,12,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,13,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,14,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,15,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,16,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,17,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,18,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,19,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[3,20,2] 27.590303 -17.510168 109.502274 128.804245 -95.603714 153.212692
+#py.bush[4,4,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,5,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,6,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,7,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,8,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,9,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,10,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,11,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,12,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,13,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,14,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,15,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,16,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,17,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,18,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,19,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
+#py.bush[4,20,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
 .END
 .REALS
 di.ifp.page[1] = 2001
@@ -4380,7 +6893,7 @@ di.ifp.page[5] = 2005
 di.ifp.page[6] = 2006
 di.ifp.page[7] = 2007
 di.ifp.page[8] = 2008
-current.tool = 3
+current.tool = 1
 type.parallel = 1
 type.double = 0
 grip.no.dbl[1] = 1
@@ -4450,9 +6963,9 @@ bush.wp0.len = 50
 d.cond.stp.cell[0] = 1497
 d.cond.stp.oy[0] = 1769
 d.cond.stp.row[0] = 1501
-d.gr.dbl.full[1,0] = 1337
+d.gr.dbl.full[1,0] = 1305
 d.gr.dbl.inv[1] = 1297
-d.gr.dbl.work[1,0] = 1353
+d.gr.dbl.work[1,0] = 1321
 d.gr.prl.full[0] = 1369
 d.gr.prl.work[0] = 1385
 d.plt.cell.even[0] = 1441
@@ -4520,8 +7033,8 @@ eo.data.request[1] = 116
 eo.data.request[2] = 117
 eo.data.request[3] = 118
 eo.data.request[4] = 119
-eo.dbl.grip.st[1,0] = 161
-eo.dbl.grip.st[2,0] = 177
+eo.dbl.grip.id[1,0] = 161
+eo.dbl.grip.id[2,0] = 177
 eo.error.code[0] = 273
 eo.gr.dbl.empty[1] = 289
 eo.gr.dbl.empty[2] = 293
@@ -4536,7 +7049,7 @@ eo.gr.prl.wp0 = 298
 eo.gr.prl.wp1 = 299
 eo.gr.prl.wp2 = 300
 eo.next.wp[0] = 257
-eo.prl.grip.st[0] = 193
+eo.prl.grip.id[0] = 193
 eo.process.err = 115
 eo.robot.ready = 113
 eo.shelf.cmplt[1] = 138
@@ -4589,12 +7102,12 @@ shaft.wp2.l2 = 30
 shaft.wp2.l3 = 12.5
 d.task.id[0] = 1273
 task.id = 1
-gp.dbl.cl.tmr[1] = 2
-gp.dbl.cl.tmr[2] = 2
-gp.dbl.op.tmr[1] = 2
-gp.dbl.op.tmr[2] = 2
-gp.par.cl.tmr = 2
-gp.par.op.tmr = 2
+gp.dbl.cl.tmr[1] = 0
+gp.dbl.cl.tmr[2] = 0
+gp.dbl.op.tmr[1] = 0
+gp.dbl.op.tmr[2] = 0
+gp.par.cl.tmr = 0
+gp.par.op.tmr = 0
 s.grip.open[1] = 2050
 s.grip.open[2] = 2051
 s.grip.open[3] = 2052
@@ -4602,40 +7115,40 @@ s.grip.close[1] = 2053
 s.grip.close[2] = 2054
 s.grip.close[3] = 2055
 current.shelf = 1
-cnc.overshoot = 5
+cnc.overshoot = 0
 cnc.dbl.rot[1] = 0
 cnc.dbl.rot[2] = -180
 d.cnc.ch.full[0] = 1401
 d.cnc.ch.work[0] = 1417
 d.wp.count[0] = 1281
 d.wp.type.shaft = 1292
-gripper.dbl.id[1] = 0
+gripper.dbl.id[1] = 3
 gripper.dbl.id[2] = 0
-gripper.dbl.st[1] = -1
+gripper.dbl.st[1] = 0
 gripper.dbl.st[2] = -1
 hmi.wp.count = 4
 s.inside.cnc = 2011
 s.mcode.req = 2012
-shelf.overshoot = 5
+shelf.overshoot = 0
 chg.id = 0
 cnc.first = 0
-cnc.st = -1
+cnc.st = 2
 gr.dbl.inv[2] = 0
 wp.count = 4
-wp.type.shaft = -1
+wp.type.shaft = 0
 cnc.prl.rot[1] = 0
 cnc.prl.rot[2] = 180
 s.pr.a.home = 2200
 chg.st = -1
-cnc.id = 0
-current.wp = 2
-decision.state = 201
-decision.type = 200
-gp.dbl.empty[1] = -1
+cnc.id = 2
+current.wp = 4
+decision.state = 102
+decision.type = 100
+gp.dbl.empty[1] = 0
 gp.dbl.empty[2] = -1
-gp.dbl.full[1] = 0
+gp.dbl.full[1] = -1
 gp.dbl.full[2] = 0
-gp.dbl.wp0[1] = 0
+gp.dbl.wp0[1] = -1
 gp.dbl.wp0[2] = 0
 gp.dbl.wp1[1] = 0
 gp.dbl.wp1[2] = 0
@@ -4646,8 +7159,8 @@ gp.prl.full = 0
 gp.prl.wp0 = 0
 gp.prl.wp1 = 0
 gp.prl.wp2 = 0
-gripper.prl.id = 2
-gripper.prl.st = 0
+gripper.prl.id = 0
+gripper.prl.st = -1
 max.pick = 0
 mfinish = 0
 n.max.pick = -1
@@ -4656,12 +7169,51 @@ rin = 0
 rout = -1
 shelf.closed = 0
 shelf.opened = -1
-state = 211
-cnc.empty = -1
-cnc.full = 0
+state = 120
+cnc.empty = 0
+cnc.full = -1
 cnc.wp0 = 0
 cnc.wp1 = 0
-cnc.wp2 = 0
+cnc.wp2 = -1
+d.gr.dbl.full[2,0] = 1337
+d.gr.dbl.work[2,0] = 1353
+d.gr.dbl.full[3,0] = 1785
+d.gr.dbl.work[3,0] = 1801
+s.reset.perf = 2020
+ei.robot.home = 1115
+d.cnc.first = 1298
+ei.dbl.gp.o.tmr[1,0] = 1225
+ei.dbl.gp.c.tmr[1,0] = 1233
+ei.dbl.gp.o.tmr[2,0] = 1241
+ei.dbl.gp.c.tmr[2,0] = 1249
+ei.prl.gp.o.tmr[0] = 1257
+ei.prl.gp.c.tmr[0] = 1265
+ei.chg.oversh[0] = 1209
+ei.cnc.oversh[0] = 1193
+ei.shelf.oversh[0] = 1177
+chg.overshoot = 0
+gr.dbl.full[3] = 40
+gr.dbl.work[3] = 29
+s.tch.buffer = 2122
+s.tch.cnc.bush = 2126
+s.tch.cnc.d.app = 2124
+s.tch.cnc.p.app = 2125
+s.tch.cnc.shaft = 2128
+s.tch.plate.dbl = 2114
+s.tch.plate.prl = 2116
+s.tch.shlf.dbl = 2110
+s.tch.shlf.prl = 2112
+s.tst.buffer = 2123
+s.tst.cnc.bush = 2127
+s.tst.cnc.shaft = 2129
+s.tst.plate.dbl = 2115
+s.tst.plate.prl = 2117
+s.tst.shlf.dbl = 2111
+s.tst.shlf.prl = 2113
+s.tst.wp.dbl.pi = 2118
+s.tst.wp.dbl.pu = 2119
+s.tst.wp.prl.pi = 2120
+s.tst.wp.prl.pu = 2121
 .END
 .STRINGS
 $log.entry[1] = "02:43:19 Calculated JT6 degree: -8.77269"
