@@ -16,11 +16,11 @@
 .NETCONF     0.0.0.0,"",0.0.0.0,0.0.0.0,0.0.0.0,0.0.0.0,""
 .NETCONF2     0.0.0.0,0.0.0.0,0.0.0.0
 .ROBOTDATA1
-ZROBOT.TYPE    30  14   6   1        -766   RS013N-A001 ( 2026-09-28 03:05 )
+ZROBOT.TYPE    30  14   6   1        -766   RS013N-A001 ( 2026-10-05 16:08 )
 ZSYSTEM         1   5         -91
 ZLINEAR         0   0   0   0   0   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1         179
 CONT_CODE     701      -10516
-ZZERO         268235210 268517120 268704341 268579681 268580234 268423330 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456   530463211
+ZZERO         268125115 268424657 268738185 268194826 268312057 268154784 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456   546817591
 ENDLESS_POS   0 100 1       -1516
 LANGUAGE      2
 ZSIGSPEC      960 960 512      -36481
@@ -56,7 +56,7 @@ ZSETKVFF_SVSPEC5    1.000   1.000   1.000   1.000   1.000   1.000  -1.000  -1.00
 ZSETKVFFACC_SVSPEC5    0.000   0.000   0.000   0.000   0.000   0.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -1832648705
 ZSETKVFFJRK_SVSPEC5    0.000   0.000   0.000   0.000   0.000   0.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -1832648705
 ZSETKAFF2_SVSPEC5    1.000   1.000   1.000   1.000   1.000   1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000 -1262485505
-ZSAVEMR                 1           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0         -16
+ZSAVEMR                 0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0           0          -1
 ZRADIUS        1663.943  1663.943   963.943   203.943   203.943    78.440     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000  -331702932
 ZJTSPEED        265.000   250.000   265.000   475.000   475.000   730.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000  -217235457
 ZACCTIME          0.282     0.352     0.238     0.208     0.222     0.262     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384   879587508
@@ -485,7 +485,7 @@ OP_ACCUTYPE2  ON  -3818
 OP_MTN_CHK    OFF -4417
 OP_CHKINCHING  OFF -4345
 OP_COLDET     OFF -4300
-OP_BLTARM     OFF -4280
+OP_BLTARM OFF -4280
 OP_IPKALM     OFF -4145
 OP_KADOUINFO  ON  -4586
 OP_IMON2      OFF -3341
@@ -1335,30 +1335,30 @@ ZSWITCH ZFIX_CALL_1STEPPG ON   -523
 .END
 .OPE_INFO1
 OPEINFO  30 14 6 1  1790531065  ;(26/9/28 2:44:25) RS013N-A001 
-CONT_TIM  1.7 
+CONT_TIM  22.8 
 SERV_TIM  1.6 
 MTON_CNT  2 
 ESTP_CNT  0 
 BRKE_CNT  3 
-CON_PWR  0.013 
-SUP_PWR  0.013 
+CON_PWR  0.085 
+SUP_PWR  0.085 
 REG_PWR  0.000 
 MOVE_TJT  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
 DIST_DJT  0.472 0.384 0.456 0.712 0.424 0.904 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
 DIST_DJT_PLUS  0.248 0.208 0.232 0.472 0.120 0.592 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
-OPEINFO TP_BKLIGHT  0 0.6 50000 
+OPEINFO TP_BKLIGHT  0 1.7 50000 
 OPEINFO MC  0 0 2000000 
 OPEINFO PARTS1  0 0 0 0 0 0 0 0 0 0 0 
 OPEINFO PARTS2  0 0 0 0 0 0 0 0 0 0 0 
 OPEINFO PARTS3  0 0 0 0 0 0 0 0 0 0 0 
 M_OPEINFO  30 14 6 1  1790531065  ;(26/9/28 2:44:25) RS013N-A001 
-M_CONT_TIM  1.7 
+M_CONT_TIM  22.8 
 M_SERV_TIM  1.6 
 M_MTON_CNT  2 
 M_ESTP_CNT  0 
 M_BRKE_CNT  3 
-M_CON_PWR  0.013 
-M_SUP_PWR  0.013 
+M_CON_PWR  0.085 
+M_SUP_PWR  0.085 
 M_REG_PWR  0.000 
 M_MOVE_TJT  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 
 M_DIST_DJT  0.472 0.384 0.456 0.712 0.424 0.904 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 
@@ -1366,7 +1366,7 @@ M_DIST_DJT_PLUS  0.248 0.208 0.232 0.472 0.120 0.592 0.000 0.000 0.000 0.000 0.0
 M_MOVE_TJT_OVERDRIVE  0.0 0.0 0.0 0.0 0.0 0.0 
 M_DIST_DJT_OVERDRIVE  0.000 0.000 0.000 0.000 0.000 0.000 
 M_WARN_CJT_OVERDRIVE  0 0 0 0 0 0 
-HOUR_MTR  1.7 
+HOUR_MTR  22.8 
 .END
 .SYSDATA
 REG_POINT       4
@@ -1853,7 +1853,7 @@ ARM_WX_NUM            0
 CHECK_SPEED2     10.000    20.000    30.000    40.000    50.000
 FASTCHK_KEYS  ON 
 SYS_BASE          0.000     0.000     0.000    90.000    30.000    90.000
-TOOL              0.000  -103.300   167.900   -89.400    90.000  -179.400
+TOOL              0.000     0.000    75.000   -90.000    90.000    90.000
 FTOOL             0.000     0.000     0.000     0.000     0.000     0.000
 DFF              13.000     0.000     0.000   100.000     0.000     0.000     0.000
 SPDUPGEAR         0.000     0.000     0.000     0.000
@@ -2385,7 +2385,7 @@ SWITCH FLEXCOMP        OFF
 SWITCH MESSAGES        ON 
 SWITCH SCREEN          ON 
 SWITCH AUTOSTART.PC    ON 
-SWITCH AUTOSTART2.PC   OFF
+SWITCH AUTOSTART2.PC   ON 
 SWITCH AUTOSTART3.PC   OFF
 SWITCH AUTOSTART4.PC   OFF
 SWITCH AUTOSTART5.PC   OFF
@@ -2457,10 +2457,10 @@ SWITCH SLOW_REP_MM     OFF
 .END
 .CONDITION
 AS_VER       ASF_01000001G
-ELOG_NUM              4
+ELOG_NUM            162
 CHK_ONCE      255
-MAN_SPEED     4
-CHK_SPEED     4
+MAN_SPEED     1
+CHK_SPEED     1
 MON_SPEED       100.000
 PRG_ACCEL       100.000
 PRG_SPEED       100.000
@@ -2490,16 +2490,20 @@ CINT_PRM_ACCEL    100.000
 CINT_PRG_ACCEL    100.000
 CINT_PRM_DECEL    100.000
 CINT_PRG_DECEL    100.000
-PRG_ACCEL_ORG    100.000
-PRG_SPEED_ORG     30.000
-PRG_DECEL_ORG    100.000
+PRG_ACCEL_ORG      0.000
+PRG_SPEED_ORG      0.000
+PRG_DECEL_ORG      0.000
 PRG_JT_ACCEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRG_JT_DECEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRM_JT_ACCEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRM_JT_DECEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
-STEP1ENV_CALL_PRGNAME aaaaa
+STEP1ENV_CALL_PRGNAME a.main
 STEP1ENV_PRG_STEP          1
-USR_DO1      10001000000000000000000000000000
+STEP2ENV0_CALL_PRGNAME autostart.pc
+STEP2ENV0_PRG_STEP          1
+STEP2ENV1_CALL_PRGNAME autostart2.pc
+STEP2ENV1_PRG_STEP          1
+USR_DO1      00000000000000000000000000000000
 USR_DO2      00000000000000000000000000000000
 USR_DO3      00000000000000000000000000000000
 USR_DO4      00000000000000000000000000000000
@@ -2507,7 +2511,7 @@ USR_DO5      00000000000000000000000000000000
 USR_DO6      00000000000000000000000000000000
 USR_DO7      00000000000000000000000000000000
 USR_DO8      00000000000000000000000000000000
-USR_DO9      00000000000000000000000000000000
+USR_DO9      00000000000000010000000000000000
 USR_DO10     00000000000000000000000000000000
 USR_DO11     00000000000000000000000000000000
 USR_DO12     00000000000000000000000000000000
@@ -2582,37 +2586,37 @@ UCINDENT1          0
 UCLINE1            0
 UCFGCOLOR1        11
 UCBGCOLOR1        10
-UCCHARWINSTR1 15:44:15 Gripper  1close
-15:46:26 Set tool # 1
-15:48:20 Gripper  1open
-15:49:02 Gripper  1close
+UCCHARWINSTR1 03:06:13 Gripper  1open
+03:07:56 Gripper  1close
+21:23:20 Process reset!
+21:23:20 Initialization complete
 
 UCINDENT2          0
 UCLINE2            0
 UCFGCOLOR2        11
 UCBGCOLOR2        10
-UCCHARWINSTR2 09:29:15 Process reset!
-09:29:15 Initialization complete
-02:47:51 Expand the part in the buffer
-02:47:51 Set tool # 1
+UCCHARWINSTR2 23:54:43 Process reset!
+23:54:43 Initialization complete
+04:42:46 Process reset!
+04:42:46 Initialization complete
 
 UCINDENT3          0
 UCLINE3            0
 UCFGCOLOR3        11
 UCBGCOLOR3        10
-UCCHARWINSTR3 02:48:20 Gripper  1open
-02:48:39 Gripper  1close
-02:58:57 Expand the part in the buffer
-02:58:58 Set tool # 1
+UCCHARWINSTR3 23:45:06 Process reset!
+23:45:06 Initialization complete
+23:59:56 Process reset!
+23:59:56 Initialization complete
 
 UCINDENT4          0
 UCLINE4            0
 UCFGCOLOR4        11
 UCBGCOLOR4        10
-UCCHARWINSTR4 03:00:18 Gripper  1open
-03:00:53 Gripper  1open
-03:06:13 Gripper  1open
-03:07:56 Gripper  1close
+UCCHARWINSTR4 17:31:23 Process reset!
+17:31:24 Initialization complete
+16:08:37 Process reset!
+16:08:37 Initialization complete
 
 UCINDENT5          0
 UCLINE5            0
@@ -3394,7 +3398,7 @@ TP_RECINHI      0   0   0
 .END
 .SIG_COMMENT
 .END
-.PROGRAM a.main()@26/09/28 02:46 #0;
+.PROGRAM a.main()@26/10/05 16:08 #0;
   SPEED 100 ALWAYS
   ACCURACY 100 ALWAYS
 ; Acceleration
@@ -3449,10 +3453,10 @@ TP_RECINHI      0   0   0
     END
   END
 .END
-.PROGRAM a.man.home()@26/09/28 02:46 #127
+.PROGRAM a.man.home()@26/10/05 16:08 #127
   HOME
 .END
-.PROGRAM a.teach.cnc()@26/09/28 02:46 #2
+.PROGRAM a.teach.cnc()@26/10/05 16:08 #2
   robot.chuck = (hmi.chuck.full-hmi.chuck.work)
   cnc.chuck = (hmi.cnc.ch.full[1]-hmi.cnc.ch.work[1])
   cdz = hmi.cnc.h+robot.chuck+cnc.chuck
@@ -3480,7 +3484,7 @@ TP_RECINHI      0   0   0
   LMOVE #cnc.before[hmi.cnc.no,hmi.rob.gr]
   HOME
 .END
-.PROGRAM a.teach.cnc.prl()@26/09/28 02:46 #3
+.PROGRAM a.teach.cnc.prl()@26/10/05 16:08 #3
 ; Не универсальная программа для обучения параллельного захвата
   robot.chuck = (hmi.chuck.full-hmi.chuck.work)
   cnc.chuck = (hmi.cnc.ch.full[1]-hmi.cnc.ch.work[1])
@@ -3516,7 +3520,7 @@ TP_RECINHI      0   0   0
   LMOVE #cnc.before[hmi.cnc.no,hmi.rob.gr]
   HOME
 .END
-.PROGRAM a.teach.flip()@26/09/28 02:46 #0
+.PROGRAM a.teach.flip()@26/10/05 16:08 #0
 ;
   .b.id = hmi.buf.id
   .det.id = hmi.det.id
@@ -3588,10 +3592,10 @@ TP_RECINHI      0   0   0
   JMOVE #buff.rot.pos[.b.id,.det.id]
   HOME
 .END
-.PROGRAM a.teach.global()@26/09/28 02:46 #0
+.PROGRAM a.teach.global()@26/10/05 16:08 #0
   JMOVE #stocker.safe
 .END
-.PROGRAM a.teach.st.aux()@26/09/28 02:46 #0;
+.PROGRAM a.teach.st.aux()@26/10/05 16:08 #0;
   CALL set.tool(3)
   BREAK
 ; Stocker open
@@ -3668,7 +3672,7 @@ TP_RECINHI      0   0   0
 ;BREAK
 ;
 .END
-.PROGRAM a.teach.st.main()@26/09/28 02:46 #0; Teach nastil
+.PROGRAM a.teach.st.main()@26/10/05 16:08 #0; Teach nastil
 ; *******************************************************************
 ;
 ; Program:      a.teach.st.new
@@ -3747,7 +3751,7 @@ TP_RECINHI      0   0   0
   JMOVE #stocker.safe
   BREAK
 .END
-.PROGRAM a.teach.st.new()@26/09/28 02:46 #0; Teach nastil
+.PROGRAM a.teach.st.new()@26/10/05 16:08 #0; Teach nastil
 ; *******************************************************************
 ;
 ; Program:      a.teach.st.new
@@ -3821,7 +3825,7 @@ TP_RECINHI      0   0   0
   JMOVE #stocker.safe
   BREAK
 .END
-.PROGRAM a.teach.st.prl()@26/09/28 02:46 #0
+.PROGRAM a.teach.st.prl()@26/10/05 16:08 #0
 ;
   CALL set.tool(6)
   BREAK
@@ -3850,11 +3854,11 @@ TP_RECINHI      0   0   0
   JMOVE #st.prl.safe_2
   BREAK
 .END
-.PROGRAM a.test.stocker()@26/09/28 02:46 #9
+.PROGRAM a.test.stocker()@26/10/05 16:08 #9
   CALL stocker.open(hmi.stock.no)
   CALL stocker.close(hmi.stock.no)
 .END
-.PROGRAM a.tool.calib()@26/09/28 02:46 #0
+.PROGRAM a.tool.calib()@26/10/05 16:08 #0
   CALL set.tool(1)
   LMOVE p.tool.cal
   BREAK
@@ -3862,13 +3866,13 @@ TP_RECINHI      0   0   0
   LMOVE p.tool.cal
   BREAK
 .END
-.PROGRAM aaaaa()@26/09/28 02:47 #0
+.PROGRAM aaaaa()@26/10/05 16:08 #0
   CALL buffer.flip(11,1,2)
 .END
-.PROGRAM aaatest()@26/09/28 02:46 #0
+.PROGRAM aaatest()@26/10/05 16:08 #0
   CALL task.get.data(1)
 .END
-.PROGRAM aatest()@26/09/28 02:46 #0
+.PROGRAM aatest()@26/10/05 16:08 #0
   POINT tool.grip.cal[1] = TRANS(tll.1.cal.x,tll.1.cal.y,tll.1.cal.z,tll.1.cal.o,tll.1.cal.a,tll.1.cal.t)
   TOOL tool.grip.cal[1]
 ;
@@ -3877,7 +3881,7 @@ TP_RECINHI      0   0   0
   POINT tool.grip.cal[2] = TRANS(tll.2.cal.x,tll.2.cal.y,tll.2.cal.z,tll.2.cal.o,tll.2.cal.a,tll.2.cal.t)
   TOOL tool.grip.cal[2]
 .END
-.PROGRAM add.current()@26/09/28 02:46 #2534;
+.PROGRAM add.current()@26/10/05 16:08 #2534;
 ; Update values
   current.col = current.col+1
   PULSE fo.col.add
@@ -3896,7 +3900,7 @@ TP_RECINHI      0   0   0
   END
   detail.done = detail.done+1
 .END
-.PROGRAM add.last()@26/09/28 02:46 #2192;
+.PROGRAM add.last()@26/10/05 16:08 #2192;
 ; Update values
   last.col = last.col+1
   IF last.row MOD 2==1 THEN
@@ -3911,15 +3915,15 @@ TP_RECINHI      0   0   0
     END
   END
 .END
-.PROGRAM autostart.pc()@26/09/28 02:46 #0;
+.PROGRAM autostart.pc()@26/10/05 16:08 #0;
   CALL initialize
   MC PRIME a.main
   CALL plc.control.pc
 .END
-.PROGRAM autostart2.pc()@26/09/28 02:46 #0
+.PROGRAM autostart2.pc()@26/10/05 16:08 #0
   CALL plc.data.pc
 .END
-.PROGRAM buffer.flip(.b.id,.g.no,.det.id)@26/09/28 02:46 #243
+.PROGRAM buffer.flip(.b.id,.g.no,.det.id)@26/10/05 16:08 #243
 ; .b.id - Buffer id
 ;.g.no - gripper ID
   save.buffer.id = .b.id
@@ -4022,7 +4026,7 @@ TP_RECINHI      0   0   0
   $safe.flag = "buffer.rot.pos"
   HOME
 .END
-.PROGRAM cnc.change.tool(.c.no,.g.no)@26/09/28 02:46 #2147
+.PROGRAM cnc.change.tool(.c.no,.g.no)@26/10/05 16:08 #2147
 ;WAIT FALSE
   IF (task.op2.c.no==task.op3.c.no) AND NOT first.iteration AND (task.op1.g.no<>task.op3.g.no) THEN
     IF .g.no==1 THEN
@@ -4056,28 +4060,28 @@ TP_RECINHI      0   0   0
   safe.c = .c.no
   safe.g = .g.no
 .END
-.PROGRAM cnc.chuck.close(.c.no)@26/09/28 02:46 #2805;
+.PROGRAM cnc.chuck.close(.c.no)@26/10/05 16:08 #2805;
   BREAK
   CALL log("Send CNC close chuck command")
   PULSE fo.cnc.chuck.cl[.c.no]
   WAIT SIG(fi.cnc.chuck.cl[.c.no]) OR SIG(fi.cnc.chuck.er[.c.no])
 .END
-.PROGRAM cnc.chuck.open(.c.no)@26/09/28 02:46 #5476;
+.PROGRAM cnc.chuck.open(.c.no)@26/10/05 16:08 #5476;
   CALL log("Send CNC open chuck command")
   PULSE fo.cnc.chuck.op[.c.no]
   WAIT SIG(fi.cnc.chuck.op[.c.no]) OR SIG(fi.cnc.chuck.er[.c.no])
 .END
-.PROGRAM cnc.door.close()@26/09/28 02:46 #0
+.PROGRAM cnc.door.close()@26/10/05 16:08 #0
   CALL log("Send CNC close door command")
   PULSE fo.cnc.door.cl
   WAIT SIG(fi.cnc.door.cl) OR SIG(fi.cnc.door.er)
 .END
-.PROGRAM cnc.door.open()@26/09/28 02:46 #0
+.PROGRAM cnc.door.open()@26/10/05 16:08 #0
   CALL log("Send CNC open door command")
   PULSE fo.cnc.door.op
   WAIT SIG(fi.cnc.door.op) OR SIG(fi.cnc.door.er)
 .END
-.PROGRAM cnc.get.cor()@26/09/28 02:46 #3
+.PROGRAM cnc.get.cor()@26/10/05 16:08 #3
 ; Get data from PLC settings
   FOR .i = 1 TO 2
     x.cor.cnc[.i] = BITS(fi.x.cor.cnc[.i,0],15)
@@ -4134,7 +4138,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM cnc.mfinish()@26/09/28 02:46 #1722;
+.PROGRAM cnc.mfinish()@26/10/05 16:08 #1722;
   CALL log("M CODE FINISH")
   PULSE fo.mcode.fin,2
 ;BITS fo.cnc.pg[0], 8 = .pg
@@ -4143,7 +4147,7 @@ TP_RECINHI      0   0   0
 ;WAIT NOT SIG(fi.cnc.ready) OR SIG(fi.cnc.err)
 ;SIGNAL -fo.cnc.run
 .END
-.PROGRAM cnc.move.in(.g.no,.c.no)@26/09/28 02:46 #2649;
+.PROGRAM cnc.move.in(.g.no,.c.no)@26/10/05 16:08 #2649;
 ; .g.no - Gripper № (1-2)
 ;
   safe.c = .c.no
@@ -4185,7 +4189,7 @@ TP_RECINHI      0   0   0
   JMOVE cnc.in[.c.no,.g.no]
   $safe.flag = "cnc.in"
 .END
-.PROGRAM cnc.move.out(.g.no,.c.no)@26/09/28 02:46 #2988;
+.PROGRAM cnc.move.out(.g.no,.c.no)@26/10/05 16:08 #2988;
   $safe.flag = "cnc.in"
   .$str = "Moving in with Gr = "+$ENCODE(.g.no)
   .$str = .$str+" To chuck = "+$ENCODE(.c.no)
@@ -4212,7 +4216,7 @@ TP_RECINHI      0   0   0
   SIGNAL -fo.cnc.block
 ;
 .END
-.PROGRAM cnc.pick(.c.no,.g.no,.cnc.g.no,.h)@26/09/28 02:46 #2135;
+.PROGRAM cnc.pick(.c.no,.g.no,.cnc.g.no,.h)@26/10/05 16:08 #2135;
 ; .g.no - Gripper № (1-2)
 ; .cnc.g.no - CNC chuck No
 ; .h - Detail height
@@ -4294,7 +4298,7 @@ TP_RECINHI      0   0   0
   ACCURACY accu.fine
   LAPPRO cnc.c[.c.no,.g.no]+TRANS(put.shift.x,put.shift.y,-put.shift.z,0,0,0),80
 .END
-.PROGRAM cnc.put(.c.no,.g.no,.cnc.g.no,.h)@26/09/28 02:46 #2244;
+.PROGRAM cnc.put(.c.no,.g.no,.cnc.g.no,.h)@26/10/05 16:08 #2244;
 ; .g.no - Gripper № (1-2)
 ; .cnc.g.no - CNC chuck No
 ; .h - Detail height
@@ -4388,7 +4392,7 @@ TP_RECINHI      0   0   0
   LAPPRO cnc.c[.c.no,.g.no]+TRANS(put.shift.x,put.shift.y,-put.shift.z,0,0,0),80
 ;
 .END
-.PROGRAM cnc.run.pg(.pg)@26/09/28 02:46 #2535;
+.PROGRAM cnc.run.pg(.pg)@26/10/05 16:08 #2535;
 ; CALL log ("Start program PG = " + $ENCODE (.pg))
 ;BITS fo.cnc.pg[0], 8 = .pg
 ;TWAIT 1
@@ -4397,7 +4401,7 @@ TP_RECINHI      0   0   0
 ;WAIT SIG (fi.cnc.ok) OR SIG (fi.cnc.err)
   SIGNAL -fo.cnc.run
 .END
-.PROGRAM cnc.shaft.in(.t.no,.c.no)@26/09/28 02:46 #891
+.PROGRAM cnc.shaft.in(.t.no,.c.no)@26/10/05 16:08 #891
 ; .c.no - Gripper № (1-2)
 ; .t.no - TOOL number
 ; .g.no - номер захвата берем 3
@@ -4430,7 +4434,7 @@ TP_RECINHI      0   0   0
   JMOVE #cnc.in[.c.no,.g.no]
   $safe.flag = "cnc.in"
 .END
-.PROGRAM cnc.shaft.out(.t.no,.c.no)@26/09/28 02:46 #827
+.PROGRAM cnc.shaft.out(.t.no,.c.no)@26/10/05 16:08 #827
 ;.c.no - СNC number
 ;.t.no - Tool number
 ;.g.no - Grip number const 3
@@ -4461,7 +4465,7 @@ TP_RECINHI      0   0   0
   SIGNAL -fo.cnc.block
 ;
 .END
-.PROGRAM cnc.shaft.pick(.c.no,.t.no,.cnc.g.no,.g.no)@26/09/28 02:46 #194;
+.PROGRAM cnc.shaft.pick(.c.no,.t.no,.cnc.g.no,.g.no)@26/10/05 16:08 #194;
 ; .c.g.no - CNC  No
 ; .t.no - Tool Number
 ; .g.no - набор кулачков 1 или 2
@@ -4548,7 +4552,7 @@ TP_RECINHI      0   0   0
   LAPPRO .tmp.frame+TRANS(put.shift.x,put.shift.y,put.shift.z,0,0,0),.safe.inst.z
 ;
 .END
-.PROGRAM cnc.shaft.put(.c.no,.t.no,.cnc.g.no,.g.no)@26/09/28 02:46 #455;
+.PROGRAM cnc.shaft.put(.c.no,.t.no,.cnc.g.no,.g.no)@26/10/05 16:08 #455;
 ; .c.g.no - CNC  No
 ; .t.no - Tool Number
 ; .g.no - набор кулачков 1 или 2
@@ -4641,7 +4645,7 @@ TP_RECINHI      0   0   0
   LAPPRO .tmp.frame+TRANS(put.shift.x,put.shift.y,put.shift.z,0,0,0),.safe.inst.z
 ;
 .END
-.PROGRAM comment___()@26/09/28 02:46 #0; Comments for IDE. Do not use.
+.PROGRAM comment___()@26/10/05 16:08 #0; Comments for IDE. Do not use.
 ; @@@ PROJECT @@@
 ; @@@ PROJECTNAME @@@
 ; LoadWizardAreopag_old_clean
@@ -5290,7 +5294,7 @@ TP_RECINHI      0   0   0
 ; SIGNAME: sig1 sig2 sig3 sig4
 ; SIGDIM: % % % %
 .END
-.PROGRAM copy_for_shaft()@26/09/28 02:46 #0
+.PROGRAM copy_for_shaft()@26/10/05 16:08 #0
 ; *******************************************************************
 ;
 ; Program:      Copy_for_shaft
@@ -5308,7 +5312,7 @@ TP_RECINHI      0   0   0
     POINT stp.1[.s.no,.i,1] = stp.1[.s.no,2,1]
   END
 .END
-.PROGRAM dbg.init.data()@26/09/28 02:46 #0
+.PROGRAM dbg.init.data()@26/10/05 16:08 #0
   FOR .i = 1 TO 32
     task.data[.i,1] = 1
     task.data[.i,2] = 1
@@ -5360,7 +5364,7 @@ TP_RECINHI      0   0   0
   chuck.data[2,4] = 0
 ;POINT cnc.c = cnc.f
 .END
-.PROGRAM gripper.check(.g.no)@26/09/28 02:46 #13748
+.PROGRAM gripper.check(.g.no)@26/10/05 16:08 #13748
 ; .g.no - Gripper № (1-2)
 ;
 ;Check requirement
@@ -5392,7 +5396,7 @@ TP_RECINHI      0   0   0
     SWAIT -fo.grip.chk.err
   END
 .END
-.PROGRAM gripper.close(.g.no,.inverse)@26/09/28 02:46 #10980
+.PROGRAM gripper.close(.g.no,.inverse)@26/10/05 16:08 #10980
 ; .g.no - Gripper № (1-2)
 ; .tmo - Gripper timeout
 ; .inverse - Inverse gripper
@@ -5420,7 +5424,7 @@ TP_RECINHI      0   0   0
   SIGNAL -fo.grip.opened[.g.no],fo.grip.closed[.g.no]
 ;
 .END
-.PROGRAM gripper.open(.g.no,.inverse)@26/09/28 02:46 #13851
+.PROGRAM gripper.open(.g.no,.inverse)@26/10/05 16:08 #13851
 ; .g.no - Gripper № (1-2)
 ; .tmo - Gripper timeout
 ; .inverse - Inverse gripper
@@ -5453,7 +5457,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM init.pr.grip()@26/09/28 02:46 #0
+.PROGRAM init.pr.grip()@26/10/05 16:08 #0
 ;Stoker SAVE
   POINT #st.prl.safe = #PPOINT(89,2,90,-150,-90,96)
   POINT tool.pin2 = TRANS(0,0,75,-90,90,90)
@@ -5487,7 +5491,7 @@ TP_RECINHI      0   0   0
     END
   END
 .END
-.PROGRAM initialize()@26/09/28 02:46 #240
+.PROGRAM initialize()@26/10/05 16:08 #247
   CALL set.io
 ;***
   IF NOT EXISTREAL("last.mon.spd") THEN
@@ -5564,7 +5568,7 @@ TP_RECINHI      0   0   0
 ; Initialization complete
   CALL log("Initialization complete")
 .END
-.PROGRAM log(.$msg)@26/09/28 02:46 #153572;
+.PROGRAM log(.$msg)@26/10/05 16:08 #153586;
 ;
 ; 1 line = 55 symbols max
 ;
@@ -5585,10 +5589,10 @@ TP_RECINHI      0   0   0
   IFPWPRINT 4,1,1,9,10=$log.entry[124],$log.entry[125],$log.entry[126],$log.entry[127]
 ;
 .END
-.PROGRAM pg0()@26/09/28 02:46 #8
+.PROGRAM pg0()@26/10/05 16:08 #8
   ALIGN
 .END
-.PROGRAM pg1()@26/09/28 02:46 #0
+.PROGRAM pg1()@26/10/05 16:08 #0
   CALL set.tool(1)
   JMOVE #cnc.before[1,1]
   JMOVE cnc.in[1,1]
@@ -5600,7 +5604,7 @@ TP_RECINHI      0   0   0
   LMOVE cnc.c[1,2]
   JMOVE cnc.c[1,2]
 .END
-.PROGRAM pg2()@26/09/28 02:46 #0
+.PROGRAM pg2()@26/10/05 16:08 #0
 ; *******************************************************************
 ; Program:      pg2
 ; *******************************************************************
@@ -5619,7 +5623,7 @@ TP_RECINHI      0   0   0
   CALL stocker.open(.stocker)
   CALL stocker.close(.stocker)
 .END
-.PROGRAM pg21()@26/09/28 02:46 #0
+.PROGRAM pg21()@26/10/05 16:08 #0
   JOINT SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[66.758,-19.887,125.95,50.137,-56.053,183.31] ;
   LINEAR SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[72.211,-21.948,128.06,42.187,-56.849,189.32]  ;
   LINEAR SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[73.005,-20.357,128.31,41.905,-55.579,188.59]  ;
@@ -5629,7 +5633,7 @@ TP_RECINHI      0   0   0
   LINEAR SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[39.395,-33.821,73.597,128.15,-32.953,131.68] ;
   LINEAR SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[52.677,-13.515,58.985,161.87,-55.278,86.677] ;
 .END
-.PROGRAM pg3()@26/09/28 02:46 #1
+.PROGRAM pg3()@26/10/05 16:08 #1
   .s.no = 1
   .stocker.id = 4
   .g.no = 1
@@ -5648,7 +5652,7 @@ TP_RECINHI      0   0   0
 ;  ACCURACY accu.fine
 ;  LMOVE stocker.frame[.s.no,.stocker.id]+TRANS(pick.shift.x-1,pick.shift.y,-(pick.shift.z+5))+RZ(-25)
 .END
-.PROGRAM pg5()@26/09/28 02:46 #1
+.PROGRAM pg5()@26/10/05 16:08 #1
 ; *******************************************************************
 ;
 ; Program:      pg5
@@ -5707,11 +5711,11 @@ TP_RECINHI      0   0   0
   JMOVE .#temp.pos;.point[5]
   HOME
 .END
-.PROGRAM pg55()@26/09/28 02:46 #27
+.PROGRAM pg55()@26/10/05 16:08 #27
   JOINT SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[-4.6281,57.664,116.7,24.55,-85.275,90] ;
   JOINT SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[-4.6281,57.664,116.7,168.73,-85.275,90] ;
 .END
-.PROGRAM pg6()@26/09/28 02:46 #0; test_buffer_flip
+.PROGRAM pg6()@26/10/05 16:08 #0; test_buffer_flip
 ; *******************************************************************
 ; Program:      pg6
 ; Comment:      test_buffer_flip
@@ -5736,7 +5740,7 @@ TP_RECINHI      0   0   0
   BREAK
   CALL stocker.close(.s.no)
 .END
-.PROGRAM pg8()@26/09/28 02:46 #0
+.PROGRAM pg8()@26/10/05 16:08 #0
 ; *******************************************************************
 ; Author:       User
 ; Date:         12/15/2025
@@ -5770,7 +5774,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM pg9()@26/09/28 02:46 #0
+.PROGRAM pg9()@26/10/05 16:08 #0
 ; Comment:
 ; get DATA
   CALL process.reset
@@ -5784,10 +5788,10 @@ TP_RECINHI      0   0   0
   CALL log("Load task id ="+$ENCODE(.task.id)+" data .. ")
   CALL process.shaft(.s.no)
 .END
-.PROGRAM pg999()@26/09/28 02:46 #0
+.PROGRAM pg999()@26/10/05 16:08 #0
   HOME
 .END
-.PROGRAM plc.control.pc()@26/09/28 02:46 #0
+.PROGRAM plc.control.pc()@26/10/05 16:08 #0
   RUNMASK fo.pc.error
   SIGNAL fo.pc.error
   WHILE TRUE DO
@@ -5836,7 +5840,7 @@ TP_RECINHI      0   0   0
     TWAIT 0.1
   END
 .END
-.PROGRAM plc.data.pc()@26/09/28 02:46 #0;
+.PROGRAM plc.data.pc()@26/10/05 16:08 #0;
   RUNMASK fo.pc.error
   SIGNAL fo.pc.error
   WHILE TRUE DO
@@ -5897,7 +5901,7 @@ TP_RECINHI      0   0   0
     TWAIT 1
   END
 .END
-.PROGRAM prl.close.shelf(.s.no)@26/09/28 02:46 #78
+.PROGRAM prl.close.shelf(.s.no)@26/10/05 16:08 #78
 ; .s.no - Stocker № (1-4)
   safe.st = .s.no
   $safe.flag = "stocker.start"
@@ -5973,7 +5977,7 @@ dbg:
   END
 ;
 .END
-.PROGRAM prl.open.shelf(.s.no)@26/09/28 02:46 #181
+.PROGRAM prl.open.shelf(.s.no)@26/10/05 16:08 #181
 ; .s.no - Stocker № (1-4)
   safe.st = .s.no
 ;
@@ -6054,7 +6058,7 @@ dbg:
   $safe.flag = "shelf.safe"
 ;
 .END
-.PROGRAM process.bushing(.s.no)@26/09/28 02:46 #146
+.PROGRAM process.bushing(.s.no)@26/10/05 16:08 #146
   task.id = BITS(fi.st.task[.s.no,0],8)
 ;task.id = 1 ;Для Отладки
   CALL log("Working on stocker "+$ENCODE(.s.no)+" with task "+$ENCODE(task.id))
@@ -6447,7 +6451,7 @@ errorstate:
   END
   CALL log("END FILE PROCESS "+$ENCODE(.s.no)+" LAST STATE"+$ENCODE(current.state))
 .END
-.PROGRAM process.reset()@26/09/28 02:46 #1243;
+.PROGRAM process.reset()@26/10/05 16:08 #1250;
   CALL log("Process reset!")
   first.iteration = TRUE
   last.iteration = FALSE
@@ -6465,7 +6469,7 @@ errorstate:
   SIGNAL -fo.lidar.small
   RESET
 .END
-.PROGRAM process.shaft(.s.no)@26/09/28 02:46 #155
+.PROGRAM process.shaft(.s.no)@26/10/05 16:08 #155
 ;
   task.id = BITS(fi.st.task[.s.no,0],8)
 ;task.id = 9 ;Для Отладки
@@ -6675,7 +6679,7 @@ errorstate:
   CALL log("END FILE PROCESS "+$ENCODE(.s.no)+" LAST STATE"+$ENCODE(current.state))
 ;
 .END
-.PROGRAM safe.buffer()@26/09/28 02:46 #66
+.PROGRAM safe.buffer()@26/10/05 16:08 #66
   CP OFF
   SCASE $safe.flag OF
    SVALUE "stocker.safe","buffer","stocker.safe":
@@ -6734,7 +6738,7 @@ any:
     RETURN
   END
 .END
-.PROGRAM safe.cnc()@26/09/28 02:46 #214
+.PROGRAM safe.cnc()@26/10/05 16:08 #214
   CP OFF
   SCASE $safe.flag OF
    SVALUE "cnc.in.before":
@@ -6804,7 +6808,7 @@ any:
     RETURN
   END
 .END
-.PROGRAM safe.cnc.shaft()@26/09/28 02:46 #0
+.PROGRAM safe.cnc.shaft()@26/10/05 16:08 #0
   CP OFF
   SCASE $safe.flag OF
    SVALUE "cnc.shaft.in.before":
@@ -6849,7 +6853,7 @@ any:
     RETURN
   END
 .END
-.PROGRAM safe.home()@26/09/28 02:46 #832;
+.PROGRAM safe.home()@26/10/05 16:08 #832;
 ;
   IF SIG(do.home) THEN
     HOME 2
@@ -6874,7 +6878,7 @@ any:
   $safe.flag = ""
   CP ON
 .END
-.PROGRAM safe.stocker()@26/09/28 02:46 #232
+.PROGRAM safe.stocker()@26/10/05 16:08 #232
   CP OFF
   SCASE $safe.flag OF
    SVALUE "stocker.start":
@@ -7050,7 +7054,7 @@ any:
     RETURN
   END
 .END
-.PROGRAM set.io()@26/09/28 02:46 #253
+.PROGRAM set.io()@26/10/05 16:08 #260
 ; DEDICATED INPUT SIGNALS
   di.ext.mot.on = 1065
   di.ext.ereset = 1066
@@ -7224,7 +7228,7 @@ any:
   fi.detail.cnt[3] = 1417
   fi.detail.cnt[4] = 1433
 .END
-.PROGRAM set.tool(.tool.no)@26/09/28 02:46 #19719
+.PROGRAM set.tool(.tool.no)@26/10/05 16:08 #19719
   CASE .tool.no OF
    VALUE 1:
     TOOL tool.gripper[1]
@@ -7247,7 +7251,7 @@ any:
   END
   CALL log("Set tool #"+$ENCODE(.tool.no))
 .END
-.PROGRAM st.shaft.pick(.s.no,.g.no,.t.no)@26/09/28 02:46 #534
+.PROGRAM st.shaft.pick(.s.no,.g.no,.t.no)@26/10/05 16:08 #534
 ; .s.no - Stocker № (1-4)
 ; .g.no - Gripper № (1-2)
 ; .t.no - Tool Number
@@ -7353,7 +7357,7 @@ any:
   JMOVE #st.prl.safe
 ;
 .END
-.PROGRAM st.shaft.put(.s.no,.g.no,.t.no)@26/09/28 02:46 #181;
+.PROGRAM st.shaft.put(.s.no,.g.no,.t.no)@26/10/05 16:08 #181;
 ; .s.no - Stocker № (1-4)
 ; .t.no - Tool Number
 ;
@@ -7446,7 +7450,7 @@ any:
   JMOVE #st.prl.safe
 ;
 .END
-.PROGRAM stock.pick.new(.s.no,.g.no,.h)@26/09/28 02:46 #470; Программа взятия заготовки Втулка с полки
+.PROGRAM stock.pick.new(.s.no,.g.no,.h)@26/10/05 16:08 #470; Программа взятия заготовки Втулка с полки
 ; *******************************************************************
 ;
 ; Program:      stock.pick.new
@@ -7536,7 +7540,7 @@ any:
   JMOVE #stocker.safe
 ;
 .END
-.PROGRAM stock.put.new(.s.no,.g.no,.h)@26/09/28 02:46 #337; Программа укладки заготовки Втулка на полку
+.PROGRAM stock.put.new(.s.no,.g.no,.h)@26/10/05 16:08 #337; Программа укладки заготовки Втулка на полку
 ; *******************************************************************
 ;
 ; Program:      stock.put.new
@@ -7625,7 +7629,7 @@ any:
   JMOVE #stocker.safe
 ;
 .END
-.PROGRAM stocker.check(.s.no,.result)@26/09/28 02:46 #0;
+.PROGRAM stocker.check(.s.no,.result)@26/10/05 16:08 #0;
   IF NOT SIG(fi.st.check) THEN
     RETURN
   END
@@ -7639,7 +7643,7 @@ any:
   BREAK
   SOUT fo.st.error.pt = i.grip.sensor
 .END
-.PROGRAM stocker.close(.s.no)@26/09/28 02:46 #229;
+.PROGRAM stocker.close(.s.no)@26/10/05 16:08 #229;
 ; .s.no - Stocker № (1-4)
 ;
   safe.st = .s.no
@@ -7741,7 +7745,7 @@ dbg:
   END
 ;
 .END
-.PROGRAM stocker.open(.s.no)@26/09/28 02:46 #488;
+.PROGRAM stocker.open(.s.no)@26/10/05 16:08 #488;
   safe.st = .s.no
 ; .s.no - Stocker № (1-4)
 ;
@@ -7847,7 +7851,7 @@ dbg:
   $safe.flag = "stocker.safe"
 ;
 .END
-.PROGRAM stocker.unlock(.s.no)@26/09/28 02:46 #1047
+.PROGRAM stocker.unlock(.s.no)@26/10/05 16:08 #1047
 ; .s.no - Stocker № (1-4)
 ;
   IF FALSE THEN
@@ -7866,7 +7870,7 @@ dbg:
   SIGNAL fo.st.unlock[.s.no]
   WAIT BITS(fi.st.unlocked[1],5)<>0
 .END
-.PROGRAM task.get.data(.t.id)@26/09/28 02:46 #2069;
+.PROGRAM task.get.data(.t.id)@26/10/05 16:08 #2069;
   CALL log("Get data for task"+$ENCODE(.t.id))
 ; Obtain data:
   detail.id = task.data[.t.id,1]
@@ -7943,7 +7947,7 @@ dbg:
 ;chuck.cnc.full[2] = chuck.data[chuck.cnc.id[2], 1] / 10
 ;chuck.cnc.work[2] = chuck.data[chuck.cnc.id[2], 2] / 10
 .END
-.PROGRAM test_cnc_pick_s()@26/09/28 02:46 #0
+.PROGRAM test_cnc_pick_s()@26/10/05 16:08 #0
 ; *******************************************************************
 ;
 ; Program:      test_cnc_pick_s
@@ -7957,16 +7961,16 @@ dbg:
   CALL task.get.data(25)
   CALL cnc.shaft.pick(1,5,1,2)
 .END
-.PROGRAM transport()@26/09/28 02:46 #0
+.PROGRAM transport()@26/10/05 16:08 #0
   JOINT SPEED9 ACCU1 TIMER0 TOOL1 WORK0 CLAMP1 (OFF,0,0,O) 2 (OFF,0,0,O) OX= WX= #[-0.07785,57.492,-136.6,-1.73,-103.27,-92.042] ;
 .END
 .TRANS
 buf_n.pick 614.000366 -212.329330 485.115997 0.234820 120.077156 -39.009052
 buff.drop.pos[1,1] 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 buff.drop.pos[1,5] 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
-buff.drop.pos[2,22] 909.449524 -255.120956 461.548889 -179.184372 59.548119 90.370903
-buff.drop.pos[3,4] 910.902832 -258.438416 455.818939 179.193878 58.606213 90.742241
-buff.drop.pos[3,22] 910.855042 -255.067520 460.883301 179.176041 58.080070 90.750351
+buff.drop.pos[2,22] 909.449524 -255.120956 461.548889 -179.184372 59.548119 90.370956
+buff.drop.pos[3,4] 910.902832 -258.438416 455.818939 179.193878 58.606213 90.742294
+buff.drop.pos[3,22] 910.855042 -255.067520 460.883301 179.176041 58.080070 90.750404
 buff.drop.pos[11,2] 717.325317 -214.941315 400.211945 -179.967270 57.128326 40.541500
 buff.drop.pos[12,11] 721.168945 -216.739960 403.452759 179.125168 58.887589 30.399673
 buff.drop.pos[12,12] 741.016113 -313.710449 407.762207 -178.902374 60.580158 28.743021
@@ -7975,7 +7979,7 @@ buff.drop.pos[41,16] 819.861206 -212.257217 412.339539 179.816696 55.189732 32.3
 buff.drop.pos[41,18] 813.675232 -208.549088 407.878357 179.699448 58.338161 32.473656
 buff.drop.pos[41,24] 819.461304 -209.481857 414.313049 179.817902 55.194641 32.391544
 buff.drop.pos[42,2] 826.745850 -306.480286 409.827576 179.837173 60.342770 28.968004
-buff.drop.pos[42,24] 822.026978 -305.400879 416.298889 179.751587 59.361420 32.473534
+buff.drop.pos[42,24] 822.026978 -305.400879 416.298889 179.751587 59.361420 32.473530
 buff.pick.pos[1,1] 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 buff.pick.pos[1,2] 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 buff.pick.pos[2,22] 845.771851 -259.623322 502.985321 1.731142 118.914963 -28.597523
@@ -7983,43 +7987,43 @@ buff.pick.pos[3,4] 820.918091 -260.047516 512.581665 0.559416 119.154129 -29.461
 buff.pick.pos[3,22] 839.103821 -256.140320 502.295868 1.622330 119.893997 -28.984325
 buff.pick.pos[11,2] 615.268799 -216.304184 467.257080 1.876978 120.261490 -53.266251
 buff.pick.pos[12,11] 519.494812 -231.849411 516.921448 177.384216 149.379807 -3.849981
-buff.pick.pos[12,12] 638.594666 -314.621704 465.310242 1.447053 119.185028 -27.324499
+buff.pick.pos[12,12] 638.594666 -314.621704 465.310242 1.447053 119.185028 -27.324503
 buff.pick.pos[41,2] 712.519165 -306.581085 472.817261 3.000353 117.460075 -30.063480
 buff.pick.pos[41,16] 722.837341 -213.564331 477.866333 1.220691 120.815857 -29.822144
-buff.pick.pos[41,18] 725.352356 -212.830933 459.348328 -0.084592 119.685211 -30.649044
+buff.pick.pos[41,18] 725.352356 -212.830933 459.348328 -0.084592 119.685211 -30.649040
 buff.pick.pos[41,24] 712.754028 -209.706665 476.083679 1.846827 117.692627 -30.073408
 buff.pick.pos[42,2] 712.520264 -306.582581 472.810150 3.034354 118.659592 -29.991695
 buff.pick.pos[42,24] 716.545532 -305.088013 473.855469 1.227595 117.821228 -58.674992
 buffer.flip[1,1] 834.987732 -208.921875 436.221100 -179.035370 57.008690 35.887363
 buffer.flip[1,2] 820.095459 -209.530685 416.401184 -179.035645 57.008339 35.887440
-buffer.pick[0] 749.970398 -30.001101 451.368195 99.777809 0.005100 175.218704
+buffer.pick[0] 749.970398 -30.001101 451.368195 99.777863 0.005100 175.218704
 buffer.pick[1] 749.981873 -29.989201 534.712524 11.647000 179.997604 -83.356293
 buffer.pick[2] 749.981873 -29.989201 534.712524 11.647000 179.997604 -83.356293
 buffer.put[0] 749.981873 -29.989201 534.712524 11.647000 179.997604 -83.356293
-buffer.put[1] 749.970398 -30.001101 451.368195 99.777809 0.005100 175.218704
-buffer.put[2] 749.970398 -30.001101 451.368195 99.777809 0.005100 175.218704
+buffer.put[1] 749.970398 -30.001101 451.368195 99.777863 0.005100 175.218704
+buffer.put[2] 749.970398 -30.001101 451.368195 99.777863 0.005100 175.218704
 buffer_n.pick 614.000366 -212.329330 485.115997 0.234820 120.077156 -39.009052
-cnc.before[1,1] -390.772583 169.859039 548.430725 -90.257332 90.694260 -154.030197
+cnc.before[1,1] -390.772583 169.859039 548.430725 -90.257332 90.694313 -154.030197
 cnc.before[1,2] -381.313599 112.111397 248.619171 -89.938614 89.384552 -9.358279
-cnc.before[2,1] -454.139923 402.934021 450.899292 88.966377 90.067604 123.582306
-cnc.before[2,2] -424.963867 373.319794 329.668945 89.998108 90.001251 53.131096
+cnc.before[2,1] -454.139923 402.934021 450.899292 88.966377 90.067657 123.582306
+cnc.before[2,2] -424.963867 373.319794 329.668945 89.998108 90.001305 53.131096
 cnc.c[1,1] -1391.645020 39.334549 202.058517 -89.050293 88.853821 -102.702156
 cnc.c[1,2] -1392.436523 42.238342 202.814468 -89.659218 89.296257 -106.792908
-cnc.c[1,3] -1392.193115 41.563065 199.510040 90.436943 89.749626 -33.703995
-cnc.c[2,1] -977.919189 590.368469 248.550232 89.219864 90.248055 87.423759
-cnc.c[2,2] -980.076721 544.068726 249.801605 90.151550 90.059113 147.753387
+cnc.c[1,3] -1392.193115 41.563065 199.510040 90.436996 89.749626 -33.703987
+cnc.c[2,1] -977.919189 590.368469 248.550232 89.219864 90.248108 87.423759
+cnc.c[2,2] -980.076721 544.068726 249.801605 90.151604 90.059166 147.753387
 cnc.f -741.542175 173.237106 296.476013 -89.999290 89.999001 -89.994003
 cnc.frame -741.542175 173.237106 296.476013 -89.999290 89.999001 -89.994003
 cnc.in[1,1] -1170.392334 292.285095 450.637268 -88.412254 89.170578 -147.752060
-cnc.in[1,2] -1175.814941 233.117310 447.146118 -91.449196 91.089066 -147.749176
+cnc.in[1,2] -1175.814941 233.117310 447.146118 -91.449196 91.089119 -147.749176
 cnc.in[1,3] -1087.833740 332.984253 463.593018 89.783073 88.352829 -33.723938
-cnc.in[2,1] -796.605225 361.414032 347.858276 89.987022 90.045319 148.112656
-cnc.in[2,2] -802.440369 383.445923 361.766785 90.151535 90.058456 147.753632
-cnc.out -209.677399 299.407410 419.470581 -89.999809 90.000252 -90.811890
+cnc.in[2,1] -796.605225 361.414032 347.858276 89.987022 90.045372 148.112656
+cnc.in[2,2] -802.440369 383.445923 361.766785 90.151588 90.058510 147.753632
+cnc.out -209.677399 299.407410 419.470581 -89.999809 90.000305 -90.811890
 cnc.safe -888.965942 191.605042 318.527191 -89.997627 89.994431 -90.814919
 cnc.teach -741.543213 247.737106 296.474701 -89.999290 89.999001 -89.994003
-cnc.test -978.967896 543.908325 248.643234 90.002060 89.996391 5.976454
-current.tool 0.000000 -103.300003 167.899994 -89.400002 90.000015 -179.399994
+cnc.test -978.967896 543.908325 248.643234 90.002113 89.996391 5.976454
+current.tool 0.000000 -103.300003 167.899994 -89.400002 90.000069 -179.399994
 dx.vec.normal[1,1,1] -0.999932 0.001451 -0.011598 0.000000 0.000000 0.000000
 dx.vec.normal[1,1,2] -0.999963 0.001983 -0.008407 0.000000 0.000000 0.000000
 dx.vec.normal[1,2,1] -0.999922 0.002287 -0.012272 0.000000 0.000000 0.000000
@@ -8196,7 +8200,7 @@ dy.vec.normal[4,27,1] -0.000005 -0.999967 0.008156 0.000000 0.000000 0.000000
 dy.vec.normal[4,28,1] -0.000005 -0.999967 0.008156 0.000000 0.000000 0.000000
 dy.vec.normal[4,29,1] -0.000005 -0.999967 0.008156 0.000000 0.000000 0.000000
 dy.vec.normal[4,30,1] -0.000005 -0.999967 0.008156 0.000000 0.000000 0.000000
-grip.point 1009.404175 530.450989 -272.685028 14.742443 178.698074 -92.177979
+grip.point 1009.404175 530.450989 -272.685028 14.742450 178.698074 -92.177979
 home2 0.086736 2.872192 1401.023682 -90.010529 163.896576 179.985565
 kostil1 922.416870 911.129822 -169.284119 -47.718433 64.366966 42.881195
 kostil2 786.171997 1001.582031 296.842896 -49.367252 68.418701 64.967979
@@ -8216,15 +8220,15 @@ st.shaft.open[1,1] 754.886780 114.766693 -87.628799 -112.842209 0.616433 3.51455
 st.shaft.open[1,2] 752.150452 733.908264 -92.756706 -166.564255 0.623705 3.666060
 st.shaft.open[2,1] 756.682495 118.011505 -265.203339 -112.772377 0.615080 3.444645
 st.shaft.open[2,2] 756.681152 739.749695 -269.975037 -156.357101 0.612635 3.507886
-st.shaft.open[3,1] 752.572632 113.294495 -447.336975 -112.806686 0.615313 3.479379
+st.shaft.open[3,1] 752.572632 113.294495 -447.336975 -112.806694 0.615313 3.479379
 st.shaft.open[3,2] 752.567444 735.032715 -452.081024 -160.285248 0.614441 3.545879
 st.shaft.open[4,1] 756.069458 177.101425 -627.254272 106.568893 0.698431 150.450470
 st.shaft.open[4,2] 756.067261 799.610535 -631.293701 63.125881 0.699207 150.478058
 stf 1083.490845 513.911926 -171.804214 -53.788090 179.478928 -143.596375
 stocker.close[1,1] 752.784485 737.561768 -14.806931 135.882019 4.069283 157.554810
 stocker.close[1,2] 752.787170 113.927292 -9.668388 135.843582 4.065179 157.593231
-stocker.close[2,1] 756.154785 739.924622 -191.750671 -158.330200 1.145166 92.828247
-stocker.close[2,2] 756.154724 113.553818 -187.319839 -158.193634 1.144123 92.692688
+stocker.close[2,1] 756.154785 739.924622 -191.750671 -158.330200 1.145166 92.828300
+stocker.close[2,2] 756.154724 113.553818 -187.319839 -158.193634 1.144123 92.692726
 stocker.close[3,1] 753.003601 738.848877 -374.485229 135.872620 4.068809 157.564026
 stocker.close[3,2] 750.458130 114.339142 -369.264282 135.884811 4.068572 157.551819
 stocker.close[4,1] 753.158813 799.539673 -555.206787 141.854782 3.938862 164.140030
@@ -8293,10 +8297,10 @@ stocker.frame[2,29] 1006.004883 580.327698 -148.123398 24.837299 179.999100 -65.
 stocker.frame[2,30] 1006.004883 580.327698 -148.123398 24.837299 179.999100 -65.166801
 stocker.frame[2,31] 1006.004883 580.327698 -148.123398 24.837299 179.999100 -65.166801
 stocker.frame[2,32] 1006.004883 580.327698 -148.123398 24.837299 179.999100 -65.166801
-stocker.frame[3,1] 1070.452271 590.386108 -353.067108 -20.699465 179.021271 -110.497292
-stocker.frame[3,2] 1068.944458 588.359985 -352.619873 -20.285242 178.900360 -110.228592
+stocker.frame[3,1] 1070.452271 590.386108 -353.067108 -20.699465 179.021271 -110.497299
+stocker.frame[3,2] 1068.944458 588.359985 -352.619873 -20.285242 178.900360 -110.228600
 stocker.frame[3,3] 1049.345947 576.121399 -351.880402 -23.458113 178.939514 -113.219086
-stocker.frame[3,4] 1079.456665 634.942139 -355.211884 -22.279932 178.929474 -112.092110
+stocker.frame[3,4] 1079.456665 634.942139 -355.211884 -22.279932 178.929474 -112.092148
 stocker.frame[3,5] 1056.183838 554.818359 -353.865784 -21.972919 178.953323 -111.803749
 stocker.frame[3,6] 970.063293 584.516418 -352.787537 -6.087264 178.890274 -95.760033
 stocker.frame[3,7] 1006.007080 580.328796 -303.123413 24.837299 179.999100 -65.166801
@@ -8359,7 +8363,7 @@ stocker.frame[4,31] 1006.009521 580.329773 -458.123413 24.837299 179.999100 -65.
 stocker.frame[4,32] 1006.009521 580.329773 -458.123413 24.837299 179.999100 -65.166801
 stocker.open[1,1] 753.415588 116.072235 -8.467766 135.878555 4.066205 157.559753
 stocker.open[1,2] 752.789307 738.335938 -14.808319 135.875488 4.068636 157.561539
-stocker.open[2,1] 755.536560 118.497055 -188.320557 -158.225601 1.143289 92.723572
+stocker.open[2,1] 755.536560 118.497055 -188.320557 -158.225601 1.143289 92.723625
 stocker.open[2,2] 755.539490 741.958740 -192.712051 -158.351593 1.144853 92.849419
 stocker.open[3,1] 750.236938 114.116196 -368.896790 135.878876 4.068511 157.557571
 stocker.open[3,2] 753.102905 740.527710 -374.482147 135.880737 4.068925 157.555664
@@ -8369,14 +8373,14 @@ stp.1[1,1,1] 1011.262207 528.227051 11.983215 58.687317 179.059692 -62.394638
 stp.1[1,1,2] 1012.532837 528.304443 9.330215 -99.952118 179.751083 140.447083
 stp.1[1,2,1] 1009.769836 528.472290 7.436432 47.412498 178.864700 -70.436569
 stp.1[1,2,2] 1010.796265 528.645630 7.196594 -40.550133 179.605072 -158.936203
-stp.1[1,3,1] 989.975891 513.982544 5.335037 -35.323933 178.909714 -153.178024
+stp.1[1,3,1] 989.975891 513.982544 5.335037 -35.323933 178.909714 -153.178040
 stp.1[1,3,2] 990.961548 512.066956 6.955154 -69.867096 179.058121 171.723694
 stp.1[1,4,1] 1020.204590 572.818115 7.489990 57.401955 179.000992 -60.445980
 stp.1[1,4,2] 1021.536926 572.235596 9.068726 -17.395741 179.193222 -135.790604
-stp.1[1,5,1] 998.117065 493.201843 7.053757 21.465757 178.991974 -96.391022
+stp.1[1,5,1] 998.117065 493.201843 7.053757 21.465757 178.991974 -96.391029
 stp.1[1,5,2] 998.059631 493.355469 7.103851 -69.616348 178.818527 171.983490
-stp.1[1,6,1] 910.344788 523.830688 4.099472 16.074194 179.180359 -101.786339
-stp.1[1,6,2] 910.836060 523.027100 8.030838 -38.056541 179.401352 -156.497421
+stp.1[1,6,1] 910.344788 523.830688 4.099472 16.074192 179.180359 -101.786346
+stp.1[1,6,2] 910.836060 523.027100 8.030838 -38.056549 179.401352 -156.497421
 stp.1[1,20,1] 1010.666016 528.664734 7.300000 56.072933 179.036224 -61.770332
 stp.1[1,21,1] 1010.666016 528.664734 7.300000 56.072933 179.036224 -61.770332
 stp.1[1,22,1] 1010.666016 528.664734 7.300000 56.072933 179.036224 -61.770332
@@ -8394,8 +8398,8 @@ stp.1[2,4,1] 1023.635559 573.286499 -172.391449 37.512569 179.468231 -80.338921
 stp.1[2,4,2] 1024.352295 572.713501 -170.166962 -100.943665 179.755997 140.657944
 stp.1[2,5,1] 1000.196045 495.798950 -173.078293 5.254071 178.674454 -93.076683
 stp.1[2,5,2] 1000.425964 493.727783 -171.614090 -99.511185 179.072037 153.512604
-stp.1[2,6,1] 913.433411 524.076904 -174.194443 51.908997 179.420578 -56.031536
-stp.1[2,6,2] 914.233154 523.998535 -172.201019 16.414747 179.703995 -92.410126
+stp.1[2,6,1] 913.433411 524.076904 -174.194443 51.908997 179.420578 -56.031528
+stp.1[2,6,2] 914.233154 523.998535 -172.201019 16.414745 179.703995 -92.410126
 stp.1[2,20,1] 1013.836670 528.004456 -172.760712 17.704609 178.267136 -89.169189
 stp.1[2,21,1] 1013.836670 528.004456 -172.760712 17.704609 178.267136 -89.169189
 stp.1[2,22,1] 1013.836670 528.004456 -172.760712 17.704609 178.267136 -89.169189
@@ -8409,15 +8413,15 @@ stp.1[2,29,1] 1013.836670 528.004456 -172.760712 17.704609 178.267136 -89.169189
 stp.1[2,30,1] 1013.836670 528.004456 -172.760712 17.704609 178.267136 -89.169189
 stp.1[3,1,1] 1012.236023 529.837280 -349.278442 56.086487 179.036621 -61.756474
 stp.1[3,1,2] 1012.196106 529.171448 -350.110168 -99.400536 179.712311 142.207138
-stp.1[3,2,1] 1011.096069 530.896179 -349.665161 14.742439 178.698074 -92.177979
+stp.1[3,2,1] 1011.096069 530.896179 -349.665161 14.742450 178.698074 -92.177979
 stp.1[3,2,2] 1011.589355 527.902466 -349.946075 -9.110531 179.130783 -117.240364
 stp.1[3,3,1] 991.623474 513.790649 -352.081238 39.049950 178.632645 -70.416252
-stp.1[3,3,2] 991.081055 511.891724 -349.214600 -115.745316 179.522064 136.899033
+stp.1[3,3,2] 991.081055 511.891724 -349.214600 -115.745316 179.522064 136.899094
 stp.1[3,4,1] 1022.326111 572.996948 -350.402985 57.771168 179.002991 -60.080826
 stp.1[3,4,2] 1021.807922 573.925049 -349.149200 -101.512634 179.756149 140.088409
 stp.1[3,5,1] 998.888611 494.379883 -352.796753 14.286251 178.777054 -103.261536
 stp.1[3,5,2] 999.475281 493.790588 -350.807098 18.843256 179.150223 -99.736557
-stp.1[3,6,1] 911.176758 522.956299 -352.850342 27.143585 179.000671 -79.530182
+stp.1[3,6,1] 911.176758 522.956299 -352.850342 27.143591 179.000671 -79.530182
 stp.1[3,6,2] 912.617188 525.258972 -353.140289 -29.050196 179.211273 -137.019241
 stp.1[3,20,1] 1011.115479 528.607300 -351.627380 12.946567 178.707550 -93.967545
 stp.1[3,21,1] 1011.115479 528.607300 -351.627380 12.946567 178.707550 -93.967545
@@ -8440,7 +8444,7 @@ stp.1[4,4,1] 1019.955200 571.622498 -528.949219 57.751442 179.001740 -60.099083
 stp.1[4,4,2] 1020.611633 572.340149 -528.745667 -101.904404 179.756638 139.696625
 stp.1[4,5,1] 997.969604 492.188995 -532.807800 -0.027985 178.754730 -106.693825
 stp.1[4,5,2] 998.069763 492.641663 -531.075745 52.943306 179.195450 -46.094669
-stp.1[4,6,1] 908.737183 522.474182 -531.887573 25.095127 179.045486 -82.320641
+stp.1[4,6,1] 908.737183 522.474182 -531.887573 25.095131 179.045486 -82.320641
 stp.1[4,6,2] 910.972412 522.749634 -531.365051 -17.792620 179.364166 -126.488602
 stp.1[4,20,1] 1009.756592 527.735474 -532.891052 42.787632 178.915283 -63.347500
 stp.1[4,21,1] 1009.756592 527.735474 -532.891052 42.787632 178.915283 -63.347500
@@ -8461,7 +8465,7 @@ stp.2[1,3,1] 989.637024 214.541306 8.692825 -36.009777 178.875671 -153.872879
 stp.2[1,3,2] 990.963623 212.645020 10.781418 -69.864525 179.058044 171.726196
 stp.2[1,4,1] 1021.169983 212.588928 11.436066 57.019848 179.002930 -60.830685
 stp.2[1,4,2] 1022.156250 212.609283 13.443085 -17.694237 179.188797 -136.091797
-stp.2[1,5,1] 997.971069 233.095062 11.142700 21.388643 178.997650 -96.465485
+stp.2[1,5,1] 997.971069 233.095062 11.142700 21.388643 178.997650 -96.465492
 stp.2[1,5,2] 998.056519 234.036087 10.829971 -86.331276 178.890198 155.264542
 stp.2[1,6,1] 909.734497 203.210327 8.058868 16.302797 179.180283 -101.562111
 stp.2[1,6,2] 910.818909 202.701263 10.934616 -38.002705 179.404404 -156.448624
@@ -8475,13 +8479,13 @@ stp.2[1,26,1] 1010.476563 198.495987 29.783295 56.101223 179.037186 -61.742119
 stp.2[2,1,1] 1012.754211 198.395645 -168.733917 56.108315 179.038269 -61.735538
 stp.2[2,1,2] 1012.978394 197.617157 -168.561737 -98.743210 179.714447 142.867538
 stp.2[2,2,1] 1012.449280 308.030212 -169.869827 17.623981 178.266663 -89.245461
-stp.2[2,2,2] 1011.222656 196.623474 -168.369843 1.980755 179.801224 -106.164940
+stp.2[2,2,2] 1011.222656 196.623474 -168.369843 1.980755 179.801224 -106.164948
 stp.2[2,3,1] 991.428162 212.487213 -169.850571 22.009815 179.610489 -89.903847
 stp.2[2,3,2] 991.287903 211.846542 -168.221283 -30.309259 179.864883 -139.753235
 stp.2[2,4,1] 1022.247986 213.423706 -168.922607 37.118038 179.469238 -80.735687
 stp.2[2,4,2] 1022.679443 213.158463 -167.314224 -100.455688 179.752335 141.143478
 stp.2[2,5,1] 998.497192 235.769150 -171.456757 5.123872 178.671997 -93.207916
-stp.2[2,5,2] 998.716919 233.580704 -171.666687 -99.527863 179.071686 153.496277
+stp.2[2,5,2] 998.716919 233.580704 -171.666687 -99.527863 179.071686 153.496292
 stp.2[2,6,1] 911.115662 203.837753 -172.589661 3.191952 179.308990 -104.689613
 stp.2[2,6,2] 911.985046 202.889816 -169.188828 16.770916 179.705215 -92.056801
 stp.2[3,1,1] 1011.145935 199.566086 -346.977875 56.129410 179.037613 -61.713757
@@ -8494,7 +8498,7 @@ stp.2[3,4,1] 1020.479675 212.778809 -349.002686 57.693016 179.005783 -60.158703
 stp.2[3,4,2] 1020.968994 213.727570 -347.274841 -101.216904 179.753204 140.382874
 stp.2[3,5,1] 998.563965 234.470413 -350.954407 14.306972 178.777679 -103.239006
 stp.2[3,5,2] 998.583923 233.605362 -349.173248 18.946203 179.150543 -99.635101
-stp.2[3,6,1] 910.106079 203.985229 -351.579620 11.186673 178.931747 -95.332718
+stp.2[3,6,1] 910.106079 203.985229 -351.579620 11.186672 178.931747 -95.332718
 stp.2[3,6,2] 911.148499 203.986313 -350.250092 -29.175406 179.214310 -137.144745
 stp.2[4,1,1] 1011.044189 197.638260 -526.556519 56.081997 179.037064 -61.761734
 stp.2[4,1,2] 1012.216187 196.734726 -525.391113 -99.289040 179.712814 142.318192
@@ -8504,15 +8508,15 @@ stp.2[4,3,1] 989.062012 211.341782 -528.250488 -48.650215 179.480728 -158.449326
 stp.2[4,3,2] 990.744080 210.899841 -526.823914 -55.340405 179.567673 -164.650604
 stp.2[4,4,1] 1020.026367 212.205353 -528.334473 57.761505 179.006470 -60.089764
 stp.2[4,4,2] 1020.605103 211.691696 -527.138916 -101.918182 179.753738 139.682861
-stp.2[4,5,1] 997.972656 231.642319 -530.653687 -0.008903 178.754364 -106.675117
+stp.2[4,5,1] 997.972656 231.642319 -530.653687 -0.008903 178.754364 -106.675125
 stp.2[4,5,2] 997.499634 232.445435 -528.515015 52.883232 179.194931 -46.154549
 stp.2[4,6,1] 908.995422 200.477173 -529.320862 24.932823 179.050186 -82.480713
 stp.2[4,6,2] 910.497925 200.671997 -528.220215 -17.848839 179.364441 -126.544800
-stp.3[1,1,1] 662.716919 528.732666 7.940598 58.445751 179.068161 -62.636162
+stp.3[1,1,1] 662.716919 528.732666 7.940598 58.445751 179.068161 -62.636147
 stp.3[1,1,2] 490.119324 529.340332 4.937866 -100.000580 179.750793 140.398254
 stp.3[1,2,1] 489.485229 529.662109 1.051117 74.426277 179.104080 -43.415939
 stp.3[1,2,2] 491.258362 529.576782 2.269516 -38.493835 179.587845 -156.887894
-stp.3[1,3,1] 670.760437 514.887695 1.741699 -36.048355 178.875748 -153.911804
+stp.3[1,3,1] 670.760437 514.887695 1.741699 -36.048355 178.875748 -153.911865
 stp.3[1,3,2] 670.826355 513.798218 3.136551 -69.849800 179.057968 171.740601
 stp.3[1,4,1] 480.131897 574.515991 2.306503 58.075672 179.003204 -59.775028
 stp.3[1,4,2] 481.270203 574.012817 4.119354 -34.539799 179.580338 -152.938980
@@ -8520,15 +8524,15 @@ stp.3[1,5,1] 503.478546 493.591736 0.781845 35.579048 179.356323 -82.279182
 stp.3[1,5,2] 502.185181 494.060913 2.164505 -86.265091 178.890015 155.331284
 stp.3[1,6,1] 590.232056 524.343933 0.749756 15.982680 179.180023 -101.878464
 stp.3[1,6,2] 590.947266 523.093140 2.725525 -37.933899 179.400482 -156.378616
-stp.3[1,20,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
-stp.3[1,21,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
-stp.3[1,22,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
-stp.3[1,23,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
-stp.3[1,24,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
-stp.3[1,25,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
-stp.3[1,26,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730095
+stp.3[1,20,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
+stp.3[1,21,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
+stp.3[1,22,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
+stp.3[1,23,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
+stp.3[1,24,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
+stp.3[1,25,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
+stp.3[1,26,1] 491.333801 530.454041 20.932266 56.113785 179.038574 -61.730103
 stp.3[2,1,1] 492.305878 532.376160 -175.561737 56.155113 179.038284 -61.689922
-stp.3[2,1,2] 493.000366 532.146301 -173.412552 -98.379616 179.714676 143.231705
+stp.3[2,1,2] 493.000366 532.146301 -173.412552 -98.379616 179.714676 143.231750
 stp.3[2,2,1] 805.510010 529.386597 -174.454834 17.622955 178.266739 -89.246185
 stp.3[2,2,2] 701.254089 529.484131 -172.989502 2.001756 179.800766 -106.143311
 stp.3[2,3,1] 673.367737 514.474304 -174.363586 21.577993 179.610092 -90.334373
@@ -8544,7 +8548,7 @@ stp.3[3,1,2] 664.753174 530.816956 -354.323975 22.000158 179.069489 -96.479713
 stp.3[3,2,1] 490.789978 534.641541 -358.006653 14.847282 178.695831 -92.074638
 stp.3[3,2,2] 699.800415 529.432617 -355.195374 -9.082734 179.130341 -117.212852
 stp.3[3,3,1] 671.557617 514.830933 -356.471161 39.039272 178.632401 -70.427292
-stp.3[3,3,2] 671.480957 513.289063 -353.702484 -115.260292 179.523590 137.386963
+stp.3[3,3,2] 671.480957 513.289063 -353.702484 -115.260292 179.523590 137.387039
 stp.3[3,4,1] 481.612061 575.659302 -359.851501 58.452534 179.004593 -59.397560
 stp.3[3,4,2] 482.059570 577.162842 -357.854156 -104.342972 179.759903 137.258148
 stp.3[3,5,1] 669.353394 496.208618 -357.371918 14.273213 178.778137 -103.275017
@@ -8559,7 +8563,7 @@ stp.3[4,3,1] 670.674866 512.526672 -533.430054 -48.623077 179.478180 -158.421494
 stp.3[4,3,2] 670.822144 511.331421 -531.237549 -55.330235 179.564514 -164.639740
 stp.3[4,4,1] 480.287964 574.481262 -536.198853 58.522606 179.006378 -59.326950
 stp.3[4,4,2] 479.829651 573.184753 -533.845093 -104.820892 179.757706 136.780930
-stp.3[4,5,1] 667.427002 492.555115 -535.225586 -0.030198 178.754807 -106.695801
+stp.3[4,5,1] 667.427002 492.555115 -535.225586 -0.030198 178.754807 -106.695862
 stp.3[4,5,2] 668.197998 492.737427 -532.961792 52.939331 179.195160 -46.098812
 stp.3[4,6,1] 589.315063 521.297974 -534.372803 25.536358 179.046494 -81.877403
 stp.3[4,6,2] 590.743225 522.047119 -533.542847 -17.862177 179.364609 -126.557831
@@ -8579,16 +8583,16 @@ test_1 1018.007324 575.092163 100.201141 -37.833027 179.073624 -157.956894
 test_3 1078.886841 634.398560 100.375504 -37.832993 179.073624 -127.956848
 test_grip_1 1018.480225 515.761902 111.075943 -31.748642 179.793045 -151.282654
 test_grip_rot 1018.437622 515.795105 107.711487 -14.973839 179.579315 -134.511307
-tmp.pnt -1392.193115 41.563065 199.510040 90.436943 89.749626 -33.703995
-tool.grip.cal[1] 0.000000 -103.300003 167.899994 -89.400002 90.000038 -179.400009
-tool.grip.cal[2] -1.000000 103.300003 166.600006 90.300041 90.750038 179.300003
-tool.gripper[1] 0.000000 -103.300003 167.899994 -89.400002 90.000015 -179.399994
-tool.gripper[2] -1.000000 103.300003 166.600006 90.300018 90.750015 179.300003
-tool.gripper[3] -1.000000 0.000000 180.000000 180.000000 90.000023 90.000023
-tool.pin 82.000000 0.000000 167.000000 0.000000 90.000015 180.000000
-tool.pin2 0.000000 0.000000 75.000000 -90.000008 90.000069 90.000069
-tool.sensor -88.620003 -51.500000 101.800003 -180.000000 90.000015 180.000000
-tt -1345.291504 10.464401 249.334641 92.161942 89.686882 -33.218685
+tmp.pnt -1392.193115 41.563065 199.510040 90.436996 89.749626 -33.703987
+tool.grip.cal[1] 0.000000 -103.300003 167.899994 -89.400002 90.000092 -179.400009
+tool.grip.cal[2] -1.000000 103.300003 166.600006 90.300095 90.750092 179.300003
+tool.gripper[1] 0.000000 -103.300003 167.899994 -89.400002 90.000008 -179.399994
+tool.gripper[2] -1.000000 103.300003 166.600006 90.300011 90.750008 179.300003
+tool.gripper[3] -1.000000 0.000000 180.000000 -180.000000 90.000076 90.000076
+tool.pin 82.000000 0.000000 167.000000 0.000000 90.000008 -180.000000
+tool.pin2 0.000000 0.000000 75.000000 -90.000008 90.000122 90.000122
+tool.sensor -88.620003 -51.500000 101.800003 180.000000 90.000008 -180.000000
+tt -1345.291504 10.464401 249.334641 92.161995 89.686882 -33.218685
 .END
 .JOINTS
 #aux.point[1] 54.472012 1.334442 88.116364 116.351891 -94.451523 -75.616081
@@ -11104,135 +11108,135 @@ z.cor.cnc[2] = 0
 z.cor.stocker = 0
 .END
 .STRINGS
-$log.entry[0] = "14:25:12 Process started"
-$log.entry[1] = "14:25:13 stocker  4"
-$log.entry[2] = "14:25:13 stocker  3"
-$log.entry[3] = "14:25:13 stocker  2"
-$log.entry[4] = "14:25:13 stocker  1"
-$log.entry[5] = "14:25:14 Process started"
-$log.entry[6] = "14:25:14 stocker  4"
-$log.entry[7] = "14:25:14 stocker  3"
-$log.entry[8] = "14:25:14 stocker  2"
-$log.entry[9] = "14:25:15 stocker  1"
-$log.entry[10] = "14:25:15 Process started"
-$log.entry[11] = "14:25:15 stocker  4"
-$log.entry[12] = "14:25:15 stocker  3"
-$log.entry[13] = "14:25:15 stocker  2"
-$log.entry[14] = "14:25:15 stocker  1"
-$log.entry[15] = "14:25:19 Process started"
-$log.entry[16] = "14:25:19 stocker  4"
-$log.entry[17] = "14:25:19 stocker  3"
-$log.entry[18] = "14:25:19 Start working with stocker  3"
-$log.entry[19] = "14:25:19 Load task id = 2 data .. "
-$log.entry[20] = "14:25:19 Get data for task 2"
-$log.entry[21] = "14:25:19 Working on stocker  3 with task  2"
-$log.entry[22] = "14:25:20 Get data for task 2"
-$log.entry[23] = "14:25:33 [Part ?/?] current state  100: INIT task= 2 total_details= 1"
-$log.entry[24] = "14:25:33 [Part ?/?] current state  100: Gripper validation"
-$log.entry[25] = "14:25:33 [Part ?/?] current state  1: OPEN stocker  3"
-$log.entry[26] = "14:25:33 Required to open stocker  3"
-$log.entry[27] = "14:25:33 Program: Open stocker  3"
-$log.entry[28] = "14:25:34 Gripper  1close"
-$log.entry[29] = "14:25:34 Gripper  2close"
-$log.entry[30] = "14:25:35 Set tool # 3"
-$log.entry[31] = "14:26:26 Request stocker  3 unlock"
-$log.entry[32] = "14:26:27 Stocker  3 unlocked"
-$log.entry[33] = "14:27:13 Current state: 2"
-$log.entry[34] = "14:27:13 [Part  1/ 1] current state  2: PICK from stocker"
-$log.entry[35] = "14:27:13  Install grip no 1. Grip ID:  1"
-$log.entry[36] = "14:27:14 Stocker pick St =  3 G =  1 Row =  1 Col =  1 H =  31"
-$log.entry[37] = "14:27:14 Gripper  1open"
-$log.entry[38] = "14:27:33 Gripper  1close"
-$log.entry[39] = "14:27:54 [Part  1/ 1] current state 101 next  3: BUFFER check enabled=Yes"
-$log.entry[40] = "14:27:54 Current state: 3"
-$log.entry[41] = "14:27:54 [Part  1/ 1] current state  3: FLIP detail Claw_in= 1->Claw_out= 1"
-$log.entry[42] = "14:27:54 Expand the part in the buffer"
-$log.entry[43] = "14:27:55 Set tool # 1"
-$log.entry[44] = "14:28:23 Gripper  1open"
-$log.entry[45] = "15:21:04 Process parameters was initialized"
-$log.entry[46] = "15:21:04 Process reset!"
-$log.entry[47] = "15:21:04 Process started"
-$log.entry[48] = "15:21:04 stocker  4"
-$log.entry[49] = "15:21:04 stocker  3"
-$log.entry[50] = "15:21:05 Start working with stocker  3"
-$log.entry[51] = "15:21:05 Load task id = 2 data .. "
-$log.entry[52] = "15:21:05 Get data for task 2"
-$log.entry[53] = "15:21:05 Working on stocker  3 with task  2"
-$log.entry[54] = "15:21:05 Get data for task 2"
-$log.entry[55] = "15:21:18 [Part ?/?] current state  100: INIT task= 2 total_details= 1"
-$log.entry[56] = "15:21:19 [Part ?/?] current state  100: Gripper validation"
-$log.entry[57] = "15:21:19 [Part ?/?] current state  1: OPEN stocker  3"
-$log.entry[58] = "15:21:19 Required to open stocker  3"
-$log.entry[59] = "15:21:19 Program: Open stocker  3"
-$log.entry[60] = "15:21:19 Gripper  1close"
-$log.entry[61] = "15:21:20 Gripper  2close"
-$log.entry[62] = "15:21:20 Set tool # 3"
-$log.entry[63] = "15:22:12 Request stocker  3 unlock"
-$log.entry[64] = "15:22:13 Stocker  3 unlocked"
-$log.entry[65] = "15:22:59 Current state: 2"
-$log.entry[66] = "15:22:59 [Part  1/ 1] current state  2: PICK from stocker"
-$log.entry[67] = "15:22:59  Install grip no 1. Grip ID:  1"
-$log.entry[68] = "15:22:59 Stocker pick St =  3 G =  1 Row =  1 Col =  1 H =  31"
-$log.entry[69] = "15:22:59 Gripper  1open"
-$log.entry[70] = "15:23:19 Gripper  1close"
-$log.entry[71] = "15:23:40 [Part  1/ 1] current state 101 next  3: BUFFER check enabled=Yes"
-$log.entry[72] = "15:23:40 Current state: 3"
-$log.entry[73] = "15:23:40 [Part  1/ 1] current state  3: FLIP detail Claw_in= 1->Claw_out= 1"
-$log.entry[74] = "15:23:40 Expand the part in the buffer"
-$log.entry[75] = "15:23:40 Set tool # 1"
-$log.entry[76] = "15:24:09 Gripper  1open"
-$log.entry[77] = "09:17:33 Process reset!"
-$log.entry[78] = "09:17:33 Initialization complete"
-$log.entry[79] = "10:42:08 Data exchange started"
-$log.entry[80] = "10:42:08 Loaded data: Chuck id =  1 PARAMETER  1 =  550"
-$log.entry[81] = "10:42:08 Loaded data: Chuck id =  1 PARAMETER  2 =  50"
-$log.entry[82] = "10:42:38 Data exchange started"
-$log.entry[83] = "10:42:39 Loaded data: Chuck id =  2 PARAMETER  1 =  550"
-$log.entry[84] = "10:42:39 Loaded data: Chuck id =  2 PARAMETER  2 =  50"
-$log.entry[85] = "11:18:03 Data exchange started"
-$log.entry[86] = "11:18:03 Loaded data: Chuck id =  1 PARAMETER  1 =  550"
-$log.entry[87] = "11:18:03 Loaded data: Chuck id =  1 PARAMETER  2 =  50"
-$log.entry[88] = "11:18:26 Data exchange started"
-$log.entry[89] = "11:18:27 Loaded data: Chuck id =  2 PARAMETER  1 =  550"
-$log.entry[90] = "11:18:27 Loaded data: Chuck id =  2 PARAMETER  2 =  50"
-$log.entry[91] = "11:19:00 Data exchange started"
-$log.entry[92] = "11:19:00 Loaded data: Chuck id =  34 PARAMETER  1 =  400"
-$log.entry[93] = "11:19:00 Loaded data: Chuck id =  34 PARAMETER  2 =  85"
-$log.entry[94] = "11:19:22 Data exchange started"
-$log.entry[95] = "11:19:22 Loaded data: Chuck id =  35 PARAMETER  1 =  400"
-$log.entry[96] = "11:19:22 Loaded data: Chuck id =  35 PARAMETER  2 =  180"
-$log.entry[97] = "14:25:52 Set tool # 1"
-$log.entry[98] = "14:28:19 Gripper  1open"
-$log.entry[99] = "14:31:39 Set tool # 1"
-$log.entry[100] = "14:37:25 Set tool # 1"
-$log.entry[101] = "14:40:10 Gripper  1open"
-$log.entry[102] = "14:45:48 Gripper  1open"
-$log.entry[103] = "15:03:28 Gripper  1close"
-$log.entry[104] = "15:05:22 Set tool # 1"
-$log.entry[105] = "15:15:22 Gripper  1open"
-$log.entry[106] = "15:23:55 Gripper  1close"
-$log.entry[107] = "15:25:23 Set tool # 1"
-$log.entry[108] = "15:26:46 Gripper  1open"
-$log.entry[109] = "15:27:27 Gripper  1close"
-$log.entry[110] = "15:41:17 Set tool # 1"
-$log.entry[111] = "15:42:11 Gripper  1open"
-$log.entry[112] = "15:44:15 Gripper  1close"
-$log.entry[113] = "15:46:26 Set tool # 1"
-$log.entry[114] = "15:48:20 Gripper  1open"
-$log.entry[115] = "15:49:02 Gripper  1close"
-$log.entry[116] = "09:29:15 Process reset!"
-$log.entry[117] = "09:29:15 Initialization complete"
-$log.entry[118] = "02:47:51 Expand the part in the buffer"
-$log.entry[119] = "02:47:51 Set tool # 1"
-$log.entry[120] = "02:48:20 Gripper  1open"
-$log.entry[121] = "02:48:39 Gripper  1close"
-$log.entry[122] = "02:58:57 Expand the part in the buffer"
-$log.entry[123] = "02:58:58 Set tool # 1"
-$log.entry[124] = "03:00:18 Gripper  1open"
-$log.entry[125] = "03:00:53 Gripper  1open"
-$log.entry[126] = "03:06:13 Gripper  1open"
-$log.entry[127] = "03:07:56 Gripper  1close"
-$safe.flag = "buffer.pick"
+$log.entry[0] = "14:25:15 stocker  1"
+$log.entry[1] = "14:25:19 Process started"
+$log.entry[2] = "14:25:19 stocker  4"
+$log.entry[3] = "14:25:19 stocker  3"
+$log.entry[4] = "14:25:19 Start working with stocker  3"
+$log.entry[5] = "14:25:19 Load task id = 2 data .. "
+$log.entry[6] = "14:25:19 Get data for task 2"
+$log.entry[7] = "14:25:19 Working on stocker  3 with task  2"
+$log.entry[8] = "14:25:20 Get data for task 2"
+$log.entry[9] = "14:25:33 [Part ?/?] current state  100: INIT task= 2 total_details= 1"
+$log.entry[10] = "14:25:33 [Part ?/?] current state  100: Gripper validation"
+$log.entry[11] = "14:25:33 [Part ?/?] current state  1: OPEN stocker  3"
+$log.entry[12] = "14:25:33 Required to open stocker  3"
+$log.entry[13] = "14:25:33 Program: Open stocker  3"
+$log.entry[14] = "14:25:34 Gripper  1close"
+$log.entry[15] = "14:25:34 Gripper  2close"
+$log.entry[16] = "14:25:35 Set tool # 3"
+$log.entry[17] = "14:26:26 Request stocker  3 unlock"
+$log.entry[18] = "14:26:27 Stocker  3 unlocked"
+$log.entry[19] = "14:27:13 Current state: 2"
+$log.entry[20] = "14:27:13 [Part  1/ 1] current state  2: PICK from stocker"
+$log.entry[21] = "14:27:13  Install grip no 1. Grip ID:  1"
+$log.entry[22] = "14:27:14 Stocker pick St =  3 G =  1 Row =  1 Col =  1 H =  31"
+$log.entry[23] = "14:27:14 Gripper  1open"
+$log.entry[24] = "14:27:33 Gripper  1close"
+$log.entry[25] = "14:27:54 [Part  1/ 1] current state 101 next  3: BUFFER check enabled=Yes"
+$log.entry[26] = "14:27:54 Current state: 3"
+$log.entry[27] = "14:27:54 [Part  1/ 1] current state  3: FLIP detail Claw_in= 1->Claw_out= 1"
+$log.entry[28] = "14:27:54 Expand the part in the buffer"
+$log.entry[29] = "14:27:55 Set tool # 1"
+$log.entry[30] = "14:28:23 Gripper  1open"
+$log.entry[31] = "15:21:04 Process parameters was initialized"
+$log.entry[32] = "15:21:04 Process reset!"
+$log.entry[33] = "15:21:04 Process started"
+$log.entry[34] = "15:21:04 stocker  4"
+$log.entry[35] = "15:21:04 stocker  3"
+$log.entry[36] = "15:21:05 Start working with stocker  3"
+$log.entry[37] = "15:21:05 Load task id = 2 data .. "
+$log.entry[38] = "15:21:05 Get data for task 2"
+$log.entry[39] = "15:21:05 Working on stocker  3 with task  2"
+$log.entry[40] = "15:21:05 Get data for task 2"
+$log.entry[41] = "15:21:18 [Part ?/?] current state  100: INIT task= 2 total_details= 1"
+$log.entry[42] = "15:21:19 [Part ?/?] current state  100: Gripper validation"
+$log.entry[43] = "15:21:19 [Part ?/?] current state  1: OPEN stocker  3"
+$log.entry[44] = "15:21:19 Required to open stocker  3"
+$log.entry[45] = "15:21:19 Program: Open stocker  3"
+$log.entry[46] = "15:21:19 Gripper  1close"
+$log.entry[47] = "15:21:20 Gripper  2close"
+$log.entry[48] = "15:21:20 Set tool # 3"
+$log.entry[49] = "15:22:12 Request stocker  3 unlock"
+$log.entry[50] = "15:22:13 Stocker  3 unlocked"
+$log.entry[51] = "15:22:59 Current state: 2"
+$log.entry[52] = "15:22:59 [Part  1/ 1] current state  2: PICK from stocker"
+$log.entry[53] = "15:22:59  Install grip no 1. Grip ID:  1"
+$log.entry[54] = "15:22:59 Stocker pick St =  3 G =  1 Row =  1 Col =  1 H =  31"
+$log.entry[55] = "15:22:59 Gripper  1open"
+$log.entry[56] = "15:23:19 Gripper  1close"
+$log.entry[57] = "15:23:40 [Part  1/ 1] current state 101 next  3: BUFFER check enabled=Yes"
+$log.entry[58] = "15:23:40 Current state: 3"
+$log.entry[59] = "15:23:40 [Part  1/ 1] current state  3: FLIP detail Claw_in= 1->Claw_out= 1"
+$log.entry[60] = "15:23:40 Expand the part in the buffer"
+$log.entry[61] = "15:23:40 Set tool # 1"
+$log.entry[62] = "15:24:09 Gripper  1open"
+$log.entry[63] = "09:17:33 Process reset!"
+$log.entry[64] = "09:17:33 Initialization complete"
+$log.entry[65] = "10:42:08 Data exchange started"
+$log.entry[66] = "10:42:08 Loaded data: Chuck id =  1 PARAMETER  1 =  550"
+$log.entry[67] = "10:42:08 Loaded data: Chuck id =  1 PARAMETER  2 =  50"
+$log.entry[68] = "10:42:38 Data exchange started"
+$log.entry[69] = "10:42:39 Loaded data: Chuck id =  2 PARAMETER  1 =  550"
+$log.entry[70] = "10:42:39 Loaded data: Chuck id =  2 PARAMETER  2 =  50"
+$log.entry[71] = "11:18:03 Data exchange started"
+$log.entry[72] = "11:18:03 Loaded data: Chuck id =  1 PARAMETER  1 =  550"
+$log.entry[73] = "11:18:03 Loaded data: Chuck id =  1 PARAMETER  2 =  50"
+$log.entry[74] = "11:18:26 Data exchange started"
+$log.entry[75] = "11:18:27 Loaded data: Chuck id =  2 PARAMETER  1 =  550"
+$log.entry[76] = "11:18:27 Loaded data: Chuck id =  2 PARAMETER  2 =  50"
+$log.entry[77] = "11:19:00 Data exchange started"
+$log.entry[78] = "11:19:00 Loaded data: Chuck id =  34 PARAMETER  1 =  400"
+$log.entry[79] = "11:19:00 Loaded data: Chuck id =  34 PARAMETER  2 =  85"
+$log.entry[80] = "11:19:22 Data exchange started"
+$log.entry[81] = "11:19:22 Loaded data: Chuck id =  35 PARAMETER  1 =  400"
+$log.entry[82] = "11:19:22 Loaded data: Chuck id =  35 PARAMETER  2 =  180"
+$log.entry[83] = "14:25:52 Set tool # 1"
+$log.entry[84] = "14:28:19 Gripper  1open"
+$log.entry[85] = "14:31:39 Set tool # 1"
+$log.entry[86] = "14:37:25 Set tool # 1"
+$log.entry[87] = "14:40:10 Gripper  1open"
+$log.entry[88] = "14:45:48 Gripper  1open"
+$log.entry[89] = "15:03:28 Gripper  1close"
+$log.entry[90] = "15:05:22 Set tool # 1"
+$log.entry[91] = "15:15:22 Gripper  1open"
+$log.entry[92] = "15:23:55 Gripper  1close"
+$log.entry[93] = "15:25:23 Set tool # 1"
+$log.entry[94] = "15:26:46 Gripper  1open"
+$log.entry[95] = "15:27:27 Gripper  1close"
+$log.entry[96] = "15:41:17 Set tool # 1"
+$log.entry[97] = "15:42:11 Gripper  1open"
+$log.entry[98] = "15:44:15 Gripper  1close"
+$log.entry[99] = "15:46:26 Set tool # 1"
+$log.entry[100] = "15:48:20 Gripper  1open"
+$log.entry[101] = "15:49:02 Gripper  1close"
+$log.entry[102] = "09:29:15 Process reset!"
+$log.entry[103] = "09:29:15 Initialization complete"
+$log.entry[104] = "02:47:51 Expand the part in the buffer"
+$log.entry[105] = "02:47:51 Set tool # 1"
+$log.entry[106] = "02:48:20 Gripper  1open"
+$log.entry[107] = "02:48:39 Gripper  1close"
+$log.entry[108] = "02:58:57 Expand the part in the buffer"
+$log.entry[109] = "02:58:58 Set tool # 1"
+$log.entry[110] = "03:00:18 Gripper  1open"
+$log.entry[111] = "03:00:53 Gripper  1open"
+$log.entry[112] = "03:06:13 Gripper  1open"
+$log.entry[113] = "03:07:56 Gripper  1close"
+$log.entry[114] = "21:23:20 Process reset!"
+$log.entry[115] = "21:23:20 Initialization complete"
+$log.entry[116] = "23:54:43 Process reset!"
+$log.entry[117] = "23:54:43 Initialization complete"
+$log.entry[118] = "04:42:46 Process reset!"
+$log.entry[119] = "04:42:46 Initialization complete"
+$log.entry[120] = "23:45:06 Process reset!"
+$log.entry[121] = "23:45:06 Initialization complete"
+$log.entry[122] = "23:59:56 Process reset!"
+$log.entry[123] = "23:59:56 Initialization complete"
+$log.entry[124] = "17:31:23 Process reset!"
+$log.entry[125] = "17:31:24 Initialization complete"
+$log.entry[126] = "16:08:37 Process reset!"
+$log.entry[127] = "16:08:37 Initialization complete"
+$safe.flag = ""
 $str = "STRICT"
 $type = "Chuck "
 .END
