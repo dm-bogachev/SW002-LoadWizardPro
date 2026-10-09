@@ -106,6 +106,8 @@ N_WX289    "d.chg.required"
 N_WX290    "d.shaft.return"
 N_WX291    "d.shaft.rotate"
 N_WX292    "d.wp.type.shaft"
+N_WX293    "d.cnc.through"
+N_WX294    "d.pick.stub"
 N_WX296    "d.gr.dbl.inv[1]"
 N_WX297    "d.gr.dbl.inv[2]"
 N_WX298    "d.cnc.first"
@@ -146,6 +148,8 @@ N_WX785    "d.gr.dbl.full[3,0]"
 N_WX801    "d.gr.dbl.work[3,0]"
 N_WX817    "d.gr.prl.full[2,0]"
 N_WX833    "d.gr.prl.work[2,0]"
+N_WX849    "d.cnc.put.dpth[0]"
+N_WX865    "d.cnc.pick.ovr[0]"
 N_INT1    "di.ifp.page[1]"
 N_INT2    "di.ifp.page[2]"
 N_INT3    "di.ifp.page[3]"
@@ -174,6 +178,7 @@ N_INT105    "s.shaft.return"
 N_INT106    "s.shaft.rotate"
 N_INT107    "s.copy.plate"
 N_INT108    "s.copy.cnc"
+N_INT109    "s.cnc.through"
 N_INT110    "s.tch.shlf.dbl"
 N_INT111    "s.tst.shlf.dbl"
 N_INT112    "s.tch.shlf.prl"
@@ -194,6 +199,8 @@ N_INT126    "s.tch.cnc.bush"
 N_INT127    "s.tst.cnc.bush"
 N_INT128    "s.tch.cnc.shaft"
 N_INT129    "s.tst.cnc.shaft"
+N_INT140    "s.copy.buff"
+N_INT141    "s.pick.stub"
 N_INT200    "s.pr.a.home"
 .END
 .INTER_PANEL_D
@@ -240,8 +247,8 @@ N_INT200    "s.pr.a.home"
 90,8,"hmi.bush.length","TEACH BUSH","  LENGTH",10,4,5,2,0
 91,2," PRIME"," TEST"," PLATE"," DOUBLE",10,4,13,2115,0
 92,2," PRIME"," TEST"," PLATE","PARALLEL",10,4,13,2117,0
-94,8,"hmi.dbl.ch.work[1]","ROB DBL 1","JAW WORK",10,5,5,2,0
-95,8,"hmi.dbl.ch.full[1]","ROB DBL 1","JAW FULL",10,5,5,2,0
+94,8,"hmi.dbl.ch.full[1]","ROB DBL 1","JAW FULL",10,5,5,2,0
+95,8,"hmi.dbl.ch.work[1]","ROB DBL 1","JAW WORK",10,5,5,2,0
 96,8,"hmi.dbl.ch.full[2]","ROB DBL 2","JAW FULL",10,5,5,2,0
 97,8,"hmi.dbl.ch.work[2]","ROB DBL 2","JAW WORK",10,5,5,2,0
 98,8,"hmi.task.copy","COPY TASK","SOURCE",10,4,3,1,0
@@ -264,7 +271,7 @@ N_INT200    "s.pr.a.home"
 118,8,"hmi.cond.thick","CONDUCTOR","THICKNESS",10,6,4,2,0
 119,2," PRIME"," TEST"," PUT"," DOUBLE",10,4,13,2119,0
 120,2," PRIME"," TEST"," PUT","PARALLEL",10,4,13,2121,0
-121,2," PRIME"," TEST"," DOUBLE"," BUFFER",10,4,3,2123,0
+121,2," PRIME"," TEST"," DOUBLE"," BUFFER",10,4,13,2123,0
 123,8,"hmi.shaft.full","  SHAFT","  LENGTH",10,8,3,2,0
 124,8,"hmi.shaft.pick","  PICK","  LENGTH",10,8,3,2,0
 125,8,"hmi.shaft.h","  SHAFT","  HEIGHT",10,8,3,2,0
@@ -276,6 +283,8 @@ N_INT200    "s.pr.a.home"
 133,2,"","   PREV","<---------","",10,4,11,2004,0
 134,2,"","   NEXT","--------->","",10,4,11,2006,0
 135,2,"","   MAIN","<---------","",10,4,11,2001,0
+138,8,"hmi.task.copy","COPY BUFF","SOURCE",10,4,3,1,0
+139,2,"COPY PLATE","    TO","  CURRENT","   TASK",7,4,1,2107,-1
 140,2," PRIME"," TEACH","CNC DBL","APPROACH",10,4,3,2124,0
 141,2," PRIME"," TEACH"," CNC"," DOUBLE",10,4,3,2126,0
 142,2," PRIME"," TEACH","CNC PRL","APPROACH",10,4,3,2125,0
@@ -286,6 +295,8 @@ N_INT200    "s.pr.a.home"
 147,4,2,"TEACH TOOL","TOOL 1","TOOL 2","",10,4,4,2101,2102,0
 148,2," PRIME"," TEST"," CNC"," DOUBLE",10,4,13,2127,0
 150,2," PRIME"," TEST"," CNC","PARALLEL",10,4,13,2129,0
+152,8,"hmi.cnc.ch.dpth","CNC CHUCK","  DEPTH",10,5,5,2,0
+153,8,"hmi.cnc.ch.ovr","CNC CHUCK","OVERPPICK",10,5,5,2,0
 154,8,"hmi.task.copy","COPY TASK","SOURCE",10,4,3,1,0
 155,2,"COPY CNC","    TO","  CURRENT","   TASK",7,4,1,2108,-1
 161,2,"","   PREV","<---------","",10,4,11,2005,0
@@ -296,6 +307,8 @@ N_INT200    "s.pr.a.home"
 169,4,2,"CHANGER","NO","REQUIRED","",10,4,4,0,2104,0
 170,4,2,"SHAFT","NO RETURN","RETURN","",10,4,4,0,2105,0
 171,4,2,"SHAFT","NO ROTATE","ROTATE","",10,4,4,0,2106,0
+172,4,2,"CNC","BLUNT","THROUGH","",10,4,4,0,2109,0
+173,4,2,"STUB","NO PICK","PICK","",10,4,4,0,2141,0
 189,2,"","   PREV","<---------","",10,4,11,2005,0
 190,2,"","   MAIN","<---------","",10,4,11,2001,0
 196,1," SHELF 1","","","  OPENED",10,15,4,10,129,0
@@ -318,6 +331,7 @@ N_INT200    "s.pr.a.home"
 216,14,"safe.flag","Safe flag","",10,15,0
 217,2,"","   MAIN","<---------","",10,4,11,2001,0
 218,4,2,"DEBUG","DISABLED","ENABLED","",10,4,4,0,78,0
+219,4,2,"LIDAR ZONE","NORMAL","SMALL","",10,4,4,0,145,0
 223,2,"","  PRIME","   HOME","",10,4,8,2200,0
 .END
 .INTER_PANEL_TITLE
@@ -353,7 +367,9 @@ N_INT200    "s.pr.a.home"
 .PROGRAM a.main ()
   ;
   CALL log ("Main program executed")
-  CALL safe.home
+  IF NOT SIG (do.home) THEN
+    CALL safe.home
+  END
   ;
   RUNMASK  s.start.trace
   SIGNAL s.start.trace
@@ -402,8 +418,9 @@ N_INT200    "s.pr.a.home"
   ;
   CALL log ("Performing buffer flip")
   CALL set.tool (grip.no.dbl[1])
+  CALL gripper.close(grip.no.dbl[2], 0, 0)
   ;
-  SPEED 350 MM/S ALWAYS
+  SPEED 550 MM/S ALWAYS
   ACCURACY 10 ALWAYS
   ;
   JMOVE #wp.bush.safe[1]
@@ -421,7 +438,7 @@ N_INT200    "s.pr.a.home"
   gripper.dbl.st[1] = -1
   ;
   LMOVE #buff.put.depar[.task.id]
-  SPEED 350 MM/S ALWAYS
+  SPEED 550 MM/S ALWAYS
   ACCURACY 10 ALWAYS
   LMOVE #buff.safe[1]
   ;
@@ -440,7 +457,7 @@ N_INT200    "s.pr.a.home"
   chg.st = -1
   ;
   LMOVE #buff.pick.depar[.task.id]
-  SPEED 350 MM/S ALWAYS
+  SPEED 550 MM/S ALWAYS
   ACCURACY 10 ALWAYS
   LMOVE #buff.safe[2]
   JMOVE #buff.safe[1]
@@ -539,6 +556,7 @@ N_INT200    "s.pr.a.home"
       SIGNAL -eo.robot.ready
       SIGNAL -s.mcode.req
       SIGNAL -s.inside.cnc
+      SIGNAL -eo.task.exec
       ;
       gripper.dbl.id[1] = 0
       gripper.dbl.st[1] = -1
@@ -638,6 +656,16 @@ N_INT200    "s.pr.a.home"
         .$dst = $ENCODE (hmi.task.no)
         CALL log.pc1 ("Perform copy CNC from" + .$src + " to" + .$dst)
         CALL copy.cnc (hmi.task.copy, hmi.task.no)
+        hmi.task.copy = -1
+      END
+    END
+    ;
+    IF SIG (s.copy.buff) THEN
+      IF hmi.task.copy > 0 THEN
+        .$src = $ENCODE (hmi.task.copy)
+        .$dst = $ENCODE (hmi.task.no)
+        CALL log.pc1 ("Perform copy buffer from" + .$src + " to" + .$dst)
+        CALL copy.buff (hmi.task.copy, hmi.task.no)
         hmi.task.copy = -1
       END
     END
@@ -820,7 +848,7 @@ N_INT200    "s.pr.a.home"
   .c1 = bush.wp2.len + gr.dbl.work[.grip.no] + cnc.ch.work
   .dz = .c1 - cnc.overshoot ;
   .c2 = cnc.ch.full - cnc.ch.work
-  .z.appro = .c2 + cnc.overshoot + 10
+  .z.appro = .c2 + cnc.overshoot + 50
   ;
   ; Calculate points
   POINT .temp = cnc.point.bush[task.id, .grip.no]
@@ -845,30 +873,37 @@ N_INT200    "s.pr.a.home"
   cnc.st = -1
   ;
   ACCURACY 0.1
-  LAPPRO .put, .z.appro
+  LAPPRO .put, .z.appro + 50
   BREAK
   LMOVE #cnc.in
   ;
 .END
 .PROGRAM cnc.pick.shaft ()
   ;
-  .$temp = "Put shaft workpiece in CNC:"
+  .$temp = "Pick shaft workpiece in CNC:"
   CALL log (.$temp)
   ;
   SPEED 100 ALWAYS
   ACCURACY 10 ALWAYS
   CALL set.tool (grip.no.par[1])
-  CALL chuck.open
-  CALL calc.rot.prl (shaft.rotate)
+  CALL gripper.open (grip.no.par[1], 0, FALSE)
+  CALL calc.rot.prl (FALSE)
   ;
+  BREAK
   IF shaft.rotate THEN
-    .shaft.l = shaft.wp2.l1-shaft.wp2.l2
-    .rz = 180
-    .dir = -1
+    .shaft.l = shaft.wp2.l1 - shaft.wp2.l2
+    .rz = 0;180
+    .dir = 1;-1
   ELSE
     .shaft.l = shaft.wp2.l2
     .rz = 0
     .dir = 1
+  END
+  ;
+  IF cnc.through THEN
+    .cnc.depth = cnc.put.dpth
+  ELSE
+    .cnc.depth = 0
   END
   ;
   .gc.len = gr.prl.full[1]
@@ -877,22 +912,28 @@ N_INT200    "s.pr.a.home"
   .cncc.body = cnc.ch.work
   ;
   ; Calculate shifts
-  .dz = gr.prl.full[1] - gr.prl.work[1]
-  .dy = .shaft.l + cnc.ch.work - cnc.overshoot
-  .y.appro = cnc.ch.full + cnc.overshoot + 10
+  .dz = .gc.len - .gc.body
+  IF NOT pick.stub THEN
+    .dy = .shaft.l + .cncc.body  - .cnc.depth
+    .y.appro = .cncc.full + .cnc.depth  + 30
+  ELSE
+    .dy = .cncc.body  + cnc.pick.ovr
+    .y.appro = .cncc.full + .cncc.body  + cnc.pick.ovr  + 100
+  END
   ;
   ; Calculate points
   POINT .temp = cnc.point.shaft[task.id]
-  POINT .temp = .temp + RZ(.rz)
-  POINT .pick = .temp + TRANS (0, .dir*.dy, -.dz)
-  POINT .pick.appro[1]= .pick  + TRANS (0, 0, -100)
-  POINT .pick.appro[2]= .pick  + TRANS (0, .dir*.y.appro, 0)
+  POINT .temp = .temp + RZ (.rz)
+  POINT .pick = .temp + TRANS (0, .dir * .dy, -.dz)
+  POINT .pick.appro[1]= .pick  + TRANS (0, .dir * .y.appro, -100)
+  POINT .pick.appro[2]= .pick  + TRANS (0, .dir * .y.appro, 0)
   ;
   ; Approach
   SPEED 20 ALWAYS
   JMOVE #cnc.in
   ACCURACY 0.1
   LMOVE .pick.appro[1]
+  LMOVE .pick.appro[2]
   BREAK;
   SPEED 30 MM/S
   LMOVE .pick
@@ -908,6 +949,7 @@ N_INT200    "s.pr.a.home"
   ;
   ACCURACY 0.1
   LMOVE .pick.appro[2]
+  LMOVE .pick.appro[1]
   BREAK
   LMOVE #cnc.in
   ;
@@ -933,7 +975,7 @@ N_INT200    "s.pr.a.home"
   .c1 = bush.wp0.len + gr.dbl.work[.grip.no] + cnc.ch.work
   .dz = .c1 - cnc.overshoot ;
   .c2 = cnc.ch.full - cnc.ch.work
-  .z.appro = .c2 + cnc.overshoot + 10
+  .z.appro = .c2 + cnc.overshoot + 50
   ;
   ; Calculate points
   POINT .temp = cnc.point.bush[task.id, .grip.no]
@@ -965,7 +1007,7 @@ N_INT200    "s.pr.a.home"
   gripper.dbl.st[.grip.no] = -1
   ;
   ACCURACY 0.1
-  LAPPRO .put, .z.appro
+  LAPPRO .put, .z.appro + 50
   BREAK
   LMOVE #cnc.in
   CALL gripper.close (grip.no.dbl[.grip.no], 0, gr.dbl.inv[.grip.no])
@@ -979,12 +1021,21 @@ N_INT200    "s.pr.a.home"
   SPEED 100 ALWAYS
   ACCURACY 10 ALWAYS
   CALL set.tool (grip.no.par[1])
-  CALL calc.rot.prl (chg.required)
+  CALL chuck.open 
+  CALL calc.rot.prl (FALSE)
   ;
+  BREAK
+  ;.shaft.l = shaft.wp0.l2
   IF chg.required THEN
     .shaft.l = shaft.wp0.l1 - shaft.wp0.l2
   ELSE
     .shaft.l = shaft.wp0.l2
+  END
+  ;
+  IF cnc.through THEN
+    .cnc.depth = cnc.put.dpth 
+  ELSE
+    .cnc.depth = 0
   END
   ;
   .gc.len = gr.prl.full[2]
@@ -993,16 +1044,15 @@ N_INT200    "s.pr.a.home"
   .cncc.body = cnc.ch.work
   ;
   ; Calculate shifts
-  .dz = gr.prl.full[2] - gr.prl.work[2]
-  .dy = .shaft.l + cnc.ch.work - cnc.overshoot
-  .y.appro = cnc.ch.full + cnc.overshoot + 10
+  .dz = .gc.len - .gc.body
+  .dy = .shaft.l - .cnc.depth + .cncc.body - cnc.overshoot
+  .y.appro = .cnc.depth + .cncc.full + cnc.overshoot + 30
   ;
   ; Calculate points
   POINT .temp = cnc.point.shaft[task.id]
-  POINT .temp = .temp + RZ (.rz)
   POINT .put = .temp + TRANS (0, .dy, -.dz)
   POINT .put.appro[1] = .put  + TRANS (0, .y.appro, 0)
-  POINT .put.appro[2] = .put  + TRANS (0, 0, -100)
+  POINT .put.appro[2] = .put  + TRANS (0, .y.appro, -100)
   ;
   ; Approach
   SPEED 20 ALWAYS
@@ -1024,13 +1074,24 @@ N_INT200    "s.pr.a.home"
   gripper.prl.st = -1
   ;
   ACCURACY 0.1
+  LMOVE .put.appro[1]
   LMOVE .put.appro[2]
   BREAK
   LMOVE #cnc.in
   CALL gripper.close (grip.no.par[1], 0, FALSE)
   ;
 .END
-.PROGRAM copy.buff () ; Do not use
+.PROGRAM copy.buff (.source,.dest)
+  ;
+  POINT #buff.put.appro[.dest] = #buff.put.appro[.source]
+  POINT #buff.put[.dest] = #buff.put[.source]
+  POINT #buff.put.depar[.dest] = #buff.put.depar[.source]
+  POINT #buff.pick.appro[.dest] = #buff.pick.appro[.source]
+  POINT #buff.pick[.dest] = #buff.pick[.source]
+  POINT #buff.pick.depar[.dest] = #buff.pick.depar[.source]
+  ;
+.END
+.PROGRAM copy.buff.dbg () ; Do not use
   ;
   FOR .i = 2 TO 180
     POINT #buff.put.appro[.i] = #buff.put.appro[1]
@@ -1141,6 +1202,8 @@ N_INT200    "s.pr.a.home"
   chg.required = SIG(s.chg.req);FALSE;TRUE;FALSE;
   shaft.return = SIG(s.shaft.return);TRUE;FALSE;TRUE;
   shaft.rotate = SIG(s.shaft.rotate)
+  cnc.through = SIG(s.cnc.through)
+  pick.stub = SIG(s.pick.stub)
   gr.dbl.inv[1] = FALSE
   gr.dbl.inv[2] = FALSE
   ;
@@ -1189,63 +1252,72 @@ N_INT200    "s.pr.a.home"
   chg.no = 1
   chg.h.cor = 0
   ;
+  cnc.put.dpth = hmi.cnc.ch.dpth
+  cnc.pick.ovr = hmi.cnc.ch.ovr
+  ;
+  ;
 .END
 .PROGRAM get.from.plc ()
   ;
-  task.id = BITS(d.task.id[0], 8)
-  wp.count = BITS(d.wp.count[0], 8)
+  task.id = BITS (d.task.id[0], 8)
+  wp.count = BITS (d.wp.count[0], 8)
   ;
-  wp.type.shaft = SIG(d.wp.type.shaft)
+  wp.type.shaft = SIG (d.wp.type.shaft)
   chg.required = SIG (d.chg.required)
   shaft.return = SIG (d.shaft.return)
   shaft.rotate = SIG (d.shaft.rotate)
+  cnc.through = SIG(d.cnc.through)
+  pick.stub = SIG(d.pick.stub)
   gr.dbl.inv[1] = SIG (d.gr.dbl.inv[1])
   gr.dbl.inv[1] = SIG (d.gr.dbl.inv[1])
   ;
-  gr.dbl.full[1] = BITS (d.gr.dbl.full[1, 0], 16)/10
-  gr.dbl.work[1] = BITS (d.gr.dbl.work[1, 0], 16)/10
-  gr.dbl.full[2] = BITS (d.gr.dbl.full[2, 0], 16)/10
-  gr.dbl.work[2] = BITS (d.gr.dbl.work[2, 0], 16)/10
-  gr.dbl.full[3] = BITS (d.gr.dbl.full[3, 0], 16)/10
-  gr.dbl.work[3] = BITS (d.gr.dbl.work[3, 0], 16)/10
+  gr.dbl.full[1] = BITS (d.gr.dbl.full[1, 0], 16) / 10
+  gr.dbl.work[1] = BITS (d.gr.dbl.work[1, 0], 16) / 10
+  gr.dbl.full[2] = BITS (d.gr.dbl.full[2, 0], 16) / 10
+  gr.dbl.work[2] = BITS (d.gr.dbl.work[2, 0], 16) / 10
+  gr.dbl.full[3] = BITS (d.gr.dbl.full[3, 0], 16) / 10
+  gr.dbl.work[3] = BITS (d.gr.dbl.work[3, 0], 16) / 10
   ;
-  gr.prl.full[1] = BITS (d.gr.prl.full[1, 0], 16)/10
-  gr.prl.work[1] = BITS (d.gr.prl.work[1, 0], 16)/10
-  gr.prl.full[2] = BITS (d.gr.prl.full[2, 0], 16)/10
-  gr.prl.work[2] = BITS (d.gr.prl.work[2, 0], 16)/10
+  gr.prl.full[1] = BITS (d.gr.prl.full[1, 0], 16) / 10
+  gr.prl.work[1] = BITS (d.gr.prl.work[1, 0], 16) / 10
+  gr.prl.full[2] = BITS (d.gr.prl.full[2, 0], 16) / 10
+  gr.prl.work[2] = BITS (d.gr.prl.work[2, 0], 16) / 10
   ;
-  cnc.ch.full = BITS (d.cnc.ch.full[0], 16)/10
-  cnc.ch.work = BITS (d.cnc.ch.work[0], 16)/10
+  cnc.ch.full = BITS (d.cnc.ch.full[0], 16) / 10
+  cnc.ch.work = BITS (d.cnc.ch.work[0], 16) / 10
   ;
   plt.rows = BITS (d.plt.rows[0], 4)
   plt.cell.odd = BITS (d.plt.cell.odd[0], 4)
   plt.cell.even = BITS (d.plt.cell.even[0], 4)
-  plt.dy = BITS (d.plt.dy[0], 16)/10
-  plt.dx = BITS (d.plt.dx[0], 16)/10
-  plt.even.dy = BITS (d.plt.even.dy[0], 16)/10
+  plt.dy = BITS (d.plt.dy[0], 16) / 10
+  plt.dx = BITS (d.plt.dx[0], 16) / 10
+  plt.even.dy = BITS (d.plt.even.dy[0], 16) / 10
   ;
   cond.stp.cell = BITS (d.cond.stp.cell[0], 4)
   cond.stp.row = BITS (d.cond.stp.row[0], 4)
-  cond.stp.oy = BITS (d.cond.stp.oy[0], 16)/10
+  cond.stp.oy = BITS (d.cond.stp.oy[0], 16) / 10
   ;
-  bush.wp0.len = BITS (d.bush.wp0.len[0], 16)/10
-  bush.wp0.d = BITS (d.bush.wp0.d[0], 16)/10
-  bush.wp2.len = BITS (d.bush.wp2.len[0], 16)/10
-  bush.wp2.d = BITS (d.bush.wp2.d[0], 16)/10
+  bush.wp0.len = BITS (d.bush.wp0.len[0], 16) / 10
+  bush.wp0.d = BITS (d.bush.wp0.d[0], 16) / 10
+  bush.wp2.len = BITS (d.bush.wp2.len[0], 16) / 10
+  bush.wp2.d = BITS (d.bush.wp2.d[0], 16) / 10
   ;
-  shaft.wp0.l1 = BITS (d.shaft.wp0.l1[0], 16)/10
-  shaft.wp0.l2 = BITS (d.shaft.wp0.l2[0], 16)/10
-  shaft.wp0.l3 = BITS (d.shaft.wp0.l3[0], 16)/10
-  shaft.wp0.h = BITS (d.shaft.wp0.h[0], 16)/10
-  shaft.wp0.d = BITS (d.shaft.wp0.d[0], 16)/10
-  shaft.wp2.l1 = BITS (d.shaft.wp2.l1[0], 16)/10
-  shaft.wp2.l2 = BITS (d.shaft.wp2.l2[0], 16)/10
-  shaft.wp2.l3 = BITS (d.shaft.wp2.l3[0], 16)/10
-  shaft.wp2.h = BITS (d.shaft.wp2.h[0], 16)/10
-  shaft.wp2.d = BITS (d.shaft.wp2.d[0], 16)/10
+  shaft.wp0.l1 = BITS (d.shaft.wp0.l1[0], 16) / 10
+  shaft.wp0.l2 = BITS (d.shaft.wp0.l2[0], 16) / 10
+  shaft.wp0.l3 = BITS (d.shaft.wp0.l3[0], 16) / 10
+  shaft.wp0.h = BITS (d.shaft.wp0.h[0], 16) / 10
+  shaft.wp0.d = BITS (d.shaft.wp0.d[0], 16) / 10
+  shaft.wp2.l1 = BITS (d.shaft.wp2.l1[0], 16) / 10
+  shaft.wp2.l2 = BITS (d.shaft.wp2.l2[0], 16) / 10
+  shaft.wp2.l3 = BITS (d.shaft.wp2.l3[0], 16) / 10
+  shaft.wp2.h = BITS (d.shaft.wp2.h[0], 16) / 10
+  shaft.wp2.d = BITS (d.shaft.wp2.d[0], 16) / 10
   ;
   chg.no = BITS (d.chg.no[0], 4)
-  chg.h.cor = BITS (d.chg.h.cor[0], 8)/10
+  chg.h.cor = BITS (d.chg.h.cor[0], 8) / 10
+  ;
+  cnc.put.dpth = BITS (d.cnc.put.dpth[0], 16) / 10
+  cnc.pick.ovr = BITS (d.cnc.pick.ovr[0], 16) / 10
   ;
 .END
 .PROGRAM get.system.data ()
@@ -1410,21 +1482,21 @@ N_INT200    "s.pr.a.home"
   ;.cond.cell = INT(plt.cell.odd/cond.stp.cell)
   ;
   IF cond.stp.cell == 0 THEN
-    .P = 1 + 1
+    .P = 1
   ELSE
-    .P = 2 + 2
+    .P = 2
   END
   ;
-  .pair = INT ((.id - 1) / .P)
-  .offset = (.id - 1) MOD .P
+  .i = INT ((.id - 1) / .P)
+  .j = (.id - 1) MOD .P
   ;
-  IF .offset < 2 THEN
-    .i = 2 * .pair
-    .j = .offset
-  ELSE
-    .i = 2 * .pair + 1
-    .j = .offset - 2
-  END
+  ;IF .offset < 2 THEN
+  ;  .i = 2 * .pair
+  ;  .j = .offset
+  ;ELSE
+  ;  .i = 2 * .pair + 1
+  ;  .j = .offset - 2
+  ;END
   ;
   .i = .i*cond.stp.row
   .j = .j*cond.stp.cell
@@ -1899,6 +1971,8 @@ N_INT200    "s.pr.a.home"
   d.shaft.return = 1290
   d.shaft.rotate = 1291
   d.wp.type.shaft = 1292
+  d.cnc.through = 1293
+  d.pick.stub = 1294
   ;
   d.gr.dbl.inv[1] = 1296
   d.gr.dbl.inv[2] = 1297
@@ -1949,6 +2023,9 @@ N_INT200    "s.pr.a.home"
   d.gr.dbl.full[3, 0] = 1785
   d.gr.dbl.work[3, 0] = 1801
   ;
+  d.cnc.put.dpth[0] = 1849
+  d.cnc.pick.ovr[0] = 1865
+  ;
   ; Internal signals
   ; IFP page change 2001-2008
   di.ifp.page[1] = 2001
@@ -1969,7 +2046,7 @@ N_INT200    "s.pr.a.home"
   s.start.trace = 2021
   ;
   s.hmi.tool[1] = 2101
-  s.hmi.tool[2] = 2102
+  s.hmi.tool[2] = 210
   ;
   s.type.shaft = 2103
   s.chg.req = 2104
@@ -1977,6 +2054,7 @@ N_INT200    "s.pr.a.home"
   s.shaft.rotate = 2106
   s.copy.plate = 2107
   s.copy.cnc = 2108
+  s.cnc.through = 2109
   ;
   s.tch.shlf.dbl = 2110
   s.tst.shlf.dbl = 2111
@@ -1998,6 +2076,9 @@ N_INT200    "s.pr.a.home"
   s.tst.cnc.bush = 2127
   s.tch.cnc.shaft = 2128
   s.tst.cnc.shaft = 2129
+  ;
+  s.copy.buff = 2140
+  s.pick.stub = 2141
   ;
   s.pr.a.home = 2200
   ;
@@ -2107,7 +2188,9 @@ N_INT200    "s.pr.a.home"
   CALL ciner ("hmi.dbl.ch.work[2]", hmi.dbl.ch.work[2], 29)
   CALL ciner ("hmi.cnc.ch.full", hmi.cnc.ch.full, 40)
   CALL ciner ("hmi.cnc.ch.work", hmi.cnc.ch.work, 28)
-  
+  CALL ciner ("hmi.cnc.ch.dpth", hmi.cnc.ch.dpth, 0)
+  CALL ciner ("hmi.cnc.ch.ovr", hmi.cnc.ch.ovr, 0)
+  ;
 .END
 .PROGRAM shelf.close (.shelf.no,.gripper.type)
   ;
@@ -2134,7 +2217,7 @@ N_INT200    "s.pr.a.home"
   POINT .start = #shelf.close.dbl[.shelf.no, 1]
   POINT .end = #shelf.close.dbl[.shelf.no, 2]
   ;
-  SPEED 350 MM/S ALWAYS
+  SPEED 650 MM/S ALWAYS
   ACCURACY 50 ALWAYS
   ;
   JMOVE .#safe
@@ -2168,7 +2251,7 @@ N_INT200    "s.pr.a.home"
     SIGNAL -eo.shelf.unlock[.shelf.no]
     SIGNAL -eo.shelf.opened[.shelf.no]
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .end + TRANS (20, 0, -350)
     LMOVE .#safe
@@ -2182,7 +2265,7 @@ N_INT200    "s.pr.a.home"
     LMOVE .start + TRANS (20, 0, 0)
     BREAK
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .start + TRANS (20, 0, -100)
     LMOVE .start + TRANS (-100, 0, -100)
@@ -2191,6 +2274,7 @@ N_INT200    "s.pr.a.home"
     ;
     RETURN
   END
+  SIGNAL -eo.lidar.small
   ;
 .END
 .PROGRAM shelf.close.par (.shelf.no)
@@ -2205,7 +2289,7 @@ N_INT200    "s.pr.a.home"
   POINT .start = #shelf.close.par[.shelf.no, 1]
   POINT .end = #shelf.close.par[.shelf.no, 2]
   ;
-  SPEED 350 MM/S ALWAYS
+  SPEED 650 MM/S ALWAYS
   ACCURACY 50 ALWAYS
   ;
   JMOVE .#safe
@@ -2239,7 +2323,7 @@ N_INT200    "s.pr.a.home"
     SIGNAL -eo.shelf.unlock[.shelf.no]
     SIGNAL -eo.shelf.opened[.shelf.no]
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .end + TRANS (20, 0, -350)
     LMOVE .#safe
@@ -2253,7 +2337,7 @@ N_INT200    "s.pr.a.home"
     LMOVE .start + TRANS (20, 0, 0)
     BREAK
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .start + TRANS (20, 0, -100)
     LMOVE .start + TRANS (-100, 0, -100)
@@ -2263,6 +2347,7 @@ N_INT200    "s.pr.a.home"
     RETURN
   END
   ;
+  SIGNAL -eo.lidar.small
 .END
 .PROGRAM shelf.open (.shelf.no,.gripper.type)
   ;
@@ -2289,7 +2374,7 @@ N_INT200    "s.pr.a.home"
   POINT .start = #shelf.open.dbl[.shelf.no, 1]
   POINT .end = #shelf.open.dbl[.shelf.no, 2]
   ;
-  SPEED 350 MM/S ALWAYS
+  SPEED 650 MM/S ALWAYS
   ACCURACY 50 ALWAYS
   ;
   JMOVE .#safe
@@ -2322,7 +2407,7 @@ N_INT200    "s.pr.a.home"
     SIGNAL -eo.shelf.unlock[.shelf.no]
     SIGNAL eo.shelf.opened[.shelf.no]
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .end + TRANS (20, 0, -100)
     LMOVE .end + TRANS (-200, 0, -100)
@@ -2337,7 +2422,7 @@ N_INT200    "s.pr.a.home"
     LMOVE .start + TRANS (20, 0, 0)
     BREAK
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .start + TRANS (20, 0, -350)
     JMOVE .#safe
@@ -2345,6 +2430,7 @@ N_INT200    "s.pr.a.home"
     ;
     RETURN
   END
+  SIGNAL -eo.lidar.small
   ;
 .END
 .PROGRAM shelf.open.par (.shelf.no)
@@ -2359,7 +2445,7 @@ N_INT200    "s.pr.a.home"
   POINT .start = #shelf.open.par[.shelf.no, 1]
   POINT .end = #shelf.open.par[.shelf.no, 2]
   ;
-  SPEED 350 MM/S ALWAYS
+  SPEED 650 MM/S ALWAYS
   ACCURACY 50 ALWAYS
   ;
   JMOVE .#safe
@@ -2392,7 +2478,7 @@ N_INT200    "s.pr.a.home"
     SIGNAL -eo.shelf.unlock[.shelf.no]
     SIGNAL eo.shelf.opened[.shelf.no]
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .end + TRANS (20, 0, -100)
     LMOVE .end + TRANS (-200, 0, -100)
@@ -2407,7 +2493,7 @@ N_INT200    "s.pr.a.home"
     LMOVE .start + TRANS (20, 0, 0)
     BREAK
     ;
-    SPEED 350 MM/S ALWAYS
+    SPEED 650 MM/S ALWAYS
     ACCURACY 50 ALWAYS
     LMOVE .start + TRANS (20, 0, -350)
     JMOVE .#safe
@@ -2415,6 +2501,7 @@ N_INT200    "s.pr.a.home"
     ;
     RETURN
   END
+  SIGNAL -eo.lidar.small
   ;
 .END
 .PROGRAM state0 () ; Initialization
@@ -2435,6 +2522,7 @@ N_INT200    "s.pr.a.home"
   SIGNAL -s.clean.req
   SIGNAL -s.inside.cnc
   SIGNAL -s.shelf.failed
+  SIGNAL -o.debug
   current.shelf = 5
   ;
   state = 1
@@ -2447,7 +2535,7 @@ N_INT200    "s.pr.a.home"
   WHILE TRUE DO
     IF NOT SIG (ei.task.start) THEN
       CALL log ("Task signal was turned off by operator")
-      state = 255
+      state = 0
       RETURN
     END
     ;
@@ -2481,13 +2569,8 @@ N_INT200    "s.pr.a.home"
       current.wp    = 1
       processed.wp  = 0
       ;
-      CALL log("Send clean signal command")
       SIGNAL -s.clean.req
-      ;
       CALL get.task.data
-      ;
-      ; To clean cnc chuck before put???
-      PULSE eo.cnc.mfinish, 1
       ;
       state = 99
       RETURN
@@ -2597,7 +2680,7 @@ N_INT200    "s.pr.a.home"
     END
     ;
     ; Send MFINISH
-    IF rin AND cnc.full AND mfinish THEN
+    IF rout AND cnc.full AND mfinish THEN
       state = 116
       RETURN
     END
@@ -2633,15 +2716,15 @@ N_INT200    "s.pr.a.home"
       RETURN
     END
     ;
-    ; Move outside cnc.in
-    IF rin AND (gp.dbl.empty[1] AND cnc.full OR gp.dbl.full[2] AND cnc.empty) THEN
-      state = 115
-      RETURN
-    END
     ;
     ; Pick detail from CNC
     IF rin AND gp.dbl.empty[2] AND cnc.wp2 THEN
       state = 114
+      RETURN
+    END
+    ; Move outside cnc.in
+    IF rin AND (gp.dbl.empty[1] AND cnc.full OR gp.dbl.full[2] AND cnc.empty) THEN
+      state = 115
       RETURN
     END
     ;
@@ -2979,6 +3062,8 @@ N_INT200    "s.pr.a.home"
   ;
   CALL log ("State 211: Pick workpiece from shelf")
   ;
+  CALL log ("Send clean signal command")
+  PULSE eo.cnc.mfinish, 1
   ;IF NOT SIG (do.home) THEN
   ;  HOME
   ;END
@@ -2998,33 +3083,7 @@ N_INT200    "s.pr.a.home"
   ;
   HOME
   ;
-  CALL log ("Send clean signal command")
-  PULSE eo.cnc.mfinish, 1
-  TWAIT 1
-  SWAIT ei.cnc.ready
-  ;
-  IF chg.required THEN
-    IF shaft.rotate THEN
-      CALL cnc.in.shaft (TRUE)
-    ELSE
-      IF gp.prl.full THEN
-        CALL cnc.in.shaft (TRUE)
-      ELSE
-        CALL cnc.in.shaft (FALSE)
-      END
-    END
-  ELSE
-    IF shaft.rotate THEN
-      IF gp.prl.full THEN
-        CALL cnc.in.shaft (FALSE)
-      ELSE
-        CALL cnc.in.shaft (TRUE)
-      END
-    ELSE
-      CALL cnc.in.shaft (FALSE)
-    END
-  END
-  ;CALL cnc.in.shaft (chg.required OR shaft.rotate)
+  CALL cnc.in.shaft (FALSE)
   ;
   state = decision.state
   RETURN
@@ -3052,28 +3111,7 @@ N_INT200    "s.pr.a.home"
   ;
   CALL log ("State 215: Move outside CNC")
   ;
-  IF chg.required THEN
-    IF shaft.rotate THEN
-      CALL cnc.out.shaft (TRUE)
-    ELSE
-      IF gp.prl.full THEN
-        CALL cnc.out.shaft (FALSE)
-      ELSE
-        CALL cnc.out.shaft (TRUE)
-      END
-    END
-  ELSE
-    IF shaft.rotate THEN
-      IF gp.prl.full THEN
-        CALL cnc.out.shaft (TRUE)
-      ELSE
-        CALL cnc.out.shaft (FALSE)
-      END
-    ELSE
-      CALL cnc.out.shaft (FALSE)
-    END
-  END
-  ;CALL cnc.out.shaft(shaft.rotate)
+  CALL cnc.out.shaft (FALSE)
   ;
   state = decision.state
   RETURN
@@ -3140,6 +3178,8 @@ N_INT200    "s.pr.a.home"
   IF NOT wp.type.shaft THEN
     CALL log ("Work with bushing detail type")
     decision.type = 100
+    CALL log ("Send clean signal command")
+    PULSE eo.cnc.mfinish, 1
   ELSE
     CALL log ("Work with shaft detail type")
     decision.type = 200
@@ -3193,26 +3233,28 @@ N_INT200    "s.pr.a.home"
   .cncc.full = hmi.cnc.ch.full
   .cncc.body = hmi.cnc.ch.work
   ;
+  .zappro = .cncc.full + 10
+  ;
   TOOL t.gripper[.grip.no]
   CALL calc.rot.dbl (.grip.no)
   ;
   JMOVE #cnc.out
   LMOVE #cnc.in
   ;
-  LAPPRO #cnc.point.bush[hmi.task.no, .grip.no], 50
+  LAPPRO #cnc.point.bush[hmi.task.no, .grip.no], .zappro
   ; Teach this point 
   BREAK
   LMOVE #cnc.point.bush[hmi.task.no, .grip.no]  ; **== TEACH POINT ==**
-  LAPPRO #cnc.point.bush[hmi.task.no, .grip.no], 50
+  LAPPRO #cnc.point.bush[hmi.task.no, .grip.no], .zappro
   ;
   POINT .temp = #cnc.point.bush[hmi.task.no, .grip.no]
   .zshift = .gc.body + .cncc.body + hmi.bush.length
   POINT cnc.point.bush[hmi.task.no, .grip.no] = .temp + TRANS (, , .zshift)
   ;
   POINT .temp = cnc.point.bush[hmi.task.no, .grip.no] + TRANS (, , -.zshift)
-  LAPPRO .temp, 50
+  LAPPRO .temp, .zappro
   LMOVE .temp
-  LAPPRO .temp, 50
+  LAPPRO .temp, .zappro
   ;
 .END
 .PROGRAM tch.cnc.dbl.app ()
@@ -3234,29 +3276,34 @@ N_INT200    "s.pr.a.home"
   .cncc.full = hmi.cnc.ch.full
   .cncc.body = hmi.cnc.ch.work
   ;
+  .zshift = .gc.len - .gc.body;
+  IF chg.required THEN
+    .yshift = .cncc.body + hmi.shaft.full - hmi.shaft.pick - hmi.cnc.ch.dpth
+  ELSE
+    .yshift = .cncc.body + hmi.shaft.pick - hmi.cnc.ch.dpth
+  END
+  .yappro = .cncc.body + hmi.cnc.ch.dpth + 80
+  ;
   TOOL t.gripper[3]
   CALL calc.rot.prl (FALSE)
-  ;
   JMOVE #cnc.out
   LMOVE #cnc.in
   ;
   POINT .t = #cnc.point.shaft[hmi.task.no]
-  POINT .t = .t + TRANS(0,150,0)
+  POINT .t = .t + TRANS (0, .yappro, 0)
   LMOVE .t
-  ; Teach this point 
+  ; Teach this point
   BREAK
   LMOVE #cnc.point.shaft[hmi.task.no]  ; **== TEACH POINT ==**
   POINT .t = #cnc.point.shaft[hmi.task.no]
-  POINT .t = .t + TRANS(0,150,0)
+  POINT .t = .t + TRANS (0, .yappro, 0)
   LMOVE .t
   ;
   POINT .temp = #cnc.point.shaft[hmi.task.no]
-  .zshift = .gc.len - .gc.body;
-  .yshift = hmi.cnc.ch.work + hmi.shaft.pick
   POINT cnc.point.shaft[hmi.task.no] = .temp + TRANS (, -.yshift, .zshift)
   ;
   POINT .temp = cnc.point.shaft[hmi.task.no] + TRANS (, .yshift, -.zshift)
-  POINT .temp.appro = .temp + TRANS(0, 150, 0 )
+  POINT .temp.appro = .temp + TRANS (0, .yappro, 0 )
   LMOVE .temp.appro
   LMOVE .temp
   LMOVE .temp.appro
@@ -3739,6 +3786,7 @@ N_INT200    "s.pr.a.home"
   CALL log ("Bush put")
   gripper.dbl.id[.grip.no] = 0
   gripper.dbl.st[.grip.no] = -1
+  processed.wp  = processed.wp + 1
   ;
   SPEED 80 MM/S
   ACCURACY 0.1
@@ -3759,7 +3807,7 @@ N_INT200    "s.pr.a.home"
   CALL id.to.ij.shaft (.wp.id, .i, .j)
     ;
   IF chg.required THEN
-    .rz = 180
+    .rz = -180
   ELSE
     .rz = 0
   END
@@ -3782,14 +3830,20 @@ N_INT200    "s.pr.a.home"
   POINT .pick = .pick + TRANS (0, 0, -.dz)
   POINT .pick = .pick + RZ(.rz)
   ;
+  POINT .#pick = .pick, #wp.shaft.safe
+  DECOMPOSE .jt[1] = .#pick
+  IF .jt[6] < -200 THEN
+    POINT .#pick = #PPOINT(.jt[1], .jt[2], .jt[3], .jt[4], .jt[5], .jt[6] + 360)
+  END
+  ;
   JMOVE #wp.shaft.safe
   ;
   ; Pick workpiece
   ACCURACY 0.1
-  LAPPRO .pick, .z.appro
+  LAPPRO .#pick, .z.appro
   SPEED 30 MM/S
   ACCURACY 0.1
-  LMOVE .pick
+  LMOVE .#pick
   BREAK
   CALL gripper.close (grip.no.par[1], gp.par.cl.tmr, FALSE)
   CALL log ("Shaft picked")
@@ -3798,7 +3852,7 @@ N_INT200    "s.pr.a.home"
   ;
   SPEED 80 MM/S
   ACCURACY 0.1
-  LAPPRO .pick, .z.appro
+  LAPPRO .#pick, .z.appro
   JMOVE #wp.shaft.safe
   ;
 .END
@@ -3813,11 +3867,21 @@ N_INT200    "s.pr.a.home"
   CALL set.tool (grip.no.par[1])
   CALL id.to.ij.shaft (.wp.id, .i, .j)
   ;
-  .dx = plt.dx * .i
-  .dy = plt.dy * .j + shaft.wp0.l2 + shaft.wp0.l3 - cond.stp.oy
-  .dz = shaft.wp0.h + gr.prl.full[2] - gr.prl.work[2]
+  IF shaft.rotate THEN
+    .rz = -180
+    .dir = -1
+    .shaft.l = shaft.wp2.l1 - shaft.wp2.l2
+  ELSE
+    .rz = 0
+    .dir = 1
+    .shaft.l = shaft.wp2.l2
+  END
   ;
-  .z.appro = shaft.wp0.h + 20
+  .dx = plt.dx * .i
+  .dy = plt.dy * .j + shaft.wp2.l2 + shaft.wp2.l3 - cond.stp.oy
+  .dz = shaft.wp2.h + gr.prl.full[2] - gr.prl.work[2]
+  ;
+  .z.appro = shaft.wp2.h + 20
   ;
   POINT .p0 = origin.shaft[.shelf.no, task.id]
   POINT .x.norm = x.norm.shaft[.shelf.no, task.id]
@@ -3829,9 +3893,21 @@ N_INT200    "s.pr.a.home"
   POINT .put = .origin + .x.vec + .y.vec
   POINT/OAT .put = .p0
   POINT .put = .put + TRANS (0, 0, -.dz)
-  POINT .put.appro = .put + TRANS (0, 5, 0)
+  POINT .put = .put + RZ(.rz)
+  ;
+  POINT .#put = .put, #wp.shaft.safe
+  DECOMPOSE .jt[1] = .#put
+  IF .jt[6] < -200 THEN
+    POINT .#put = #PPOINT (.jt[1], .jt[2], .jt[3], .jt[4], .jt[5], .jt[6] + 360)
+  END
+  ;
+  POINT .put.appro = .put + TRANS (0, .dir*5, 0)
   ;
   JMOVE #wp.shaft.safe
+  IF shaft.rotate THEN
+    DECOMPOSE .jt[1] = #wp.shaft.safe
+    JMOVE #PPOINT (.jt[1], .jt[2], .jt[3], .jt[4], .jt[5], .jt[6] +180)
+  END
   ;
   ; Pick workpiece
   ACCURACY 0.1
@@ -3839,16 +3915,17 @@ N_INT200    "s.pr.a.home"
   SPEED 30 MM/S
   ACCURACY 0.1
   LMOVE .put.appro
-  LMOVE .put
+  LMOVE .#put
   BREAK
-  CALL gripper.open(grip.no.par[1], gp.par.op.tmr, FALSE)
+  CALL gripper.open (grip.no.par[1], gp.par.op.tmr, FALSE)
   CALL log ("Shaft put")
   gripper.prl.id = 0
   gripper.prl.st = -1
+  processed.wp  = processed.wp + 1
   ;
   SPEED 80 MM/S
   ACCURACY 0.1
-  LAPPRO .put, .z.appro
+  LAPPRO .#put, .z.appro
   JMOVE #wp.shaft.safe
   ;
 .END
@@ -3858,13 +3935,20 @@ N_INT200    "s.pr.a.home"
 	; LoadWizardAreopag
 	; @@@ HISTORY @@@
 	; @@@ INSPECTION @@@
-	; task.id
-	; gp.dbl.cl.tmr[1]
-	; ei.dbl.gp.o.tmr[1,0]
-	; gp.dbl.op.tmr[2]
-	; gp.dbl.cl.tmr[2]
-	; bush.wp0.len
-	; gr.dbl.work[1]
+	; shaft.wp0.l2
+	; shaft.wp0.l3
+	; shaft.wp0.h
+	; plt.dy
+	; plt.dx
+	; cond.stp.oy
+	; cnc.through
+	; s.cnc.through
+	; d.cnc.through
+	; gripper.prl.st
+	; eo.gr.prl.wp0
+	; eo.gr.dbl.wp0[1]
+	; chg.required
+	; hmi.cnc.ch.work
 	; @@@ CONNECTION @@@
 	; Standard 1
 	; 192.168.0.2
@@ -4013,6 +4097,7 @@ N_INT200    "s.pr.a.home"
 	;       .$temp 
 	;       .i 
 	;       .j 
+	;       .rz 
 	;       .dx 
 	;       .dy 
 	;       .dz 
@@ -4024,12 +4109,17 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .pick 
+	;       .#pick 
+	;       .jt 
 	;     7:wp.prl.put:F
 	;       .shelf.no 
 	;       .wp.id 
 	;       .$temp 
 	;       .i 
 	;       .j 
+	;       .rz 
+	;       .dir 
+	;       .shaft.l 
 	;       .dx 
 	;       .dy 
 	;       .dz 
@@ -4041,10 +4131,13 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .origin 
 	;       .put 
+	;       .#put 
+	;       .jt 
 	;       .put.appro 
 	;     7:tst.wp.prl.put:F
 	;   Group:Workpiece.Bushing:8
 	;     8:tst.wp.dbl.pick:F
+	;       .tool.no 
 	;       .i 
 	;     8:wp.dbl.pick:F
 	;       .grip.no 
@@ -4083,6 +4176,7 @@ N_INT200    "s.pr.a.home"
 	;       .origin 
 	;       .put 
 	;     8:tst.wp.dbl.put:F
+	;       .tool.no 
 	;       .i 
 	;   Group:Buffer:9
 	;     9:tch.buffer.flip:F
@@ -4121,6 +4215,7 @@ N_INT200    "s.pr.a.home"
 	;       .gc.body 
 	;       .cncc.full 
 	;       .cncc.body 
+	;       .zappro 
 	;       .temp 
 	;       .zshift 
 	;     11:tst.cnc.bushing:F
@@ -4149,16 +4244,15 @@ N_INT200    "s.pr.a.home"
 	;       .gc.body 
 	;       .cncc.full 
 	;       .cncc.body 
-	;       .t 
-	;       .temp 
 	;       .zshift 
 	;       .yshift 
+	;       .t 
+	;       .temp 
 	;       .temp.appro 
 	;     12:cnc.put.shaft:F
 	;       .$temp 
 	;       .shaft.l 
-	;       .rz 
-	;       .dir 
+	;       .cnc.depth 
 	;       .gc.len 
 	;       .gc.body 
 	;       .cncc.full 
@@ -4174,6 +4268,7 @@ N_INT200    "s.pr.a.home"
 	;       .shaft.l 
 	;       .rz 
 	;       .dir 
+	;       .cnc.depth 
 	;       .gc.len 
 	;       .gc.body 
 	;       .cncc.full 
@@ -4199,7 +4294,7 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .y.norm 
 	;       .draw 
-	;     13:copy.buff:F
+	;     13:copy.buff.dbg:F
 	;       .i 
 	;     13:prep.points.dbl:F
 	;       .b 
@@ -4218,6 +4313,17 @@ N_INT200    "s.pr.a.home"
 	;     13:prep.shelf:F
 	;       .i 
 	;     13:copy.cnc.debug:F
+	;       .grip.no 
+	;       .i 
+	;       .gc.full 
+	;       .gc.body 
+	;       .cncc.full 
+	;       .cncc.body 
+	;       .temp 
+	;       .zshift 
+	;       .gc.len 
+	;       .t 
+	;       .yshift 
 	;   Group:Grippers:14
 	;     14:gripper.open:F
 	;       .gripper.no 
@@ -4282,15 +4388,6 @@ N_INT200    "s.pr.a.home"
 	;       .source 
 	;       .dest 
 	;       .i 
-	;       .p0 
-	;       .px 
-	;       .py 
-	;       .cx 
-	;       .x.vec 
-	;       .x.norm 
-	;       .cy 
-	;       .y.vec 
-	;       .y.norm 
 	;     16:copy.plate.bush:F
 	;       .source 
 	;       .dest 
@@ -4306,6 +4403,9 @@ N_INT200    "s.pr.a.home"
 	;       .y.vec 
 	;       .y.norm 
 	;     16:copy.cnc:F
+	;       .source 
+	;       .dest 
+	;     16:copy.buff:F
 	;       .source 
 	;       .dest 
 	;   Group:Log:17
@@ -4448,8 +4548,6 @@ N_INT200    "s.pr.a.home"
 	; gr.dbl.full[] 
 	; gr.dbl.inv[] 
 	; gr.dbl.work[] 
-	; gr.prl.full 
-	; gr.prl.work 
 	; hmi.cond.cx 
 	; hmi.cond.cy 
 	; hmi.wp.id 
@@ -4523,6 +4621,12 @@ N_INT200    "s.pr.a.home"
 	; chg.overshoot 
 	; max.trace.count 
 	; hmi.task.copy 
+	; hmi.cnc.ch.dpth 
+	; cnc.pick.ovr 
+	; cnc.put.dpth 
+	; cnc.through 
+	; gr.prl.full[] 
+	; gr.prl.work[] 
 	; @@@ STRINGS @@@
 	; $log.entry[] 
 	; $safe.flag 
@@ -4630,6 +4734,7 @@ N_INT200    "s.pr.a.home"
 	; eo.task.exec 
 	; eo.wp.processed[] 
 	; o.debug 
+	; s.copy.buff 
 	; d.task.id[] 
 	; s.grip.open[] 
 	; s.grip.close[] 
@@ -4678,6 +4783,12 @@ N_INT200    "s.pr.a.home"
 	; s.type.shaft 
 	; s.copy.plate 
 	; s.copy.cnc 
+	; d.cnc.pick.ovr[] 
+	; d.cnc.put.dpth[] 
+	; d.cnc.through 
+	; s.cnc.through 
+	; d.pick.stub 
+	; s.pick.stub 
 	; @@@ TOOLS @@@
 	; t.calib[] 
 	; t.pin[] 
@@ -4747,7 +4858,7 @@ x.norm.shaft[4,1] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
 y.norm.shaft[2,1] -1.000000 -0.000011 0.000802 0.000000 0.000000 0.000000
 y.norm.shaft[3,1] -0.999999 -0.000019 -0.001525 0.000000 0.000000 0.000000
 y.norm.shaft[4,1] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
-origin.shaft[1,2] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
+origin.shaft[1,2] 1013.180664 549.690674 121.598557 91.736900 89.956062 0.119376
 origin.shaft[1,3] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
 origin.shaft[1,4] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
 origin.shaft[1,5] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
@@ -4766,7 +4877,7 @@ origin.shaft[1,17] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.9297
 origin.shaft[1,18] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
 origin.shaft[1,19] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
 origin.shaft[1,20] 1015.754700 466.565155 8.739868 118.673637 179.923920 26.929728
-origin.shaft[2,2] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
+origin.shaft[2,2] 1013.031250 549.635254 -54.249542 91.733627 89.960106 0.117328
 origin.shaft[2,3] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
 origin.shaft[2,4] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
 origin.shaft[2,5] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
@@ -4785,7 +4896,7 @@ origin.shaft[2,17] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.0
 origin.shaft[2,18] 1015.926941 466.465515 -167.013336 122.815300 179.928116 31.085442
 origin.shaft[2,19] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
 origin.shaft[2,20] 1015.926941 466.465546 -167.013306 122.813416 179.928116 31.082466
-origin.shaft[3,2] 1015.941467 466.468323 -347.057709 122.534630 179.927094 30.806219
+origin.shaft[3,2] 1092.340088 199.183212 -233.394379 0.932614 89.667175 -0.015230
 origin.shaft[3,3] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
 origin.shaft[3,4] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
 origin.shaft[3,5] 1015.934631 466.461731 -347.063843 122.985237 179.927002 31.257132
@@ -4804,7 +4915,7 @@ origin.shaft[3,17] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.2
 origin.shaft[3,18] 1015.938965 466.462097 -347.063843 122.504501 179.927322 30.774223
 origin.shaft[3,19] 1015.934631 466.461731 -347.063843 122.985123 179.927002 31.254816
 origin.shaft[3,20] 1015.941467 466.468323 -347.057739 122.533783 179.927094 30.803167
-origin.shaft[4,2] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
+origin.shaft[4,2] 1012.701111 549.514404 -414.256226 91.734863 89.959770 0.118985
 origin.shaft[4,3] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,4] 1015.885254 466.407471 -527.114990 126.656242 179.925903 34.927227
 origin.shaft[4,5] 1015.885254 466.407471 -527.114990 126.656273 179.925903 34.929482
@@ -4823,7 +4934,7 @@ origin.shaft[4,17] 1015.889832 466.401367 -527.111511 126.532913 179.926025 34.8
 origin.shaft[4,18] 1015.880981 466.407227 -527.114990 127.096596 179.925522 35.367599
 origin.shaft[4,19] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
 origin.shaft[4,20] 1015.885559 466.401154 -527.111450 126.973793 179.925644 35.245140
-x.norm.shaft[1,2] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
+x.norm.shaft[1,2] 0.000404 -1.000000 0.000190 0.000000 0.000000 0.000000
 x.norm.shaft[1,3] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
 x.norm.shaft[1,4] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
 x.norm.shaft[1,5] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
@@ -4842,7 +4953,7 @@ x.norm.shaft[1,17] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
 x.norm.shaft[1,18] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
 x.norm.shaft[1,19] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
 x.norm.shaft[1,20] 0.000822 -1.000000 0.000116 0.000000 0.000000 0.000000
-x.norm.shaft[2,2] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
+x.norm.shaft[2,2] 0.000461 -0.999999 0.001137 0.000000 0.000000 0.000000
 x.norm.shaft[2,3] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
 x.norm.shaft[2,4] 0.000415 -1.000000 0.000603 0.000000 0.000000 0.000000
 x.norm.shaft[2,5] 0.000413 -1.000000 0.000586 0.000000 0.000000 0.000000
@@ -4861,7 +4972,7 @@ x.norm.shaft[2,17] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
 x.norm.shaft[2,18] 0.000409 -1.000000 0.000575 0.000000 0.000000 0.000000
 x.norm.shaft[2,19] 0.000422 -1.000000 0.000601 0.000000 0.000000 0.000000
 x.norm.shaft[2,20] 0.000415 -1.000000 0.000603 0.000000 0.000000 0.000000
-x.norm.shaft[3,2] 0.000416 -0.999999 0.001024 0.000000 0.000000 0.000000
+x.norm.shaft[3,2] -0.840487 0.541568 -0.016902 0.000000 0.000000 0.000000
 x.norm.shaft[3,3] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
 x.norm.shaft[3,4] 0.000416 -0.999999 0.001036 0.000000 0.000000 0.000000
 x.norm.shaft[3,5] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
@@ -4880,7 +4991,7 @@ x.norm.shaft[3,17] 0.000437 -0.999999 0.001042 0.000000 0.000000 0.000000
 x.norm.shaft[3,18] 0.000423 -0.999999 0.001042 0.000000 0.000000 0.000000
 x.norm.shaft[3,19] 0.000443 -0.999999 0.001053 0.000000 0.000000 0.000000
 x.norm.shaft[3,20] 0.000416 -0.999999 0.001024 0.000000 0.000000 0.000000
-x.norm.shaft[4,2] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
+x.norm.shaft[4,2] 0.000577 -0.999998 0.001797 0.000000 0.000000 0.000000
 x.norm.shaft[4,3] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
 x.norm.shaft[4,4] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
 x.norm.shaft[4,5] 0.000365 -0.999999 0.001197 0.000000 0.000000 0.000000
@@ -4899,7 +5010,7 @@ x.norm.shaft[4,17] 0.000351 -0.999999 0.001186 0.000000 0.000000 0.000000
 x.norm.shaft[4,18] 0.000378 -0.999999 0.001197 0.000000 0.000000 0.000000
 x.norm.shaft[4,19] 0.000364 -0.999999 0.001186 0.000000 0.000000 0.000000
 x.norm.shaft[4,20] 0.000364 -0.999999 0.001186 0.000000 0.000000 0.000000
-y.norm.shaft[1,2] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
+y.norm.shaft[1,2] -1.000000 -0.000453 0.000852 0.000000 0.000000 0.000000
 y.norm.shaft[1,3] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
 y.norm.shaft[1,4] -1.000000 -0.000490 0.000088 0.000000 0.000000 0.000000
 y.norm.shaft[1,5] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
@@ -4918,7 +5029,7 @@ y.norm.shaft[1,17] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
 y.norm.shaft[1,18] -1.000000 -0.000490 0.000088 0.000000 0.000000 0.000000
 y.norm.shaft[1,19] -1.000000 -0.000491 0.000102 0.000000 0.000000 0.000000
 y.norm.shaft[1,20] -1.000000 -0.000503 0.000088 0.000000 0.000000 0.000000
-y.norm.shaft[2,2] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
+y.norm.shaft[2,2] -0.999998 -0.000395 0.001948 0.000000 0.000000 0.000000
 y.norm.shaft[2,3] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
 y.norm.shaft[2,4] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
 y.norm.shaft[2,5] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
@@ -4937,7 +5048,7 @@ y.norm.shaft[2,17] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
 y.norm.shaft[2,18] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
 y.norm.shaft[2,19] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
 y.norm.shaft[2,20] -1.000000 -0.000005 0.000799 0.000000 0.000000 0.000000
-y.norm.shaft[3,2] -0.999999 -0.000010 -0.001529 0.000000 0.000000 0.000000
+y.norm.shaft[3,2] -0.863241 0.504789 -0.001412 0.000000 0.000000 0.000000
 y.norm.shaft[3,3] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
 y.norm.shaft[3,4] -0.999999 -0.000014 -0.001525 0.000000 0.000000 0.000000
 y.norm.shaft[3,5] -0.999999 -0.000013 -0.001529 0.000000 0.000000 0.000000
@@ -4956,7 +5067,7 @@ y.norm.shaft[3,17] -0.999999 -0.000002 -0.001517 0.000000 0.000000 0.000000
 y.norm.shaft[3,18] -0.999999 -0.000019 -0.001525 0.000000 0.000000 0.000000
 y.norm.shaft[3,19] -0.999999 0.000004 -0.001520 0.000000 0.000000 0.000000
 y.norm.shaft[3,20] -0.999999 -0.000031 -0.001537 0.000000 0.000000 0.000000
-y.norm.shaft[4,2] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
+y.norm.shaft[4,2] -0.999999 -0.000187 -0.001344 0.000000 0.000000 0.000000
 y.norm.shaft[4,3] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
 y.norm.shaft[4,4] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
 y.norm.shaft[4,5] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
@@ -4975,12 +5086,12 @@ y.norm.shaft[4,17] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
 y.norm.shaft[4,18] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
 y.norm.shaft[4,19] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
 y.norm.shaft[4,20] -0.999996 -0.000019 -0.002708 0.000000 0.000000 0.000000
-cnc.point.bush[1,2] -1389.093750 91.659020 202.927600 -90.005960 88.587100 -35.372470
-cnc.point.bush[1,1] -1389.093750 91.659020 202.927600 -90.005960 88.587100 -35.372470
+cnc.point.bush[1,2] -1389.093750 91.659019 202.927597 -90.005959 88.587105 -35.372467
+cnc.point.bush[1,1] -1389.093750 91.659019 202.927597 -90.005959 88.587105 -35.372467
 t.gripper[1] 0.000000 -83.300003 166.000000 -90.000008 90.000008 180.000000
 t.gripper[2] 0.000000 83.300003 166.000000 90.000008 90.000008 -180.000000
-origin.bush[1,2,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.337723
-origin.bush[1,2,2] 1018.465393 518.223694 14.198700 28.688492 178.810989 -89.819084
+origin.bush[1,2,1] 1009.249634 529.434387 109.793510 133.846252 179.489090 15.394087
+origin.bush[1,2,2] 1008.834839 531.174194 258.481171 110.533905 1.276833 -171.991196
 origin.bush[1,3,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121490
 origin.bush[1,3,2] 1018.459351 518.235840 14.191696 28.698286 178.811340 -89.809998
 origin.bush[1,4,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121490
@@ -5004,8 +5115,8 @@ origin.bush[1,19,1] 1015.689331 516.724609 14.199783 31.170809 179.928207 -87.33
 origin.bush[1,20,1] 1015.691406 516.726563 14.198624 31.387671 179.928177 -87.121490
 origin.bush[2,1,1] 1015.901917 516.645874 -161.682892 28.912294 179.940903 -89.595833
 origin.bush[2,1,2] 1018.699036 518.148804 -161.076950 28.540136 178.824661 -89.965782
-origin.bush[2,2,1] 1015.916443 516.642334 -161.084213 27.810364 179.941406 -90.696922
-origin.bush[2,2,2] 1018.700806 518.148132 -161.074722 28.515169 178.824722 -89.991089
+origin.bush[2,2,1] 1014.491150 518.495789 -84.284943 135.336578 179.919937 16.808132
+origin.bush[2,2,2] 1013.250488 517.550171 82.871956 -147.449570 1.095750 85.974991
 origin.bush[2,3,1] 1015.918213 516.644531 -161.085800 28.171822 179.941391 -90.336044
 origin.bush[2,3,2] 1018.698120 518.153625 -161.076614 28.501795 178.823822 -90.004242
 origin.bush[2,4,1] 1015.912842 516.648499 -161.087723 27.900974 179.941574 -90.606651
@@ -5029,8 +5140,8 @@ origin.bush[2,19,1] 1015.918213 516.644531 -161.085800 28.171822 179.941391 -90.
 origin.bush[2,20,1] 1015.912903 516.643738 -161.088654 28.821287 179.941315 -89.685318
 origin.bush[3,1,1] 1015.888977 516.581055 -342.424438 27.194078 179.946503 -91.313568
 origin.bush[3,1,2] 1018.674744 518.087646 -342.410706 28.464401 178.829575 -90.042656
-origin.bush[3,2,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
-origin.bush[3,2,2] 1018.680115 518.089111 -342.408569 28.441908 178.829651 -90.066483
+origin.bush[3,2,1] 1014.351196 518.393250 -265.004333 136.934570 179.915665 18.403851
+origin.bush[3,2,2] 1013.110107 517.445740 -98.439339 -147.253860 1.093289 85.783165
 origin.bush[3,3,1] 1015.889221 516.585083 -342.417908 27.294655 179.946167 -91.213135
 origin.bush[3,3,2] 1018.674744 518.087646 -342.410706 28.464401 178.829575 -90.042656
 origin.bush[3,4,1] 1015.893188 516.584229 -342.413879 26.300030 179.946243 -92.208549
@@ -5054,8 +5165,8 @@ origin.bush[3,19,1] 1015.890625 516.587280 -342.419800 27.769564 179.946152 -90.
 origin.bush[3,20,1] 1015.894653 516.586487 -342.415802 26.774857 179.946243 -91.734261
 origin.bush[4,1,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
 origin.bush[4,1,2] 1018.701294 518.105774 -522.025208 28.504139 178.828964 -90.006256
-origin.bush[4,2,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
-origin.bush[4,2,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
+origin.bush[4,2,1] 1014.258423 518.356995 -444.603058 134.760803 179.911972 16.225708
+origin.bush[4,2,2] 1013.017395 517.395752 -278.036804 -147.022797 1.095933 85.556511
 origin.bush[4,3,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
 origin.bush[4,3,2] 1018.700317 518.101196 -522.031494 28.498991 178.829285 -90.011253
 origin.bush[4,4,1] 1015.910522 516.603760 -522.043945 28.077717 179.946381 -90.433525
@@ -5077,8 +5188,8 @@ origin.bush[4,17,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.
 origin.bush[4,18,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
 origin.bush[4,19,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
 origin.bush[4,20,1] 1015.915466 516.597534 -522.040283 27.975885 179.946198 -90.535004
-x.norm.bush[1,2,1] 0.001018 -0.999999 0.000033 0.000000 0.000000 0.000000
-x.norm.bush[1,2,2] 0.002798 -0.999996 0.000186 0.000000 0.000000 0.000000
+x.norm.bush[1,2,1] 0.000047 -0.999957 0.009298 0.000000 0.000000 0.000000
+x.norm.bush[1,2,2] -0.003251 -0.999977 0.005900 0.000000 0.000000 0.000000
 x.norm.bush[1,3,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
 x.norm.bush[1,3,2] 0.002816 -0.999996 0.000207 0.000000 0.000000 0.000000
 x.norm.bush[1,4,1] 0.000996 -0.999999 0.000037 0.000000 0.000000 0.000000
@@ -5102,8 +5213,8 @@ x.norm.bush[1,19,1] 0.001006 -0.999999 0.000000 0.000000 0.000000 0.000000
 x.norm.bush[1,20,1] 0.001012 -1.000000 0.000037 0.000000 0.000000 0.000000
 x.norm.bush[2,1,1] 0.000522 -1.000000 0.000317 0.000000 0.000000 0.000000
 x.norm.bush[2,1,2] 0.002290 -0.999997 0.001043 0.000000 0.000000 0.000000
-x.norm.bush[2,2,1] 0.000551 -0.999999 0.000928 0.000000 0.000000 0.000000
-x.norm.bush[2,2,2] 0.002285 -0.999997 0.001036 0.000000 0.000000 0.000000
+x.norm.bush[2,2,1] 0.000510 -1.000000 0.000703 0.000000 0.000000 0.000000
+x.norm.bush[2,2,2] -0.000491 -0.999999 0.001352 0.000000 0.000000 0.000000
 x.norm.bush[2,3,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
 x.norm.bush[2,3,2] 0.002293 -0.999997 0.001042 0.000000 0.000000 0.000000
 x.norm.bush[2,4,1] 0.000561 -0.999999 0.000938 0.000000 0.000000 0.000000
@@ -5127,8 +5238,8 @@ x.norm.bush[2,19,1] 0.000546 -0.999999 0.000932 0.000000 0.000000 0.000000
 x.norm.bush[2,20,1] 0.000540 -0.999999 0.000924 0.000000 0.000000 0.000000
 x.norm.bush[3,1,1] 0.000441 -1.000000 0.000055 0.000000 0.000000 0.000000
 x.norm.bush[3,1,2] 0.002200 -0.999998 0.000145 0.000000 0.000000 0.000000
-x.norm.bush[3,2,1] 0.000448 -1.000000 0.000036 0.000000 0.000000 0.000000
-x.norm.bush[3,2,2] 0.002184 -0.999998 0.000139 0.000000 0.000000 0.000000
+x.norm.bush[3,2,1] 0.000472 -1.000000 0.000449 0.000000 0.000000 0.000000
+x.norm.bush[3,2,2] -0.000528 -1.000000 0.000465 0.000000 0.000000 0.000000
 x.norm.bush[3,3,1] 0.000448 -1.000000 0.000036 0.000000 0.000000 0.000000
 x.norm.bush[3,3,2] 0.002200 -0.999998 0.000145 0.000000 0.000000 0.000000
 x.norm.bush[3,4,1] 0.000437 -1.000000 0.000025 0.000000 0.000000 0.000000
@@ -5152,8 +5263,8 @@ x.norm.bush[3,19,1] 0.000444 -1.000000 0.000042 0.000000 0.000000 0.000000
 x.norm.bush[3,20,1] 0.000424 -1.000000 0.000030 0.000000 0.000000 0.000000
 x.norm.bush[4,1,1] 0.000435 -0.999999 -0.001100 0.000000 0.000000 0.000000
 x.norm.bush[4,1,2] 0.002196 -0.999997 -0.001001 0.000000 0.000000 0.000000
-x.norm.bush[4,2,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
-x.norm.bush[4,2,2] 0.002199 -0.999997 -0.000983 0.000000 0.000000 0.000000
+x.norm.bush[4,2,1] 0.000504 -1.000000 -0.000711 0.000000 0.000000 0.000000
+x.norm.bush[4,2,2] -0.000466 -1.000000 -0.000683 0.000000 0.000000 0.000000
 x.norm.bush[4,3,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
 x.norm.bush[4,3,2] 0.002196 -0.999997 -0.000968 0.000000 0.000000 0.000000
 x.norm.bush[4,4,1] 0.000454 -0.999999 -0.001086 0.000000 0.000000 0.000000
@@ -5175,8 +5286,8 @@ x.norm.bush[4,17,1] 0.000435 -0.999999 -0.001100 0.000000 0.000000 0.000000
 x.norm.bush[4,18,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
 x.norm.bush[4,19,1] 0.000440 -0.999999 -0.001097 0.000000 0.000000 0.000000
 x.norm.bush[4,20,1] 0.000445 -0.999999 -0.001093 0.000000 0.000000 0.000000
-y.norm.bush[1,2,1] -1.000000 -0.000939 -0.000107 0.000000 0.000000 0.000000
-y.norm.bush[1,2,2] -1.000000 0.000283 0.000036 0.000000 0.000000 0.000000
+y.norm.bush[1,2,1] -0.999904 0.004059 -0.013276 0.000000 0.000000 0.000000
+y.norm.bush[1,2,2] -0.999928 -0.002280 -0.011801 0.000000 0.000000 0.000000
 y.norm.bush[1,3,1] -1.000000 -0.000938 -0.000097 0.000000 0.000000 0.000000
 y.norm.bush[1,3,2] -1.000000 0.000268 0.000070 0.000000 0.000000 0.000000
 y.norm.bush[1,4,1] -1.000000 -0.000952 -0.000114 0.000000 0.000000 0.000000
@@ -5200,8 +5311,8 @@ y.norm.bush[1,19,1] -1.000000 -0.000933 -0.000107 0.000000 0.000000 0.000000
 y.norm.bush[1,20,1] -1.000000 -0.000952 -0.000114 0.000000 0.000000 0.000000
 y.norm.bush[2,1,1] -0.999999 -0.000402 -0.001421 0.000000 0.000000 0.000000
 y.norm.bush[2,1,2] -0.999998 0.000847 -0.001878 0.000000 0.000000 0.000000
-y.norm.bush[2,2,1] -0.999998 -0.000363 -0.002008 0.000000 0.000000 0.000000
-y.norm.bush[2,2,2] -0.999998 0.000849 -0.001882 0.000000 0.000000 0.000000
+y.norm.bush[2,2,1] -1.000000 -0.000672 -0.000166 0.000000 0.000000 0.000000
+y.norm.bush[2,2,2] -0.999999 -0.001280 -0.000713 0.000000 0.000000 0.000000
 y.norm.bush[2,3,1] -0.999998 -0.000364 -0.001997 0.000000 0.000000 0.000000
 y.norm.bush[2,3,2] -0.999998 0.000838 -0.001878 0.000000 0.000000 0.000000
 y.norm.bush[2,4,1] -0.999998 -0.000372 -0.001994 0.000000 0.000000 0.000000
@@ -5225,8 +5336,8 @@ y.norm.bush[2,19,1] -0.999998 -0.000368 -0.001993 0.000000 0.000000 0.000000
 y.norm.bush[2,20,1] -0.999998 -0.000369 -0.002000 0.000000 0.000000 0.000000
 y.norm.bush[3,1,1] -1.000000 -0.000389 -0.000363 0.000000 0.000000 0.000000
 y.norm.bush[3,1,2] -1.000000 0.000830 -0.000252 0.000000 0.000000 0.000000
-y.norm.bush[3,2,1] -1.000000 -0.000391 -0.000379 0.000000 0.000000 0.000000
-y.norm.bush[3,2,2] -1.000000 0.000827 -0.000256 0.000000 0.000000 0.000000
+y.norm.bush[3,2,1] -0.999999 -0.000570 0.000887 0.000000 0.000000 0.000000
+y.norm.bush[3,2,2] -0.999999 -0.001235 0.000900 0.000000 0.000000 0.000000
 y.norm.bush[3,3,1] -1.000000 -0.000391 -0.000379 0.000000 0.000000 0.000000
 y.norm.bush[3,3,2] -1.000000 0.000830 -0.000252 0.000000 0.000000 0.000000
 y.norm.bush[3,4,1] -1.000000 -0.000390 -0.000386 0.000000 0.000000 0.000000
@@ -5250,8 +5361,8 @@ y.norm.bush[3,19,1] -1.000000 -0.000401 -0.000372 0.000000 0.000000 0.000000
 y.norm.bush[3,20,1] -1.000000 -0.000394 -0.000383 0.000000 0.000000 0.000000
 y.norm.bush[4,1,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
 y.norm.bush[4,1,2] -0.999999 0.000793 -0.000967 0.000000 0.000000 0.000000
-y.norm.bush[4,2,1] -0.999999 -0.000411 -0.001080 0.000000 0.000000 0.000000
-y.norm.bush[4,2,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
+y.norm.bush[4,2,1] -1.000000 -0.000503 0.000127 0.000000 0.000000 0.000000
+y.norm.bush[4,2,2] -0.999999 -0.001205 0.000149 0.000000 0.000000 0.000000
 y.norm.bush[4,3,1] -0.999999 -0.000405 -0.001083 0.000000 0.000000 0.000000
 y.norm.bush[4,3,2] -0.999999 0.000801 -0.000954 0.000000 0.000000 0.000000
 y.norm.bush[4,4,1] -0.999999 -0.000417 -0.001076 0.000000 0.000000 0.000000
@@ -11214,8 +11325,8 @@ y.norm.shaft[4,178] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
 y.norm.shaft[4,179] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
 y.norm.shaft[4,180] -0.999996 -0.000031 -0.002701 0.000000 0.000000 0.000000
 cnc.point.shaft[1] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -179.982010
-cnc.point.bush[2,1] -1213.051270 92.320656 224.337753 -89.466934 89.600792 -146.759598
-cnc.point.bush[2,2] -1210.682617 92.378227 225.890198 -88.630455 89.052704 -146.769424
+cnc.point.bush[2,1] -1389.093750 91.659019 202.927597 -90.005959 88.587105 -35.372467
+cnc.point.bush[2,2] -1389.093750 91.659019 202.927597 -90.005959 88.587105 -35.372467
 cnc.point.bush[3,1] -1213.051270 92.320656 224.337753 -89.466934 89.600792 -146.759598
 cnc.point.bush[3,2] -1210.682617 92.378227 225.890198 -88.630455 89.052704 -146.769424
 cnc.point.bush[4,1] -1213.051270 92.320656 224.337753 -89.466934 89.600792 -146.759598
@@ -11787,8 +11898,8 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #buff.pick.depar[155] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
 #buff.pick.depar[154] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
 #buff.pick.depar[153] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
-#p0.bush[1,2,2] 58.696968 -25.362425 73.203110 115.720657 -85.542297 113.952126
-#p0.bush[1,2,1] 58.600850 -24.725860 72.377700 116.242390 -86.175390 -68.586310
+#p0.bush[1,2,2] 57.982815 -25.516090 72.935905 114.570175 -86.732948 112.959312
+#p0.bush[1,2,1] 58.600845 -24.725863 72.377701 116.242393 -86.175392 -68.586311
 #buff.put.depar[180] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
 #buff.put.depar[179] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
 #buff.put.depar[178] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
@@ -12003,7 +12114,7 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #buff.pick.depar[5] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
 #buff.pick.depar[4] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
 #buff.pick.depar[3] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
-#buff.pick.depar[2] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
+#buff.pick.depar[2] 124.714230 9.892970 107.836440 147.672240 -81.347580 -52.277220
 #buff.pick.appro[180] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
 #buff.pick.appro[171] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
 #buff.pick.appro[170] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
@@ -12017,14 +12128,14 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #buff.pick.appro[164] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
 #buff.put.depar[114] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
 #buff.put.depar[113] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
-#buff.put.appro[2] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
+#buff.put.appro[2] 111.737090 -24.533510 79.285730 167.909150 -101.903000 141.707060
 #buff.put.depar[112] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
 #buff.pick[104] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #py.shaft[2,4] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.457787
 #buff.put.depar[4] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
 #buff.pick.appro[163] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
 #buff.put.depar[3] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
-#buff.put.depar[2] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
+#buff.put.depar[2] 109.510420 -25.065680 83.781040 169.062710 -97.404100 144.847950
 #buff.put.appro[180] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
 #buff.put.appro[179] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
 #buff.put.appro[178] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
@@ -12177,7 +12288,7 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #px.shaft[3,5] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
 #px.shaft[3,4] 83.681679 -37.819527 90.859825 -142.184982 -54.308857 -108.819214
 #px.shaft[3,3] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
-#px.shaft[3,2] 83.681282 -37.819527 90.859169 -142.184982 -54.308857 -108.819214
+#px.shaft[3,2] 46.769623 -3.856595 120.804588 -145.024277 -38.899845 17.954794
 #px.shaft[2,18] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
 #px.shaft[2,17] 88.726440 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
 #px.shaft[2,16] 88.726845 -30.289564 88.899414 -146.284897 -64.454041 -106.331566
@@ -12245,7 +12356,7 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #p0.shaft[3,5] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
 #p0.shaft[3,4] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.053787
 #p0.shaft[3,3] 68.603394 -35.427677 80.130363 -146.395020 -57.474293 -87.051590
-#p0.shaft[3,2] 68.603394 -35.427677 80.130363 -146.395020 -57.473602 -87.053772
+#p0.shaft[3,2] 80.669357 -36.214981 90.674400 -142.432907 -53.819965 -14.379745
 #p0.shaft[2,18] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.651909
 #p0.shaft[2,17] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
 #p0.shaft[2,16] 73.130219 -28.452883 78.137703 -148.681229 -67.305679 -85.653008
@@ -12294,7 +12405,7 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #p0.bush[1,1,2] 57.982815 -25.516090 72.935905 114.570175 -86.732948 112.959312
 #py.bush[1,1,1] 34.097538 6.207563 108.392700 121.726578 -105.184486 -52.745171
 #px.bush[1,1,1] 73.851120 -18.760294 93.117744 110.501015 -66.738510 -60.814754
-#p0.bush[1,1,1] 58.600850 -24.725860 72.377700 116.242390 -86.175390 -68.586310
+#p0.bush[1,1,1] 58.600845 -24.725863 72.377701 116.242393 -86.175392 -68.586311
 #wp.bush.safe[2] 54.472012 1.334442 88.116364 116.351891 -94.451523 105.599998
 #wp.bush.safe[1] 54.472012 1.334442 88.116364 116.351891 -94.451523 -76.000000
 #py.shaft[1,1] 66.082802 17.257954 116.177628 -150.907150 -70.469055 -75.156212
@@ -12469,7 +12580,7 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #buff.pick.appro[19] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
 #buff.pick.appro[18] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
 #buff.pick.appro[3] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
-#buff.pick.appro[2] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
+#buff.pick.appro[2] 122.953860 8.418010 107.479950 147.619340 -81.335230 -50.184080
 #buff.pick[180] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #buff.pick[179] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #buff.pick[178] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
@@ -12944,20 +13055,20 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #buff.pick[5] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #buff.pick[4] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
 #buff.pick[3] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
-#buff.pick[2] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
-#buff.pick.depar[1] 122.406128 2.033783 101.877663 147.712860 -80.833969 -49.863140
-#buff.pick[1] 120.088905 5.606772 106.591309 147.730087 -81.090088 -47.295265
-#buff.pick.appro[1] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
-#buff.put.depar[1] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
-#buff.put[1] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
-#buff.put.appro[1] 109.846451 -21.914993 82.294762 158.860901 -95.034485 142.398148
-#buff.safe[2] 139.175262 18.258419 107.517746 133.760574 -47.670368 -31.995277
-#buff.safe[1] 109.846451 -40.996124 37.907955 124.892578 -76.800613 159.946533
-#buff.appro 88.249020 2.425060 78.097940 121.653990 -93.499830 -191.561050
+#buff.pick[2] 119.907780 5.523550 106.591310 147.602720 -81.254200 -46.537190
+#buff.pick.depar[1] 124.714226 9.892973 107.836441 147.672241 -81.347580 -52.277222
+#buff.pick[1] 119.907784 5.523552 106.591309 147.602722 -81.254196 -46.537193
+#buff.pick.appro[1] 122.953857 8.418006 107.479950 147.619339 -81.335228 -50.184082
+#buff.put.depar[1] 109.510422 -25.065678 83.781044 169.062714 -97.404099 144.847946
+#buff.put[1] 110.861290 -22.247509 86.127602 168.453018 -97.617653 143.487961
+#buff.put.appro[1] 111.737091 -24.533506 79.285728 167.909149 -101.903000 141.707062
+#buff.safe[2] 151.298447 9.982398 96.494370 181.193909 -99.939201 -59.956062
+#buff.safe[1] 114.907890 -28.170738 58.905109 172.709839 -94.981613 159.651047
+#buff.appro 88.249016 2.425063 78.097939 121.653374 -93.499832 165.987915
 #cnc.in.prl.base -93.767632 -20.610117 55.763763 -28.840342 71.790169 -8.772694
 #cnc.out.prl.bas -103.499687 31.399897 102.499741 -42.798779 35.998764 2.999639
-#cnc.point.bush[1,2] -88.764970 -44.237330 47.634720 -28.487810 52.241360 -90.233980
-#cnc.point.bush[1,1] -88.764970 -44.237330 47.634720 -28.487810 52.241360 89.766020
+#cnc.point.bush[1,2] -88.764969 -44.237331 47.634720 -28.487810 52.241360 -90.233978
+#cnc.point.bush[1,1] -88.764969 -44.237328 47.634716 -28.487812 52.241364 89.766022
 #cnc.out -83.209419 22.215389 110.378525 -28.204189 64.096298 88.242012
 #cnc.in -86.843346 -27.299847 56.952847 -26.156075 57.703632 83.376854
 #cnc.in.dbl.base -86.843346 -27.299847 56.952847 -26.156075 57.703632 83.376854
@@ -13095,7 +13206,7 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #buff.put[5] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
 #buff.put[4] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
 #buff.put[3] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
-#buff.put[2] 108.297791 -19.804930 89.558968 159.332779 -90.667419 145.256241
+#buff.put[2] 110.861290 -22.247510 86.127600 168.453020 -97.617650 143.487960
 #buff.put.depar[5] 106.764221 -23.201986 86.827888 159.866196 -90.546577 146.841782
 #py.shaft[2,17] 58.197693 9.680543 122.214287 -148.610474 -54.895939 -75.458885
 #buff.pick.appro[178] 129.379669 12.962626 108.207611 148.122604 -81.055069 -58.264416
@@ -13190,8 +13301,8 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #p0.bush[4,18,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
 #p0.bush[4,19,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
 #p0.bush[4,20,1] 47.806301 -52.043961 67.585846 117.467934 -85.392609 -43.693207
-#px.bush[1,2,1] 74.527939 -19.929756 94.194733 108.974007 -65.528641 -58.418610
-#px.bush[1,2,2] 74.528336 -19.929390 94.195381 108.974007 -65.527954 122.943718
+#px.bush[1,2,1] 73.851120 -18.760294 93.117744 110.501015 -66.738510 -60.814754
+#px.bush[1,2,2] 73.080963 -19.611111 93.804344 108.611023 -67.602997 121.637695
 #px.bush[1,3,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.429928
 #px.bush[1,3,2] 74.514435 -19.930487 94.184959 108.985085 -65.544434 122.932396
 #px.bush[1,4,1] 74.514038 -19.930851 94.184303 108.985085 -65.545128 -58.432117
@@ -13283,8 +13394,8 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #px.bush[4,18,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
 #px.bush[4,19,1] 60.083973 -49.706131 88.886703 106.439240 -69.372482 -29.453125
 #px.bush[4,20,1] 60.083973 -49.706131 88.886703 106.438622 -69.372482 -29.453125
-#py.bush[1,2,1] 34.727089 6.119233 109.579498 121.674904 -103.972557 -51.651962
-#py.bush[1,2,2] 34.729870 6.118868 109.579498 121.674904 -103.971863 129.939972
+#py.bush[1,2,1] 34.097538 6.207563 108.392700 121.726578 -105.184486 -52.745171
+#py.bush[1,2,2] 33.880669 5.277177 108.920273 121.729042 -104.797905 128.271118
 #py.bush[1,3,1] 34.755688 6.112298 109.584709 121.661369 -103.942337 -51.665642
 #py.bush[1,3,2] 34.758469 6.112663 109.584709 121.661980 -103.941658 129.926285
 #py.bush[1,4,1] 34.755688 6.112298 109.585365 121.662598 -103.942337 -51.665642
@@ -13571,517 +13682,517 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #py.bush[4,18,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
 #py.bush[4,19,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
 #py.bush[4,20,2] 24.931484 -31.522171 104.026749 131.060928 -91.652756 161.054642
-#shelf.open.dbl[1,1] 84.715973 -7.930731 111.670586 -145.611832 -61.710896 -11.107631
-#shelf.close.dbl[1,2] 84.877625 -7.970150 111.733467 -145.598297 -61.708149 -11.303133
+#shelf.open.dbl[1,1] 84.655602 -7.871235 111.588783 -145.649353 -61.800159 -10.965496
+#shelf.close.dbl[1,2] 84.655998 -7.870506 111.587807 -145.649353 -61.799469 -10.967679
 #shelf.close.dbl[1,1] 50.983856 -17.617844 75.735741 -155.528793 -68.230591 34.190445
 #shelf.open.dbl[1,2] 50.884953 -17.726248 75.503395 -155.579239 -68.304062 34.342781
-#trace[0] 0.000000 59.999874 120.000031 0.000000 -89.999313 89.999580
-#trace[1] 54.470028 1.335537 88.117989 116.350662 -94.450150 105.613319
-#trace[2] 54.109772 1.568042 88.680756 116.359283 -94.629372 106.060173
-#trace[3] 50.138226 3.743445 94.262505 116.676117 -96.675568 110.806000
-#trace[4] 41.514744 6.526209 103.760193 118.668251 -101.243828 120.659462
-#trace[5] 35.806267 7.177371 108.648827 120.898476 -104.097519 127.155724
-#trace[6] 35.138981 7.089039 109.164673 121.236855 -104.355705 128.031662
-#trace[7] 34.978516 6.755429 109.298279 121.395592 -104.247208 128.532623
-#trace[8] 34.835526 6.439703 109.415588 121.539558 -104.141464 128.989578
-#trace[9] 34.699684 6.133833 109.523781 121.677361 -104.037102 129.420120
-#trace[10] 34.877232 6.537524 109.381378 121.497711 -104.173058 128.851608
-#trace[11] 35.068283 6.956179 109.223007 121.306992 -104.313133 128.242355
-#trace[12] 36.246361 6.871864 107.965813 120.929855 -103.848953 126.658623
-#trace[13] 43.623051 4.638062 99.932243 119.077385 -100.051811 118.139954
-#trace[14] 52.918587 1.810037 89.809555 116.747498 -95.259026 106.872658
-#trace[15] 54.459702 1.339917 88.128090 116.356819 -94.460449 85.421341
-#trace[16] 54.470821 1.334807 88.116364 116.351891 -94.452217 43.158195
-#trace[17] 54.471615 1.334077 88.116364 116.351891 -94.450844 -0.621194
-#trace[18] 54.471615 1.334077 88.116364 116.351891 -94.449471 -44.379711
-#trace[19] 54.471615 1.334077 88.116364 116.351891 -94.449471 -73.757156
-#trace[20] 53.448841 0.864686 89.835297 116.442337 -94.404152 -73.239891
-#trace[21] 49.503117 -2.077583 95.661125 117.143700 -94.027176 -63.785210
-#trace[22] 47.687141 -4.081070 97.884178 117.640205 -93.717506 -59.279015
-#trace[23] 47.509594 -4.324891 98.061447 117.702957 -93.673561 -58.826595
-#trace[24] 47.349926 -4.584041 98.186584 117.764473 -93.632362 -58.414886
-#trace[25] 47.191841 -4.843922 98.307152 117.824768 -93.591164 -58.003170
-#trace[26] 47.036934 -5.103437 98.422508 117.887520 -93.548584 -57.600224
-#trace[27] 47.282402 -4.690257 98.238396 117.791542 -93.614502 -58.237648
-#trace[28] 47.494503 -4.346791 98.071556 117.710335 -93.669434 -58.785870
-#trace[29] 48.343704 -3.595620 96.906906 117.534378 -93.772430 -60.848961
-#trace[30] 51.828289 -0.792416 91.908134 116.865616 -94.153526 -69.244644
-#trace[31] 54.377083 1.256697 88.251266 116.375275 -94.436424 -75.383965
-#trace[32] 54.610237 0.841691 88.091591 116.796715 -95.230179 -71.052559
-#trace[33] 54.766335 0.289445 88.062263 117.293198 -96.103600 -65.963577
-#trace[34] 54.924023 -0.262800 88.033585 117.793388 -96.979752 -60.868065
-#trace[35] 55.082104 -0.815411 88.004257 118.293579 -97.855225 -55.773636
-#trace[36] 55.240189 -1.367657 87.976234 118.794380 -98.730698 -50.679207
-#trace[37] 55.398273 -1.919903 87.946907 119.294556 -99.606171 -45.583679
-#trace[38] 55.556355 -2.472513 87.918228 119.794746 -100.482338 -40.489262
-#trace[39] 55.714439 -3.024759 87.889557 120.295547 -101.357811 -35.394833
-#trace[40] 55.872520 -3.577005 87.860878 120.795738 -102.233284 -30.300404
-#trace[41] 56.030605 -4.129251 87.832207 121.296539 -103.109436 -25.205986
-#trace[42] 56.188690 -4.681496 87.803520 121.796730 -103.984909 -20.111561
-#trace[43] 56.346771 -5.233742 87.774193 122.297516 -104.860382 -15.016031
-#trace[44] 56.505249 -5.786353 87.745522 122.797707 -105.735855 -9.921602
-#trace[45] 56.663334 -6.338598 87.716850 123.297890 -106.612022 -4.827187
-#trace[46] 56.821415 -6.890844 87.688171 123.798698 -107.487495 0.268341
-#trace[47] 56.979500 -7.443089 87.659492 124.298882 -108.362968 5.362770
-#trace[48] 57.137581 -7.995336 87.630814 124.799675 -109.239120 10.457186
-#trace[49] 57.295666 -8.547582 87.602142 125.299866 -110.114594 15.551615
-#trace[50] 57.453751 -9.099097 87.573463 125.799438 -110.989388 20.641663
-#trace[51] 57.612228 -8.998722 87.614525 125.945244 -111.617661 26.320017
-#trace[52] 57.881927 -7.930731 87.636681 125.526886 -112.037888 34.806240
-#trace[53] 58.260456 -6.980999 87.409554 125.017479 -112.409370 43.423077
-#trace[54] 58.752975 -6.200628 86.916191 124.435463 -112.730034 51.873943
-#trace[55] 59.364651 -5.576112 86.154320 123.782089 -112.999878 60.151134
-#trace[56] 60.096684 -5.094676 85.121651 123.059181 -113.225098 68.227081
-#trace[57] 61.092846 -4.697921 83.580627 122.140022 -113.429726 77.340538
-#trace[58] 62.072727 -4.484761 81.953583 121.280540 -113.561562 84.960220
-#trace[59] 63.157463 -4.378911 80.048904 120.369385 -113.661804 92.365196
-#trace[60] 64.337128 -4.375261 77.863976 119.416382 -113.735962 99.546570
-#trace[61] 65.602188 -4.471621 75.397499 118.435089 -113.785408 106.514214
-#trace[62] 66.943520 -4.667991 72.646538 117.433479 -113.818359 113.262459
-#trace[63] 68.351570 -4.966927 69.606865 116.421425 -113.840332 119.807678
-#trace[64] 70.055130 -5.448727 65.710159 115.246933 -113.860931 127.140640
-#trace[65] 71.579170 -5.992578 62.018425 114.245949 -113.880165 133.253036
-#trace[66] 73.162781 -6.654689 58.086533 113.292953 -113.871925 139.018829
-#trace[67] 75.263542 -7.136125 56.682049 113.511971 -112.509613 142.638611
-#trace[68] 77.470360 -7.424110 57.587635 114.576942 -110.210732 144.053482
-#trace[69] 79.607262 -7.828165 58.420540 115.568703 -107.928322 145.253784
-#trace[70] 81.679825 -8.360336 59.092155 116.465096 -105.693283 146.397125
-#trace[71] 83.685257 -9.015147 59.606373 117.274132 -103.507690 147.492233
-#trace[72] 85.621574 -9.787853 59.965477 118.006874 -101.381836 148.545486
-#trace[73] 87.491165 -10.674439 60.171421 118.667641 -99.319153 149.561234
-#trace[74] 89.290062 -11.671256 60.228123 119.263191 -97.323082 150.542679
-#trace[75] 91.021828 -12.774287 60.134598 119.800293 -95.393608 151.490936
-#trace[76] 92.685280 -13.979154 59.887592 120.288170 -93.536224 152.410294
-#trace[77] 94.282791 -15.283299 59.486454 120.729294 -91.757133 153.297302
-#trace[78] 95.815964 -16.685268 58.930523 121.127953 -90.054932 154.147644
-#trace[79] 97.285583 -18.180309 58.217857 121.492180 -88.428955 154.960175
-#trace[80] 98.696419 -19.769522 57.344860 121.827477 -86.887436 155.734787
-#trace[81] 100.047272 -21.451078 56.306328 122.140022 -85.432434 156.464813
-#trace[82] 101.341728 -23.224251 55.096062 122.435333 -84.059837 157.147049
-#trace[83] 102.584152 -25.091959 53.706570 122.719566 -82.779236 157.778015
-#trace[84] 103.773354 -27.056026 52.126774 122.997650 -81.592720 158.346664
-#trace[85] 104.912903 -29.120102 50.343967 123.276978 -80.500259 158.848633
-#trace[86] 106.007172 -31.291857 48.340218 123.563057 -79.511490 159.277084
-#trace[87] 107.054970 -33.581505 46.092072 123.865143 -78.633270 159.617645
-#trace[88] 108.059868 -36.003284 43.567589 124.188141 -77.869720 159.850464
-#trace[89] 109.024261 -38.578724 40.720497 124.548668 -77.244881 159.955231
-#trace[90] 109.747551 -39.869736 39.771904 125.819122 -76.916656 159.508057
-#trace[91] 109.794022 -37.351593 44.594063 128.790710 -77.030640 158.352219
-#trace[92] 109.769402 -34.817760 49.313576 132.007156 -77.578590 156.724075
-#trace[93] 109.755898 -32.631405 53.490849 135.156540 -78.429344 154.964630
-#trace[94] 109.752716 -30.726835 57.266003 138.200089 -79.545135 153.174606
-#trace[95] 109.756691 -29.059515 60.736794 141.122467 -80.891655 151.408539
-#trace[96] 109.765427 -27.598415 63.975903 143.907013 -82.435226 149.728622
-#trace[97] 109.778931 -26.319820 67.037086 146.553131 -84.140175 148.167419
-#trace[98] 109.792435 -25.206203 69.964333 149.057755 -85.976265 146.749710
-#trace[99] 109.806732 -24.243332 72.793182 151.429489 -87.907791 145.481720
-#trace[100] 109.821037 -23.420256 75.550003 153.675095 -89.905930 144.388168
-#trace[101] 109.832947 -22.729311 78.258919 155.809341 -91.942520 143.466339
-#trace[102] 109.826591 -22.131439 80.974686 157.795303 -93.876114 142.773972
-#trace[103] 109.587883 -21.505098 83.557167 158.880585 -94.179611 142.933792
-#trace[104] 109.448463 -21.297413 84.314156 158.999954 -93.855515 143.177582
-#trace[105] 109.346779 -21.150318 84.806541 159.033173 -93.565071 143.365753
-#trace[106] 109.142624 -20.862333 85.780220 159.095932 -92.984169 143.742126
-#trace[107] 108.936882 -20.584932 86.741203 159.156204 -92.403954 144.118469
-#trace[108] 108.727158 -20.314833 87.690453 159.216507 -91.825798 144.494781
-#trace[109] 108.515854 -20.056412 88.628288 159.274338 -91.251068 144.871017
-#trace[110] 108.314079 -19.823542 89.495422 159.328476 -90.711365 145.226807
-#trace[111] 108.007835 -20.429443 89.074074 159.434296 -90.634468 145.557922
-#trace[112] 107.696037 -21.106152 88.539986 159.541351 -90.604248 145.883713
-#trace[113] 107.541534 -21.444508 88.269516 159.594254 -90.589149 146.044418
-#trace[114] 107.166191 -21.932878 87.913017 159.404160 -90.000694 146.651642
-#trace[115] 106.919930 -22.020844 87.895416 159.044235 -89.232330 147.213043
-#trace[116] 106.632751 -22.006245 87.991554 158.488678 -88.150185 147.976257
-#trace[117] 106.314201 -21.882143 88.148941 157.635971 -86.702049 148.985214
-#trace[118] 106.498505 -22.151150 86.446945 156.502701 -86.224831 149.140854
-#trace[119] 106.881790 -22.755955 83.665031 155.128265 -86.047676 148.995010
-#trace[120] 107.217819 -23.382662 80.895500 153.556976 -85.556717 149.070724
-#trace[121] 107.507378 -24.031265 78.162140 151.764786 -84.751976 149.417526
-#trace[122] 107.749664 -24.713089 75.468529 149.725906 -83.660889 150.076538
-#trace[123] 107.966530 -25.478495 72.750488 147.510437 -82.446899 150.964340
-#trace[124] 108.177040 -26.385155 69.920670 145.220535 -81.286469 151.951050
-#trace[125] 108.384377 -27.444387 66.950081 142.860504 -80.209122 153.015213
-#trace[126] 108.589333 -28.667503 63.809711 140.433411 -79.239578 154.138718
-#trace[127] 108.792694 -30.069105 60.461445 137.946625 -78.394325 155.293823
-#trace[128] 108.996056 -31.670727 56.856064 135.400787 -77.694633 156.448196
-#trace[129] 109.200615 -33.501568 52.929054 132.809402 -77.161102 157.560791
-#trace[130] 109.407951 -35.604340 48.587872 130.189743 -76.817780 158.567413
-#trace[131] 109.619255 -38.045826 43.694027 127.561462 -76.684570 159.397339
-#trace[132] 109.863136 -40.417599 38.947792 125.304169 -76.714790 159.529678
-#trace[133] 110.510170 -39.646351 39.496223 125.095612 -76.142120 155.582748
-#trace[134] 111.288269 -38.079041 41.335735 125.323868 -75.370331 150.497238
-#trace[135] 112.066765 -36.506618 43.183392 125.556419 -74.597168 145.401855
-#trace[136] 112.844872 -34.933834 45.030724 125.792046 -73.823318 140.307587
-#trace[137] 113.623375 -33.361412 46.877731 126.026459 -73.050156 135.213318
-#trace[138] 114.401871 -31.788622 48.724735 126.262703 -72.276993 130.120132
-#trace[139] 115.179977 -30.216200 50.572395 126.498344 -71.503830 125.025864
-#trace[140] 115.958473 -28.643778 52.419727 126.733353 -70.731354 119.931564
-#trace[141] 116.736977 -27.070992 54.267063 126.968994 -69.958191 114.837296
-#trace[142] 117.515083 -25.498568 56.114391 127.204010 -69.185028 109.744110
-#trace[143] 118.293579 -23.925783 57.961723 127.439651 -68.411865 104.649834
-#trace[144] 119.072083 -22.353359 59.809059 127.674667 -67.638710 99.555557
-#trace[145] 119.850189 -20.780937 61.656391 127.910309 -66.865547 94.461281
-#trace[146] 120.628685 -19.208151 63.503727 128.145325 -66.092384 89.368103
-#trace[147] 121.407188 -17.635729 65.351051 128.380966 -65.319214 84.273819
-#trace[148] 122.185295 -16.062943 67.198387 128.615356 -64.546051 79.179543
-#trace[149] 122.963791 -14.490520 69.045723 128.851608 -63.772888 74.085266
-#trace[150] 123.742294 -12.917732 70.893051 129.086014 -62.999725 68.992081
-#trace[151] 124.520401 -11.345310 72.740387 129.322266 -62.227253 63.897793
-#trace[152] 125.298889 -9.772888 74.588043 129.557892 -61.454086 58.803516
-#trace[153] 126.077400 -8.200101 76.435379 129.792923 -60.680923 53.709232
-#trace[154] 126.855507 -6.627679 78.282715 130.028549 -59.907761 48.616055
-#trace[155] 127.633995 -5.054892 80.130035 130.263580 -59.134598 43.521778
-#trace[156] 128.412506 -3.482470 81.977371 130.499207 -58.361439 38.427498
-#trace[157] 129.190613 -1.910048 83.825035 130.734238 -57.588276 33.333221
-#trace[158] 129.969101 -0.337260 85.672363 130.969864 -56.815113 28.238941
-#trace[159] 130.747604 1.235162 87.519699 131.204895 -56.041950 23.145763
-#trace[160] 131.525711 2.807949 89.367027 131.440521 -55.268784 18.051485
-#trace[161] 132.304214 4.380371 91.214363 131.674927 -54.496311 12.957193
-#trace[162] 133.082718 5.952793 93.061699 131.911179 -53.723148 7.864014
-#trace[163] 133.860825 7.525580 94.909355 132.145584 -52.949982 2.769736
-#trace[164] 134.639313 9.098002 96.756683 132.381821 -52.176819 -2.324542
-#trace[165] 135.417816 10.670790 98.604019 132.617462 -51.403660 -7.417722
-#trace[166] 136.195923 12.243212 100.451347 132.852478 -50.630497 -12.512000
-#trace[167] 136.974411 13.815633 102.298683 133.088120 -49.857330 -17.606277
-#trace[168] 137.752930 15.388420 104.146339 133.323135 -49.084167 -22.700556
-#trace[169] 138.531036 16.960842 105.993668 133.558777 -48.311008 -27.793736
-#trace[170] 139.021164 18.186514 107.436607 134.404114 -48.156513 -32.614746
-#trace[171] 138.296692 18.366459 107.761169 138.449890 -51.394047 -38.885670
-#trace[172] 137.186920 18.164978 107.899658 142.026855 -55.829090 -44.615852
-#trace[173] 135.862274 17.641205 107.965485 144.514252 -60.720062 -49.113693
-#trace[174] 134.351746 16.815207 108.000023 146.153854 -65.884323 -52.571106
-#trace[175] 132.692673 15.704876 108.037170 147.176987 -71.186600 -55.174343
-#trace[176] 130.926743 14.331380 108.112450 147.782379 -76.521149 -57.068512
-#trace[177] 128.978500 12.838892 108.249969 148.019852 -80.454254 -57.405350
-#trace[178] 128.141220 12.180431 108.137543 148.018631 -81.094902 -56.829296
-#trace[179] 127.784935 11.943181 108.108215 147.994019 -81.112755 -56.417667
-#trace[180] 127.087067 11.468315 108.044998 147.944794 -81.131981 -55.598473
-#trace[181] 126.400314 10.983230 107.970703 147.900497 -81.147079 -54.790180
-#trace[182] 125.725479 10.489019 107.885323 147.864807 -81.158073 -53.997185
-#trace[183] 125.061775 9.985318 107.788872 147.831589 -81.163559 -53.215069
-#trace[184] 124.408783 9.473223 107.680679 147.803284 -81.166306 -52.441689
-#trace[185] 123.767319 8.952003 107.560760 147.782379 -81.167679 -51.681465
-#trace[186] 123.134186 8.422751 107.430412 147.762695 -81.166306 -50.934364
-#trace[187] 122.514168 7.885105 107.288338 147.747925 -81.155327 -50.195862
-#trace[188] 121.905273 7.339427 107.135834 147.738068 -81.142960 -49.470516
-#trace[189] 121.307098 6.786819 106.972244 147.731918 -81.129227 -48.756130
-#trace[190] 120.718857 6.226178 106.796936 147.729462 -81.111382 -48.054848
-#trace[191] 120.158012 5.675393 106.615753 147.728241 -81.093529 -47.382126
-#trace[192] 120.445580 5.087377 105.916122 147.722076 -81.033096 -47.677547
-#trace[193] 120.657288 4.776761 105.510414 147.718384 -81.001518 -47.907627
-#trace[194] 120.866211 4.465416 105.102753 147.714706 -80.972672 -48.135571
-#trace[195] 121.072754 4.153340 104.693138 147.712234 -80.945206 -48.361340
-#trace[196] 121.477890 3.529920 103.871315 147.707306 -80.893028 -48.806339
-#trace[197] 121.693169 3.281354 103.526215 147.633484 -80.579224 -48.850601
-#trace[198] 121.985107 3.400344 103.602470 147.104385 -78.592758 -47.823200
-#trace[199] 131.589661 2.929494 89.510735 131.472504 -55.202179 17.658407
-#trace[200] 130.811157 1.356342 87.662750 131.236877 -55.975346 22.754883
-#trace[201] 130.032669 -0.216445 85.814774 131.001862 -56.749195 27.850245
-#trace[202] 129.254166 -1.789597 83.967110 130.766220 -57.522358 32.945621
-#trace[203] 128.475266 -3.362385 82.119125 130.530579 -58.295521 38.041000
-#trace[204] 127.696754 -4.935536 80.271141 130.295578 -59.068680 43.136379
-#trace[205] 126.918259 -6.508324 78.423485 130.059937 -59.841843 48.231754
-#trace[206] 126.139755 -8.081475 76.575500 129.825531 -60.615696 53.327114
-#trace[207] 125.361252 -9.654628 74.727516 129.589279 -61.388859 58.421394
-#trace[208] 124.582764 -11.227415 72.879532 129.353653 -62.162025 63.517872
-#trace[209] 123.803864 -12.800567 71.031868 129.118622 -62.935181 68.612152
-#trace[210] 123.025352 -14.373355 69.183891 128.882996 -63.708344 73.707527
-#trace[211] 122.246864 -15.946506 67.335907 128.647354 -64.482201 78.803993
-#trace[212] 121.468361 -17.519293 65.488243 128.412338 -65.255363 83.899368
-#trace[213] 120.689857 -19.092445 63.640263 128.176697 -66.028519 88.993645
-#trace[214] 119.911346 -20.665234 61.792278 127.941071 -66.801682 94.089020
-#trace[215] 119.132462 -22.238384 59.944618 127.706039 -67.574844 99.184395
-#trace[216] 118.353958 -23.811537 58.096634 127.470413 -68.348701 104.279755
-#trace[217] 117.575455 -25.384323 56.248650 127.236000 -69.121857 109.375130
-#trace[218] 116.796959 -26.957476 54.400665 126.999763 -69.895020 114.470512
-#trace[219] 116.018456 -28.530262 52.553005 126.764122 -70.668182 119.565895
-#trace[220] 115.239555 -30.103415 50.705025 126.529716 -71.441345 124.661270
-#trace[221] 114.461060 -31.676201 48.857040 126.293465 -72.215195 129.756622
-#trace[222] 113.682556 -33.249355 47.009380 126.057838 -72.988358 134.852005
-#trace[223] 112.904053 -34.822144 45.161396 125.822807 -73.761520 139.947388
-#trace[224] 112.125557 -36.395290 43.313412 125.587181 -74.534683 145.042770
-#trace[225] 111.346657 -37.968445 41.465755 125.351540 -75.307846 150.138153
-#trace[226] 110.568153 -39.541233 39.617771 125.116524 -76.081696 155.233505
-#trace[227] 109.869492 -40.670177 38.293777 124.895035 -76.745689 159.448868
-#trace[228] 109.108864 -38.799919 40.471539 124.586189 -77.183075 159.968552
-#trace[229] 108.151222 -36.220093 43.335899 124.231201 -77.798317 159.879333
-#trace[230] 107.149895 -33.787365 45.884495 123.905739 -78.550186 159.659958
-#trace[231] 106.105286 -31.488228 48.153168 123.603668 -79.418800 159.334976
-#trace[232] 105.015381 -29.307348 50.175491 123.315735 -80.399323 158.918747
-#trace[233] 103.881386 -27.235241 51.975574 123.036423 -81.480789 158.424713
-#trace[234] 102.696167 -25.264238 53.571339 122.757721 -82.659073 157.858414
-#trace[235] 101.458900 -23.389233 54.976147 122.475319 -83.933495 157.231979
-#trace[236] 100.170403 -21.608759 56.201080 122.181236 -85.295113 156.551056
-#trace[237] 98.823921 -19.919903 57.253944 121.869934 -86.743248 155.823364
-#trace[238] 97.419037 -18.323389 58.141277 121.536469 -88.278587 155.051071
-#trace[239] 95.956177 -16.820681 58.867306 121.173485 -89.895630 154.239807
-#trace[240] 94.428558 -15.411050 59.436592 120.776665 -91.588211 153.392975
-#trace[241] 92.837807 -14.098145 59.851418 120.340462 -93.362503 152.511536
-#trace[242] 91.180702 -12.885247 60.113419 119.858727 -95.212334 151.600037
-#trace[243] 89.455688 -11.773456 60.224209 119.327789 -97.132187 150.658569
-#trace[244] 87.663948 -10.767150 60.187061 118.736542 -99.121399 149.679443
-#trace[245] 85.801506 -9.870708 59.996429 118.081322 -101.179283 148.666000
-#trace[246] 83.872330 -9.088147 59.651989 117.356575 -103.299637 147.615051
-#trace[247] 81.872856 -8.422021 59.152439 116.555542 -105.476997 146.522293
-#trace[248] 79.807449 -7.878901 58.495815 115.666519 -107.705162 145.381302
-#trace[249] 77.676895 -7.462800 57.678223 114.685226 -109.982758 144.185486
-#trace[250] 75.506630 -7.185036 56.732887 113.625793 -112.264488 142.866531
-#trace[251] 73.849136 -7.110209 56.554314 113.112686 -113.683098 140.116852
-#trace[252] 73.009460 -7.188319 57.695816 113.523048 -113.796387 135.337723
-#trace[253] 72.302864 -7.288329 59.057285 114.093384 -113.696144 130.234390
-#trace[254] 71.597046 -7.389801 60.420708 114.667389 -113.591774 125.130035
-#trace[255] 70.891624 -7.491271 61.783802 115.240784 -113.487396 120.025658
-#trace[256] 70.185814 -7.592740 63.147224 115.814178 -113.381660 114.921333
-#trace[257] 69.479996 -7.694210 64.510323 116.388199 -113.275917 109.817009
-#trace[258] 68.774185 -7.795680 65.873749 116.961594 -113.170181 104.712677
-#trace[259] 68.068764 -7.897150 67.236839 117.534988 -113.065796 99.608315
-#trace[260] 67.363350 -7.998621 68.600266 118.109001 -112.960052 94.503990
-#trace[261] 66.657539 -8.100090 69.963356 118.682404 -112.854317 89.399658
-#trace[262] 65.951721 -8.202291 71.326775 119.255798 -112.748573 84.294228
-#trace[263] 65.245911 -8.303761 72.689880 119.829193 -112.644196 79.189873
-#trace[264] 64.540497 -8.405231 74.053299 120.403221 -112.538452 74.085541
-#trace[265] 63.834675 -8.506701 75.416397 120.976616 -112.432716 68.981201
-#trace[266] 63.129261 -8.608171 76.779816 121.550011 -112.328346 63.876850
-#trace[267] 62.423443 -8.709641 78.142914 122.124031 -112.222595 58.772514
-#trace[268] 61.718029 -8.811111 79.506332 122.697426 -112.116852 53.668190
-#trace[269] 60.899410 -8.928642 81.087761 123.362495 -111.994637 47.746803
-#trace[270] 60.193596 -9.030112 82.450851 123.936501 -111.890259 42.642445
-#trace[271] 59.487785 -9.131582 83.814278 124.509911 -111.784515 37.538113
-#trace[272] 58.782364 -9.233783 85.177376 125.083305 -111.678780 32.433784
-#trace[273] 58.076553 -9.335253 86.540474 125.656700 -111.573036 27.329454
-#trace[274] 57.315922 -9.087052 87.644173 125.477051 -111.402061 24.073229
-#trace[275] 56.004391 -7.548575 88.426254 122.702339 -110.919342 25.305662
-#trace[276] 54.322666 -5.519172 89.374199 119.016472 -110.289696 27.246353
-#trace[277] 52.872116 -3.768995 90.191795 115.838181 -109.747932 28.922716
-#trace[278] 51.421959 -2.019183 91.009720 112.659874 -109.206169 30.597980
-#trace[279] 49.971008 -0.269370 91.827637 109.480957 -108.664406 32.274345
-#trace[280] 48.520454 1.480442 92.645561 106.302658 -108.122643 33.949608
-#trace[281] 47.069901 3.230254 93.463165 103.124359 -107.580879 35.624870
-#trace[282] 45.618950 4.980066 94.281082 99.946060 -107.039116 37.301235
-#trace[283] 44.168400 6.729879 95.099007 96.767136 -106.497353 38.976498
-#trace[284] 42.717846 8.479692 95.916603 93.588837 -105.955582 40.652863
-#trace[285] 41.266895 10.229504 96.734528 90.410538 -105.413818 42.328125
-#trace[286] 39.816338 11.979316 97.552452 87.231628 -104.872055 44.003387
-#trace[287] 38.365788 13.728764 98.370377 84.053322 -104.330292 45.679752
-#trace[288] 36.914837 15.478575 99.187965 80.875023 -103.788528 47.355019
-#trace[289] 35.464283 17.228388 100.005890 77.696106 -103.246765 49.030281
-#trace[290] 34.013733 18.978199 100.823814 74.517799 -102.705002 50.706642
-#trace[291] 32.562782 20.728012 101.641411 71.339500 -102.163246 52.381908
-#trace[292] 31.112226 22.477825 102.459335 68.161201 -101.621483 54.058270
-#trace[293] 29.661671 24.227638 103.277260 64.982285 -101.079720 55.733540
-#trace[294] 28.210722 25.977449 104.094856 61.803986 -100.537956 57.408798
-#trace[295] 26.760168 27.726896 104.912781 58.625687 -99.996193 59.085167
-#trace[296] 25.309217 29.476709 105.730698 55.446770 -99.454430 60.760429
-#trace[297] 23.858664 31.226522 106.548622 52.268467 -98.912666 62.436787
-#trace[298] 22.408112 32.976334 107.366219 49.090164 -98.370895 64.112053
-#trace[299] 20.957161 34.726147 108.184143 45.911251 -97.829132 65.787315
-#trace[300] 19.506607 36.475960 109.002068 42.732948 -97.287369 67.463676
-#trace[301] 18.056053 38.225773 109.819664 39.554649 -96.745605 69.138947
-#trace[302] 16.605104 39.975582 110.637581 36.376347 -96.203842 70.815308
-#trace[303] 15.154549 41.725395 111.455505 33.197430 -95.662079 72.490578
-#trace[304] 13.703996 43.474842 112.273109 30.019133 -95.120316 74.165833
-#trace[305] 12.253045 45.224655 113.091026 26.840830 -94.578552 75.842194
-#trace[306] 10.802491 46.974464 113.908951 23.661915 -94.036797 77.517464
-#trace[307] 9.351938 48.724277 114.726868 20.483612 -93.495033 79.192726
-#trace[308] 7.900988 50.474091 115.544464 17.305313 -92.953270 80.869087
-#trace[309] 6.450435 52.223904 116.362396 14.127012 -92.411507 82.544350
-#trace[310] 4.999881 53.973717 117.180313 10.948096 -91.869743 84.220711
-#trace[311] 3.548931 55.723530 117.997910 7.769795 -91.327980 85.895981
-#trace[312] 124.084679 -12.226056 71.706085 129.190613 -62.659836 66.749977
-#trace[313] 124.863182 -10.653269 73.553421 129.425629 -61.886677 61.656803
-#trace[314] 125.641273 -9.080847 75.400757 129.661270 -61.113514 56.561424
-#trace[315] 126.419785 -7.508425 77.248085 129.895660 -60.340351 51.468246
-#trace[316] 127.198288 -5.935638 79.095413 130.131927 -59.567188 46.373966
-#trace[317] 127.976379 -4.363216 80.943077 130.366318 -58.794712 41.280773
-#trace[318] 128.754883 -2.790429 82.790413 130.602570 -58.021549 36.186493
-#trace[319] 129.533386 -1.218007 84.637741 130.838211 -57.248386 31.092216
-#trace[320] 130.311493 0.354415 86.485069 131.073227 -56.475224 25.999037
-#trace[321] 131.089996 1.927203 88.332405 131.308853 -55.702057 20.904758
-#trace[322] 131.868088 3.499625 90.180061 131.543884 -54.928898 15.810481
-#trace[323] 132.646591 5.072412 92.027397 131.779510 -54.155735 10.716203
-#trace[324] 133.425095 6.644834 93.874725 132.014526 -53.382568 5.621923
-#trace[325] 134.203186 8.217621 95.722061 132.250168 -52.609406 0.527646
-#trace[326] 134.981689 9.790043 97.569397 132.485184 -51.836246 -4.565534
-#trace[327] 135.760208 11.362466 99.417053 132.720825 -51.063770 -9.659825
-#trace[328] 136.538300 12.935252 101.264389 132.955841 -50.290604 -14.754104
-#trace[329] 137.316803 14.507673 103.111717 133.191483 -49.517441 -19.848381
-#trace[330] 138.095306 16.080462 104.959045 133.425873 -48.744282 -24.941561
-#trace[331] 138.861099 17.631348 106.781616 133.671982 -47.990345 -29.982389
-#trace[332] 138.797943 18.331419 107.628868 136.001862 -49.263386 -35.202187
-#trace[333] 137.836334 18.318644 107.833839 140.171310 -53.274765 -41.568794
-#trace[334] 136.629257 17.972988 107.934860 143.241943 -57.937778 -46.735538
-#trace[335] 135.218826 17.313797 107.982430 145.325745 -62.968143 -50.751678
-#trace[336] 133.638000 16.360781 108.013710 146.667557 -68.205872 -53.812851
-#trace[337] 131.925690 15.130365 108.062599 147.485214 -73.539742 -56.090427
-#trace[338] 130.097000 13.687518 108.208260 147.938034 -78.652496 -57.540703
-#trace[339] 128.425201 12.391767 108.177299 148.028458 -80.981598 -57.090702
-#trace[340] 127.982338 12.074216 108.123856 148.008774 -81.105881 -56.647144
-#trace[341] 127.281303 11.602270 108.063248 147.958328 -81.129227 -55.828030
-#trace[342] 126.591370 11.120469 107.992859 147.912796 -81.144333 -55.015343
-#trace[343] 125.913361 10.628448 107.910095 147.874664 -81.156700 -54.219086
-#trace[344] 125.246468 10.127303 107.816895 147.838989 -81.162186 -53.432571
-#trace[345] 124.590302 9.617397 107.711960 147.810684 -81.166306 -52.657021
-#trace[346] 123.946053 9.098732 107.595299 147.787292 -81.167679 -51.892399
-#trace[347] 123.310539 8.571671 107.468216 147.767609 -81.167679 -51.143131
-#trace[348] 122.686943 8.036216 107.329399 147.751617 -81.160820 -50.402515
-#trace[349] 122.379517 7.765750 107.255753 147.745468 -81.151199 -50.035378
-#trace[350] 121.772606 7.218615 107.100639 147.735611 -81.140213 -49.312260
-#trace[351] 121.176422 6.663814 106.934448 147.730698 -81.125107 -48.600040
-#trace[352] 120.590553 6.102078 106.757179 147.728241 -81.107254 -47.900959
-#trace[353] 120.103195 5.621007 106.596848 147.728241 -81.090782 -47.313953
-#trace[354] 120.382034 5.180452 106.037018 147.724548 -81.042717 -47.609627
-#trace[355] 120.594139 4.869837 105.632286 147.719620 -81.009750 -47.837486
-#trace[356] 120.804245 4.558491 105.225281 147.717163 -80.980919 -48.065422
-#trace[357] 121.011185 4.247146 104.816322 147.713470 -80.952072 -48.293358
-#trace[358] 121.248314 3.883970 104.339256 147.711014 -80.924606 -48.554287
-#trace[359] 121.640739 3.324059 103.589767 147.666718 -80.716553 -48.879715
-#trace[360] 121.948563 3.338295 103.534035 147.222519 -79.007500 -48.076488
-#trace[361] 122.058975 3.604745 103.841652 146.764160 -77.462540 -47.087585
-#trace[362] 122.273476 4.188745 104.368256 146.117554 -75.537186 -45.863647
-#trace[363] 123.710915 5.817378 104.659904 145.534317 -73.602219 -45.994144
-#trace[364] 125.827560 7.983291 104.954483 144.821259 -70.877609 -46.207714
-#trace[365] 127.697151 9.853189 105.326958 144.060822 -68.017738 -45.857185
-#trace[366] 129.593353 11.694981 105.813797 143.069687 -64.718399 -44.869442
-#trace[367] 131.501480 13.444793 106.364510 141.778305 -61.125870 -43.219955
-#trace[368] 133.427078 14.991664 106.832451 140.258667 -57.551193 -41.140160
-#trace[369] 135.356644 16.308952 107.183083 138.472641 -54.093246 -38.629841
-#trace[370] 137.268356 17.392273 107.411186 136.341476 -50.800781 -35.619652
-#trace[371] 138.817413 17.955105 107.280190 134.110641 -48.188099 -31.892475
-#trace[372] 138.407501 16.707167 105.695831 133.535385 -48.431858 -26.977671
-#trace[373] 137.630997 15.135839 103.849152 133.299149 -49.201588 -21.881128
-#trace[374] 136.852875 13.563052 102.001495 133.064117 -49.974751 -16.785751
-#trace[375] 136.074371 11.989902 100.153839 132.828491 -50.747910 -11.690373
-#trace[376] 135.295883 10.416749 98.306175 132.592850 -51.521759 -6.595010
-#trace[377] 134.516983 8.843962 96.458519 132.357834 -52.294926 -1.499634
-#trace[378] 133.738480 7.270810 94.610863 132.122192 -53.068089 3.595743
-#trace[379] 132.959976 5.698023 92.762878 131.886566 -53.841248 8.691120
-#trace[380] 132.181488 4.124870 90.914894 131.651535 -54.614410 13.786497
-#trace[381] 131.402985 2.552083 89.067230 131.415909 -55.388264 18.881861
-#trace[382] 130.624466 0.978931 87.219246 131.181503 -56.161427 23.977238
-#trace[383] 129.845581 -0.594221 85.371269 130.945267 -56.934586 29.072611
-#trace[384] 129.067078 -2.167008 83.523605 130.709625 -57.707748 34.167992
-#trace[385] 128.288574 -3.740160 81.675621 130.475220 -58.480915 39.263367
-#trace[386] 127.510086 -5.312947 79.827637 130.238968 -59.254761 44.358730
-#trace[387] 126.731583 -6.886099 77.979980 130.003342 -60.027924 49.454105
-#trace[388] 125.953072 -8.458886 76.131996 129.768311 -60.801086 54.549480
-#trace[389] 125.174171 -10.032039 74.284012 129.532684 -61.574253 59.644859
-#trace[390] 124.395683 -11.604825 72.436028 129.297043 -62.347416 64.740234
-#trace[391] 123.617180 -13.177978 70.588364 129.062027 -63.121262 69.835602
-#trace[392] 122.838669 -14.750765 68.740387 128.826385 -63.894424 74.930977
-#trace[393] 122.060181 -16.323917 66.892403 128.591980 -64.667587 80.026360
-#trace[394] 121.281281 -17.897068 65.044739 128.355728 -65.440750 85.121735
-#trace[395] 120.502777 -19.469856 63.196754 128.120102 -66.213921 90.217110
-#trace[396] 119.724274 -21.043007 61.348774 127.885689 -66.987762 95.312469
-#trace[397] 118.945778 -22.615795 59.501118 127.649445 -67.760925 100.407845
-#trace[398] 118.167274 -24.188948 57.653130 127.413803 -68.534088 105.502121
-#trace[399] 117.388374 -25.761734 55.805145 127.178795 -69.307259 110.597496
-#trace[400] 116.609879 -27.334887 53.957489 126.943153 -70.080421 115.692871
-#trace[401] 115.831375 -28.908039 52.109505 126.707527 -70.854263 120.789345
-#trace[402] 115.052872 -30.480825 50.261520 126.472496 -71.627426 125.884720
-#trace[403] 114.274376 -32.053978 48.413536 126.236870 -72.400597 130.980087
-#trace[404] 113.495872 -33.626762 46.565876 126.002457 -73.173759 136.075470
-#trace[405] 112.717369 -35.199917 44.717896 125.766212 -73.946922 141.169754
-#trace[406] 111.938477 -36.772705 42.869907 125.530571 -74.720764 146.266205
-#trace[407] 111.159973 -38.345856 41.022251 125.296173 -75.493935 151.361588
-#trace[408] 110.381470 -39.918640 39.174267 125.059921 -76.267097 156.455872
-#trace[409] 109.726105 -40.488045 38.510803 124.839668 -76.839752 159.786453
-#trace[410] 108.883652 -38.169559 41.186489 124.498215 -77.316971 159.961472
-#trace[411] 107.914902 -35.622952 43.975246 124.150604 -77.967224 159.838608
-#trace[412] 106.903244 -33.224533 46.452805 123.831306 -78.748634 159.592270
-#trace[413] 105.847900 -30.954960 48.659889 123.533524 -79.644012 159.242569
-#trace[414] 104.748070 -28.800730 50.627144 123.248062 -80.649956 158.807175
-#trace[415] 103.601768 -26.753077 52.376717 122.969360 -81.754761 158.295090
-#trace[416] 102.404221 -24.805798 53.925552 122.690659 -82.957085 157.712936
-#trace[417] 101.154259 -22.953419 55.286369 122.405800 -84.252785 157.072876
-#trace[418] 99.852646 -21.194483 56.469261 122.108032 -85.634308 156.380585
-#trace[419] 98.492256 -19.528622 57.481724 121.792412 -87.103729 155.641479
-#trace[420] 97.073883 -17.954010 58.329952 121.452187 -88.658981 154.859985
-#trace[421] 95.595123 -16.473202 59.018513 121.081200 -90.293884 154.040680
-#trace[422] 94.052422 -15.087296 59.550323 120.675774 -92.007065 153.184662
-#trace[423] 92.446564 -13.797749 59.927998 120.228485 -93.799217 152.295181
-#trace[424] 90.772781 -12.608577 60.153496 119.736923 -95.666885 151.377792
-#trace[425] 89.032280 -11.522335 60.229427 119.191200 -97.602547 150.426117
-#trace[426] 87.223457 -10.541944 60.155449 118.585815 -99.609612 149.438965
-#trace[427] 85.344337 -9.672148 59.927998 117.913971 -101.682594 148.417526
-#trace[428] 83.398483 -8.916962 59.546410 117.172005 -103.817375 147.356400
-#trace[429] 81.382713 -8.280766 59.009060 116.350044 -106.006393 146.252441
-#trace[430] 79.302216 -7.767576 58.314312 115.439499 -108.247604 145.100189
-#trace[431] 77.155777 -7.382865 57.457615 114.434830 -110.536194 143.889862
-#trace[432] 75.023636 -7.146709 56.555618 113.407997 -112.743759 142.426270
-#trace[433] 73.600891 -7.121160 56.751785 113.156982 -113.782661 139.083237
-#trace[434] 72.839470 -7.211679 58.021687 113.658401 -113.774414 134.114288
-#trace[435] 72.133659 -7.312418 59.384453 114.231186 -113.671425 129.008804
-#trace[436] 71.427444 -7.413888 60.747875 114.804581 -113.565681 123.905579
-#trace[437] 70.722023 -7.515360 62.110973 115.378586 -113.461304 118.801224
-#trace[438] 70.016205 -7.616830 63.474396 115.951996 -113.355560 113.695786
-#trace[439] 69.310791 -7.719030 64.837494 116.525391 -113.251198 108.591431
-#trace[440] 68.604980 -7.820500 66.200912 117.099403 -113.145454 103.488190
-#trace[441] 67.899559 -7.921970 67.564003 117.672806 -113.039711 98.383865
-#trace[442] 67.193748 -8.023440 68.927429 118.246201 -112.933960 93.278435
-#trace[443] 66.487930 -8.124910 70.290527 118.820213 -112.828224 88.174103
-#trace[444] 65.782516 -8.226380 71.653954 119.393623 -112.723854 83.069748
-#trace[445] 65.076706 -8.327851 73.017044 119.967018 -112.619476 77.965385
-#trace[446] 64.370888 -8.429321 74.380470 120.540413 -112.513733 72.861061
-#trace[447] 63.665470 -8.530791 75.743561 121.114433 -112.407997 67.756729
-#trace[448] 62.959660 -8.632261 77.106979 121.687828 -112.302254 62.651299
-#trace[449] 62.254238 -8.733731 78.470085 122.261223 -112.196510 57.548065
-#trace[450] 61.548428 -8.835201 79.833504 122.835228 -112.092133 52.442608
-#trace[451] 60.842617 -8.936671 81.196602 123.408638 -111.986397 47.338276
-#trace[452] 60.024391 -9.054933 82.778030 124.074326 -111.865540 41.417965
-#trace[453] 59.318573 -9.156403 84.141449 124.647713 -111.759796 36.312534
-#trace[454] 58.612762 -9.257873 85.504547 125.221107 -111.654060 31.208204
-#trace[455] 57.908142 -9.356422 86.863075 125.786514 -111.548317 26.129141
-#trace[456] 57.051392 -8.798702 87.824387 124.966415 -111.308678 24.183861
-#trace[457] 55.656845 -7.129554 88.622101 121.940681 -110.788887 25.705976
-#trace[458] 54.206688 -5.379012 89.439697 118.762390 -110.246429 27.381256
-#trace[459] 52.524174 -3.349244 90.388290 115.075287 -109.618149 29.325216
-#trace[460] 51.073620 -1.599067 91.206215 111.896980 -109.076385 31.000481
-#trace[461] 49.623066 0.150745 92.023811 108.718681 -108.534622 32.675743
-#trace[462] 48.172115 1.900558 92.841736 105.539772 -107.992859 34.352108
-#trace[463] 46.721561 3.650370 93.659660 102.361465 -107.451103 36.027370
-#trace[464] 45.271011 5.399817 94.477257 99.183167 -106.909340 37.702633
-#trace[465] 43.820061 7.149630 95.295174 96.004250 -106.367577 39.378998
-#trace[466] 42.369503 8.899442 96.113098 92.825943 -105.825813 41.054264
-#trace[467] 40.918949 10.649254 96.930702 89.647644 -105.284050 42.730625
-#trace[468] 39.467999 12.399066 97.748619 86.468735 -104.742287 44.405888
-#trace[469] 38.017448 14.148879 98.566544 83.290428 -104.200523 46.081154
-#trace[470] 36.566895 15.898691 99.384468 80.112129 -103.658760 47.757515
-#trace[471] 35.115944 17.648504 100.202065 76.933830 -103.116989 49.432777
-#trace[472] 33.665390 19.398315 101.019989 73.754913 -102.575226 51.109142
-#trace[473] 32.214836 21.147764 101.837914 70.576614 -102.033463 52.784405
-#trace[474] 30.763885 22.897575 102.655502 67.398315 -101.491699 54.459671
-#trace[475] 29.313332 24.647388 103.473427 64.219391 -100.949936 56.136036
-#trace[476] 27.862778 26.397200 104.291351 61.041096 -100.407494 57.811310
-#trace[477] 26.411829 28.147013 105.108948 57.862797 -99.866409 59.486565
-#trace[478] 24.961275 29.896824 105.926872 54.683880 -99.323967 61.162937
-#trace[479] 23.510721 31.646637 106.744797 51.505577 -98.782196 62.838200
-#trace[480] 22.059771 33.396450 107.562714 48.327278 -98.240433 64.514565
-#trace[481] 20.609219 35.145897 108.380318 45.148361 -97.698669 66.189827
-#trace[482] 19.158268 36.895710 109.198235 41.970058 -97.156906 67.865089
-#trace[483] 17.707714 38.645523 110.016159 38.791759 -96.615143 69.541458
-#trace[484] 16.257160 40.395332 110.833755 35.613457 -96.073380 71.216713
-#trace[485] 14.806210 42.145145 111.651672 32.434540 -95.531616 72.893082
-#trace[486] 13.355657 43.894958 112.469597 29.256241 -94.989861 74.568344
-#trace[487] 11.905104 45.644772 113.287201 26.077940 -94.448097 76.243607
-#trace[488] 10.454153 47.394585 114.105118 22.899639 -93.906334 77.919975
-#trace[489] 9.003599 49.144398 114.923042 19.720724 -93.364571 79.595238
-#trace[490] 7.553046 50.893845 115.740974 16.542421 -92.822807 81.271599
-#trace[491] 6.102095 52.643658 116.558556 13.364121 -92.281044 82.946861
-#trace[492] 4.651542 54.393467 117.376488 10.185205 -91.739281 84.622124
-#trace[493] 3.200989 56.143276 118.194405 7.006904 -91.197510 86.298492
-#trace[494] 6.363449 52.328659 116.411598 13.936289 -92.378540 82.644981
-#trace[495] 4.912498 54.078472 117.229202 10.757373 -91.836777 84.321350
-#trace[496] 3.461945 55.828281 118.047119 7.579072 -91.295013 85.996613
-#trace[497] 15.937817 40.780411 111.013962 34.913937 -95.954597 71.586037
-#trace[498] 14.487264 42.530224 111.831558 31.735634 -95.412834 73.261299
-#trace[499] 13.036710 44.280033 112.649475 28.557333 -94.871071 74.936569
-#trace[500] 11.585759 46.029484 113.467400 25.378418 -94.329308 76.612930
-#trace[501] 10.135206 47.779293 114.285004 22.200117 -93.787544 78.288193
-#trace[502] 8.684256 49.529106 115.102921 19.021816 -93.245781 79.964554
-#trace[503] 7.233701 51.278919 115.920837 15.842900 -92.704018 81.639816
-#trace[504] 5.783148 53.028728 116.738441 12.664600 -92.162247 83.315086
-#trace[505] 4.332198 54.778542 117.556366 9.486299 -91.620483 84.991447
-#trace[506] 2.881644 56.528355 118.374283 6.307383 -91.078720 86.666710
+#trace[0] 0.628758 59.483402 119.736397 -1.283994 -89.931343 89.340660
+#trace[1] 4.190002 56.545147 118.229935 -8.589902 -89.534454 85.574791
+#trace[2] 5.808966 55.208878 117.545288 -11.914014 -89.355934 83.862297
+#trace[3] 7.427533 53.872246 116.860970 -15.239971 -89.176712 82.152016
+#trace[4] 9.046893 52.535614 116.175346 -18.565313 -88.996132 80.437370
+#trace[5] 10.667048 51.198982 115.491684 -21.890654 -88.816910 78.727081
+#trace[6] 12.285615 49.862350 114.806381 -25.215382 -88.638382 77.015686
+#trace[7] 13.906565 48.525719 114.122398 -28.541338 -88.458481 75.302124
+#trace[8] 15.526721 47.189453 113.437096 -31.865448 -88.277893 73.586372
+#trace[9] 17.147671 45.852818 112.752449 -35.189564 -88.097992 71.877213
+#trace[10] 18.764647 44.516190 112.067482 -38.513672 -87.919464 70.162514
+#trace[11] 20.385597 43.179558 111.382843 -41.838398 -87.739563 68.453339
+#trace[12] 22.005356 41.842926 110.697868 -45.161896 -87.560349 66.739769
+#trace[13] 23.626701 40.506294 110.012901 -48.486622 -87.379768 65.029510
+#trace[14] 25.246063 39.169662 109.328903 -51.810730 -87.199867 63.319237
+#trace[15] 26.865822 37.833393 108.643616 -55.135460 -87.022018 61.605629
+#trace[16] 28.485184 36.497131 107.958969 -58.458954 -86.842117 59.895363
+#trace[17] 30.104940 35.160496 107.273994 -61.783688 -86.663589 58.183971
+#trace[18] 31.726288 33.823864 106.589676 -65.108414 -86.482323 56.473724
+#trace[19] 33.346046 32.486870 105.905037 -68.432518 -86.303101 54.760147
+#trace[20] 34.966599 31.150236 105.219742 -71.757858 -86.123199 53.049873
+#trace[21] 36.583576 29.813971 104.535095 -75.081360 -85.943298 51.335213
+#trace[22] 38.204922 28.477339 103.849800 -78.407318 -85.762032 49.622772
+#trace[23] 39.825874 27.140707 103.165810 -81.731422 -85.584183 47.911366
+#trace[24] 41.445633 25.804073 102.481171 -85.056770 -85.405655 46.198872
+#trace[25] 43.064594 24.467808 101.796196 -88.381493 -85.225075 44.485321
+#trace[26] 44.684750 23.131176 101.111229 -91.706833 -85.043793 42.773983
+#trace[27] 46.305302 21.794180 100.426910 -95.031563 -84.862518 41.062641
+#trace[28] 47.924267 20.457548 99.742264 -98.356903 -84.683990 39.351246
+#trace[29] 49.545612 19.121281 99.057297 -101.681633 -84.504784 37.634365
+#trace[30] 51.164974 17.784649 98.372330 -105.005745 -84.325562 35.925186
+#trace[31] 52.786324 16.448015 97.687035 -108.330467 -84.147034 34.210491
+#trace[32] 54.403297 15.111750 97.003036 -111.653351 -83.967819 32.500214
+#trace[33] 56.024250 13.775118 96.318390 -114.977463 -83.787239 30.786657
+#trace[34] 57.644405 12.438851 95.633102 -118.300957 -83.608711 29.078562
+#trace[35] 59.264957 11.102220 94.948784 -121.624458 -83.427437 27.365023
+#trace[36] 60.883919 9.765224 94.264137 -124.949188 -83.247528 25.654753
+#trace[37] 62.504074 8.428591 93.579163 -128.273285 -83.068321 23.941172
+#trace[38] 64.123436 7.091959 92.894203 -131.598022 -82.888420 22.234201
+#trace[39] 65.743988 5.755328 92.209557 -134.924591 -82.707825 20.520649
+#trace[40] 67.364548 4.419061 91.524582 -138.249313 -82.529991 18.809242
+#trace[41] 68.984299 3.082429 90.840263 -141.575272 -82.350082 17.095675
+#trace[42] 70.588165 1.748717 90.165405 -144.885849 -82.162636 15.392147
+#trace[43] 71.811134 0.497496 89.753510 -147.789764 -81.681290 13.969157
+#trace[44] 72.229378 -0.586191 89.893951 -149.805267 -80.573044 13.159658
+#trace[45] 71.813515 -1.537382 90.582512 -150.889297 -78.804253 12.969814
+#trace[46] 70.665627 -2.430903 91.680672 -151.108948 -76.473770 13.335028
+#trace[47] 69.327477 -3.403265 92.796768 -151.041885 -73.998413 13.872327
+#trace[48] 68.011566 -4.492061 93.782509 -150.905304 -71.549835 14.366246
+#trace[49] 66.727043 -5.693642 94.636604 -150.727493 -69.134216 14.825446
+#trace[50] 65.475090 -7.003264 95.361656 -150.506027 -66.761169 15.242047
+#trace[51] 64.530960 -8.299381 96.238564 -150.162109 -64.414215 15.313156
+#trace[52] 64.863808 -8.977917 98.002144 -149.495193 -62.455906 13.799954
+#trace[53] 66.448212 -8.751982 100.053795 -148.801819 -61.658707 11.383526
+#trace[54] 68.386124 -8.316172 101.975426 -148.189651 -61.362762 8.761515
+#trace[55] 70.387589 -7.984385 103.772896 -147.616257 -61.117634 6.073668
+#trace[56] 72.441483 -7.772320 105.442635 -147.083466 -60.910950 3.347699
+#trace[57] 74.547005 -7.683260 106.989845 -146.595581 -60.746159 0.589032
+#trace[58] 76.697815 -7.723775 108.410622 -146.160004 -60.607452 -2.187735
+#trace[59] 78.887543 -7.886565 109.700073 -145.778564 -60.494843 -4.986997
+#trace[60] 81.113815 -8.181851 110.860474 -145.453720 -60.396652 -7.785448
+#trace[61] 83.242783 -8.582256 111.834488 -145.195938 -60.321812 -10.466812
+#trace[62] 83.898941 -8.715117 112.105286 -145.139328 -60.298462 -11.247474
+#trace[63] 84.143219 -8.446112 111.954414 -145.291916 -60.759888 -11.207263
+#trace[64] 84.506256 -8.035121 111.697624 -145.549072 -61.503525 -11.033171
+#trace[65] 84.419662 -7.812105 111.495911 -145.668427 -61.801533 -10.690865
+#trace[66] 83.783760 -7.679610 111.240768 -145.712112 -61.819386 -9.914490
+#trace[67] 83.131958 -7.552225 110.972252 -145.775482 -61.820759 -9.120205
+#trace[68] 82.479370 -7.433965 110.689072 -145.845001 -61.828999 -8.328255
+#trace[69] 81.833534 -7.327384 110.397095 -145.926208 -61.834488 -7.527461
+#trace[70] 81.178955 -7.228105 110.087852 -145.985275 -61.858524 -6.734729
+#trace[71] 80.535103 -7.141964 109.773064 -146.071411 -61.864704 -5.938344
+#trace[72] 79.890060 -7.065314 109.445564 -146.150772 -61.881870 -5.144376
+#trace[73] 79.249786 -6.999979 109.108948 -146.244278 -61.896976 -4.348169
+#trace[74] 78.613876 -6.946324 108.762222 -146.347656 -61.908649 -3.554091
+#trace[75] 77.975586 -6.901064 108.400520 -146.437469 -61.932678 -2.760260
+#trace[76] 77.343254 -6.867849 108.031631 -146.539612 -61.952595 -1.969643
+#trace[77] 76.716087 -6.845949 107.653305 -146.660187 -61.971134 -1.177899
+#trace[78] 76.087723 -6.832079 107.260315 -146.763535 -61.996540 -0.385194
+#trace[79] 75.465714 -6.830254 106.859497 -146.879837 -62.024006 0.403075
+#trace[80] 74.847282 -6.843029 106.449234 -147.007172 -62.050098 1.193568
+#trace[81] 74.230835 -6.861279 106.027565 -147.133301 -62.080307 1.975191
+#trace[82] 73.618370 -6.887194 105.595146 -147.260040 -62.113270 2.762251
+#trace[83] 73.010658 -6.925519 105.152611 -147.393539 -62.148289 3.540482
+#trace[84] 72.407318 -6.975159 104.699982 -147.535049 -62.188114 4.317517
+#trace[85] 71.806763 -7.034289 104.236931 -147.674698 -62.228626 5.097835
+#trace[86] 71.209778 -7.104004 103.764427 -147.819901 -62.273258 5.871478
+#trace[87] 70.618355 -7.182845 103.282471 -147.970032 -62.321323 6.647251
+#trace[88] 70.031700 -7.272270 102.789108 -148.122604 -62.374195 7.413039
+#trace[89] 69.447830 -7.370090 102.285652 -148.278259 -62.426380 8.181038
+#trace[90] 68.869110 -7.479225 101.772408 -148.437592 -62.484745 8.941223
+#trace[91] 68.294769 -7.597120 101.249397 -148.601257 -62.546543 9.701340
+#trace[92] 67.724792 -7.724505 100.715958 -148.765518 -62.613144 10.459163
+#trace[93] 67.159195 -7.861745 100.173058 -148.932861 -62.682499 11.213635
+#trace[94] 66.599144 -8.008111 99.620392 -149.106369 -62.756653 11.964716
+#trace[95] 66.043076 -8.162871 99.056641 -149.279846 -62.834244 12.709136
+#trace[96] 65.492172 -8.327851 98.483444 -149.456421 -62.918015 13.452334
+#trace[97] 64.946030 -8.501957 97.900475 -149.637924 -63.005909 14.189957
+#trace[98] 64.404251 -8.684457 97.308044 -149.819427 -63.098606 14.926383
+#trace[99] 63.867249 -8.876447 96.703896 -150.000305 -63.192673 15.660585
+#trace[100] 63.336193 -9.077197 96.090942 -150.187317 -63.295670 16.384720
+#trace[101] 62.809517 -9.287072 95.467560 -150.376816 -63.402790 17.112072
+#trace[102] 62.287209 -9.505708 94.833099 -150.566299 -63.514717 17.827242
+#trace[103] 61.770454 -9.733103 94.189522 -150.756409 -63.630070 18.544538
+#trace[104] 61.258873 -9.969258 93.536156 -150.950836 -63.753662 19.256176
+#trace[105] 60.751255 -10.213809 92.871063 -151.144623 -63.882069 19.963327
+#trace[106] 60.248409 -10.467484 92.196198 -151.340271 -64.013214 20.668222
+#trace[107] 59.753113 -10.729189 91.511551 -151.539612 -64.157410 21.362970
+#trace[108] 59.260586 -11.000020 90.815826 -151.737106 -64.300232 22.057747
+#trace[109] 58.774025 -11.279244 90.109344 -151.935822 -64.450607 22.751272
+#trace[110] 58.291832 -11.566866 89.392120 -152.137009 -64.610596 23.432520
+#trace[111] 57.814007 -11.862881 88.663483 -152.339417 -64.773338 24.113714
+#trace[112] 57.341740 -12.167656 87.924744 -152.541824 -64.942932 24.792572
+#trace[113] 56.874245 -12.480826 87.174606 -152.744858 -65.118027 25.464731
+#trace[114] 56.412704 -12.802027 86.413055 -152.947266 -65.300682 26.133440
+#trace[115] 55.955135 -13.132717 85.639778 -153.152756 -65.492256 26.794283
+#trace[116] 55.502731 -13.471437 84.856400 -153.357620 -65.687943 27.452843
+#trace[117] 55.054695 -13.818918 84.059982 -153.561890 -65.891190 28.111256
+#trace[118] 54.611828 -14.174794 83.251831 -153.766144 -66.100616 28.757456
+#trace[119] 54.174118 -14.539429 82.430649 -153.970398 -66.318283 29.402397
+#trace[120] 53.739586 -14.912459 81.598717 -154.176514 -66.543510 30.047184
+#trace[121] 53.311810 -15.294981 80.752449 -154.382599 -66.776962 30.680820
+#trace[122] 52.888397 -15.685895 79.893791 -154.585632 -67.015915 31.313248
+#trace[123] 52.470551 -16.085571 79.022751 -154.789886 -67.267227 31.942131
+#trace[124] 52.055084 -16.494736 78.137047 -154.992310 -67.519226 32.565514
+#trace[125] 51.645576 -16.912663 77.237984 -155.197189 -67.783592 33.186443
+#trace[126] 51.240047 -17.340078 76.323929 -155.400208 -68.056870 33.801704
+#trace[127] 50.923878 -17.689384 75.584213 -155.560165 -68.280029 34.292728
+#trace[128] 50.633530 -18.079935 75.777451 -155.563858 -67.638016 34.336327
+#trace[129] 50.419441 -18.377409 75.963524 -155.530014 -67.099693 34.288868
+#trace[130] 49.723557 -19.188076 74.228294 -155.896713 -67.646255 35.365582
+#trace[131] 48.485107 -20.775461 70.782585 -156.600525 -68.852013 37.421181
+#trace[132] 47.627167 -22.001135 66.791054 -157.284058 -71.061630 39.430332
+#trace[133] 47.792793 -21.857689 64.470894 -157.524002 -73.401718 40.259140
+#trace[134] 48.487885 -21.056877 63.222500 -157.524002 -75.556412 40.400616
+#trace[135] 49.236198 -20.310818 61.906002 -157.452621 -77.752998 40.505001
+#trace[136] 50.000797 -19.677176 60.426247 -157.352341 -79.992836 40.601929
+#trace[137] 50.922684 -18.921261 59.288322 -157.165939 -82.098770 40.491695
+#trace[138] 52.316837 -17.379862 60.183155 -156.744492 -83.224869 39.302425
+#trace[139] 53.914352 -15.362141 63.052727 -156.198776 -83.092346 37.315453
+#trace[140] 55.538879 -13.377998 66.409462 -155.640762 -82.471619 35.064678
+#trace[141] 57.229733 -11.523430 69.571991 -155.082748 -81.979980 32.745411
+#trace[142] 58.994865 -9.791503 72.533134 -154.528412 -81.611946 30.378630
+#trace[143] 60.831093 -8.176741 75.309837 -153.983322 -81.361320 27.969944
+#trace[144] 62.744774 -6.675129 77.915787 -153.452988 -81.217804 25.506382
+#trace[145] 64.733131 -5.284842 80.364014 -152.938660 -81.165627 22.991558
+#trace[146] 66.798935 -4.005880 82.658760 -152.450150 -81.177979 20.432592
+#trace[147] 68.936638 -2.838974 84.812729 -151.988113 -81.328354 17.815939
+#trace[148] 71.143448 -1.784852 86.824303 -151.560532 -81.538475 15.149749
+#trace[149] 73.187408 -0.925276 88.529877 -151.196915 -81.775360 12.666495
+#trace[150] 73.633453 -0.762121 88.870415 -151.136017 -81.839218 12.169735
+#trace[151] 73.562363 -0.746061 88.869759 -150.026138 -81.880417 11.818447
+#trace[152] 73.337952 -0.724891 88.862267 -146.893967 -82.033546 10.774979
+#trace[153] 73.099236 -0.701166 88.850861 -143.568634 -82.190781 9.678695
+#trace[154] 72.860519 -0.675616 88.841087 -140.243912 -82.348030 8.581311
+#trace[155] 72.622200 -0.649336 88.831306 -136.917953 -82.505264 7.483928
+#trace[156] 72.383888 -0.623421 88.821854 -133.593842 -82.661827 6.390953
+#trace[157] 72.145966 -0.597506 88.812729 -130.267883 -82.819061 5.292471
+#trace[158] 71.907654 -0.571956 88.802956 -126.943153 -82.976311 4.199483
+#trace[159] 71.668938 -0.544946 88.793503 -123.617203 -83.132866 3.101015
+#trace[160] 71.430222 -0.519396 88.784050 -120.291862 -83.289421 2.001448
+#trace[161] 71.192307 -0.493116 88.775253 -116.965897 -83.446655 0.911756
+#trace[162] 70.953987 -0.467566 88.765152 -113.639946 -83.602524 -0.185600
+#trace[163] 70.714874 -0.440921 88.755707 -110.313980 -83.760452 -1.282997
+#trace[164] 70.477753 -0.415371 88.746910 -106.988647 -83.917702 -2.377084
+#trace[165] 70.239830 -0.389091 88.737129 -103.663307 -84.072884 -3.477722
+#trace[166] 70.001122 -0.363175 88.728004 -100.338577 -84.230812 -4.570724
+#trace[167] 69.762802 -0.336530 88.718559 -97.013237 -84.387367 -5.665896
+#trace[168] 69.524483 -0.310980 88.709435 -93.688507 -84.542549 -6.763239
+#trace[169] 69.286171 -0.284700 88.700310 -90.363777 -84.701164 -7.859551
+#trace[170] 69.047455 -0.259150 88.690536 -87.039673 -84.859093 -8.959145
+#trace[171] 68.809135 -0.232505 88.681084 -83.715561 -85.014954 -10.049909
+#trace[172] 68.571220 -0.206955 88.671631 -80.390831 -85.172882 -11.148405
+#trace[173] 68.332504 -0.180675 88.662178 -77.066101 -85.329437 -12.246873
+#trace[174] 68.094582 -0.154395 88.652733 -73.740768 -85.485313 -13.339834
+#trace[175] 67.856270 -0.128480 88.643280 -70.414192 -85.640495 -14.437176
+#trace[176] 67.617950 -0.102200 88.633507 -67.088234 -85.798416 -15.530179
+#trace[177] 67.379631 -0.076650 88.624702 -63.762276 -85.955666 -16.627560
+#trace[178] 67.141319 -0.050005 88.615257 -60.436321 -86.112900 -17.726042
+#trace[179] 66.903000 -0.024455 88.606133 -57.110359 -86.270149 -18.821228
+#trace[180] 66.664680 0.001825 88.596359 -53.785019 -86.426010 -19.919682
+#trace[181] 66.426369 0.027375 88.587563 -50.459679 -86.582565 -21.010460
+#trace[182] 66.188049 0.054385 88.578110 -47.134338 -86.740494 -22.110056
+#trace[183] 65.949738 0.079570 88.568336 -43.808994 -86.895676 -23.208494
+#trace[184] 65.711418 0.106215 88.558884 -40.485500 -87.053612 -24.298203
+#trace[185] 65.473099 0.131400 88.550087 -37.160770 -87.210846 -25.397781
+#trace[186] 65.234787 0.158410 88.540314 -33.836044 -87.366722 -26.495138
+#trace[187] 64.996864 0.183960 88.530533 -30.512548 -87.523956 -27.588127
+#trace[188] 64.758148 0.209875 88.521408 -27.187208 -87.681206 -28.685511
+#trace[189] 64.519836 0.235790 88.512283 -23.861866 -87.835693 -29.779543
+#trace[190] 64.281517 0.262800 88.502831 -20.536524 -87.994308 -30.876953
+#trace[191] 64.043198 0.287985 88.493706 -17.211182 -88.150864 -31.973227
+#trace[192] 63.804890 0.314265 88.484261 -13.885225 -88.308792 -33.071720
+#trace[193] 63.566967 0.340180 88.474480 -10.559268 -88.464668 -34.171268
+#trace[194] 63.329052 0.366461 88.465034 -7.233310 -88.621223 -35.260952
+#trace[195] 63.090336 0.392375 88.455910 -3.907354 -88.777779 -36.358318
+#trace[196] 62.851620 0.418291 88.446457 -0.582012 -88.935699 -37.456818
+#trace[197] 62.613705 0.444571 88.437012 2.743330 -89.092949 -38.548706
+#trace[198] 62.375385 0.470486 88.427559 6.069287 -89.248810 -39.649357
+#trace[199] 62.136669 0.496766 88.418114 9.393399 -89.406738 -40.742359
+#trace[200] 61.898357 0.522316 88.408989 12.718124 -89.562614 -41.839714
+#trace[201] 61.660435 0.548961 88.399536 16.042850 -89.720543 -42.937111
+#trace[202] 61.422520 0.574511 88.390083 19.368193 -89.876404 -44.032269
+#trace[203] 61.183804 0.600791 88.380302 22.692919 -90.032959 -45.129642
+#trace[204] 60.945484 0.625976 88.371506 26.017647 -90.189522 -46.221516
+#trace[205] 60.706768 0.653351 88.362061 29.342989 -90.346756 -47.319996
+#trace[206] 60.468056 0.678536 88.352608 32.668331 -90.504005 -48.417381
+#trace[207] 60.230137 0.705181 88.342506 35.993671 -90.660561 -49.510353
+#trace[208] 59.992214 0.730366 88.334038 39.319016 -90.817116 -50.609924
+#trace[209] 59.754299 0.757741 88.325233 42.644970 -90.973671 -51.701801
+#trace[210] 59.515583 0.782561 88.315788 45.969696 -91.130913 -52.800282
+#trace[211] 59.277271 0.809206 88.305687 49.295040 -91.287468 -53.899849
+#trace[212] 59.038952 0.834756 88.296234 52.620998 -91.444702 -54.991734
+#trace[213] 58.801434 0.861766 88.286461 55.946339 -91.601952 -56.090218
+#trace[214] 58.562325 0.886951 88.277664 59.271679 -91.758507 -57.185390
+#trace[215] 58.324005 0.913231 88.268211 62.597641 -91.916435 -58.280590
+#trace[216] 58.086082 0.939146 88.258766 65.922981 -92.073677 -59.380169
+#trace[217] 57.847767 0.965426 88.248985 69.248322 -92.229538 -60.469837
+#trace[218] 57.609055 0.991341 88.240189 72.574280 -92.385414 -61.569389
+#trace[219] 57.370735 1.017256 88.230736 75.899620 -92.542648 -62.665676
+#trace[220] 57.132420 1.043536 88.220955 79.224350 -92.700577 -63.760876
+#trace[221] 56.894104 1.069816 88.211510 82.549072 -92.857826 -64.858253
+#trace[222] 56.655788 1.096097 88.202385 85.873795 -93.014381 -65.951225
+#trace[223] 56.417473 1.121281 88.192932 89.197914 -93.170929 -67.048599
+#trace[224] 56.179951 1.147927 88.183487 92.522636 -93.326805 -68.145950
+#trace[225] 55.941235 1.173477 88.174362 95.847366 -93.484039 -69.243347
+#trace[226] 55.702919 1.199757 88.164589 99.172707 -93.640594 -70.340714
+#trace[227] 55.464603 1.224942 88.156113 102.498047 -93.798523 -71.432617
+#trace[228] 55.226284 1.251952 88.146667 105.824623 -93.955772 -72.532188
+#trace[229] 54.987572 1.277502 88.137215 109.150574 -94.112328 -73.627365
+#trace[230] 54.744488 1.304877 88.127113 112.542984 -94.272316 -74.743477
+#trace[231] 54.526031 1.328602 88.115707 115.632683 -94.417198 -75.770302
+#trace[232] 54.472809 1.334807 88.114082 116.346977 -94.451523 -76.000610
+#trace[233] 54.164982 1.573152 88.516846 116.360512 -94.637604 -75.805473
+#trace[234] 51.870789 3.370049 91.635704 116.472488 -96.098785 -73.526466
+#trace[235] 48.860451 5.401278 95.232285 116.770866 -98.104477 -70.747490
+#trace[236] 45.629677 7.228835 98.587074 117.266136 -100.296257 -67.883240
+#trace[237] 42.187195 8.832282 101.692253 117.990265 -102.650764 -64.904709
+#trace[238] 38.577888 10.182054 104.531837 118.968483 -105.113075 -61.775604
+#trace[239] 36.744442 10.702909 105.857788 119.570793 -106.336678 -60.101593
+#trace[240] 36.508507 10.474419 106.077095 119.733849 -106.305084 -59.597786
+#trace[241] 36.341686 10.225854 106.259903 119.882729 -106.224068 -59.119358
+#trace[242] 36.789722 10.639400 105.789680 119.575111 -106.298225 -60.126087
+#trace[243] 38.723660 9.694413 103.849152 119.197350 -105.040977 -61.948845
+#trace[244] 41.360630 8.294271 101.210617 118.718704 -103.255692 -64.307060
+#trace[245] 44.010712 6.887559 98.562958 118.238197 -101.471100 -66.670784
+#trace[246] 46.662380 5.480117 95.913673 117.759552 -99.695435 -69.037979
+#trace[247] 49.314842 4.072310 93.266663 117.280907 -97.907417 -71.399429
+#trace[248] 51.967308 2.664504 90.618355 116.803474 -96.133125 -73.764465
+#trace[249] 54.056549 1.581912 88.449715 116.235611 -94.653397 -75.531136
+#trace[250] 53.042511 2.866714 88.936882 113.321251 -94.329987 -71.724495
+#trace[251] 50.861515 5.223157 90.229271 108.638702 -94.150780 -65.003868
+#trace[252] 48.639614 7.616100 91.530449 103.894012 -93.972931 -58.225040
+#trace[253] 46.416119 10.009773 92.831306 99.144402 -93.790970 -51.450527
+#trace[254] 44.193817 12.403082 94.132164 94.398491 -93.609695 -44.678226
+#trace[255] 41.971119 14.797483 95.433342 89.652573 -93.430489 -37.904865
+#trace[256] 39.749214 17.190428 96.734200 84.902344 -93.247154 -31.130325
+#trace[257] 37.526119 19.584101 98.034401 80.157661 -93.067253 -24.359148
+#trace[258] 35.302231 21.977409 99.335907 75.410507 -92.885284 -17.589029
+#trace[259] 33.081516 24.371082 100.636116 70.660896 -92.701950 -10.817785
+#trace[260] 30.858816 26.764755 101.937622 65.918060 -92.520676 -4.043284
+#trace[261] 28.635719 29.157700 103.238480 61.169064 -92.339401 2.730116
+#trace[262] 26.413815 31.551739 104.538353 56.419453 -92.157440 9.500236
+#trace[263] 24.190718 33.945042 105.839859 51.676609 -91.976166 16.273636
+#trace[264] 21.969608 36.338718 107.140717 46.927616 -91.793526 23.048162
+#trace[265] 19.746115 38.732391 108.442223 42.178623 -91.612251 29.822662
+#trace[266] 17.521828 41.125336 109.742432 37.435783 -91.428917 36.592812
+#trace[267] 15.302703 43.519741 111.043610 32.686787 -91.251068 43.365047
+#trace[268] 13.079607 45.912682 112.344139 27.937178 -91.068420 50.140667
+#trace[269] 10.856112 48.306355 113.645325 23.194336 -90.887146 56.915173
+#trace[270] 8.634209 50.700027 114.945854 18.444727 -90.704506 63.685299
+#trace[271] 6.411510 53.093700 116.246376 13.696348 -90.523911 70.456490
+#trace[272] 4.189605 55.487011 117.547569 8.953506 -90.340576 77.231033
+#trace[273] 53.875824 0.315725 88.793831 116.500160 -94.213257 -74.217148
+#trace[274] 54.166172 0.816141 88.463081 116.424500 -94.330681 -75.087425
+#trace[275] 54.304398 1.311447 88.254524 116.171013 -94.413757 -75.520844
+#trace[276] 54.038673 1.796532 88.367271 115.429665 -94.425430 -74.706993
+#trace[277] 53.598980 2.275413 88.626984 114.485275 -94.398651 -73.341957
+#trace[278] 53.153328 2.754294 88.888336 113.534737 -94.348534 -71.985237
+#trace[279] 52.708866 3.233174 89.149353 112.585434 -94.310081 -70.626564
+#trace[280] 52.264408 3.712055 89.409073 111.636124 -94.270943 -69.274460
+#trace[281] 51.819153 4.190936 89.669754 110.684975 -94.234543 -67.913620
+#trace[282] 51.374298 4.670546 89.929794 109.735046 -94.198151 -66.561584
+#trace[283] 50.929440 5.149062 90.190163 108.786972 -94.161758 -65.208435
+#trace[284] 50.484978 5.627943 90.450211 107.836433 -94.125366 -63.853088
+#trace[285] 50.040123 6.107188 90.710899 106.884666 -94.088287 -62.494434
+#trace[286] 49.595264 6.586069 90.970940 105.935364 -94.051895 -61.141300
+#trace[287] 49.150402 7.065314 91.231308 104.986671 -94.016197 -59.782673
+#trace[288] 48.706341 7.544195 91.491348 104.035515 -93.979118 -58.432808
+#trace[289] 48.261086 8.022711 91.752693 103.084976 -93.944099 -57.071999
+#trace[290] 47.815834 8.501957 92.011757 102.135674 -93.907013 -55.719940
+#trace[291] 47.371769 8.981202 92.272446 101.186371 -93.870621 -54.364597
+#trace[292] 46.926910 9.460083 92.532486 100.234596 -93.834236 -53.010353
+#trace[293] 46.482056 9.939328 92.793182 99.285301 -93.797844 -51.650616
+#trace[294] 46.037991 10.417844 93.052895 98.335991 -93.762131 -50.299683
+#trace[295] 45.592735 10.896725 93.313263 97.386070 -93.725052 -48.942131
+#trace[296] 45.147881 11.375971 93.573952 96.434914 -93.687981 -47.590073
+#trace[297] 44.703022 11.854851 93.833672 95.485611 -93.653641 -46.228180
+#trace[298] 44.258163 12.334097 94.094040 94.536919 -93.616570 -44.875019
+#trace[299] 43.813705 12.812978 94.354408 93.585762 -93.579491 -43.520763
+#trace[300] 43.368847 13.291858 94.614777 92.635841 -93.543777 -42.166527
+#trace[301] 42.924385 13.770739 94.875137 91.686531 -93.507385 -40.807892
+#trace[302] 42.479923 14.249984 95.135506 90.737839 -93.472366 -39.454777
+#trace[303] 42.034672 14.728865 95.396194 89.786072 -93.435287 -38.098320
+#trace[304] 41.590210 15.207746 95.656235 88.836151 -93.398895 -36.748474
+#trace[305] 41.145355 15.686625 95.916283 87.886848 -93.362503 -35.387638
+#trace[306] 40.700096 16.165506 96.176964 86.936920 -93.324745 -34.033367
+#trace[307] 40.256035 16.644753 96.437012 85.984543 -93.289032 -32.678036
+#trace[308] 39.811176 17.123632 96.697380 85.035233 -93.253334 -31.323809
+#trace[309] 39.365921 17.602512 96.957748 84.087158 -93.216248 -29.966253
+#trace[310] 38.921856 18.081394 97.218437 83.136620 -93.181236 -28.614237
+#trace[311] 38.477001 18.560640 97.478477 82.185471 -93.143471 -27.255569
+#trace[312] 38.031746 19.039520 97.738846 81.236778 -93.106384 -25.904610
+#trace[313] 37.587288 19.518766 97.999214 80.286858 -93.070679 -24.542690
+#trace[314] 37.142429 19.997646 98.260231 79.336319 -93.034981 -23.191753
+#trace[315] 36.697968 20.476162 98.519951 78.385780 -92.998589 -21.836412
+#trace[316] 36.253113 20.955408 98.780632 77.437706 -92.961502 -20.481056
+#trace[317] 35.808254 21.434654 99.040672 76.487785 -92.925797 -19.124628
+#trace[318] 35.363396 21.913534 99.301697 75.536018 -92.890099 -17.768204
+#trace[319] 34.919727 22.392416 99.561409 74.586708 -92.852333 -16.413931
+#trace[320] 34.474476 22.871296 99.821777 73.638016 -92.816620 -15.061899
+#trace[321] 34.029617 23.350540 100.082466 72.688095 -92.780235 -13.701064
+#trace[322] 33.584362 23.829422 100.342506 71.735718 -92.743149 -12.349005
+#trace[323] 33.139900 24.308302 100.602226 70.787025 -92.708130 -10.993689
+#trace[324] 32.695045 24.787548 100.863571 69.837715 -92.671051 -9.638332
+#trace[325] 32.250187 25.266430 101.123611 68.886566 -92.635353 -8.280807
+#trace[326] 31.806126 25.745310 101.383972 67.935410 -92.598961 -6.924367
+#trace[327] 31.361265 26.224554 101.643692 66.987335 -92.561874 -5.571208
+#trace[328] 30.916012 26.703070 101.904388 66.038025 -92.526863 -4.218091
+#trace[329] 30.471550 27.182316 102.164429 65.086258 -92.490471 -2.859453
+#trace[330] 30.026297 27.661196 102.424797 64.135719 -92.453384 -1.505196
+#trace[331] 29.581837 28.140078 102.684502 63.188259 -92.416992 -0.150952
+#trace[332] 29.137375 28.619324 102.945847 62.237724 -92.379913 1.204404
+#trace[333] 28.692915 29.098204 103.205566 61.285957 -92.345589 2.561902
+#trace[334] 28.247660 29.577448 103.465935 60.337265 -92.308502 3.917258
+#trace[335] 27.802803 30.055964 103.725975 59.389191 -92.272118 5.271502
+#trace[336] 27.358341 30.535212 103.986664 58.438656 -92.235725 6.624646
+#trace[337] 26.913485 31.014456 104.246376 57.486267 -92.198639 7.983298
+#trace[338] 26.468628 31.492971 104.507072 56.537579 -92.162247 9.337542
+#trace[339] 26.024166 31.971853 104.767441 55.588890 -92.126541 10.692870
+#trace[340] 25.579309 32.451096 105.027809 54.637733 -92.089470 12.047127
+#trace[341] 25.134453 32.929977 105.287521 53.685966 -92.054451 13.402442
+#trace[342] 24.689991 33.409225 105.548210 52.737892 -92.017365 14.759996
+#trace[343] 24.245531 33.888103 105.808258 51.788586 -91.980980 16.113140
+#trace[344] 23.800674 34.366985 106.068626 50.836819 -91.943893 17.467396
+#trace[345] 23.355816 34.845867 106.328995 49.886280 -91.908195 18.824923
+#trace[346] 22.910563 35.325111 106.589676 48.939434 -91.871796 20.180265
+#trace[347] 22.466101 35.803993 106.849724 47.987667 -91.834724 21.534523
+#trace[348] 22.021244 36.282875 107.110092 47.035900 -91.799011 22.887653
+#trace[349] 21.576782 36.761757 107.371109 46.087822 -91.763313 24.245178
+#trace[350] 21.132322 37.240997 107.631149 45.139748 -91.726234 25.603832
+#trace[351] 20.687069 37.719879 107.891182 44.187977 -91.690521 26.956964
+#trace[352] 20.242210 38.198761 108.151550 43.236210 -91.654129 28.312305
+#trace[353] 19.797750 38.678005 108.412247 42.289368 -91.617744 29.666548
+#trace[354] 19.352892 39.156521 108.672287 41.340672 -91.581352 31.021891
+#trace[355] 18.908035 39.635403 108.933311 40.388290 -91.544266 32.377247
+#trace[356] 18.463179 40.114647 109.193016 39.436523 -91.508568 33.732578
+#trace[357] 18.018320 40.593529 109.453712 38.489063 -91.471489 35.087933
+#trace[358] 17.574654 41.072777 109.713753 37.539757 -91.435097 36.446568
+#trace[359] 17.130194 41.551655 109.974121 36.586758 -91.400078 37.797489
+#trace[360] 16.684542 42.030537 110.234489 35.636837 -91.362991 39.155041
+#trace[361] 16.239286 42.509418 110.495178 34.689991 -91.327286 40.508171
+#trace[362] 15.794827 42.988663 110.754898 33.738838 -91.290215 41.865723
+#trace[363] 15.350366 43.467907 111.015587 32.786457 -91.254501 43.218857
+#trace[364] 14.905508 43.946785 111.275627 31.837763 -91.218117 44.575302
+#trace[365] 14.461047 44.425667 111.536324 30.889688 -91.181725 45.931740
+#trace[366] 14.016191 44.904549 111.795708 29.937922 -91.144638 47.288193
+#trace[367] 13.571333 45.383430 112.057053 28.986767 -91.109619 48.640213
+#trace[368] 13.126475 45.862309 112.316772 28.039307 -91.071861 49.997776
+#trace[369] 12.681619 46.341557 112.577141 27.090616 -91.036148 51.349812
+#trace[370] 12.237158 46.820438 112.837181 26.137617 -91.001129 52.708420
+#trace[371] 11.792300 47.299316 113.098198 25.187696 -90.963371 54.060493
+#trace[372] 11.347443 47.778564 113.357910 24.240234 -90.927658 55.418026
+#trace[373] 10.903379 48.257446 113.618607 23.290314 -90.889893 56.773392
+#trace[374] 10.458522 48.736324 113.878647 22.337315 -90.854874 58.129807
+#trace[375] 10.013267 49.215572 114.139343 21.388008 -90.818489 59.481850
+#trace[376] 9.568410 49.694454 114.399376 20.440546 -90.781403 60.837208
+#trace[377] 9.123551 50.173332 114.659424 19.488779 -90.745010 62.192554
+#trace[378] 8.679091 50.652576 114.919464 18.537012 -90.709305 63.553368
+#trace[379] 8.234234 51.131092 115.180161 17.588322 -90.672913 64.904320
+#trace[380] 7.789773 51.609974 115.440201 16.640245 -90.635841 66.260773
+#trace[381] 7.345314 52.089218 115.700562 15.689092 -90.600128 67.612808
+#trace[382] 6.900059 52.568466 115.960930 14.736709 -90.563744 68.971443
+#trace[383] 6.455598 53.046978 116.220970 13.789248 -90.527351 70.325684
+#trace[384] 6.010741 53.526226 116.481339 12.841172 -90.489586 71.682159
+#trace[385] 5.565883 54.005108 116.742035 11.887559 -90.454567 73.034172
+#trace[386] 5.121025 54.484352 117.002068 10.937637 -90.417488 74.396126
+#trace[387] 4.676565 54.963234 117.262108 9.990791 -90.381775 75.745949
+#trace[388] 4.231708 55.442478 117.522804 9.041485 -90.346077 77.104584
+#trace[389] 3.787644 55.920994 117.782845 8.087872 -90.308998 78.456635
+#trace[390] 3.342390 56.399876 118.043869 7.138565 -90.272606 79.815277
+#trace[391] -56.137848 34.508606 113.509438 -19.028585 13.961563 88.812561
+#trace[392] -55.624275 34.741112 113.568100 -18.853859 13.010559 88.824303
+#trace[393] -55.111496 34.973980 113.627724 -18.680361 12.063676 88.835030
+#trace[394] -54.506172 35.249191 113.698120 -18.476105 10.941697 88.847740
+#trace[395] -53.992996 35.482059 113.756447 -18.301992 9.993440 88.859543
+#trace[396] -53.481014 35.714931 113.815750 -18.127266 9.039001 88.869019
+#trace[397] -52.967442 35.947803 113.875710 -17.954386 8.090057 88.880798
+#trace[398] -52.455063 36.180672 113.935020 -17.780273 7.139740 88.891449
+#trace[399] -51.941490 36.413906 113.994003 -17.606161 6.191483 88.902153
+#trace[400] -51.428314 36.646778 114.053635 -17.432667 5.243912 88.913963
+#trace[401] -50.915932 36.879646 114.112938 -17.257940 4.290162 88.923447
+#trace[402] -50.402359 37.112885 114.172249 -17.083828 3.341904 88.934151
+#trace[403] -49.889584 37.345387 114.231552 -16.910334 2.386780 88.945808
+#trace[404] -49.376408 37.578259 114.290543 -16.736835 1.441269 88.955460
+#trace[405] -48.864029 37.811493 114.350174 -16.562723 0.490265 88.967209
+#trace[406] -48.350456 38.044365 114.409157 -16.387997 -0.457306 88.977921
+#trace[407] -47.837280 38.277233 114.469437 -16.214502 -1.406250 88.987503
+#trace[408] -47.324505 38.510105 114.527763 -16.041006 -2.361374 89.000252
+#trace[409] -46.811726 38.742973 114.586754 -15.866895 -3.308258 89.009895
+#trace[410] -46.298946 38.976212 114.646706 -15.693398 -4.259949 89.022713
+#trace[411] -45.786171 39.209080 114.706352 -15.519902 -5.209579 89.031181
+#trace[412] -45.272598 39.441952 114.765320 -15.345176 -6.157837 89.041885
+#trace[413] -44.759422 39.674824 114.823975 -15.171679 -7.106781 89.053665
+#trace[414] -44.246647 39.907692 114.883949 -14.998184 -8.057098 89.064323
+#trace[415] -43.734264 40.140926 114.943573 -14.824688 -9.010162 89.076027
+#trace[416] -43.221088 40.373798 115.002563 -14.649961 -9.959793 89.085602
+#trace[417] -42.707912 40.606670 115.061531 -14.476465 -10.910798 89.097336
+#trace[418] -42.195137 40.839539 115.121170 -14.302969 -11.857681 89.109169
+#trace[419] -41.682362 41.072411 115.180473 -14.128242 -12.807313 89.117638
+#trace[420] -41.169186 41.305279 115.239784 -13.955361 -13.760377 89.130432
+#trace[421] -40.656010 41.538151 115.299744 -13.781865 -14.705888 89.140091
+#trace[422] -40.142838 41.771385 115.358070 -13.607139 -15.659638 89.151779
+#trace[423] -39.629658 42.004257 115.417709 -13.433027 -16.609268 89.162445
+#trace[424] -39.117279 42.237492 115.477341 -13.259532 -17.559587 89.174202
+#trace[425] -38.604500 42.469997 115.536324 -13.084805 -18.508530 89.184891
+#trace[426] -38.090927 42.702866 115.595627 -12.911309 -19.456102 89.194496
+#trace[427] -37.577755 42.936104 115.654938 -12.737813 -20.407104 89.205139
+#trace[428] -37.065372 43.168972 115.714569 -12.563087 -21.356737 89.216919
+#trace[429] -36.552197 43.402210 115.773552 -12.388974 -22.310488 89.227501
+#trace[430] -36.039021 43.635078 115.833191 -12.214864 -23.259430 89.237083
+#trace[431] -35.526642 43.867584 115.891838 -12.041368 -24.208374 89.248871
+#trace[432] -35.014263 44.100452 115.951805 -11.867871 -25.156631 89.259560
+#trace[433] -34.500294 44.333691 116.010780 -11.693760 -26.104889 89.271362
+#trace[434] -33.987911 44.566559 116.070419 -11.520265 -27.060015 89.281929
+#trace[435] -33.474342 44.799431 116.129402 -11.346768 -28.008959 89.291512
+#trace[436] -32.961166 45.032665 116.188377 -11.173272 -28.959961 89.302147
+#trace[437] -32.448387 45.265537 116.248016 -10.999776 -29.906847 89.313972
+#trace[438] -31.935608 45.498405 116.307976 -10.825664 -30.857162 89.323532
+#trace[439] -31.422832 45.731277 116.367287 -10.651553 -31.806108 89.337517
+#trace[440] -30.909260 45.964146 116.425613 -10.478057 -32.755741 89.347084
+#trace[441] -30.396481 46.197018 116.485245 -10.303330 -33.708805 89.357689
+#trace[442] -29.883307 46.430252 116.544556 -10.128604 -34.659119 89.367249
+#trace[443] -29.370928 46.663120 116.604187 -9.956338 -35.609436 89.379005
+#trace[444] -28.857752 46.895630 116.663170 -9.781611 -36.557007 89.390816
+#trace[445] -28.344973 47.128498 116.722801 -9.606885 -37.505951 89.400398
+#trace[446] -27.831799 47.361732 116.781456 -9.434619 -38.456272 89.412148
+#trace[447] -27.318623 47.594967 116.841080 -9.259277 -39.407276 89.422798
+#trace[448] -26.805449 47.827835 116.900726 -9.085166 -40.361027 89.433388
+#trace[449] -26.292669 48.060707 116.959709 -8.912286 -41.307907 89.444107
+#trace[450] -25.779892 48.293579 117.019341 -8.738790 -42.258228 89.455864
+#trace[451] -25.266718 48.526447 117.078323 -8.564063 -43.203735 89.465523
+#trace[452] -24.753939 48.759319 117.138275 -8.391182 -44.154743 89.476166
+#trace[453] -24.241560 48.992554 117.197906 -8.217071 -45.111237 89.487793
+#trace[454] -23.727591 49.225426 117.256233 -8.042344 -46.056747 89.498550
+#trace[455] -23.215208 49.458294 117.316208 -7.869463 -47.009125 89.509155
+#trace[456] -22.702034 49.691166 117.375832 -7.695352 -47.956013 89.519882
+#trace[457] -22.188860 49.924034 117.434486 -7.521241 -48.907700 89.530518
+#trace[458] -21.676083 50.156906 117.493477 -7.347129 -49.857330 89.541183
+#trace[459] -21.162907 50.389774 117.553101 -7.174248 -50.806278 89.552971
+#trace[460] -20.650526 50.623013 117.612419 -6.999522 -51.758656 89.563591
+#trace[461] -20.136953 50.855881 117.671402 -6.826025 -52.707596 89.574272
+#trace[462] -19.624178 51.088753 117.731033 -6.652529 -53.659286 89.584900
+#trace[463] -19.111399 51.321987 117.790344 -6.478418 -54.606861 89.595612
+#trace[464] -18.597429 51.554493 117.849968 -6.303076 -55.556488 89.606285
+#trace[465] -18.085049 51.787361 117.908958 -6.130811 -56.506809 89.616936
+#trace[466] -17.572269 52.020599 117.968582 -5.956699 -57.457123 89.627594
+#trace[467] -17.059891 52.253468 118.027245 -5.782588 -58.408813 89.638229
+#trace[468] -16.546318 52.486706 118.086868 -5.607862 -59.357079 89.650017
+#trace[469] -16.033144 52.719208 118.146179 -5.434365 -60.307388 89.660675
+#trace[470] -15.520366 52.952080 118.206139 -5.260254 -61.254959 89.671387
+#trace[471] -15.007191 53.184948 118.264793 -5.086758 -62.205963 89.680931
+#trace[472] -14.494809 53.418186 118.323784 -4.913261 -63.157654 89.691559
+#trace[473] -13.981635 53.651054 118.383736 -4.739151 -64.105919 89.704460
+#trace[474] -13.468062 53.883926 118.442719 -4.565039 -65.058289 89.715073
+#trace[475] -12.955284 54.116798 118.502350 -4.391543 -66.006546 89.725769
+#trace[476] -12.442904 54.350033 118.561989 -4.217432 -66.956863 89.736427
+#trace[477] -11.929729 54.582539 118.620964 -4.043936 -67.905807 89.748207
+#trace[478] -11.416157 54.815773 118.680275 -3.870440 -68.854752 89.758888
+#trace[479] -10.903776 55.048645 118.739586 -3.696328 -69.805756 89.769531
+#trace[480] -10.390601 55.281513 118.798561 -3.522217 -70.756767 89.780182
+#trace[481] -9.877824 55.514751 118.857544 -3.348721 -71.708458 89.790810
+#trace[482] -9.364649 55.747620 118.916862 -3.175225 -72.657394 89.801491
+#trace[483] -8.851474 55.980492 118.976814 -3.000498 -73.605659 89.812195
+#trace[484] -8.338696 56.213360 119.036118 -2.827002 -74.554596 89.823975
+#trace[485] -7.825918 56.446232 119.094444 -2.652891 -75.504234 89.835747
+#trace[486] -7.313141 56.679100 119.154411 -2.478164 -76.459351 89.846313
+#trace[487] -6.799966 56.911972 119.214371 -2.304668 -77.408295 89.854797
+#trace[488] -6.286790 57.145206 119.272697 -2.130557 -78.357239 89.866577
+#trace[489] -5.773616 57.378078 119.332657 -1.956445 -79.304817 89.877289
+#trace[490] -5.261235 57.610584 119.392296 -1.782949 -80.253754 89.887978
+#trace[491] -4.748457 57.843815 119.451271 -1.609453 -81.206139 89.898582
+#trace[492] -4.234488 58.076691 119.511238 -1.435342 -82.157135 89.910324
+#trace[493] -3.721710 58.309921 119.570206 -1.261230 -83.107452 89.922081
+#trace[494] -4.952615 57.751106 119.427483 -1.678975 -80.828484 79.180183
+#trace[495] -4.439837 57.983978 119.487114 -1.504863 -81.778107 80.299370
+#trace[496] -3.927060 58.216484 119.546425 -1.331367 -82.726364 81.421890
+#trace[497] -3.537412 58.393871 119.591393 -1.199092 -83.447342 89.925171
+#trace[498] 16.769144 33.702682 100.039452 -52.197102 -87.050858 73.566971
+#trace[499] 16.463305 34.181202 100.403450 -51.244102 -87.105789 73.864700
+#trace[500] 16.158657 34.659718 100.766464 -50.295410 -87.157974 74.165779
+#trace[501] 15.853214 35.138596 101.130455 -49.347336 -87.212219 74.464622
+#trace[502] 15.548566 35.617111 101.493469 -48.395565 -87.265091 74.760193
+#trace[503] 15.243123 36.095627 101.856163 -47.443798 -87.319336 75.062332
+#trace[504] 14.938078 36.574142 102.219818 -46.496338 -87.374275 75.360069
+#trace[505] 14.633034 37.053024 102.582840 -45.548260 -87.425766 75.658958
+#trace[506] 14.327591 37.531902 102.946503 -44.595264 -87.480705 75.961082
 #shelf.close.dbl[2,1] 47.217262 -24.399187 78.149757 -154.764664 -58.316803 33.599899
 #shelf.close.dbl[2,2] 78.219467 -17.004642 114.790085 -139.564072 -48.824619 -15.054374
 #shelf.close.dbl[3,1] 43.604382 -33.092037 77.779243 -153.328720 -49.319691 32.294495
@@ -19878,8 +19989,8 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #py.shaft[4,178] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
 #py.shaft[4,179] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
 #py.shaft[4,180] 45.448158 -17.365627 122.703094 -128.694107 -27.261202 -91.035225
-#cnc.point.bush[2,1] -88.764970 -44.237330 47.634720 -28.487810 52.241360 89.766020
-#cnc.point.bush[2,2] -88.764970 -44.237330 47.634720 -28.487810 52.241360 -90.233980
+#cnc.point.bush[2,1] -88.764969 -44.237328 47.634716 -28.487812 52.241364 89.766022
+#cnc.point.bush[2,2] -88.764969 -44.237331 47.634720 -28.487810 52.241360 -90.233978
 #cnc.point.bush[3,1] -79.000000 -40.000000 81.000000 -30.999998 -89.000000 84.000000
 #cnc.point.bush[3,2] -79.000000 -40.000000 81.000000 -30.999998 -89.000000 -95.000000
 #cnc.point.bush[4,1] -79.000000 -40.000000 81.000000 -30.999998 -89.000000 84.000000
@@ -20415,6 +20526,46 @@ cnc.point.shaft[180] -1214.246704 71.341133 220.107407 -175.744965 140.144485 -1
 #cnc.point.shaft[178] -95.799278 -22.551189 79.266823 -36.402802 43.015594 9.743857
 #cnc.point.shaft[179] -95.799278 -22.551189 79.266823 -36.402802 43.015594 9.743857
 #cnc.point.shaft[180] -95.799278 -22.551189 79.266823 -36.402802 43.015594 9.743857
+#trace[507] 14.022149 38.010056 103.309845 -43.644730 -87.532883 76.258865
+#trace[508] 13.716706 38.488571 103.672203 -42.697266 -87.586449 76.555519
+#trace[509] 13.411661 38.967087 104.035873 -41.747959 -87.641373 76.856552
+#trace[510] 13.106218 39.446335 104.399536 -40.794960 -87.695618 77.156494
+#trace[511] 12.801173 39.924480 104.762230 -39.845654 -87.747803 77.454277
+#trace[512] 12.495731 40.402996 105.125893 -38.898193 -87.802048 77.754219
+#trace[513] 12.191083 40.881878 105.488907 -37.947659 -87.855614 78.053070
+#trace[514] 11.885641 41.360394 105.851921 -36.995274 -87.909164 78.349731
+#trace[515] 11.580595 41.838913 106.216240 -36.045967 -87.963409 78.650772
+#trace[516] 11.275551 42.317791 106.578598 -35.097889 -88.016975 78.949623
+#trace[517] 10.970902 42.796307 106.941940 -34.146126 -88.069839 79.248497
+#trace[518] 10.665460 43.274822 107.305931 -33.194355 -88.125458 79.549507
+#trace[519] 10.360018 43.753338 107.668953 -32.246895 -88.177650 79.847290
+#trace[520] 10.054177 44.232220 108.031960 -31.298820 -88.232574 80.145020
+#trace[521] 9.749133 44.710732 108.395630 -30.346436 -88.284767 80.446106
+#trace[522] 9.444087 45.189251 108.757988 -29.395283 -88.338318 80.744957
+#trace[523] 9.139043 45.667767 109.121986 -28.448439 -88.391876 81.042717
+#trace[524] 8.833600 46.146282 109.485649 -27.498516 -88.446121 81.343750
+#trace[525] 8.528555 46.625164 109.848015 -26.545519 -88.500366 81.640388
+#trace[526] 8.223510 47.103676 110.211678 -25.596210 -88.553238 81.939262
+#trace[527] 7.918465 47.582191 110.575348 -24.648750 -88.607483 82.240311
+#trace[528] 7.613817 48.060707 110.938034 -23.698212 -88.661049 82.539162
+#trace[529] 7.307977 48.539227 111.301697 -22.745831 -88.714600 82.838020
+#trace[530] 7.002534 49.018108 111.664391 -21.797754 -88.767479 83.137985
+#trace[531] 6.697093 49.496620 112.027725 -20.849678 -88.821030 83.436844
+#trace[532] 6.392444 49.975136 112.391068 -19.897911 -88.875969 83.733467
+#trace[533] 6.087002 50.453651 112.754410 -18.946142 -88.929520 84.034523
+#trace[534] 5.782354 50.932533 113.118401 -17.997452 -88.982391 84.334488
+#trace[535] 5.476514 51.411049 113.481415 -17.048759 -89.036636 84.632233
+#trace[536] 5.171469 51.889561 113.843781 -16.096992 -89.089516 84.932198
+#trace[537] 4.866026 52.368443 114.208092 -15.146455 -89.144440 85.231026
+#trace[538] 4.560981 52.846962 114.571114 -14.198995 -89.197311 85.528801
+#trace[539] 4.255936 53.325111 114.934120 -13.249072 -89.251556 85.829842
+#trace[540] 3.950891 53.803993 115.298119 -12.296075 -89.305122 86.127602
+#trace[541] 3.645846 54.282871 115.660484 -11.347383 -89.360046 86.426430
+#trace[542] 3.340007 54.761021 116.023499 -10.399922 -89.411545 86.727516
+#trace[543] 3.034961 55.239902 116.387802 -9.448770 -89.465103 87.025269
+#trace[544] 2.729519 55.718418 116.750504 -8.496387 -89.517975 87.321953
+#trace[545] 2.424474 56.197296 117.113182 -7.548310 -89.572914 87.622978
+#trace[546] 2.119428 56.675816 117.477509 -6.600235 -89.628532 87.923988
 .END
 .REALS
 di.ifp.page[1] = 2001
@@ -20425,7 +20576,7 @@ di.ifp.page[5] = 2005
 di.ifp.page[6] = 2006
 di.ifp.page[7] = 2007
 di.ifp.page[8] = 2008
-current.tool = 1
+current.tool = 3
 type.parallel = 1
 type.double = 0
 grip.no.dbl[1] = 1
@@ -20447,7 +20598,7 @@ eo.shelf.opened[3] = 131
 eo.shelf.opened[4] = 132
 s.shelf.failed = 2010
 shelf.close.par[1,2] = 0
-hmi.shelf.no = 2
+hmi.shelf.no = 1
 gripper.close[1] = 34
 gripper.open[1] = 33
 gripper.open[2] = 35
@@ -20460,28 +20611,28 @@ tool.grip.dbl[2] = 2
 tool.grip.par[1] = 3
 pin.double = 4
 pin.parallel = 5
-hmi.task.no = 102
-hmi.plate.col.e = 5
-hmi.plate.col.o = 5
+hmi.task.no = 3
+hmi.plate.col.e = 6
+hmi.plate.col.o = 6
 hmi.plate.dx = 110
-hmi.plate.dy = 130
+hmi.plate.dy = 104
 hmi.plate.e.dy = 0
 hmi.plate.rows = 4
-hmi.cond.shift = 33
-hmi.cond.thick = 10
+hmi.cond.shift = 31
+hmi.cond.thick = 6.5
 hmi.prl.ch.full = 90
-hmi.prl.ch.work = 16
-hmi.shaft.full = 210
-hmi.shaft.h = 50
+hmi.prl.ch.work = 46
+hmi.shaft.full = 208
+hmi.shaft.h = 60
 hmi.shaft.pick = 70
 s.hmi.tool[1] = 2101
 s.hmi.tool[2] = 2102
-hmi.bush.length = 50
-hmi.cnc.ch.work = 0
-hmi.cnc.ch.full = 39
-hmi.dbl.ch.work[1] = 29
-hmi.dbl.ch.work[2] = 29
-hmi.dbl.ch.full[1] = 40
+hmi.bush.length = 31
+hmi.cnc.ch.work = 20.5
+hmi.cnc.ch.full = 40
+hmi.dbl.ch.work[1] = 51
+hmi.dbl.ch.work[2] = 35
+hmi.dbl.ch.full[1] = 57
 hmi.dbl.ch.full[2] = 40
 d.bush.wp0.d[0] = 1737
 d.bush.wp0.len[0] = 1513
@@ -20491,7 +20642,7 @@ d.chg.h.cor[0] = 1721
 d.chg.no[0] = 1705
 d.chg.required = 1289
 bush.wp0.d = 0
-bush.wp0.len = 50
+bush.wp0.len = 31
 d.cond.stp.cell[0] = 1497
 d.cond.stp.oy[0] = 1769
 d.cond.stp.row[0] = 1501
@@ -20595,59 +20746,58 @@ d.gr.dbl.inv[2] = 1297
 hmi.cnc.j.body[1] = 28
 hmi.cnc.j.full[1] = 40
 bush.wp2.d = 0
-bush.wp2.len = 50
+bush.wp2.len = 31
 chg.h.cor = 0
 chg.no = 1
-chg.required = 0
-cnc.ch.full = 39
-cnc.ch.work = 0
+chg.required = -1
+cnc.ch.full = 40
+cnc.ch.work = 20.5
 cond.stp.cell = 3
-cond.stp.oy = 33
+cond.stp.oy = 31
 cond.stp.row = 1
-gr.dbl.full[1] = 40
+gr.dbl.full[1] = 57
 gr.dbl.full[2] = 40
 gr.dbl.inv[1] = 0
-gr.dbl.work[1] = 29
-gr.dbl.work[2] = 29
-gr.prl.full = 90
-gr.prl.work = 16
+gr.dbl.work[1] = 51
+gr.dbl.work[2] = 35
+s.copy.buff = 2140
 hmi.cond.cx = 1
 hmi.cond.cy = 3
 hmi.wp.id = 1
-plt.cell.even = 5
-plt.cell.odd = 5
+plt.cell.even = 6
+plt.cell.odd = 6
 plt.dx = 110
-plt.dy = 130
+plt.dy = 104
 plt.even.dy = 0
 plt.rows = 4
 shaft.return = 0
 shaft.rotate = 0
 shaft.wp0.d = 0
-shaft.wp0.h = 50
-shaft.wp0.l1 = 210
+shaft.wp0.h = 60
+shaft.wp0.l1 = 208
 shaft.wp0.l2 = 70
-shaft.wp0.l3 = 10
+shaft.wp0.l3 = 6.5
 shaft.wp2.d = 0
-shaft.wp2.h = 50
-shaft.wp2.l1 = 210
+shaft.wp2.h = 60
+shaft.wp2.l1 = 208
 shaft.wp2.l2 = 70
-shaft.wp2.l3 = 10
+shaft.wp2.l3 = 6.5
 d.task.id[0] = 1273
-task.id = 102
-gp.dbl.cl.tmr[1] = 2
-gp.dbl.cl.tmr[2] = 2
-gp.dbl.op.tmr[1] = 2
-gp.dbl.op.tmr[2] = 2
-gp.par.cl.tmr = 2
-gp.par.op.tmr = 2
+task.id = 3
+gp.dbl.cl.tmr[1] = 1.5
+gp.dbl.cl.tmr[2] = 1.5
+gp.dbl.op.tmr[1] = 1.5
+gp.dbl.op.tmr[2] = 1.5
+gp.par.cl.tmr = 1.5
+gp.par.op.tmr = 1.5
 s.grip.open[1] = 2050
 s.grip.open[2] = 2051
 s.grip.open[3] = 2052
 s.grip.close[1] = 2053
 s.grip.close[2] = 2054
 s.grip.close[3] = 2055
-current.shelf = 1
-cnc.overshoot = 0
+current.shelf = 5
+cnc.overshoot = 2
 cnc.dbl.rot[1] = 0
 cnc.dbl.rot[2] = -180
 d.cnc.ch.full[0] = 1401
@@ -20661,20 +20811,20 @@ gripper.dbl.st[2] = -1
 hmi.wp.count = 4
 s.inside.cnc = 2011
 s.mcode.req = 2012
-shelf.overshoot = 0
+shelf.overshoot = 2
 chg.id = 0
 cnc.first = 0
 cnc.st = -1
 gr.dbl.inv[2] = 0
 wp.count = 4
-wp.type.shaft = 0
+wp.type.shaft = -1
 cnc.prl.rot[1] = 0
 cnc.prl.rot[2] = 180
 s.pr.a.home = 2200
 chg.st = -1
 cnc.id = 0
 current.wp = 1
-decision.state = 101
+decision.state = 102
 decision.type = 100
 gp.dbl.empty[1] = -1
 gp.dbl.empty[2] = -1
@@ -20691,16 +20841,16 @@ gp.prl.full = 0
 gp.prl.wp0 = 0
 gp.prl.wp1 = 0
 gp.prl.wp2 = 0
-gripper.prl.id = 8
+gripper.prl.id = 1
 gripper.prl.st = 0
 max.pick = 0
-mfinish = 0
+mfinish = -1
 n.max.pick = -1
 processed.wp = 0
 rin = 0
-rout = -1
-shelf.closed = 0
-shelf.opened = -1
+rout = 0
+shelf.closed = -1
+shelf.opened = 0
 state = 0
 cnc.empty = -1
 cnc.full = 0
@@ -20723,9 +20873,9 @@ ei.prl.gp.c.tmr[0] = 1265
 ei.chg.oversh[0] = 1209
 ei.cnc.oversh[0] = 1193
 ei.shelf.oversh[0] = 1177
-chg.overshoot = 0
-gr.dbl.full[3] = 40
-gr.dbl.work[3] = 29
+chg.overshoot = 2
+gr.dbl.full[3] = 57
+gr.dbl.work[3] = 51
 s.tch.buffer = 2122
 s.tch.cnc.bush = 2126
 s.tch.cnc.d.app = 2124
@@ -20758,6 +20908,20 @@ hmi.task.copy = -1
 s.copy.cnc = 2108
 d.gr.prl.full[2,0] = 1817
 d.gr.prl.work[2,0] = 1833
+d.cnc.pick.ovr[0] = 1865
+d.cnc.put.dpth[0] = 1849
+hmi.cnc.ch.dpth = 57
+d.cnc.through = 1293
+s.cnc.through = 2109
+cnc.pick.ovr = 0
+cnc.put.dpth = 57
+cnc.through = 0
+gr.prl.full[1] = 90
+gr.prl.full[2] = 90
+gr.prl.work[1] = 46
+gr.prl.work[2] = 46
+d.pick.stub = 1294
+s.pick.stub = 2141
 .END
 .STRINGS
 $log.entry[1] = "04:30:22 Task start command received"
