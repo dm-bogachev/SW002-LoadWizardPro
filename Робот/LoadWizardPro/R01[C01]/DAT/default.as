@@ -16,11 +16,11 @@
 .NETCONF     192.168.0.2,"fcon",255.255.255.0,0.0.0.0,0.0.0.0,0.0.0.0,""
 .NETCONF2     192.168.1.102,255.255.255.0,0.0.0.0
 .ROBOTDATA1
-ZROBOT.TYPE    30  14   6 3035      -46276   RS013N-A001 ( 2026-09-15 21:48 )
+ZROBOT.TYPE    30  14   6 3035      -46276   RS013N-A001 ( 2026-10-22 22:51 )
 ZSYSTEM         1   5         -91
 ZLINEAR         0   0   0   0   0   0  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1         179
 CONT_CODE     701      -10516
-ZZERO         268435456 268353265 268711643 268435456 268333512 268434182 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456   535509241
+ZZERO         268435451 268353268 268558212 268435456 268369919 268434635 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456 268435456   537257836
 ENDLESS_POS   0 100 1       -1516
 LANGUAGE      2
 ZSIGSPEC       64  64 960      -16321
@@ -56,7 +56,7 @@ ZSETKVFF_SVSPEC5    1.000   1.000   1.000   1.000   1.000   1.000  -1.000  -1.00
 ZSETKVFFACC_SVSPEC5    0.000   0.000   0.000   0.000   0.000   0.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -1832648705
 ZSETKVFFJRK_SVSPEC5    0.000   0.000   0.000   0.000   0.000   0.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -11.000 -1832648705
 ZSETKAFF2_SVSPEC5    1.000   1.000   1.000   1.000   1.000   1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000  -1.000 -1262485505
-ZSAVEMR             65513       65408          61          49          68          56           0           0           0           0           0           0           0           0           0           0           0           0    -1967326
+ZSAVEMR             65535           0       65517           0           4           0           0           0           0           0           0           0           0           0           0           0           0           0    -1965841
 ZRADIUS        1663.943  1663.943   963.943   203.943   203.943    78.440     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000     1.000  -331702932
 ZJTSPEED        265.000   250.000   265.000   475.000   475.000   730.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000    10.000  -217235457
 ZACCTIME          0.282     0.352     0.238     0.208     0.222     0.262     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384     0.384   879587508
@@ -2390,7 +2390,7 @@ SWITCH AUTOSTART2.PC   OFF
 SWITCH AUTOSTART3.PC   OFF
 SWITCH AUTOSTART4.PC   OFF
 SWITCH AUTOSTART5.PC   OFF
-SWITCH ERRSTART.PC     OFF
+SWITCH ERRSTART.PC     ON 
 SWITCH AUTOSTART.LSQ   OFF
 SWITCH DISPIO_01       OFF
 SWITCH HOLD.STEP       ON 
@@ -2458,15 +2458,15 @@ SWITCH SLOW_REP_MM     OFF
 .END
 .CONDITION
 AS_VER       ASF_01000001G
-ELOG_NUM            170
+ELOG_NUM            163
 CHK_ONCE      255
 MAN_SPEED     1
 CHK_SPEED     1
 MON_SPEED         1.000
 PRG_ACCEL       100.000
-PRG_SPEED         2.000
+PRG_SPEED       100.000
 PRG_DECEL       100.000
-PRM_SPEED         2.000
+PRM_SPEED       100.000
 PRM_ACCEL       100.000
 PRM_DECEL       100.000
 BLK_SPEED       100.000
@@ -2491,9 +2491,9 @@ CINT_PRM_ACCEL    100.000
 CINT_PRG_ACCEL    100.000
 CINT_PRM_DECEL    100.000
 CINT_PRG_DECEL    100.000
-PRG_ACCEL_ORG    100.000
-PRG_SPEED_ORG      2.000
-PRG_DECEL_ORG    100.000
+PRG_ACCEL_ORG      0.000
+PRG_SPEED_ORG      0.000
+PRG_DECEL_ORG      0.000
 PRG_JT_ACCEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRG_JT_DECEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
 PRM_JT_ACCEL    100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000   100.000
@@ -2503,9 +2503,9 @@ STEP1ENV_PRG_STEP          1
 STEP2ENV0_CALL_PRGNAME autostart.pc
 STEP2ENV0_PRG_STEP          1
 USR_DO1      00000000000000000000000000000000
-USR_DO2      00000000000000000000000000101010
-USR_DO3      00000000000000000000000110001101
-USR_DO4      00000000000000010000000000000000
+USR_DO2      00000000000000000000000000100101
+USR_DO3      00000000000000000000010110001000
+USR_DO4      00000000000000000000000000000000
 USR_DO5      00000000000000000000000000000000
 USR_DO6      00000000000000000000000000000000
 USR_DO7      00010001000100010000000000000000
@@ -2585,28 +2585,28 @@ UCINDENT1          0
 UCLINE1            0
 UCFGCOLOR1        11
 UCBGCOLOR1        10
-UCCHARWINSTR1 01:09:09 Move robot from HOME to HOME STANDBY
-01:09:09 State 101: Decision making module 1
-01:09:27 Main program executed
-01:09:27 Command close gripper 1
+UCCHARWINSTR1 01:09:40 Robot in home position
+01:09:40 State 1: Check ready shelves
+01:09:40 Task signal was turned off by operator
+01:09:40 State 255: Task complete
 
 UCINDENT2          0
 UCLINE2            0
 UCFGCOLOR2        11
 UCBGCOLOR2        10
-UCCHARWINSTR2 01:09:27 Command close gripper 2
-01:09:27 Performing safe movement to home position
-01:09:40 Robot in home position
-01:09:40 State 1: Check ready shelves
+UCCHARWINSTR2 01:09:40 State 0: Initialization
+01:09:40 Waiting for task start
+22:25:31 Robot boot initialize completed
+22:25:31 Speed 1 was applied
 
 UCINDENT3          0
 UCLINE3            0
 UCFGCOLOR3        11
 UCBGCOLOR3        10
-UCCHARWINSTR3 01:09:40 Task signal was turned off by operator
-01:09:40 State 255: Task complete
-01:09:40 State 0: Initialization
-01:09:40 Waiting for task start
+UCCHARWINSTR3 22:25:31 Speed 1 was applied
+22:51:04 Robot boot initialize completed
+22:51:04 Speed 1 was applied
+22:51:04 Speed 1 was applied
 
 UCINDENT4          0
 UCLINE4            0
@@ -3576,7 +3576,7 @@ TP_RECINHI      0   0   0
 .END
 .SIG_COMMENT
 .END
-.PROGRAM a.home()@26/09/16 01:08 #0
+.PROGRAM a.home()@26/10/22 22:50 #0
 ;
 ; Set small speed
   SPEED 100 MM/S ALWAYS
@@ -3586,7 +3586,7 @@ TP_RECINHI      0   0   0
   HOME 2
 ;
 .END
-.PROGRAM a.main()@26/09/16 01:08 #0
+.PROGRAM a.main()@26/10/22 22:50 #0
 ;
   CALL log("Main program executed")
   CALL safe.home
@@ -3602,7 +3602,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM a.transport()@26/09/16 01:08 #0
+.PROGRAM a.transport()@26/10/22 22:50 #0
 ;
 ; Set small speed
   SPEED 100 MM/S ALWAYS
@@ -3611,7 +3611,7 @@ TP_RECINHI      0   0   0
   JMOVE #transport
 ;
 .END
-.PROGRAM air.blow(.air)@26/09/16 01:08 #0
+.PROGRAM air.blow(.air)@26/10/22 22:50 #0
 ;
   BREAK
   HERE #state.bf.air
@@ -3630,17 +3630,17 @@ TP_RECINHI      0   0   0
   SIGNAL -air.blow.on,air.blow.off,-eo.air.enabled
 ;
 .END
-.PROGRAM air.pg.1()@26/09/16 01:08 #0
+.PROGRAM air.pg.1()@26/10/22 22:50 #0
 ;
   TWAIT 5
 ;
 .END
-.PROGRAM air.pg.3()@26/09/16 01:08 #0
+.PROGRAM air.pg.3()@26/10/22 22:50 #0
 ;
   TWAIT 5
 ;
 .END
-.PROGRAM autostart.pc()@26/09/16 01:08 #0
+.PROGRAM autostart.pc()@26/10/22 22:50 #0
 ;
   CALL initialize.pc
 ;
@@ -3653,7 +3653,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM calc.rotation(.grip.no,.chuck.no)@26/09/16 01:08 #0
+.PROGRAM calc.rotation(.grip.no,.chuck.no)@26/10/22 22:50 #0
 ;
   .j6 = cnc.rotations[.grip.no,.chuck.no]
   DECOMPOSE .j[1] = #cnc.out.base
@@ -3663,7 +3663,7 @@ TP_RECINHI      0   0   0
 ;
 ;
 .END
-.PROGRAM calc.state.flag()@26/09/16 01:08 #0
+.PROGRAM calc.state.flag()@26/10/22 22:50 #0
 ;
   shelf.opened = SIG(eo.shelf.opened[current.shelf])
   shelf.closed = NOT shelf.opened
@@ -3722,7 +3722,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM check.limits.pc()@26/09/16 01:08 #7159926
+.PROGRAM check.limits.pc()@26/10/22 22:50 #7178020
 ;
   hmi.shelf.no = MINVAL(hmi.shelf.no,4)
   hmi.shelf.no = MAXVAL(hmi.shelf.no,1)
@@ -3761,7 +3761,7 @@ TP_RECINHI      0   0   0
   hmi.chg.pg = MINVAL(hmi.chg.pg,255)
 ;
 .END
-.PROGRAM check.reset.pc()@26/09/16 01:08 #7159925
+.PROGRAM check.reset.pc()@26/10/22 22:50 #7178019
 ;
   IF NOT SIG(di.ext.pgreset) THEN
     SIGNAL -s.reset.perf
@@ -3802,7 +3802,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM check.speed.pc()@26/09/16 01:08 #7159926
+.PROGRAM check.speed.pc()@26/10/22 22:50 #7178020
 ;
   IF SIG(o.debug) THEN
     RETURN
@@ -3817,7 +3817,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM check.teach.pc()@26/09/16 01:08 #7159926
+.PROGRAM check.teach.pc()@26/10/22 22:50 #7178020
 ;
   IF NOT SWITCH(REPEAT ) THEN
     IF SIG(s.pr.tch.plate) THEN
@@ -3867,7 +3867,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM chg.pg.1()@26/09/16 01:08 #0
+.PROGRAM chg.pg.1()@26/10/22 22:50 #0
 ;
   FOR .i = 1 TO 5
     DRIVE 6,90
@@ -3875,11 +3875,11 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM chg.pg.2()@26/09/16 01:08 #0
+.PROGRAM chg.pg.2()@26/10/22 22:50 #0
 ;
 ;
 .END
-.PROGRAM chuck.close(.chuck.no,.time)@26/09/16 01:08 #0
+.PROGRAM chuck.close(.chuck.no,.time)@26/10/22 22:50 #0
 ;
   CALL log("Close CNC chuck"+$ENCODE(.chuck.no))
   SIGNAL eo.cnc.ch.close[.chuck.no]
@@ -3889,7 +3889,7 @@ TP_RECINHI      0   0   0
   SIGNAL -eo.cnc.ch.close[.chuck.no]
 ;
 .END
-.PROGRAM chuck.open(.chuck.no,.time)@26/09/16 01:08 #0
+.PROGRAM chuck.open(.chuck.no,.time)@26/10/22 22:50 #0
 ;
   CALL log("Open CNC chuck"+$ENCODE(.chuck.no))
   IF SIG(ei.cnc.ch.opd[.chuck.no]) THEN
@@ -3904,7 +3904,7 @@ TP_RECINHI      0   0   0
   SIGNAL -eo.cnc.ch.open[.chuck.no]
 ;
 .END
-.PROGRAM ciner(.$var.name,.var,.default)@26/09/16 01:08 #37
+.PROGRAM ciner(.$var.name,.var,.default)@26/10/22 22:50 #111
 ;
   IF NOT EXISTREAL(.$var.name) THEN
     CALL log("Variable "+.$var.name+" is not exist. Default:"+$ENCODE(.default))
@@ -3912,7 +3912,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM cnc.appro.teach()@26/09/16 01:08 #0
+.PROGRAM cnc.appro.teach()@26/10/22 22:50 #0
 ;
   JMOVE #cnc.out.base; **== TEACH POINT ==**
 ;
@@ -3920,7 +3920,7 @@ TP_RECINHI      0   0   0
   LMOVE #cnc.out.base
 ;
 .END
-.PROGRAM cnc.move.in(.grip.no,.chuck.no)@26/09/16 01:08 #0
+.PROGRAM cnc.move.in(.grip.no,.chuck.no)@26/10/22 22:50 #0
 ;
   .$temp = "Move inisde CNC. Tool:"+$ENCODE(.grip.no)
   .$temp = .$temp+" Chuck:"+$ENCODE(.chuck.no)
@@ -3948,7 +3948,7 @@ TP_RECINHI      0   0   0
   SIGNAL s.inside.cnc
 ;
 .END
-.PROGRAM cnc.move.out(.grip.no,.chuck.no)@26/09/16 01:08 #0
+.PROGRAM cnc.move.out(.grip.no,.chuck.no)@26/10/22 22:50 #0
 ;
   .$temp = "Move outside CNC. Tool:"+$ENCODE(.grip.no)
   .$temp = .$temp+" Chuck:"+$ENCODE(.chuck.no)
@@ -3967,7 +3967,7 @@ TP_RECINHI      0   0   0
   SIGNAL -s.inside.cnc
 ;
 .END
-.PROGRAM cnc.pick(.grip.no,.chuck.no,.wp.state)@26/09/16 01:08 #0
+.PROGRAM cnc.pick(.grip.no,.chuck.no,.wp.state)@26/10/22 22:50 #0
 ;
 ;
   .$temp = "Pick workpiece from CNC. Tool:"+$ENCODE(.grip.no)
@@ -4028,7 +4028,7 @@ TP_RECINHI      0   0   0
   LMOVE #cnc.in
 ;
 .END
-.PROGRAM cnc.put(.grip.no,.chuck.no,.wp.state)@26/09/16 01:08 #0
+.PROGRAM cnc.put(.grip.no,.chuck.no,.wp.state)@26/10/22 22:50 #0
 ;
   .$temp = "Put workpiece in CNC. Tool:"+$ENCODE(.grip.no)
   .$temp = .$temp+" Chuck:"+$ENCODE(.chuck.no)
@@ -4086,7 +4086,7 @@ TP_RECINHI      0   0   0
   CALL grip.close(.grip.no,0,grip.inverse[.grip.no])
 ;
 .END
-.PROGRAM cnc.teach()@26/09/16 01:08 #0
+.PROGRAM cnc.teach()@26/10/22 22:50 #0
 ;
   IF SIG(s.hmi.grip[1]) THEN
     .grip.no = 1
@@ -4126,7 +4126,7 @@ TP_RECINHI      0   0   0
   LAPPRO .temp,50
 ;
 .END
-.PROGRAM cnc.test.pick()@26/09/16 01:08 #0
+.PROGRAM cnc.test.pick()@26/10/22 22:50 #0
 ;
   IF SIG(s.hmi.grip[1]) THEN
     .grip.no = 1
@@ -4144,7 +4144,7 @@ TP_RECINHI      0   0   0
   CALL cnc.pick(.grip.no,.chuck.no,0)
 ;
 .END
-.PROGRAM cnc.test.put()@26/09/16 01:08 #0
+.PROGRAM cnc.test.put()@26/10/22 22:50 #0
 ;
   IF SIG(s.hmi.grip[1]) THEN
     .grip.no = 1
@@ -4162,7 +4162,7 @@ TP_RECINHI      0   0   0
   CALL cnc.put(.grip.no,.chuck.no,0)
 ;
 .END
-.PROGRAM comment___()@26/09/16 01:08 #0; Comments for IDE. Do not use.
+.PROGRAM comment___()@26/10/22 22:50 #0; Comments for IDE. Do not use.
 ; @@@ PROJECT @@@
 ; @@@ PROJECTNAME @@@
 ; LoadWizardPro
@@ -4680,7 +4680,7 @@ TP_RECINHI      0   0   0
 ; SIGNAME: sig1 sig2 sig3 sig4
 ; SIGDIM: % % % %
 .END
-.PROGRAM disp.info.pc()@26/09/16 01:08 #1
+.PROGRAM disp.info.pc()@26/10/22 22:50 #3
 ;
   .$robot.name = $SYSDATA(ZROB.NAME)
   .robot.sn = SYSDATA(ZROB.MGFNO)
@@ -4690,7 +4690,7 @@ TP_RECINHI      0   0   0
   IFPWPRINT 8,1,1,5,10=.$robot.str,.$cont.str," ","Powered by Robowizard Co.Ltd."
 ;
 .END
-.PROGRAM ext.change()@26/09/16 01:08 #0
+.PROGRAM ext.change()@26/10/22 22:50 #0
 ;
   BREAK
   HERE #state.bf.chg
@@ -4730,7 +4730,7 @@ TP_RECINHI      0   0   0
   JMOVE #state.bf.chg
 ;
 .END
-.PROGRAM get.from.hmi()@26/09/16 01:08 #0
+.PROGRAM get.from.hmi()@26/10/22 22:50 #0
 ;
   wp.length[0] = hmi.wp.length
   wp.length[1] = hmi.wp.length
@@ -4781,7 +4781,7 @@ TP_RECINHI      0   0   0
 ;
 ;
 .END
-.PROGRAM get.from.plc()@26/09/16 01:08 #1
+.PROGRAM get.from.plc()@26/10/22 22:50 #3
 ;
   wp.length[0] = BITS(d.wp.length[0,0],8)
   wp.length[1] = BITS(d.wp.length[1,0],8)
@@ -4833,7 +4833,7 @@ TP_RECINHI      0   0   0
 ;
 ;  
 .END
-.PROGRAM get.system.data()@26/09/16 01:08 #0
+.PROGRAM get.system.data()@26/10/22 22:50 #0
 ;
   overshoot = BITS(ei.overshoot[0],4)
   IF overshoot==0 THEN
@@ -4861,7 +4861,7 @@ TP_RECINHI      0   0   0
   tmr.cnc.cl[2] = BITS(ei.t.cnc.close[2,0],8)/10
 ;
 .END
-.PROGRAM get.task.data()@26/09/16 01:08 #0
+.PROGRAM get.task.data()@26/10/22 22:50 #0
 ;
   CALL get.system.data
 ;
@@ -4874,7 +4874,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM grip.close(.grip.no,.time,.reverse)@26/09/16 01:08 #0
+.PROGRAM grip.close(.grip.no,.time,.reverse)@26/10/22 22:50 #0
 ;
   IF NOT .reverse THEN
     SIGNAL grip.close[.grip.no],-grip.open[.grip.no]
@@ -4886,7 +4886,7 @@ TP_RECINHI      0   0   0
   CALL log("Command close gripper"+$ENCODE(.grip.no))
 ;
 .END
-.PROGRAM grip.open(.grip.no,.time,.reverse)@26/09/16 01:08 #0
+.PROGRAM grip.open(.grip.no,.time,.reverse)@26/10/22 22:50 #0
 ;
   IF SIG(ei.check.grip[.grip.no]) AND SIG(grip.opened[.grip.no]) THEN
     CALL log("Gripper"+$ENCODE(.grip.no)+"already opened")
@@ -4902,7 +4902,7 @@ TP_RECINHI      0   0   0
   CALL log("Command open gripper"+$ENCODE(.grip.no))
 ;
 .END
-.PROGRAM id.to.ij(.id,.i,.j)@26/09/16 01:08 #0
+.PROGRAM id.to.ij(.id,.i,.j)@26/10/22 22:50 #0
 ;
   .p = plt.cell.odd+plt.cell.even
   .pair = INT((.id-1)/.p)
@@ -4919,7 +4919,7 @@ TP_RECINHI      0   0   0
   CALL log("ID:"+$ENCODE(.id)+" --> i:"+$ENCODE(.i)+" j:"+$ENCODE(.j))
 ;
 .END
-.PROGRAM initialize.pc()@26/09/16 01:08 #1
+.PROGRAM initialize.pc()@26/10/22 22:50 #3
 ;
   CALL log.init
   CALL set.switches.pc
@@ -4934,7 +4934,7 @@ TP_RECINHI      0   0   0
   CALL log.pc1("Robot boot initialize completed")
 ;
 .END
-.PROGRAM log(.$msg)@26/09/16 01:08 #6
+.PROGRAM log(.$msg)@26/10/22 22:50 #6
 ;
   IF LEN(.$msg)>55 THEN
     .$msg = $LEFT(.$msg,55)
@@ -4954,14 +4954,14 @@ TP_RECINHI      0   0   0
   IFPWPRINT 3,1,1,9,10=.$tmp[8],.$tmp[9],.$tmp[10],.$tmp[11]
 ;
 .END
-.PROGRAM log.clear()@26/09/16 01:08 #0
+.PROGRAM log.clear()@26/10/22 22:50 #0
 ;
   FOR .i = 1 TO log.max.count
     $log.entry[.i] = ""
   END
 ;
 .END
-.PROGRAM log.init()@26/09/16 01:08 #1
+.PROGRAM log.init()@26/10/22 22:50 #3
 ;
 ; Change this number if needed
   log.max.count = 256
@@ -4975,7 +4975,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM log.pc1(.$msg)@26/09/16 01:08 #1
+.PROGRAM log.pc1(.$msg)@26/10/22 22:50 #7
 ;
   IF LEN(.$msg)>55 THEN
     .$msg = $LEFT(.$msg,55)
@@ -4995,13 +4995,13 @@ TP_RECINHI      0   0   0
   IFPWPRINT 3,1,1,9,10=.$tmp[8],.$tmp[9],.$tmp[10],.$tmp[11]
 ;
 .END
-.PROGRAM pg0()@26/09/16 01:08 #0
+.PROGRAM pg0()@26/10/22 22:50 #0
 ;
   state = 0
   CALL a.main
 ;
 .END
-.PROGRAM plate.teach()@26/09/16 01:08 #0
+.PROGRAM plate.teach()@26/10/22 22:50 #0
 ;
 ; Preparations for teaching
 ; Set tool
@@ -5047,7 +5047,7 @@ TP_RECINHI      0   0   0
   JMOVE #wp.safe[.grip.no]
 ;
 .END
-.PROGRAM plate.test()@26/09/16 01:08 #0
+.PROGRAM plate.test()@26/10/22 22:50 #0
 ;
 ; Preparations for testing
 ; Set tool
@@ -5079,7 +5079,7 @@ TP_RECINHI      0   0   0
   JMOVE #wp.safe[.grip.no]
 ;
 .END
-.PROGRAM safe.home()@26/09/16 01:08 #1
+.PROGRAM safe.home()@26/10/22 22:50 #1
 ;
 ;
   CALL grip.close(1,0,grip.inverse[1])
@@ -5137,7 +5137,7 @@ TP_RECINHI      0   0   0
   SIGNAL -s.inside.cnc
 ;
 .END
-.PROGRAM send.plc.pc()@26/09/16 01:08 #7159925
+.PROGRAM send.plc.pc()@26/10/22 22:50 #7178017
 ;
   BITS eo.grip.id[1,0],8 = gripper.id[1]
   BITS eo.grip.id[2,0],8 = gripper.id[2]
@@ -5245,7 +5245,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM set.io.pc()@26/09/16 01:08 #1
+.PROGRAM set.io.pc()@26/10/22 22:50 #3
 ;
 ; Gripper IO
 ;
@@ -5503,7 +5503,7 @@ TP_RECINHI      0   0   0
   s.pr.a.home = 2130
 ;
 .END
-.PROGRAM set.switches.pc()@26/09/16 01:08 #1
+.PROGRAM set.switches.pc()@26/10/22 22:50 #3
 ;
 ; System switches
   CP ON
@@ -5518,7 +5518,7 @@ TP_RECINHI      0   0   0
   AUTOSTART.PC ON
 ;
 .END
-.PROGRAM set.tool(.grip.no)@26/09/16 01:08 #0
+.PROGRAM set.tool(.grip.no)@26/10/22 22:50 #0
 ;
   IF .grip.no<>3 THEN
     TOOL tool.gripper[.grip.no]
@@ -5532,7 +5532,7 @@ TP_RECINHI      0   0   0
   CALL log("Tool "+$ENCODE(/L,.grip.no)+" set")
 ;
 .END
-.PROGRAM set.vars.pc()@26/09/16 01:08 #1
+.PROGRAM set.vars.pc()@26/10/22 22:50 #3
 ;
   POINT tool.gripper[1] = TRANS(-103.3,0,104,-180,90,180)
   POINT tool.gripper[2] = TRANS(103.3,0,104,0,90,180)
@@ -5608,7 +5608,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM shelf.close(.shelf.no)@26/09/16 01:08 #0
+.PROGRAM shelf.close(.shelf.no)@26/10/22 22:50 #0
 ;
   CALL log("Closing shelf"+$ENCODE(.shelf.no))
 ;
@@ -5679,7 +5679,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM shelf.open(.shelf.no)@26/09/16 01:08 #0
+.PROGRAM shelf.open(.shelf.no)@26/10/22 22:50 #0
 ;
   CALL log("Open shelf"+$ENCODE(.shelf.no))
 ;
@@ -5750,7 +5750,7 @@ TP_RECINHI      0   0   0
     HOME 2
   END
 .END
-.PROGRAM shelf.teach()@26/09/16 01:08 #0
+.PROGRAM shelf.teach()@26/10/22 22:50 #0
 ;
 ; Preaprations for teaching
   TOOL tool.pin
@@ -5789,13 +5789,13 @@ TP_RECINHI      0   0   0
   JMOVE #shelf.safe
 ;
 .END
-.PROGRAM shelf.test()@26/09/16 01:08 #0
+.PROGRAM shelf.test()@26/10/22 22:50 #0
 ;
   CALL shelf.open(hmi.shelf.no)
   CALL shelf.close(hmi.shelf.no)
 ;
 .END
-.PROGRAM state0()@26/09/16 01:08 #0; Initialization
+.PROGRAM state0()@26/10/22 22:50 #0; Initialization
 ;
   CALL log("State 0: Initialization")
 ;
@@ -5821,7 +5821,7 @@ TP_RECINHI      0   0   0
   RETURN
 ;
 .END
-.PROGRAM state1()@26/09/16 01:08 #1; Check ready shelves
+.PROGRAM state1()@26/10/22 22:50 #1; Check ready shelves
 ;
   CALL log("State 1: Check ready shelves")
   WHILE TRUE DO
@@ -5873,7 +5873,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state10()@26/09/16 01:08 #0; Pick WP[1] from CNC
+.PROGRAM state10()@26/10/22 22:50 #0; Pick WP[1] from CNC
 ;
   CALL log("State 10: Pick wp[1] from CNC")
 ;
@@ -5910,7 +5910,7 @@ TP_RECINHI      0   0   0
   SIGNAL s.ext.chg.ok
 ;
 .END
-.PROGRAM state100()@26/09/16 01:08 #0; Select decision making module state
+.PROGRAM state100()@26/10/22 22:50 #0; Select decision making module state
 ;
   CALL log("State 100: Select decision making module state")
 ;
@@ -5987,7 +5987,7 @@ TP_RECINHI      0   0   0
   RETURN
 ;
 .END
-.PROGRAM state101()@26/09/16 01:08 #0; Decision making module 1
+.PROGRAM state101()@26/10/22 22:50 #0; Decision making module 1
 ;
   CALL log("State 101: Decision making module 1")
 ;
@@ -6065,7 +6065,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state102()@26/09/16 01:08 #0; Decision making module 2
+.PROGRAM state102()@26/10/22 22:50 #0; Decision making module 2
 ;
   CALL log("State 102: Decision making module 2")
 ;
@@ -6141,7 +6141,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state103()@26/09/16 01:08 #0; Decision making module 3
+.PROGRAM state103()@26/10/22 22:50 #0; Decision making module 3
 ;
   CALL log("State 103: Decision making module 3")
 ;
@@ -6228,7 +6228,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state105()@26/09/16 01:08 #0; Decision making module 5
+.PROGRAM state105()@26/10/22 22:50 #0; Decision making module 5
 ;
   CALL log("State 105: Decision making module 5")
 ;
@@ -6321,7 +6321,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state11()@26/09/16 01:08 #0; Put WP[1] to CNC
+.PROGRAM state11()@26/10/22 22:50 #0; Put WP[1] to CNC
 ;
   CALL log("State 11: Put wp[1] to CNC")
 ;
@@ -6349,7 +6349,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state12()@26/09/16 01:08 #0; Pick WP[2] from CNC
+.PROGRAM state12()@26/10/22 22:50 #0; Pick WP[2] from CNC
 ;
   CALL log("State 12: Pick wp[2] from CNC")
 ;
@@ -6370,7 +6370,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state15()@26/09/16 01:08 #0; Perform external change
+.PROGRAM state15()@26/10/22 22:50 #0; Perform external change
 ; 
   CALL log("State 15: Perform external change")
   CALL ext.change
@@ -6379,7 +6379,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state16()@26/09/16 01:08 #0; Air blow before put WP[0]
+.PROGRAM state16()@26/10/22 22:50 #0; Air blow before put WP[0]
 ;
   CALL log("State 16: CNC chuck air blow before put wp[0]")
   SIGNAL -s.p.put.air.req
@@ -6388,7 +6388,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state17()@26/09/16 01:08 #0; Air blow after pick WP[2]
+.PROGRAM state17()@26/10/22 22:50 #0; Air blow after pick WP[2]
 ;
   CALL log("State 17: CNC chuck air blow after pick wp[2]")
   SIGNAL -s.a.pic.air.req
@@ -6397,7 +6397,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state18()@26/09/16 01:08 #0; MCODE Execute
+.PROGRAM state18()@26/10/22 22:50 #0; MCODE Execute
 ;
   CALL log("State 18: MCODE Execute")
 ;
@@ -6453,7 +6453,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state2()@26/09/16 01:08 #0; Open shelf
+.PROGRAM state2()@26/10/22 22:50 #0; Open shelf
 ;
   CALL log("State 2: Open shelf")
   CALL shelf.open(current.shelf)
@@ -6467,7 +6467,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state255()@26/09/16 01:08 #1; Task finished
+.PROGRAM state255()@26/10/22 22:50 #1; Task finished
 ;
   CALL log("State 255: Task complete")
 ;
@@ -6477,7 +6477,7 @@ TP_RECINHI      0   0   0
   RETURN
 ;
 .END
-.PROGRAM state3()@26/09/16 01:08 #0; Close shelf
+.PROGRAM state3()@26/10/22 22:50 #0; Close shelf
 ;
   CALL log("State 3: Close shelf")
   CALL shelf.close(current.shelf)
@@ -6491,7 +6491,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM state4()@26/09/16 01:08 #0; Pick WP[0] from shelf
+.PROGRAM state4()@26/10/22 22:50 #0; Pick WP[0] from shelf
 ;
   CALL log("State 4: Pick workpiece from shelf")
 ;
@@ -6520,7 +6520,7 @@ TP_RECINHI      0   0   0
   RETURN
 ;
 .END
-.PROGRAM state5()@26/09/16 01:08 #0; Put WP[2] to shelf
+.PROGRAM state5()@26/10/22 22:50 #0; Put WP[2] to shelf
 ;
   CALL log("State 5: Put WP[2] to shelf")
 ;
@@ -6540,7 +6540,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state6()@26/09/16 01:08 #0; Finish shelf
+.PROGRAM state6()@26/10/22 22:50 #0; Finish shelf
 ;
   CALL log("State 6: Finish shelf")
   PULSE eo.shelf.cmplt[current.shelf],1
@@ -6552,7 +6552,7 @@ TP_RECINHI      0   0   0
   state = 1
 ;
 .END
-.PROGRAM state7()@26/09/16 01:08 #0; Move inside CNC
+.PROGRAM state7()@26/10/22 22:50 #0; Move inside CNC
 ;
   CALL log("State 7: Move inside CNC")
 ;
@@ -6606,7 +6606,7 @@ TP_RECINHI      0   0   0
   RETURN
 ;
 .END
-.PROGRAM state8()@26/09/16 01:08 #0; Move outside CNC
+.PROGRAM state8()@26/10/22 22:50 #0; Move outside CNC
   CALL log("State 8: Move outside CNC")
 ;
   CASE decision.state OF
@@ -6667,7 +6667,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM state9()@26/09/16 01:08 #0; Put WP[0] to CNC
+.PROGRAM state9()@26/10/22 22:50 #0; Put WP[0] to CNC
 ;
   CALL log("State 9: Put wp[0] to CNC")
 ;
@@ -6680,7 +6680,7 @@ TP_RECINHI      0   0   0
   state = decision.state
 ;
 .END
-.PROGRAM wp.pick(.shelf.no,.grip.no,.wp.id)@26/09/16 01:08 #0
+.PROGRAM wp.pick(.shelf.no,.grip.no,.wp.id)@26/10/22 22:50 #0
 ;
   .$temp = "Pick workpiece. Shelf: "+$ENCODE(.shelf.no)
   .$temp = .$temp+" Tool: "+$ENCODE(.grip.no)
@@ -6772,7 +6772,7 @@ TP_RECINHI      0   0   0
   END
 ;
 .END
-.PROGRAM wp.put(.shelf.no,.grip.no,.wp.id)@26/09/16 01:08 #0
+.PROGRAM wp.put(.shelf.no,.grip.no,.wp.id)@26/10/22 22:50 #0
 ;
   .$temp = "Put workpiece. Shelf: "+$ENCODE(.shelf.no)
   .$temp = .$temp+" Tool: "+$ENCODE(.grip.no)
@@ -6842,7 +6842,7 @@ TP_RECINHI      0   0   0
   CALL grip.close(.grip.no,0,grip.inverse[.grip.no])
 ;
 .END
-.PROGRAM wp.test.pick()@26/09/16 01:08 #0
+.PROGRAM wp.test.pick()@26/10/22 22:50 #0
 ;
   IF SIG(s.hmi.grip[1]) THEN
     .grip.no = 1
@@ -6854,7 +6854,7 @@ TP_RECINHI      0   0   0
   CALL wp.pick(hmi.shelf.no,.grip.no,hmi.wp.id)
 ;
 .END
-.PROGRAM wp.test.put()@26/09/16 01:08 #0
+.PROGRAM wp.test.put()@26/10/22 22:50 #0
 ;
   IF SIG(s.hmi.grip[1]) THEN
     .grip.no = 1
@@ -6867,7 +6867,7 @@ TP_RECINHI      0   0   0
 ;
 .END
 .TRANS
-cnc.point[1,1] -988.810364 118.068756 245.591888 -90.309265 92.062859 -94.804405
+cnc.point[1,1] -988.810364 118.068756 245.591888 -90.309265 92.062874 -94.804405
 cnc.point[1,2] -1004.094360 799.983398 211.695633 89.609001 87.600105 89.827400
 cnc.point[2,1] -1029.776733 126.145874 211.209824 -89.995247 89.980347 -102.549828
 cnc.point[2,2] -974.147766 800.100342 241.686554 89.601372 87.617241 89.829033
@@ -6876,22 +6876,22 @@ shelf.close[1,2] 746.017151 89.241531 -3.394150 -89.324593 89.999741 179.997253
 shelf.close[2,1] 748.130249 711.754211 -186.619659 -89.998024 89.994911 179.994354
 shelf.close[2,2] 745.347473 88.690964 -185.293304 -89.995247 89.999443 179.997513
 shelf.close[3,1] 748.386902 710.915466 -367.195923 -89.999718 89.998512 179.998489
-shelf.close[3,2] 747.573730 86.359993 -366.762329 -90.003738 90.002472 179.998627
+shelf.close[3,2] 747.573730 86.359993 -366.762329 -90.003738 90.002487 179.998627
 shelf.close[4,1] 750.089905 712.480225 -545.343872 -89.999268 89.997704 179.997665
 shelf.close[4,2] 749.007568 91.160477 -544.643799 -89.997200 89.999611 179.997284
-shelf.frame[1,1] 1066.703735 637.771362 12.052389 -163.597656 179.931793 106.403534
-shelf.frame[1,2] 1066.703735 637.771362 12.052386 -163.595856 179.931793 106.405342
-shelf.frame[2,1] 1066.538208 637.718018 -167.938965 -162.616318 179.929138 107.382057
-shelf.frame[2,2] 1066.538208 637.718018 -167.938965 -162.616333 179.929138 107.382057
-shelf.frame[3,1] 1066.388428 637.672607 -347.937500 -161.177673 179.926987 108.817764
-shelf.frame[3,2] 1066.388550 637.672607 -347.937500 -161.173645 179.927002 108.821808
-shelf.frame[4,1] 1066.259888 637.616638 -527.931274 -159.795624 179.926529 110.198334
-shelf.frame[4,2] 1066.260132 637.616638 -527.931335 -159.789062 179.926529 110.204903
-shelf.open[1,1] 746.002258 90.617493 -3.384567 -89.327095 90.000031 179.998123
+shelf.frame[1,1] 1066.703735 637.771362 12.052389 -163.597656 179.931793 106.403549
+shelf.frame[1,2] 1066.703735 637.771362 12.052386 -163.595856 179.931793 106.405357
+shelf.frame[2,1] 1066.538208 637.718018 -167.938965 -162.616318 179.929138 107.382072
+shelf.frame[2,2] 1066.538208 637.718018 -167.938965 -162.616333 179.929138 107.382072
+shelf.frame[3,1] 1066.388428 637.672607 -347.937500 -161.177673 179.926987 108.817780
+shelf.frame[3,2] 1066.388550 637.672607 -347.937500 -161.173645 179.927002 108.821831
+shelf.frame[4,1] 1066.259888 637.616638 -527.931274 -159.795624 179.926529 110.198349
+shelf.frame[4,2] 1066.260132 637.616638 -527.931335 -159.789062 179.926529 110.204918
+shelf.open[1,1] 746.002258 90.617493 -3.384567 -89.327095 90.000046 179.998123
 shelf.open[1,2] 746.600342 710.198730 -6.829498 -89.999634 89.999664 179.999512
 shelf.open[2,1] 745.348999 89.846184 -185.281891 -89.998283 89.999702 179.998367
 shelf.open[2,2] 748.163513 713.689148 -186.481949 -89.998962 89.997498 179.996658
-shelf.open[3,1] 747.577759 88.963646 -366.764954 -90.000488 90.000595 179.998093
+shelf.open[3,1] 747.577759 88.963646 -366.764954 -90.000488 90.000610 179.998093
 shelf.open[3,2] 748.377808 712.086060 -367.332367 -89.997597 89.996712 179.996887
 shelf.open[4,1] 749.007690 93.735466 -544.640442 -90.000130 89.999611 179.997787
 shelf.open[4,2] 750.044983 715.009033 -545.371704 -89.996437 89.997047 179.996002
@@ -7288,244 +7288,244 @@ $log.entry[15] = ""
 $log.entry[16] = ""
 $log.entry[17] = ""
 $log.entry[18] = ""
-$log.entry[19] = ""
-$log.entry[20] = ""
-$log.entry[21] = ""
-$log.entry[22] = ""
-$log.entry[23] = ""
-$log.entry[24] = ""
-$log.entry[25] = "22:45:19 Variable pick.epsilon is not exist. Default: 0.2"
-$log.entry[26] = "22:45:19 Variable hmi.wp.length is not exist. Default: 50"
-$log.entry[27] = "22:45:19 Variable hmi.grip.j.full[1] is not exist. Default: 40"
-$log.entry[28] = "22:45:19 Variable hmi.grip.j.full[2] is not exist. Default: 40"
-$log.entry[29] = "22:45:19 Variable hmi.grip.j.body[1] is not exist. Default: 28"
-$log.entry[30] = "22:45:19 Variable hmi.grip.j.body[2] is not exist. Default: 28"
-$log.entry[31] = "22:45:19 Variable hmi.cnc.j.full[1] is not exist. Default: 40"
-$log.entry[32] = "22:45:19 Variable hmi.cnc.j.full[2] is not exist. Default: 40"
-$log.entry[33] = "22:45:19 Variable hmi.cnc.j.body[1] is not exist. Default: 28"
-$log.entry[34] = "22:45:19 Variable hmi.cnc.j.body[2] is not exist. Default: 28"
-$log.entry[35] = "22:45:20 Variable hmi.plate.rows is not exist. Default: 4"
-$log.entry[36] = "22:45:20 Variable hmi.plate.col.o is not exist. Default: 4"
-$log.entry[37] = "22:45:20 Variable hmi.plate.col.e is not exist. Default: 4"
-$log.entry[38] = "22:45:20 Variable hmi.plate.dx is not exist. Default: 130"
-$log.entry[39] = "22:45:20 Variable hmi.plate.dy is not exist. Default: 160"
-$log.entry[40] = "22:45:20 Variable hmi.plate.e.dy is not exist. Default: 0"
-$log.entry[41] = "22:45:20 Variable hmi.plate.ox is not exist. Default: 80"
-$log.entry[42] = "22:45:20 Variable hmi.plate.oy is not exist. Default: 75"
-$log.entry[43] = "22:45:20 Variable hmi.wp.count is not exist. Default: 4"
-$log.entry[44] = "22:45:20 Variable cnc.rotations[1, 1] is not exist. Default: 0"
-$log.entry[45] = "22:45:20 Variable cnc.rotations[1, 2] is not exist. Default: 180"
-$log.entry[46] = "22:45:20 Variable cnc.rotations[2, 1] is not exist. Default: 180"
-$log.entry[47] = "22:45:20 Variable cnc.rotations[2, 2] is not exist. Default: 0"
-$log.entry[48] = "22:45:21 Variable gripper.id[1] is not exist. Default: 0"
-$log.entry[49] = "22:45:21 Variable gripper.state[1] is not exist. Default: -1"
-$log.entry[50] = "22:45:21 Variable gripper.id[2] is not exist. Default: 0"
-$log.entry[51] = "22:45:21 Variable gripper.state[2] is not exist. Default: -1"
-$log.entry[52] = "22:45:21 Variable cnc.id[1] is not exist. Default: 0"
-$log.entry[53] = "22:45:21 Variable cnc.state[1] is not exist. Default: -1"
-$log.entry[54] = "22:45:21 Variable cnc.id[2] is not exist. Default: 0"
-$log.entry[55] = "22:45:21 Variable cnc.state[2] is not exist. Default: -1"
-$log.entry[56] = "22:45:21 Variable processed.wp is not exist. Default: 0"
-$log.entry[57] = "22:45:21 Variable current.wp is not exist. Default: 1"
-$log.entry[58] = "22:45:21 Variable wp.count is not exist. Default: 1"
-$log.entry[59] = "22:45:22 Robot boot initialize completed"
-$log.entry[60] = "22:49:34 Open shelf 1"
-$log.entry[61] = "22:49:34 Tool 3 set"
-$log.entry[62] = "22:49:34 Command close gripper 1"
-$log.entry[63] = "22:49:34 Command close gripper 2"
-$log.entry[64] = "22:49:35 Request unlock shelf 1"
-$log.entry[65] = "22:49:35 Shelf 1 successfully unlocked"
-$log.entry[66] = "22:49:36 Closing shelf 1"
-$log.entry[67] = "22:49:37 Tool 3 set"
-$log.entry[68] = "22:49:37 Command close gripper 1"
-$log.entry[69] = "22:49:37 Command close gripper 2"
-$log.entry[70] = "22:49:37 Request unlock shelf 1"
-$log.entry[71] = "22:49:37 Shelf 1 successfully unlocked"
-$log.entry[72] = "22:49:45 Open shelf 2"
-$log.entry[73] = "22:49:45 Tool 3 set"
-$log.entry[74] = "22:49:46 Command close gripper 1"
-$log.entry[75] = "22:49:46 Command close gripper 2"
-$log.entry[76] = "22:49:46 Request unlock shelf 2"
-$log.entry[77] = "22:49:46 Shelf 2 successfully unlocked"
-$log.entry[78] = "22:49:47 Closing shelf 2"
-$log.entry[79] = "22:49:47 Tool 3 set"
-$log.entry[80] = "22:49:47 Command close gripper 1"
-$log.entry[81] = "22:49:47 Command close gripper 2"
-$log.entry[82] = "22:49:48 Request unlock shelf 2"
-$log.entry[83] = "22:49:48 Shelf 2 successfully unlocked"
-$log.entry[84] = "22:49:54 Open shelf 2"
-$log.entry[85] = "22:49:54 Tool 3 set"
-$log.entry[86] = "22:49:54 Command close gripper 1"
-$log.entry[87] = "22:49:54 Command close gripper 2"
-$log.entry[88] = "22:50:16 Open shelf 1"
-$log.entry[89] = "22:50:16 Tool 3 set"
-$log.entry[90] = "22:50:16 Command close gripper 1"
-$log.entry[91] = "22:50:16 Command close gripper 2"
-$log.entry[92] = "22:50:19 Request unlock shelf 1"
-$log.entry[93] = "22:50:19 Shelf 1 successfully unlocked"
-$log.entry[94] = "22:51:22 Closing shelf 1"
-$log.entry[95] = "22:51:22 Tool 3 set"
-$log.entry[96] = "22:51:22 Command close gripper 1"
-$log.entry[97] = "22:51:22 Command close gripper 2"
-$log.entry[98] = "22:51:23 Request unlock shelf 1"
-$log.entry[99] = "22:51:23 Shelf 1 successfully unlocked"
-$log.entry[100] = "22:51:33 Open shelf 2"
-$log.entry[101] = "22:51:33 Tool 3 set"
-$log.entry[102] = "22:51:33 Command close gripper 1"
-$log.entry[103] = "22:51:33 Command close gripper 2"
-$log.entry[104] = "22:51:42 Request unlock shelf 2"
-$log.entry[105] = "22:51:42 Shelf 2 successfully unlocked"
-$log.entry[106] = "22:51:45 Closing shelf 2"
-$log.entry[107] = "22:51:45 Tool 3 set"
-$log.entry[108] = "22:51:45 Command close gripper 1"
-$log.entry[109] = "22:51:45 Command close gripper 2"
-$log.entry[110] = "22:51:47 Request unlock shelf 2"
-$log.entry[111] = "22:51:47 Shelf 2 successfully unlocked"
-$log.entry[112] = "22:52:43 Open shelf 2"
-$log.entry[113] = "22:52:43 Tool 3 set"
-$log.entry[114] = "22:52:43 Command close gripper 1"
-$log.entry[115] = "22:52:43 Command close gripper 2"
-$log.entry[116] = "22:52:44 Request unlock shelf 2"
-$log.entry[117] = "22:52:44 Shelf 2 successfully unlocked"
-$log.entry[118] = "22:52:46 Closing shelf 2"
-$log.entry[119] = "22:52:47 Tool 3 set"
-$log.entry[120] = "22:52:47 Command close gripper 1"
-$log.entry[121] = "22:52:47 Command close gripper 2"
-$log.entry[122] = "22:52:48 Request unlock shelf 2"
-$log.entry[123] = "22:52:49 Shelf 2 successfully unlocked"
-$log.entry[124] = "23:20:47 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[125] = "23:21:02 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
-$log.entry[126] = "23:21:03 Tool 1 set"
-$log.entry[127] = "23:21:04 Command open gripper 1"
-$log.entry[128] = "23:21:05 ID: 1 --> i: 0 j: 0"
-$log.entry[129] = "23:21:28 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[130] = "23:21:32 Pick workpiece. Shelf: 1 Tool: 1 ID: 2L: 50"
-$log.entry[131] = "23:21:32 Tool 1 set"
-$log.entry[132] = "23:21:34 Command open gripper 1"
-$log.entry[133] = "23:21:35 ID: 2 --> i: 0 j: 1"
-$log.entry[134] = "23:21:45 Distance: 0.02671"
-$log.entry[135] = "23:21:45 Detail found"
-$log.entry[136] = "23:21:47 Command close gripper 1"
-$log.entry[137] = "23:23:10 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[138] = "23:23:10 Pick workpiece. Shelf: 1 Tool: 1 ID: 3L: 50"
-$log.entry[139] = "23:23:10 Tool 1 set"
-$log.entry[140] = "23:23:10 Command open gripper 1"
-$log.entry[141] = "23:23:10 ID: 3 --> i: 0 j: 2"
-$log.entry[142] = "23:23:16 Distance: 0.00928"
-$log.entry[143] = "23:23:16 Detail found"
-$log.entry[144] = "23:23:16 Command close gripper 1"
-$log.entry[145] = "23:23:44 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[146] = "23:23:44 Pick workpiece. Shelf: 1 Tool: 1 ID: 3L: 50"
-$log.entry[147] = "23:23:44 Tool 1 set"
-$log.entry[148] = "23:23:44 Command open gripper 1"
-$log.entry[149] = "23:23:44 ID: 3 --> i: 0 j: 2"
-$log.entry[150] = "23:23:49 Distance: 0.01293"
-$log.entry[151] = "23:23:49 Detail found"
-$log.entry[152] = "23:23:49 Command close gripper 1"
-$log.entry[153] = "23:24:24 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[154] = "23:24:24 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
-$log.entry[155] = "23:24:24 Tool 1 set"
-$log.entry[156] = "23:24:24 Command open gripper 1"
-$log.entry[157] = "23:24:24 ID: 1 --> i: 0 j: 0"
-$log.entry[158] = "23:24:28 Distance: 0.02777"
-$log.entry[159] = "23:24:28 Detail found"
-$log.entry[160] = "23:24:28 Command close gripper 1"
-$log.entry[161] = "23:24:37 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[162] = "23:24:38 Pick workpiece. Shelf: 1 Tool: 1 ID: 4L: 50"
-$log.entry[163] = "23:24:38 Tool 1 set"
-$log.entry[164] = "23:24:38 Command open gripper 1"
-$log.entry[165] = "23:24:38 ID: 4 --> i: 0 j: 3"
-$log.entry[166] = "23:24:39 Distance: 0.01293"
-$log.entry[167] = "23:24:39 Detail found"
-$log.entry[168] = "23:24:40 Command close gripper 1"
-$log.entry[169] = "23:24:49 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[170] = "23:24:49 Pick workpiece. Shelf: 1 Tool: 1 ID: 5L: 50"
-$log.entry[171] = "23:24:50 Tool 1 set"
-$log.entry[172] = "23:24:50 Command open gripper 1"
-$log.entry[173] = "23:24:50 ID: 5 --> i: 1 j: 0"
-$log.entry[174] = "23:24:51 Distance: 0.02774"
-$log.entry[175] = "23:24:51 Detail found"
-$log.entry[176] = "23:24:51 Command close gripper 1"
-$log.entry[177] = "23:25:15 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[178] = "23:25:15 Pick workpiece. Shelf: 1 Tool: 1 ID: 13L: 50"
-$log.entry[179] = "23:25:15 Tool 1 set"
-$log.entry[180] = "23:25:15 Command open gripper 1"
-$log.entry[181] = "23:25:15 ID: 13 --> i: 3 j: 0"
-$log.entry[182] = "23:25:18 Distance: 0.0189"
-$log.entry[183] = "23:25:18 Detail found"
-$log.entry[184] = "23:25:18 Command close gripper 1"
-$log.entry[185] = "23:25:33 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[186] = "23:25:33 Pick workpiece. Shelf: 1 Tool: 1 ID: 16L: 50"
-$log.entry[187] = "23:25:33 Tool 1 set"
-$log.entry[188] = "23:25:33 Command open gripper 1"
-$log.entry[189] = "23:25:33 ID: 16 --> i: 3 j: 3"
-$log.entry[190] = "23:25:34 Distance: 0.0336"
-$log.entry[191] = "23:25:34 Detail found"
-$log.entry[192] = "23:25:34 Command close gripper 1"
-$log.entry[193] = "23:25:59 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[194] = "23:25:59 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
-$log.entry[195] = "23:25:59 Tool 1 set"
-$log.entry[196] = "23:25:59 Command open gripper 1"
-$log.entry[197] = "23:25:59 ID: 1 --> i: 0 j: 0"
-$log.entry[198] = "23:26:41 Distance: 0.00985"
-$log.entry[199] = "23:26:41 Detail found"
-$log.entry[200] = "23:26:41 Command close gripper 1"
-$log.entry[201] = "23:26:47 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[202] = "23:26:47 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 60"
-$log.entry[203] = "23:26:47 Tool 1 set"
-$log.entry[204] = "23:26:47 Command open gripper 1"
-$log.entry[205] = "23:26:47 ID: 1 --> i: 0 j: 0"
-$log.entry[206] = "23:26:54 Distance: 0.01268"
-$log.entry[207] = "23:26:54 Detail found"
-$log.entry[208] = "23:26:54 Command close gripper 1"
-$log.entry[209] = "23:27:41 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[210] = "23:27:41 Put workpiece. Shelf: 1 Tool: 1 ID: 1L: 60"
-$log.entry[211] = "23:27:41 Tool 1 set"
-$log.entry[212] = "23:27:41 ID: 1 --> i: 0 j: 0"
-$log.entry[213] = "23:27:47 Command open gripper 1"
-$log.entry[214] = "23:27:48 Command close gripper 1"
-$log.entry[215] = "23:27:54 DEBUG mod activated. Get task data from Robot HMI"
-$log.entry[216] = "23:27:54 Put workpiece. Shelf: 1 Tool: 2 ID: 1L: 60"
-$log.entry[217] = "23:27:54 Tool 2 set"
-$log.entry[218] = "23:27:55 ID: 1 --> i: 0 j: 0"
-$log.entry[219] = "23:27:57 Command open gripper 2"
-$log.entry[220] = "23:27:58 Command close gripper 2"
-$log.entry[221] = "23:29:44 Robot boot initialize completed"
-$log.entry[222] = "19:25:15 Robot boot initialize completed"
-$log.entry[223] = "19:25:15 Speed 1 was applied"
-$log.entry[224] = "19:25:16 Speed 1 was applied"
-$log.entry[225] = "21:44:21 Robot boot initialize completed"
-$log.entry[226] = "21:44:21 Speed 1 was applied"
-$log.entry[227] = "21:44:22 Speed 1 was applied"
-$log.entry[228] = "21:46:16 Main program executed"
-$log.entry[229] = "21:46:16 Command close gripper 1"
-$log.entry[230] = "21:46:16 Command close gripper 2"
-$log.entry[231] = "21:46:16 Move robot from HOME to HOME STANDBY"
-$log.entry[232] = "21:46:38 State 100: Select decision making module state"
-$log.entry[233] = "21:46:38 State 101: Decision making module 1"
-$log.entry[234] = "21:47:15 State 2: Open shelf"
-$log.entry[235] = "01:08:23 Robot boot initialize completed"
-$log.entry[236] = "01:08:48 Main program executed"
-$log.entry[237] = "01:08:48 Command close gripper 1"
-$log.entry[238] = "01:08:48 Command close gripper 2"
-$log.entry[239] = "01:08:48 Move robot from HOME to HOME STANDBY"
-$log.entry[240] = "01:08:48 State 100: Select decision making module state"
-$log.entry[241] = "01:08:48 State 101: Decision making module 1"
-$log.entry[242] = "01:09:09 Main program executed"
-$log.entry[243] = "01:09:09 Command close gripper 1"
-$log.entry[244] = "01:09:09 Command close gripper 2"
-$log.entry[245] = "01:09:09 Move robot from HOME to HOME STANDBY"
-$log.entry[246] = "01:09:09 State 101: Decision making module 1"
-$log.entry[247] = "01:09:27 Main program executed"
-$log.entry[248] = "01:09:27 Command close gripper 1"
-$log.entry[249] = "01:09:27 Command close gripper 2"
-$log.entry[250] = "01:09:27 Performing safe movement to home position"
-$log.entry[251] = "01:09:40 Robot in home position"
-$log.entry[252] = "01:09:40 State 1: Check ready shelves"
-$log.entry[253] = "01:09:40 Task signal was turned off by operator"
-$log.entry[254] = "01:09:40 State 255: Task complete"
-$log.entry[255] = "01:09:40 State 0: Initialization"
-$log.entry[256] = "01:09:40 Waiting for task start"
+$log.entry[19] = "22:45:19 Variable pick.epsilon is not exist. Default: 0.2"
+$log.entry[20] = "22:45:19 Variable hmi.wp.length is not exist. Default: 50"
+$log.entry[21] = "22:45:19 Variable hmi.grip.j.full[1] is not exist. Default: 40"
+$log.entry[22] = "22:45:19 Variable hmi.grip.j.full[2] is not exist. Default: 40"
+$log.entry[23] = "22:45:19 Variable hmi.grip.j.body[1] is not exist. Default: 28"
+$log.entry[24] = "22:45:19 Variable hmi.grip.j.body[2] is not exist. Default: 28"
+$log.entry[25] = "22:45:19 Variable hmi.cnc.j.full[1] is not exist. Default: 40"
+$log.entry[26] = "22:45:19 Variable hmi.cnc.j.full[2] is not exist. Default: 40"
+$log.entry[27] = "22:45:19 Variable hmi.cnc.j.body[1] is not exist. Default: 28"
+$log.entry[28] = "22:45:19 Variable hmi.cnc.j.body[2] is not exist. Default: 28"
+$log.entry[29] = "22:45:20 Variable hmi.plate.rows is not exist. Default: 4"
+$log.entry[30] = "22:45:20 Variable hmi.plate.col.o is not exist. Default: 4"
+$log.entry[31] = "22:45:20 Variable hmi.plate.col.e is not exist. Default: 4"
+$log.entry[32] = "22:45:20 Variable hmi.plate.dx is not exist. Default: 130"
+$log.entry[33] = "22:45:20 Variable hmi.plate.dy is not exist. Default: 160"
+$log.entry[34] = "22:45:20 Variable hmi.plate.e.dy is not exist. Default: 0"
+$log.entry[35] = "22:45:20 Variable hmi.plate.ox is not exist. Default: 80"
+$log.entry[36] = "22:45:20 Variable hmi.plate.oy is not exist. Default: 75"
+$log.entry[37] = "22:45:20 Variable hmi.wp.count is not exist. Default: 4"
+$log.entry[38] = "22:45:20 Variable cnc.rotations[1, 1] is not exist. Default: 0"
+$log.entry[39] = "22:45:20 Variable cnc.rotations[1, 2] is not exist. Default: 180"
+$log.entry[40] = "22:45:20 Variable cnc.rotations[2, 1] is not exist. Default: 180"
+$log.entry[41] = "22:45:20 Variable cnc.rotations[2, 2] is not exist. Default: 0"
+$log.entry[42] = "22:45:21 Variable gripper.id[1] is not exist. Default: 0"
+$log.entry[43] = "22:45:21 Variable gripper.state[1] is not exist. Default: -1"
+$log.entry[44] = "22:45:21 Variable gripper.id[2] is not exist. Default: 0"
+$log.entry[45] = "22:45:21 Variable gripper.state[2] is not exist. Default: -1"
+$log.entry[46] = "22:45:21 Variable cnc.id[1] is not exist. Default: 0"
+$log.entry[47] = "22:45:21 Variable cnc.state[1] is not exist. Default: -1"
+$log.entry[48] = "22:45:21 Variable cnc.id[2] is not exist. Default: 0"
+$log.entry[49] = "22:45:21 Variable cnc.state[2] is not exist. Default: -1"
+$log.entry[50] = "22:45:21 Variable processed.wp is not exist. Default: 0"
+$log.entry[51] = "22:45:21 Variable current.wp is not exist. Default: 1"
+$log.entry[52] = "22:45:21 Variable wp.count is not exist. Default: 1"
+$log.entry[53] = "22:45:22 Robot boot initialize completed"
+$log.entry[54] = "22:49:34 Open shelf 1"
+$log.entry[55] = "22:49:34 Tool 3 set"
+$log.entry[56] = "22:49:34 Command close gripper 1"
+$log.entry[57] = "22:49:34 Command close gripper 2"
+$log.entry[58] = "22:49:35 Request unlock shelf 1"
+$log.entry[59] = "22:49:35 Shelf 1 successfully unlocked"
+$log.entry[60] = "22:49:36 Closing shelf 1"
+$log.entry[61] = "22:49:37 Tool 3 set"
+$log.entry[62] = "22:49:37 Command close gripper 1"
+$log.entry[63] = "22:49:37 Command close gripper 2"
+$log.entry[64] = "22:49:37 Request unlock shelf 1"
+$log.entry[65] = "22:49:37 Shelf 1 successfully unlocked"
+$log.entry[66] = "22:49:45 Open shelf 2"
+$log.entry[67] = "22:49:45 Tool 3 set"
+$log.entry[68] = "22:49:46 Command close gripper 1"
+$log.entry[69] = "22:49:46 Command close gripper 2"
+$log.entry[70] = "22:49:46 Request unlock shelf 2"
+$log.entry[71] = "22:49:46 Shelf 2 successfully unlocked"
+$log.entry[72] = "22:49:47 Closing shelf 2"
+$log.entry[73] = "22:49:47 Tool 3 set"
+$log.entry[74] = "22:49:47 Command close gripper 1"
+$log.entry[75] = "22:49:47 Command close gripper 2"
+$log.entry[76] = "22:49:48 Request unlock shelf 2"
+$log.entry[77] = "22:49:48 Shelf 2 successfully unlocked"
+$log.entry[78] = "22:49:54 Open shelf 2"
+$log.entry[79] = "22:49:54 Tool 3 set"
+$log.entry[80] = "22:49:54 Command close gripper 1"
+$log.entry[81] = "22:49:54 Command close gripper 2"
+$log.entry[82] = "22:50:16 Open shelf 1"
+$log.entry[83] = "22:50:16 Tool 3 set"
+$log.entry[84] = "22:50:16 Command close gripper 1"
+$log.entry[85] = "22:50:16 Command close gripper 2"
+$log.entry[86] = "22:50:19 Request unlock shelf 1"
+$log.entry[87] = "22:50:19 Shelf 1 successfully unlocked"
+$log.entry[88] = "22:51:22 Closing shelf 1"
+$log.entry[89] = "22:51:22 Tool 3 set"
+$log.entry[90] = "22:51:22 Command close gripper 1"
+$log.entry[91] = "22:51:22 Command close gripper 2"
+$log.entry[92] = "22:51:23 Request unlock shelf 1"
+$log.entry[93] = "22:51:23 Shelf 1 successfully unlocked"
+$log.entry[94] = "22:51:33 Open shelf 2"
+$log.entry[95] = "22:51:33 Tool 3 set"
+$log.entry[96] = "22:51:33 Command close gripper 1"
+$log.entry[97] = "22:51:33 Command close gripper 2"
+$log.entry[98] = "22:51:42 Request unlock shelf 2"
+$log.entry[99] = "22:51:42 Shelf 2 successfully unlocked"
+$log.entry[100] = "22:51:45 Closing shelf 2"
+$log.entry[101] = "22:51:45 Tool 3 set"
+$log.entry[102] = "22:51:45 Command close gripper 1"
+$log.entry[103] = "22:51:45 Command close gripper 2"
+$log.entry[104] = "22:51:47 Request unlock shelf 2"
+$log.entry[105] = "22:51:47 Shelf 2 successfully unlocked"
+$log.entry[106] = "22:52:43 Open shelf 2"
+$log.entry[107] = "22:52:43 Tool 3 set"
+$log.entry[108] = "22:52:43 Command close gripper 1"
+$log.entry[109] = "22:52:43 Command close gripper 2"
+$log.entry[110] = "22:52:44 Request unlock shelf 2"
+$log.entry[111] = "22:52:44 Shelf 2 successfully unlocked"
+$log.entry[112] = "22:52:46 Closing shelf 2"
+$log.entry[113] = "22:52:47 Tool 3 set"
+$log.entry[114] = "22:52:47 Command close gripper 1"
+$log.entry[115] = "22:52:47 Command close gripper 2"
+$log.entry[116] = "22:52:48 Request unlock shelf 2"
+$log.entry[117] = "22:52:49 Shelf 2 successfully unlocked"
+$log.entry[118] = "23:20:47 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[119] = "23:21:02 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[120] = "23:21:03 Tool 1 set"
+$log.entry[121] = "23:21:04 Command open gripper 1"
+$log.entry[122] = "23:21:05 ID: 1 --> i: 0 j: 0"
+$log.entry[123] = "23:21:28 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[124] = "23:21:32 Pick workpiece. Shelf: 1 Tool: 1 ID: 2L: 50"
+$log.entry[125] = "23:21:32 Tool 1 set"
+$log.entry[126] = "23:21:34 Command open gripper 1"
+$log.entry[127] = "23:21:35 ID: 2 --> i: 0 j: 1"
+$log.entry[128] = "23:21:45 Distance: 0.02671"
+$log.entry[129] = "23:21:45 Detail found"
+$log.entry[130] = "23:21:47 Command close gripper 1"
+$log.entry[131] = "23:23:10 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[132] = "23:23:10 Pick workpiece. Shelf: 1 Tool: 1 ID: 3L: 50"
+$log.entry[133] = "23:23:10 Tool 1 set"
+$log.entry[134] = "23:23:10 Command open gripper 1"
+$log.entry[135] = "23:23:10 ID: 3 --> i: 0 j: 2"
+$log.entry[136] = "23:23:16 Distance: 0.00928"
+$log.entry[137] = "23:23:16 Detail found"
+$log.entry[138] = "23:23:16 Command close gripper 1"
+$log.entry[139] = "23:23:44 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[140] = "23:23:44 Pick workpiece. Shelf: 1 Tool: 1 ID: 3L: 50"
+$log.entry[141] = "23:23:44 Tool 1 set"
+$log.entry[142] = "23:23:44 Command open gripper 1"
+$log.entry[143] = "23:23:44 ID: 3 --> i: 0 j: 2"
+$log.entry[144] = "23:23:49 Distance: 0.01293"
+$log.entry[145] = "23:23:49 Detail found"
+$log.entry[146] = "23:23:49 Command close gripper 1"
+$log.entry[147] = "23:24:24 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[148] = "23:24:24 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[149] = "23:24:24 Tool 1 set"
+$log.entry[150] = "23:24:24 Command open gripper 1"
+$log.entry[151] = "23:24:24 ID: 1 --> i: 0 j: 0"
+$log.entry[152] = "23:24:28 Distance: 0.02777"
+$log.entry[153] = "23:24:28 Detail found"
+$log.entry[154] = "23:24:28 Command close gripper 1"
+$log.entry[155] = "23:24:37 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[156] = "23:24:38 Pick workpiece. Shelf: 1 Tool: 1 ID: 4L: 50"
+$log.entry[157] = "23:24:38 Tool 1 set"
+$log.entry[158] = "23:24:38 Command open gripper 1"
+$log.entry[159] = "23:24:38 ID: 4 --> i: 0 j: 3"
+$log.entry[160] = "23:24:39 Distance: 0.01293"
+$log.entry[161] = "23:24:39 Detail found"
+$log.entry[162] = "23:24:40 Command close gripper 1"
+$log.entry[163] = "23:24:49 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[164] = "23:24:49 Pick workpiece. Shelf: 1 Tool: 1 ID: 5L: 50"
+$log.entry[165] = "23:24:50 Tool 1 set"
+$log.entry[166] = "23:24:50 Command open gripper 1"
+$log.entry[167] = "23:24:50 ID: 5 --> i: 1 j: 0"
+$log.entry[168] = "23:24:51 Distance: 0.02774"
+$log.entry[169] = "23:24:51 Detail found"
+$log.entry[170] = "23:24:51 Command close gripper 1"
+$log.entry[171] = "23:25:15 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[172] = "23:25:15 Pick workpiece. Shelf: 1 Tool: 1 ID: 13L: 50"
+$log.entry[173] = "23:25:15 Tool 1 set"
+$log.entry[174] = "23:25:15 Command open gripper 1"
+$log.entry[175] = "23:25:15 ID: 13 --> i: 3 j: 0"
+$log.entry[176] = "23:25:18 Distance: 0.0189"
+$log.entry[177] = "23:25:18 Detail found"
+$log.entry[178] = "23:25:18 Command close gripper 1"
+$log.entry[179] = "23:25:33 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[180] = "23:25:33 Pick workpiece. Shelf: 1 Tool: 1 ID: 16L: 50"
+$log.entry[181] = "23:25:33 Tool 1 set"
+$log.entry[182] = "23:25:33 Command open gripper 1"
+$log.entry[183] = "23:25:33 ID: 16 --> i: 3 j: 3"
+$log.entry[184] = "23:25:34 Distance: 0.0336"
+$log.entry[185] = "23:25:34 Detail found"
+$log.entry[186] = "23:25:34 Command close gripper 1"
+$log.entry[187] = "23:25:59 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[188] = "23:25:59 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 50"
+$log.entry[189] = "23:25:59 Tool 1 set"
+$log.entry[190] = "23:25:59 Command open gripper 1"
+$log.entry[191] = "23:25:59 ID: 1 --> i: 0 j: 0"
+$log.entry[192] = "23:26:41 Distance: 0.00985"
+$log.entry[193] = "23:26:41 Detail found"
+$log.entry[194] = "23:26:41 Command close gripper 1"
+$log.entry[195] = "23:26:47 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[196] = "23:26:47 Pick workpiece. Shelf: 1 Tool: 1 ID: 1L: 60"
+$log.entry[197] = "23:26:47 Tool 1 set"
+$log.entry[198] = "23:26:47 Command open gripper 1"
+$log.entry[199] = "23:26:47 ID: 1 --> i: 0 j: 0"
+$log.entry[200] = "23:26:54 Distance: 0.01268"
+$log.entry[201] = "23:26:54 Detail found"
+$log.entry[202] = "23:26:54 Command close gripper 1"
+$log.entry[203] = "23:27:41 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[204] = "23:27:41 Put workpiece. Shelf: 1 Tool: 1 ID: 1L: 60"
+$log.entry[205] = "23:27:41 Tool 1 set"
+$log.entry[206] = "23:27:41 ID: 1 --> i: 0 j: 0"
+$log.entry[207] = "23:27:47 Command open gripper 1"
+$log.entry[208] = "23:27:48 Command close gripper 1"
+$log.entry[209] = "23:27:54 DEBUG mod activated. Get task data from Robot HMI"
+$log.entry[210] = "23:27:54 Put workpiece. Shelf: 1 Tool: 2 ID: 1L: 60"
+$log.entry[211] = "23:27:54 Tool 2 set"
+$log.entry[212] = "23:27:55 ID: 1 --> i: 0 j: 0"
+$log.entry[213] = "23:27:57 Command open gripper 2"
+$log.entry[214] = "23:27:58 Command close gripper 2"
+$log.entry[215] = "23:29:44 Robot boot initialize completed"
+$log.entry[216] = "19:25:15 Robot boot initialize completed"
+$log.entry[217] = "19:25:15 Speed 1 was applied"
+$log.entry[218] = "19:25:16 Speed 1 was applied"
+$log.entry[219] = "21:44:21 Robot boot initialize completed"
+$log.entry[220] = "21:44:21 Speed 1 was applied"
+$log.entry[221] = "21:44:22 Speed 1 was applied"
+$log.entry[222] = "21:46:16 Main program executed"
+$log.entry[223] = "21:46:16 Command close gripper 1"
+$log.entry[224] = "21:46:16 Command close gripper 2"
+$log.entry[225] = "21:46:16 Move robot from HOME to HOME STANDBY"
+$log.entry[226] = "21:46:38 State 100: Select decision making module state"
+$log.entry[227] = "21:46:38 State 101: Decision making module 1"
+$log.entry[228] = "21:47:15 State 2: Open shelf"
+$log.entry[229] = "01:08:23 Robot boot initialize completed"
+$log.entry[230] = "01:08:48 Main program executed"
+$log.entry[231] = "01:08:48 Command close gripper 1"
+$log.entry[232] = "01:08:48 Command close gripper 2"
+$log.entry[233] = "01:08:48 Move robot from HOME to HOME STANDBY"
+$log.entry[234] = "01:08:48 State 100: Select decision making module state"
+$log.entry[235] = "01:08:48 State 101: Decision making module 1"
+$log.entry[236] = "01:09:09 Main program executed"
+$log.entry[237] = "01:09:09 Command close gripper 1"
+$log.entry[238] = "01:09:09 Command close gripper 2"
+$log.entry[239] = "01:09:09 Move robot from HOME to HOME STANDBY"
+$log.entry[240] = "01:09:09 State 101: Decision making module 1"
+$log.entry[241] = "01:09:27 Main program executed"
+$log.entry[242] = "01:09:27 Command close gripper 1"
+$log.entry[243] = "01:09:27 Command close gripper 2"
+$log.entry[244] = "01:09:27 Performing safe movement to home position"
+$log.entry[245] = "01:09:40 Robot in home position"
+$log.entry[246] = "01:09:40 State 1: Check ready shelves"
+$log.entry[247] = "01:09:40 Task signal was turned off by operator"
+$log.entry[248] = "01:09:40 State 255: Task complete"
+$log.entry[249] = "01:09:40 State 0: Initialization"
+$log.entry[250] = "01:09:40 Waiting for task start"
+$log.entry[251] = "22:25:31 Robot boot initialize completed"
+$log.entry[252] = "22:25:31 Speed 1 was applied"
+$log.entry[253] = "22:25:31 Speed 1 was applied"
+$log.entry[254] = "22:51:04 Robot boot initialize completed"
+$log.entry[255] = "22:51:04 Speed 1 was applied"
+$log.entry[256] = "22:51:04 Speed 1 was applied"
 $safe.flag = ""
 $safe.slag = " "
 .END
