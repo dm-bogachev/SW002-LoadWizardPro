@@ -1446,7 +1446,7 @@ N_INT130    "s.pr.a.home"
   .speed = BITS (ei.robot.speed[0], 16)
   .speed = MAXVAL (.speed, 1)
   .speed = MINVAL (.speed, 100)
-  IF .speed <> MSPEED THEN
+  IF INT(.speed) <> INT(MSPEED) THEN
     MON_SPEED .speed
     CALL log.pc1 ("Speed" + $ENCODE (.speed) + " was applied")
   END
